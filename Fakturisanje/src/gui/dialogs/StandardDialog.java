@@ -291,7 +291,7 @@ public abstract class StandardDialog extends JDialog {
 			if (table.getRowCount() > 0)
 				table.setRowSelectionInterval(newIndex, newIndex);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greska",
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}

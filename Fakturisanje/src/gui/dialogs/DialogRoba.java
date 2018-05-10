@@ -160,7 +160,7 @@ public class DialogRoba extends StandardDialog {
 			allEnable();
 			((RobaPanel) panel).getTxtSifra().setEditable(false);			
 			((RobaPanel) panel).getTxtMagacin().setEditable(false);			
-			statusBar.getStatusState().setText(state.toString());
+			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
@@ -224,7 +224,7 @@ public class DialogRoba extends StandardDialog {
 			ctm.updateRow(index, params);
 			updateStateAndTextFields(State.AZURIRANJE);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška1",
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
 					JOptionPane.ERROR_MESSAGE);
 		}
 		table.setRowSelectionInterval(index, index);

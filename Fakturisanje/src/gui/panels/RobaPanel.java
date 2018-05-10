@@ -69,6 +69,7 @@ public class RobaPanel extends StandardPanel {
 		
 		add(lblMagacin);
 		add(txtMagacin);
+		add(btnMagacin);
 		
 		add(lblNaziv);
 		add(txtNaziv, "wrap");

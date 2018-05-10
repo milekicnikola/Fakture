@@ -14,8 +14,8 @@ public class ToolBar extends JToolBar {
 	public ToolBar() {
 
 		add(ActionManager.getInstance().getDialogRobaAction());		
-		/*add(ActionManager.getInstance().getDialogKupciAction());
 		add(ActionManager.getInstance().getDialogMagacinAction());
+		/*add(ActionManager.getInstance().getDialogKupciAction());		
 		add(ActionManager.getInstance().getDialogKursAction());
 		add(ActionManager.getInstance().getDialogFakturaAction());
 		add(ActionManager.getInstance().getDialogPorudzbinaAction());*/

@@ -48,14 +48,8 @@ public class DialogToolBar extends JToolBar {
 		btnRefresh.setToolTipText("Osvezi");
 		btnRefresh.setIcon(new ImageIcon("Images/refresh.png"));
 		btnRefresh.setMnemonic(KeyEvent.VK_F10);
-		add(btnRefresh);	
-
-		btnHelp = new JButton();
-		btnHelp.setToolTipText("Pomoc");
-		btnHelp.setIcon(new ImageIcon("Images/help.png"));
-		btnHelp.setMnemonic(KeyEvent.VK_F1);
-		add(btnHelp);
-
+		add(btnRefresh);
+		
 		addSeparator();
 
 		btnFirst = new JButton();
@@ -101,24 +95,7 @@ public class DialogToolBar extends JToolBar {
 		btnUpdate.setIcon(new ImageIcon("Images/edit.png"));
 		btnUpdate.setMnemonic(KeyEvent.VK_F7);
 		add(btnUpdate);
-
-		addSeparator();
-
-		btnNextForm = new JButton();
-		btnNextForm.setToolTipText("Povezana Forma");
-		btnNextForm.setIcon(new ImageIcon("Images/link.png"));
-		btnNextForm.setMnemonic(KeyEvent.VK_F12);
-		add(btnNextForm);
 		
-		addSeparator();
-
-		btnUnos = new JButton();
-		btnUnos.setToolTipText("Unos");
-		btnUnos.setIcon(new ImageIcon("Images/money-add-icon.png"));
-		btnUnos.setMnemonic(KeyEvent.VK_ADD);
-		btnUnos.setVisible(false);
-		add(btnUnos);
-
 	}
 
 	public JButton getBtnView() {

@@ -8,7 +8,6 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
@@ -32,7 +31,8 @@ public class MainFrame extends JFrame {
 	private JMenuItem magacin;	
 	private JMenuItem kurs;	
 	private JMenuItem faktura;	
-	private JMenuItem porudzbina;	
+	private JMenuItem porudzbina;
+	private JMenuItem otpremnica;
 
 	private MainFrame() {
 
@@ -60,19 +60,20 @@ public class MainFrame extends JFrame {
 		kurs = new JMenuItem("Kurs");
 		faktura = new JMenuItem("Faktura");
 		porudzbina = new JMenuItem("Porudzbina");
+		otpremnica = new JMenuItem("Otpremnica");
 
 		roba.addActionListener(ActionManager.getInstance()
 				.getDialogRobaAction());
-		/*kupci.addActionListener(ActionManager.getInstance()
-				.getDialogMestaAction());
 		magacin.addActionListener(ActionManager.getInstance()
-				.getDialogBankaAction());
+				.getDialogMagacinAction());
+		/*kupci.addActionListener(ActionManager.getInstance()
+				.getDialogKupciAction());		
 		kurs.addActionListener(ActionManager.getInstance()
-				.getDialogLiceAction());
+				.getDialogKursAction());
 		faktura.addActionListener(ActionManager.getInstance()
-				.getDialogPreduzeceAction());
+				.getDialogFakturaAction());
 		porudzbina.addActionListener(ActionManager.getInstance()
-				.getDialogRacuniAction());*/
+				.getDialogPorudzbinaAction());*/
 		
 		menu.add(roba);
 		menu.add(kupci);
@@ -80,6 +81,7 @@ public class MainFrame extends JFrame {
 		menu.add(kurs);
 		menu.add(faktura);
 		menu.add(porudzbina);
+		menu.add(otpremnica);
 
 		add(toolbar, BorderLayout.NORTH);
 		add(statusBar, BorderLayout.SOUTH);

@@ -1,6 +1,7 @@
 package actions;
 
 import gui.MainFrame;
+import gui.dialogs.DialogMagacin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

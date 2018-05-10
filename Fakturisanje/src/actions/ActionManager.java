@@ -3,7 +3,8 @@ package actions;
 public class ActionManager {
 	
 	private static ActionManager instance = null;
-	private DialogRobaAction roba = new DialogRobaAction();	
+	private DialogRobaAction roba = new DialogRobaAction();
+	private DialogMagacinAction magacin = new DialogMagacinAction();	
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -18,6 +19,14 @@ public class ActionManager {
 
 	public void setDialogRobaAction(DialogRobaAction roba) {
 		this.roba = roba;
+	}
+	
+	public DialogMagacinAction getDialogMagacinAction() {
+		return magacin;
+	}
+
+	public void setDialogMagacinAction(DialogMagacinAction magacin) {
+		this.magacin = magacin;
 	}
 	
 	
