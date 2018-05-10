@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 import util.ImagePanel;
 import actions.ActionManager;
@@ -26,12 +27,12 @@ public class MainFrame extends JFrame {
 	private StatusBar statusBar;
 	private ToolBar toolbar;
 	private JMenuBar menu;
-	private JMenu roba;	
-	private JMenu kupci;	
-	private JMenu magacin;	
-	private JMenu kurs;	
-	private JMenu faktura;	
-	private JMenu porudzbina;	
+	private JMenuItem roba;	
+	private JMenuItem kupci;	
+	private JMenuItem magacin;	
+	private JMenuItem kurs;	
+	private JMenuItem faktura;	
+	private JMenuItem porudzbina;	
 
 	private MainFrame() {
 
@@ -53,12 +54,12 @@ public class MainFrame extends JFrame {
 		toolbar = new ToolBar();
 
 		menu = new JMenuBar();
-		roba = new JMenu("Roba");
-		kupci = new JMenu("Kupci");
-		magacin = new JMenu("Magacin");
-		kurs = new JMenu("Kurs");
-		faktura = new JMenu("Faktura");
-		porudzbina = new JMenu("Porudzbina");
+		roba = new JMenuItem("Roba");
+		kupci = new JMenuItem("Kupci");
+		magacin = new JMenuItem("Magacin");
+		kurs = new JMenuItem("Kurs");
+		faktura = new JMenuItem("Faktura");
+		porudzbina = new JMenuItem("Porudzbina");
 
 		roba.addActionListener(ActionManager.getInstance()
 				.getDialogRobaAction());
