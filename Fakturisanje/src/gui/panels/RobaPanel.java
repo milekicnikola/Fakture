@@ -34,13 +34,13 @@ public class RobaPanel extends StandardPanel {
 	
 	public RobaPanel() {
 
-		lblSifra = new JLabel("Sifra robe");
-		lblInterna = new JLabel("Interna sifra robe");
+		lblSifra = new JLabel("Šifra robe");
+		lblInterna = new JLabel("Interna šifra robe");
 		lblMagacin = new JLabel("Magacin");
 		lblNaziv = new JLabel("Naziv robe");
 		lblJedinicaMere = new JLabel("Jedinica mere robe");
 		lblKomada = new JLabel("Komada u setu");
-		lblTezina = new JLabel("Tezina robe");
+		lblTezina = new JLabel("Težina robe");
 		lblKvalitet = new JLabel("Kvalitet robe");
 		lblEvri = new JLabel("Cena robe u evrima");
 		lblRoni = new JLabel("Cena robe u ronima");		

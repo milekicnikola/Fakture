@@ -97,8 +97,7 @@ public class DialogMagacin extends StandardDialog {
 			});
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
-			toolbar.getBtnDelete().setEnabled(false);
-			toolbar.getBtnNextForm().setEnabled(false);
+			toolbar.getBtnDelete().setEnabled(false);			
 			toolbar.getBtnUpdate().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {

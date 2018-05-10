@@ -1,5 +1,6 @@
 package gui.dialogs;
 
+import gui.MainFrame;
 import gui.model.RobaTableModel;
 import gui.panels.RobaPanel;
 
@@ -23,8 +24,8 @@ public class DialogRoba extends StandardDialog {
 		setTitle("Roba");
 		setIconImage(new ImageIcon("Images/banka.png").getImage());
 
-		tableModel = new RobaTableModel(new String[] { "Sifra", "Interna sifra",
-				"Magacin", "Naziv", "Jedinica mere", "Komada u setu", "Tezina", "Kvalitet", "Cena u evrima", "Cena u ronima" }, 0);
+		tableModel = new RobaTableModel(new String[] { "Šifra", "Interna šifra",
+				"Magacin", "Naziv", "Jedinica mere", "Komada u setu", "Težina", "Kvalitet", "Cena u evrima", "Cena u ronima" }, 0);
 
 		panel = new RobaPanel();		
 
@@ -95,10 +96,28 @@ public class DialogRoba extends StandardDialog {
 
 				}
 			});
+
+			((RobaPanel) panel).getBtnMagacin().addActionListener(
+					new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent arg0) {
+							// TODO Auto-generated method stub
+							DialogMagacin dialog = new DialogMagacin(
+									MainFrame.getInstance(), true);
+							dialog.setVisible(true);
+							try {
+								if (!dialog.getZoom().equals(""))
+									((RobaPanel) panel).getTxtMagacin().setText(
+											dialog.getZoom());
+								System.out.println(dialog.getZoom());
+							} catch (NullPointerException n) {
+							}
+						}
+					});
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
-			toolbar.getBtnDelete().setEnabled(false);
-			toolbar.getBtnNextForm().setEnabled(false);
+			toolbar.getBtnDelete().setEnabled(false);			
 			toolbar.getBtnUpdate().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
@@ -179,8 +198,8 @@ public class DialogRoba extends StandardDialog {
 
 		String sifra = ((RobaPanel) panel).getTxtSifra().getText().trim();
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
-		String magacin = ((RobaPanel) panel).getTxtNaziv().getText().trim();
-		String naziv = ((RobaPanel) panel).getTxtMagacin().getText().trim();
+		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
+		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
 		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText().trim();
 		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
@@ -259,6 +278,7 @@ public class DialogRoba extends StandardDialog {
 	public void allDisable() {
 		((RobaPanel) panel).getBtnConfirm().setEnabled(false);
 		((RobaPanel) panel).getBtnCancel().setEnabled(false);
+		((RobaPanel) panel).getBtnMagacin().setEnabled(false);
 		((RobaPanel) panel).getTxtSifra().setEditable(false);
 		((RobaPanel) panel).getTxtInterna().setEditable(false);
 		((RobaPanel) panel).getTxtMagacin().setEditable(false);
@@ -275,6 +295,7 @@ public class DialogRoba extends StandardDialog {
 	public void allEnable() {
 		((RobaPanel) panel).getBtnConfirm().setEnabled(true);
 		((RobaPanel) panel).getBtnCancel().setEnabled(true);
+		((RobaPanel) panel).getBtnMagacin().setEnabled(true);
 		((RobaPanel) panel).getTxtSifra().setEditable(true);
 		((RobaPanel) panel).getTxtInterna().setEditable(true);
 		((RobaPanel) panel).getTxtMagacin().setEditable(true);

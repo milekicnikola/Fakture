@@ -12,6 +12,7 @@ public class DialogToolBar extends JToolBar {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	JButton btnView;
 	JButton btnUnos;
 	JButton btnFirst;
@@ -24,11 +25,8 @@ public class DialogToolBar extends JToolBar {
 	JButton btnDelete;
 	JButton btnSearch;
 
-	JButton btnRefresh;	
-	JButton btnNextForm;
-
-	JButton btnHelp;
-
+	JButton btnRefresh;
+	
 	public DialogToolBar() {
 		super();
 
@@ -137,14 +135,6 @@ public class DialogToolBar extends JToolBar {
 	public JButton getBtnRefresh() {
 		return btnRefresh;
 	}	
-
-	public JButton getBtnNextForm() {
-		return btnNextForm;
-	}
-
-	public JButton getBtnHelp() {
-		return btnHelp;
-	}
 
 	public JButton getBtnUnos() {
 		return btnUnos;
