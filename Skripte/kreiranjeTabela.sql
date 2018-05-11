@@ -30,8 +30,7 @@ drop table if exists korisnik;
 /* Table: faktura                                               */
 /*==============================================================*/
 create table faktura
-(
-   redni_broj_fakture   numeric(10,0) not null,
+(   
    sifra_fakture        varchar(20) not null,
    korisnicko_ime       varchar(20) not null,
    sifra_kupca          varchar(3) not null,
@@ -129,8 +128,7 @@ create table otpremljena_roba
 /* Table: otpremnica                                            */
 /*==============================================================*/
 create table otpremnica
-(
-   redni_broj_otpremnice numeric(10,0) not null,
+(   
    sifra_otpremnice     varchar(30) not null,
    sifra_porudzbine     varchar(20) not null,
    sifra_magacina       varchar(5) not null,
@@ -143,8 +141,7 @@ create table otpremnica
 /* Table: porudzbina                                            */
 /*==============================================================*/
 create table porudzbina
-(
-   redni_broj_porudzbine numeric(10,0) not null,
+(   
    sifra_porudzbine     varchar(20) not null,
    sifra_magacina       varchar(5) not null,
    korisnicko_ime       varchar(20) not null,

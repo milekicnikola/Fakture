@@ -107,8 +107,7 @@ public class DialogRoba extends StandardDialog {
 							try {
 								if (!dialog.getZoom().equals(""))
 									((RobaPanel) panel).getTxtMagacin().setText(
-											dialog.getZoom());
-								System.out.println(dialog.getZoom());
+											dialog.getZoom());								
 							} catch (NullPointerException n) {
 							}
 						}
