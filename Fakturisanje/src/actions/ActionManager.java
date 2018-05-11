@@ -4,7 +4,8 @@ public class ActionManager {
 	
 	private static ActionManager instance = null;
 	private DialogRobaAction roba = new DialogRobaAction();
-	private DialogMagacinAction magacin = new DialogMagacinAction();	
+	private DialogMagacinAction magacin = new DialogMagacinAction();
+	private DialogKupciAction kupci = new DialogKupciAction();	
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -27,6 +28,14 @@ public class ActionManager {
 
 	public void setDialogMagacinAction(DialogMagacinAction magacin) {
 		this.magacin = magacin;
+	}
+	
+	public DialogKupciAction getDialogKupciAction() {
+		return kupci;
+	}
+
+	public void setDialogKupciAction(DialogKupciAction kupci) {
+		this.kupci = kupci;
 	}
 	
 	
