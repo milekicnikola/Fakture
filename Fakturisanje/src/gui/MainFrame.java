@@ -21,7 +21,9 @@ public class MainFrame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static MainFrame instance = null;
+	private static MainFrame instance = null;	
+	
+	private String korisnik;
 
 	private StatusBar statusBar;
 	private ToolBar toolbar;
@@ -40,7 +42,7 @@ public class MainFrame extends JFrame {
 		Dimension screenSize = toolkit.getScreenSize();
 
 		setLayout(new BorderLayout());
-		setTitle("Fakturisanje");
+		setTitle("Fakturisanje");		
 
 		setIconImage(new ImageIcon("Images/money.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,7 +53,7 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 
 		statusBar = new StatusBar();
-		toolbar = new ToolBar();
+		toolbar = new ToolBar();		
 
 		menu = new JMenuBar();
 		roba = new JMenuItem("Roba");
@@ -97,16 +99,25 @@ public class MainFrame extends JFrame {
 			public void windowClosing(WindowEvent e) {
 				DBConnection.close();
 			}
-		});
+		});		
 
 	}
 
 	public static MainFrame getInstance() {
 		if (instance == null) {
-			instance = new MainFrame();
+			instance = new MainFrame();			
 		}
 
 		return instance;
+	}	
+	
+	public void setKorisnik(String setKorisnik) {
+		korisnik = setKorisnik;
+	}
+	
+	public String getKorisnik() {
+		return this.korisnik;
 	}
 
+	
 }

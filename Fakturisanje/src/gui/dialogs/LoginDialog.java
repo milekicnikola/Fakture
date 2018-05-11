@@ -5,14 +5,21 @@ import gui.MainFrame;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+
+import databaseConnection.DBConnection;
 
 public class LoginDialog extends JFrame{
 	
@@ -74,19 +81,19 @@ public class LoginDialog extends JFrame{
 	
 	private void login(String user, String password) {
 		
-		MainFrame mf = MainFrame.getInstance();
+		/*MainFrame mf = MainFrame.getInstance();
 		this.dispose();
-		mf.setVisible(true);
+		mf.setVisible(true);*/
 		
-		/*if(user.equals("")){
+		if(user.equals("")){
 			
-			JOptionPane.showMessageDialog(this, "Polje za ime je prazno", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Polje za korisničko ime je prazno", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		
 		if(password.equals("")){
 			
-			JOptionPane.showMessageDialog(this, "polje za lozinku je prazno", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Polje za lozinku je prazno", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		
@@ -108,7 +115,7 @@ public class LoginDialog extends JFrame{
 			// iz bezbedonosnih razloga koristimo PreparedStatement
 			// mogli smo i rucno da pravimo filter protiv SQL Inj, al to smara
 			// koriscenjem PreparedStatement-a stringovi budu isparsirani od strane JDBC driver-a
-			String selectStatement = "SELECT * FROM Korisnik WHERE KorisnickoIme = ? and Lozinka = ?";
+			String selectStatement = "SELECT * FROM korisnik WHERE korisnicko_ime = ? and Lozinka = ?";
 			Connection con = DBConnection.getConnection();
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
 			prepStmt.setString(1, user);
@@ -119,10 +126,13 @@ public class LoginDialog extends JFrame{
 				MainFrame mf = MainFrame.getInstance();
 				this.dispose();
 				mf.setVisible(true);
+				mf.setKorisnik(user);				
+			} else {
+				JOptionPane.showMessageDialog(this, "Neispravno korisničko ime ili lozinka!", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			}
 			
 		}catch(Exception e){
 			e.printStackTrace();
-		}*/
+		}
 	}
 }

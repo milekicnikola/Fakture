@@ -18,20 +18,19 @@ public class StatusBar extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public String imeKorisnika = "";
-    public String prezimeKorisnika = "";
+	
 	private StatusPane statusBarName;
 	private StatusPane statusBarLanguage;
-	private StatusPane statusBarDate;
+	private StatusPane statusBarDate;	
 
 	public StatusBar() {
 
 		setLayout(new GridLayout(1, 3, 10, 10));
 		setBackground(Color.lightGray);
-		setBorder(BorderFactory.createLineBorder(Color.darkGray));
+		setBorder(BorderFactory.createLineBorder(Color.darkGray));		
 
-		statusBarName = new StatusPane("General Solutions");
-		statusBarLanguage = new StatusPane("Fakturisanje");
+		statusBarName = new StatusPane("Fakturisanje");
+		statusBarLanguage = new StatusPane("General Solutions");
 		statusBarDate = new StatusPane(setFormattedDate());
 
 		add(statusBarName);
@@ -76,24 +75,7 @@ public class StatusBar extends JPanel {
 
 	public StatusPane getStatusBarDate() {
 		return statusBarDate;
-	}
-
-	public String getImeKorisnika() {
-		return imeKorisnika;
-	}
-
-	public void setImeKorisnika(String imeKorisnika) {
-		this.imeKorisnika = imeKorisnika;
-	}
-
-	public String getPrezimeKorisnika() {
-		return prezimeKorisnika;
-	}
-
-	public void setPrezimeKorisnika(String prezimeKorisnika) {
-		this.prezimeKorisnika = prezimeKorisnika;
-	}
-    
+	}    
 	
 
 }
