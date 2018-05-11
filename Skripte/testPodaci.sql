@@ -1,440 +1,440 @@
-insert into korisnik (korisnicko_ime, lozinka) values ('gg3pbtst8ko4rkhg1rwi', 'gqn2k5wy6qyfeh10lc6e');
+insert into korisnik (korisnicko_ime, lozinka) values ('5s6i4ceb2ds10ldj8cl0', '14pagpl6qhjdr84fhjhi');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('tju15wsat2i9yq2r vtr', 'ahvojbv2t1qlhabga0u6');
+insert into korisnik (korisnicko_ime, lozinka) values ('4sx5hi6r115drybs3awn', 'b2d0laaf7spuv98obdr ');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('hd9875an07msj9fkwgdp', 'hlqylkw9y9ja896ax  6');
+insert into korisnik (korisnicko_ime, lozinka) values ('ksvtxyn91yg0 uv3j1ne', 'ku grkr3e0wf2juyvsx1');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('bc9bhh3ew5f87l32 t25', 'drdh jhi4 u5r kdw3t3');
+insert into korisnik (korisnicko_ime, lozinka) values ('d42j4hq6pgigbndf35dh', 'ymp1d8ejm73fw8ydtpwj');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('rj5yq41xajy86d6l 28i', '97iev3wcegg muejt6d2');
+insert into korisnik (korisnicko_ime, lozinka) values ('v5hqbor3sa6211647mwp', 'bnpmhmn7cegoxvxv2wys');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('n1pai8ixjqnjpn7ys6mj', 'w083iobddafutctkrm7d');
+insert into korisnik (korisnicko_ime, lozinka) values ('5dsbukjcfs3s291bx6d2', 't29t9bl1k1nk09n6khme');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('f40r2hjlgtx5fbhmg52a', 'hh8uvqwwwsb3uh5y8f4v');
+insert into korisnik (korisnicko_ime, lozinka) values ('jhhu 4ppnp2mu6pja8ka', 'bceuuo9y24mnjac4suwl');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('qeq2d8wxnxyeg 8a4eeb', 'jq6g1rkxyx4mork7x7nc');
+insert into korisnik (korisnicko_ime, lozinka) values ('y rnkkc6smvsus65c8al', 'tgksxpdfjs3ysu9ckqyv');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('vuvgw8em94op1srmayj4', '2x3qu6hagtcyhg9jce1n');
+insert into korisnik (korisnicko_ime, lozinka) values ('s1ijchnbkei9wbp90hn0', '4q mkvt7bluhhdml7xe ');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('pbi7ixo 29mjdb0t9cva', '0ig0ju0p4h9bc nb7bvb');
+insert into korisnik (korisnicko_ime, lozinka) values ('0 urdftkes vk1c9afci', 'roq4g8e847ntqphgt7kl');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('3vh e7 s1cp  mmcuko8', 'sdnstvoc85x42aq3o7e6');
+insert into korisnik (korisnicko_ime, lozinka) values ('3tdlm0pmpc vun9bfqt3', 'cc8enr65lu6srwltkr6w');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('5mrmy7mq9q2b5 y0bedr', 'b64vna9athtwtj2rot8t');
+insert into korisnik (korisnicko_ime, lozinka) values ('kq8el3m lp0v391tmqvg', 'ouguy k7dbvp0yvdl40c');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('6va1ymcsmhri4eamse7u', '5r3wsib1p7tiycft 3g8');
+insert into korisnik (korisnicko_ime, lozinka) values ('kmcyrjii0yjyihxv5m91', 'll0kglaa0w93v3ky7xo7');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('5s 2p tvujrfevi2pdk8', '4oim7nrfrhghmypocxcr');
+insert into korisnik (korisnicko_ime, lozinka) values ('7k8ucjbtkpuc7pnvc7e9', 't2sjsi 7doek4q8pluf3');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('63tfayc9 qlyscdg091s', '96muye3ifi3y1a1nkyaf');
+insert into korisnik (korisnicko_ime, lozinka) values ('qg7lw2cq5356dp0pbjvr', '3t84gaqmc87 gni3ctbm');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('j5obbnr rhxyrt vh3xv', '8kpn8ca9fnqq2aifs6v0');
+insert into korisnik (korisnicko_ime, lozinka) values ('cpjmw4qfbm36xl0tp 45', '1rl3s2tv7wi1xopuaero');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('qwv2imq6d5y5h9ilnctr', '1m8c154tnlgmv224jdko');
+insert into korisnik (korisnicko_ime, lozinka) values ('600dcgrh53d0v0cejd8r', 'by3vw79h8j8pqkxdua0m');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('8ttypvpq1xrh9kea4bej', 'a646tmfogx82vdbi5ieo');
+insert into korisnik (korisnicko_ime, lozinka) values ('lc9qir pybc6hxivmm90', '  4is09ra7r3lrkle7xg');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('6w4hb6e441posshvdhp5', '6lc0wfgi5hk2qg1w88k5');
+insert into korisnik (korisnicko_ime, lozinka) values ('l59acg2kp0u98gu34d4l', 'htqkfl5931yqquckjeel');
 
-insert into korisnik (korisnicko_ime, lozinka) values ('v2crs8ux2ghirldi7p8e', 'hbj03m0nxy7cw bq5il ');
+insert into korisnik (korisnicko_ime, lozinka) values ('vnjl d97ujqx4m1l0ewt', 'dv8icdo2cnrjtosl6tja');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('bswxg', 'etl2qffxdia17ql01em3px2qe771raopvn8yua8 dvhj7cc4sa', '2sh08yf1x7n09q8orlfwclwot4j739x8exbo5hy8j5syu1g7se', 'wyegevtcev84vwcne71xvq0kjombvf0h4bpw4e15vqs8rorq15', 'fso 6o6vhtvk g nbxam');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('tu8b9', 'tfrnnr950jyo9uxjkuoaeu cv1w 20y846qkk8kvht eoqob58', 'fnmeh6c97p492crxvdmea5c81aw7hbfc4au07sr6nksq5esv9m', 'mj5n0vnir7trlctc8calsjst4igcby57mn3o8nu8y5li8ii5wd', '3073v5tk2pwi5vx77uo3');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('lwgej', '66n3j5eg3jodexe2wxlrycm1g6psy gxb6tpjjp0b0q xmp6cr', '0440f4665igvdm6k8j35c1yrgq6pxvn84u4no2s9b54sfswhxq', '14wm8bh66lnjedw1tbjqyf5hj1u70ou9f5a 62uel9k6j42wnb', '59mxdni3li6jpfrd8ssx');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('4ld d', '9scwoktw pw9o1rwm6am8ernvee4tegnbehqoxabsawmjyc47a', '1q6ctsaggjk0mbx2du5yw06p5rwr2oakku9bvqsgno02lncq45', 'vmijfv2v2h5g2ln349h846uvhvmufu0hv5 5cubbh97vqhy4p5', ' ov2qpj3jt4a37g8fj86');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('8p8qt', 'te3lj38 wmslciml mnhuk8oik6ar9 o9f8ar9fcr4dt3f8bpe', 'u tw1sq4 q0wswlsbobt0ks0lo9c0ielmcgxnu35kgt8p4kwbr', '7i 8c6o5iigpe31vlgefyletjse  3u3p7tr177t8fq8tgfueg', ' 9g5v538ek9nbqpysx1l');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('k5kfe', 'mqx go85bjxa9xhf4updmp89vrrqu3ys9qiei6c48uryrr1ad1', 'ubygw1lakwbevmarqn0tndgx9bx0rabq8epastqvs5x7wgh ap', 'tnn5b0s hgpb9yt2wpuvk0giayynm0abgg0pv7tbptw7w11i2 ', 'jusll16fvniege4rbbm3');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('364fj', 'ehmvp5d647vtn8bp vbw74485fm6rnc9hv5v4gjlsmjesf8t m', 'ta75m6ymxj29wna21yre6yro7e if76wd5uy5vr468ncyg6d7e', 'q6pd1ajo8gi6wjobeedex hrpqrpwbcea9hqngl2l43716p4yo', 'ijq5xb ss9h9u2y9e5dt');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('f28av', 'qhgaw3lommpt it1xvc93vv47 ljyabcr9v22aqmmgp53dtdbb', 'gssk126ir i39umfoatialnjw841hnwnyf2opf01 bsoedrf18', 'q 63qcc30k7353tr67p6omc4xx 4txfd6u5sx2j5il3ok1e5gs', 'yx cngli3cfm2y8246p1');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('4dnbh', 'di8jhin43ifa13j tph1w87omucq2xwtisp787fh 8xcne70al', '8w0twlwo7ltxigymdx1g51m b8ev5vcb3ou7wscxxsrfgbcm9r', '1 c7r7lyejm42kft946qq4asnk97hv098lvqobuog2isa5t3if', 'bds30crcggwycr58jcuy');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('kelg2', 'ou1wuscfrityw42cdtkgv4dl2pqcop0 rmgsnjdwoowo10ytv4', 'ry40l yp7kua1d0lanxvh74nr dms8j0c6aai2etqlb3jlr43n', 'pmjwmy4p2ic14rp26ckd5hju65nyxtodaaafuh9jimosekcwl0', 'se57ehw42s4xqbwg 7ke');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('xf441', '6q85gf71swlwgmikc6g6311chdxc91iyas00lto246e8d2gvgw', '5grpj1pabsnllhby9p4arotfg8no4r17plst48gs3clyxb v04', 'd50vhbo2ehqre pbkfsm7 5t8hn9eh6tqgjait6y0i4s7voicv', '2ub3rb6nmmqqaw90dpwv');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('j4 nq', '06f1pwfuydqagu6 65rbnk5r4yhv1bmbk1ufissqih7p99w8qm', 'atl0bse4 k9gog8j 1n79t6wqpnt0w48l5v9fgpj5l5fjhxpki', '48l2j44xf19g0oo wtlei66uuhprhfd4wshcc65fvod924oi3w', 'io4wwparhel0cb8yu3vc');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('a0may', '3086a1w8are2peavk9tpq6v6u2d3pts9ruh72lhc16f1dm90yw', 'jh54jsf2d7m89t5pxh92a etft2u4i9dn7d4t0hpaxyyi49sf8', 'pjryao92 wfku0k0f71jpugghxq1 4w82dry51u00 d3k1wuvf', 'cjbnoo 9hun894lpxlro');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('pot5o', 'idp3fd2cyyy2dj5qepx6kcup8q77dcdv379n5u d0nkr8o8x9h', 'qn61 k4b2a5vt5rc7jxgh  oscx1xkjdtbgqdxnot2bylfvdu8', 'iye6rnpomsvk4 6mkb9d83tkh t1pqntfxyufi37wqrx5 3grh', 'q3cufkg9kfp83t dbdjb');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('44ugy', '8uaq5 29bmwqqh mjcxh1d5p5qbjso0l1xmbj 09 e0239 s3p', 'msvw6k7fittseigny6c4q5p91gei003 p5 mn7efkl9k2shh9f', '2vbrw4l3ptydpdkbsfll1gkb1xxcnm0ltcl6908 0nfx twjs1', 'mjhg18v2mimfyxd 2q6t');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('8ew3u', '8knd 4vi65f5wmpm31c9pl5svnpg0bjrtxadns2eb387tkdq8g', 'xniepay492iakve03blom0e 94sf7rji9ve3rhuill0dhuf9o4', 'y xh0pvxnexj40cjib5 p6g2pyghpd4yi0h24a1wf34s26envi', '1qvk05rthhov8q1t973m');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('vhjvh', 'sc hi5exk50rephj8l61d7837gansjwds 69o 28iolii8s5wh', 'w3ilf4jxlbsn63qpd0cg4wb7jm9msphqatgbqqx9qq47k9skwx', '7b45subr5tw4n2whyn34roik7akwtl6kourq7isgqpydng3l m', 'yho8hnh32ueq5aspqw88');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('9jtt6', 'hkuotc1hpcbpar9t2l7vp4skgvch2wuqefk8andkljntdxa944', 'rok4onefkq5kd9d1rnpt1 pmjl9k5ehkv54dygsw1a8cv8c31v', 'hj6 cxrwlx pv9f7tgrxl8bophvavm81ms0aqwbputu3ekk5g6', 'xmo3txkkuox3tbf8g56t');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('c8sdd', '2xghrqhpl9qqg41jnelssowsgm4q5wov8j2irqklcb4i5j 5nm', '07y9lbwm5i0shkc0jrjsfykwxblnmjd2qh0f1ak5b79k00vfyl', 'whsmuk2mdn210md8y4mq0i8o 3bp89tginy9nfjnidl4htbs2i', 'bcw6tvrrs0vi6basnm2u');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('19p1p', 'qjil1o4c86or77dbpysads355hm4rwvuux62l0ph hy9sq1gtk', 'i8ldhvpd1ca59hh5qq9mu4gmgbm9qjr7pkuunb0wphxcw3xl q', 'cddtxlslvm8c6fhdn415854k0f7h97mxbsa1cx42bp47qulvfn', 'nutfmqen5y6rutntcbbd');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('oq3vu', '4tftfo54f ynh6eqhfymtie9hnadgkcx1qfw2fpe5slcgybdav', 'qfmv b0n958oq7ca1m0b16shqnkta5qyds1q3j6lemuqe47elx', 'ua 66jvpm6j8ommmnskgvssuc7xf089nrs0vkfdaj3g9e0t07c', 'msm4g0rrc8akpqs61ov ');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('4swxw', 'g4lgdymjreru7dxca15p 0p8kk7pjw2rbcwiyjjvf2hrd3  bb', '1x9m2povp3l1nwcst0 fjui05vm8e9rigc51qxkddcuaj mkop', 'rapt0q7w077g5awifv p20cd85ad5 kflld1qv0 ngivm0c83r', '4ytcka1ui5amahp 6nyy');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('u5j87', 'oi5xjyejuw24rg8 picnp1sx05d5ats4desj4p98v6qegogn43', 'pw97a148js9u17v7ovl5rere1tpuck9 p7po820s741fijf4d1', 'j4w ugdgytimh08tn5 x0m3nsd8ye21wr4xi19o hldhep8uqq', '1qgun b7xqfitvgha4uk');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('4s6ji', 'le9g8a4781af9cbd6csb d6t9s39n4oyxb71 n3yt66nw3axky', '89g6s4i4g3kbt1u42 1wjqwbvh2tu6 jtwo51k2a2v171uya91', 'nlqg0qkpns e98eray7kxf4gp35rpvoqm5th876t2nmvi742wf', 'je 27m52 9ly   ymuhh');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('6nldx', '4090mtc49v6r24g773y69hfal4kj7jo1jfxpqgn9fhdb1fgs5k', 'eh39t4 pj0154xoacu2c672e211hwfqnkqsmnykws7vrqd7w8w', 'i111dvio36islfo7s0l0eupgprkio8ehr6jmgs0har pdq4cwm', 'msqgcmjjk8w gjb3dvwb');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('u3l03', '9eq fimpgt85mcc6ut26wu14jx4v 0at5s9nkd7rxkpce459pn', 'eg7h04mutxjcmwrg7bxl8cttbojxxmkt7u8pvktm76de00r2sg', 'yfd9l0pmmb1os9jnp9wea16c74coxb2563msdeuphf853hg6fx', '4gcu4qnv8lo1panb1449');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('4 fle', 'fidno455qdr1dn xwyyl1gidr0cbsvo2i6arpj5i4v58824ouy', 'ju rhxpmunkf5s41r1teigdwo44aieewqr87jnf6duats55e67', 'f2ky187r7tlb1hv3b3h9t7sai3vj3n5vahd690 7fp 7dvk12t', 'aghkc6x4xyd9cnm14g4e');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('7y5t1', '7xu84d2fpj1wq l5letvupg p436ubl4vv5qi0t24y24iy70i8', 'a2u2p7upjucoi0oglx dq5lr36wt6x5o294ycdwmfq6uba1299', 'rcah 0l ka5u2mq9ylxgvdxx42iyukmpi7rqyk79y 8hi14mgl', 'r2oqc6jq06cjf  rewvn');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('xekfx', 'wkpgc6rtgp234uk3jkp9kdf78v9ey2 b fs 4md0m4u 2dnkgc', 'fbc59fl3y3ow sxbao55ohf0hnm5qqi 44bff50pdkk31hr03n', 'k2vh njulhxe lpx 7dxs80xw1b0 l6sxwb2v6ak5580e6 skp', 'cu6wu4ejtsyhp5epg7s ');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('0f44a', 'crjuafhvrr2oum22v7qldjg3hlbv nd893e260019bm85dkl4v', 'awcqb2p0f209xce2qd1mqyq6r8tebnic5dbpiubs7ay9n4kwqc', 'wlxgpnfi3slhpspjdwwp8u8ysmjgjx6w2njibgru1oyamfu40n', 'd7x2fbajlxwl84secf36');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('ivmfi', 'vxq2xwmblnpj12euin9n3esto1g67d35f495cxqmaqxtbl555x', 'ynyb2a0hes0xhe2ghdx6m52wsbsr2f33e4u9kyc6ms7o4o0jpn', 'pbtemuft5fyttqqeluxnse4yw2wb51e9tpunnjogdqo3yxa1fx', 'po08pbq12ix w7wj27 k');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('g0owy', 'fyf3y7xhy oim4wmmxk2e3x8of9sjkacekvktykp04beq3cm87', 'sdhl5cwsh2jjnccswh917y6rb8rx0okt5 6mkyr6h3ka8y w3g', '4yekypm8motx0yd3pyvaonnsm81xb1o89k7em0mplaefvivwrx', 'ej6nq2ah3dj59mhy78u ');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('6vaes', 'jc 3tm8ke1bkbmnby6 mqikhfnlsybyawwjn846uetjqr3tu01', 'rnds8qqldc2b7cp1vxldg3khgnr45ukq2jj3m3nn1s5l 5xonq', '78ta4a4ai55dpakq7d9osqur0addv9uj9fyquebkt7k2s647p9', '0u8u52orxujp2fowjmqv');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('qo8kk', 'xtdmmwbqidvwq x98cdjw2dsyftmmiqsboah99fadhs2reh3us', 'kyshrm4gm0cv3fgwrhx6ywna7rxenaf4c5otqpyafuagllll3w', '41mwiupaalenjbdlq8nxw3snhagjvihdjoyr83n7bscly6yup4', '6993qsy 94nl25erfpov');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('laumt', 'orlcjka28uc08 pqw2eg636k svj9 unsh13fnw53fojdagcop', ' 6uxdw0ex78cilxrnrhdhr0m3dfntxt1y3ltuo5djmmfp h5il', 'gmydni9mlrqc3178kwxg8 weu5 7x2oiyfd143aqwd9js0n1rn', '70kpbe d1corio84nc2p');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('qm1bn', ' 5nxe94aarqlnfrvstfpxij4hovgmjfxm cvj8sc6olcncod7x', 'gtg7ei63jgb86xdfm bo42e8r qk5kysh3o4xn3q2edwaedxhj', 'bsquxxscfbs02057xpnbejqv7seluyk1t7g222uide4w2dpoqi', 'ujnjrijd8u98brch7i7p');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('5enqh', 'gg bpia3ukcw658engi8w7jl upc0h2ccockc leohfqytehoq', 'ofyykaut4e 903x08an45yq53t39xe7jhinv12qc5eqvy4myvb', '6jvqg467mkng1q9pa8yrjog4u r3rlhh9mk5k4li4bbn8vqtye', '3fkkc8jy6w mj1x34y5g');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('i2pc9', 'o0ui82wdeb4m2n0dfqh2br5i0mjewwk2d6gtywislgtxdkfj9p', '3yl7j8thlbecyffwfiylfco1m5b2y1dk2sy5v5pjoo6hpdyixy', '8civ 87 0vbii4ul2jwl5la978xwyylw9pn6hhyu361i98irc2', 'rv9lu90fixdbe0b2nbrr');
 
-insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('04uk6', '0s8okr7km4jyp4q80pmjmv49 gi2938y9m35luyylngttp4yui', '79cfwr0ogeh45qt8utq6ci4 9nc53667ro3xtlama3cwxh1nnq', '3 wx3puq4673ek1mvr js2wg636bfqpvpdvchbpoba741oabm9', 'pyatf88pa3mosnxh1 47');
+insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('h9iwt', '1kfimeqiaxo0hkvh4joyinnltj84vv5553bdklcd0ro0aregda', 'xamxnq7oginggoo4ib8otav63lnfvtsuyq1rferxmcw440qs57', 'm vn73wuvjmmr5s29swjorvdt02emp3ume06mjdeg8g4ob12jb', 'ppqnnbgpn5d6pjxhlfq0');
 
-insert into kurs (datum_kursa, ron_evro) values ('207-4-14', 19);
+insert into kurs (datum_kursa, ron_evro) values ('974-3-24', 6);
 
-insert into kurs (datum_kursa, ron_evro) values ('1428-11-10', 11);
+insert into kurs (datum_kursa, ron_evro) values ('234-7-20', 10);
 
-insert into kurs (datum_kursa, ron_evro) values ('949-10-25', 6);
+insert into kurs (datum_kursa, ron_evro) values ('2017-11-21', 8);
 
-insert into kurs (datum_kursa, ron_evro) values ('445-4-30', 1);
+insert into kurs (datum_kursa, ron_evro) values ('1578-3-22', 3);
 
-insert into kurs (datum_kursa, ron_evro) values ('339-7-14', 14);
+insert into kurs (datum_kursa, ron_evro) values ('470-8-4', 17);
 
-insert into kurs (datum_kursa, ron_evro) values ('509-3-5', 7);
+insert into kurs (datum_kursa, ron_evro) values ('354-3-18', 15);
 
-insert into kurs (datum_kursa, ron_evro) values ('899-7-24', 8);
+insert into kurs (datum_kursa, ron_evro) values ('105-2-8', 13);
 
-insert into kurs (datum_kursa, ron_evro) values ('1083-3-4', 13);
+insert into kurs (datum_kursa, ron_evro) values ('1833-2-8', 18);
 
-insert into kurs (datum_kursa, ron_evro) values ('1767-11-10', 3);
+insert into kurs (datum_kursa, ron_evro) values ('1100-11-6', 2);
 
-insert into kurs (datum_kursa, ron_evro) values ('1663-12-9', 10);
+insert into kurs (datum_kursa, ron_evro) values ('1913-3-11', 1);
 
-insert into kurs (datum_kursa, ron_evro) values ('1160-7-9', 15);
+insert into kurs (datum_kursa, ron_evro) values ('641-11-3', 5);
 
-insert into kurs (datum_kursa, ron_evro) values ('1211-4-25', 17);
+insert into kurs (datum_kursa, ron_evro) values ('560-2-17', 0);
 
-insert into kurs (datum_kursa, ron_evro) values ('1366-4-16', 2);
+insert into kurs (datum_kursa, ron_evro) values ('738-12-9', 19);
 
-insert into kurs (datum_kursa, ron_evro) values ('1312-2-11', 0);
+insert into kurs (datum_kursa, ron_evro) values ('1201-4-1', 4);
 
-insert into kurs (datum_kursa, ron_evro) values ('1495-4-12', 16);
+insert into kurs (datum_kursa, ron_evro) values ('1297-10-26', 11);
 
-insert into kurs (datum_kursa, ron_evro) values ('1-1-1', 4);
+insert into kurs (datum_kursa, ron_evro) values ('1402-12-6', 12);
 
-insert into kurs (datum_kursa, ron_evro) values ('1544-3-26', 18);
+insert into kurs (datum_kursa, ron_evro) values ('1-1-1', 14);
 
-insert into kurs (datum_kursa, ron_evro) values ('68-6-9', 5);
+insert into kurs (datum_kursa, ron_evro) values ('1504-3-24', 16);
 
-insert into kurs (datum_kursa, ron_evro) values ('649-10-13', 9);
+insert into kurs (datum_kursa, ron_evro) values ('1714-3-28', 9);
 
-insert into kurs (datum_kursa, ron_evro) values ('757-7-28', 12);
+insert into kurs (datum_kursa, ron_evro) values ('857-2-19', 7);
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('   ', ' 54d e5ydpry6jdultc4bmpbfqspmf2kfh31l7sqs171i 7ym1', 'l4cq40so0agf9bnaf b3r6u9u28um0bn6m4u4cy195kowxv9 4', 'v66jcme0qsdfa8is2yjifh4ca7xwplic1v8igtaiimsnahmy1q', '9x2y8bnkyf6khr8q2031au4othbikp', 'oagje8nv71b0w04wcv9xa20lmmq71h');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('   ', 'wl27p4h0thpgdh 2ovkxb29efkbgcxq24mwx0g017omi9m2ybb', 'f8f3bj8rqlh5p76svjfrgy1svvxl8j4sd7ex53xyrqhq3vjho8', 'hvv5qilc2qn6846v5v4tpk5la h4eo2wx1hhwlhxete1nlwmpm', '7ftph1d5xej1s16yha5xcvg8c23w 7', 'ckoe9i8ypdcy8xix766l8yi1uyx97t');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  0', 'l2yukv075asbwuea7ruy2w2rny47w4m238tvnpugdnlg8vehvg', 'ld304iib4unkcfnqx4sxldc597i8br858i89hng2lsr5n8idb3', 'm9ehkiw 10rhf603yohrbn1xjbfotcb9 4pnxq71crmwqubimf', '4mpse am4o67hs 25lc8yoq8l6ur9g', 'qndo27tr5gojybyl5c6v41yadnbb0v');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  0', '7xicxvui9sm80938f56245w986mp087ygvy n7ua401q0dd095', 'c7ubm8i3i l64 adbx6qhj5b2o23ntojolttljlt2p6edgbk3p', 'y90rayxapv  f8902mg0plijwd8mkjhdy4jumrt6mi7hgqg9ky', 'bvh3uwq5fndn8oy007tp ko5gecvc7', 'bc3jnsqm6l8a4mvjj6 psety4t 4m4');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  1', '2tv u88d8troqx3956wcqfxmobwh471jgj7f1wpet54x8qa90u', 'ylfs8mpt0nxbv57sj78tdeotu695qupvf3gigduvejul7n86b3', 'grp00tnmhop818l67neh204ghjk8qy0n3tsyhip330 ymj10ju', 'yaj9vdqbh89d6uksudpvgf5bdfb1kv', '3wy9exml8tiv01lfs74shy8mjsifd9');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  1', 'l2o 7r5qmiq7ij4eskoqq79e28nupyi19mgih8ed4u5kjgh1xu', 'w407xr980swyvrs6xuseejj62ehnali40i4jnjxyjh2qw9veyg', 'jorxs4vdohlqi9rnsrpsu23km0 4kodmwj5ur9d1aj9k 2gvug', '1sij461dv38vmgx3deb4 c8qvi8bpr', '3w2nvpd2idnbteh fyc8w3og2muv2x');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  2', '75q6sie1pejn9qyjyluiajn5a4uvxn8nmf50i1wfib 9h88w6r', '1eks8nyyjfss8823yy jeim6kf jwc 0ttr4vp1o3hsdtor4iq', 'b4mp6vcs40ediixjtspdspjvanv9gi550xc2w7vnkunvypaa6s', '4hs5sb5uvpqv2p453ub9ebjic233iu', 'qp0mhgblnij23dr9antsh3xbcmc1bn');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  2', 'a0y3f ujqi pmnwx4 9af0kh08qi7yugky6aqj6gyf8dflu88u', 'h8sos1dygunbaacnrvk3wod6ds2c53s5c9erkcfcn2jl0owuba', 'w33yggccsgvt9k0i5k27x4 3sm6 hnfwi1uddb5eiyspdiwm3k', 'nay11hbeks92mocajrxpq08mvxo2j ', '573ggdjmdr1lf 12l37ieylureew2e');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  3', 'ptso8hncftucey3el92b3x8rymbmuev1fui5xdnl86blyvp70i', 'ervfrpvsi4ijx rrcmy16gtv936ahpxhsyk2v7rtn46olxd152', '9 ju03deqlg388t3w950os575sq9a 72 039e6 7jw7gsd4oai', 'cxvrwc1jergou5xvngh n60r9p2qst', 'x8on4wr0 f55bsa6o6im9wr1i9sgf5');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  3', '923d3c fq5d9q5lo5rrqiw0xmm9c2ra d9nwhaomc9hoer8mtv', 'm0ujgedkagnai hihakapdx5pb8yrwkqcrgwt85a70dbbjcqvu', 'jre5gjavmvrl04r8gby2i1p7vub cx4l575hxariy0j3m6rjjf', '59c4nbxuek3pjtor822oxeny q02n3', 'w6f0xb05fovjpff yf5xhoas15lu51');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  4', '3uqms8deuv2d4j1pbmtsotos7514jtkhoiac43ajneyw 7tpj9', 'pffcwacust55c6rkjg0nkssnsefoejji17w9smpy prs6rhelb', 'p 2218ulnjleyyev5gokrghxj3x6qpwl 3i30yiy cjj8cxltk', 'ne3cc4 sqv33tbsmh8yfwv5jm7unkq', 'oye954kmcohbn31xf9tsdg4tgagbby');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  4', 'gv qeokns29spel0rw67klfadvc0ejan66dxkkj52qpoqh22he', 'bgvehpmhc4a6pu0y6hnb2y3g5ulxvi60bmo9x3c1nexjc2g6h7', 'pfi6v1td28qfao1fv7dr41y9ja 4i5rslwytcljv0b49k5hso7', '0jg wu ry9hjm d2287s8i3yih17uv', 'b2pd21cpe77xr0t6s90hkidbton1bg');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  5', 'sb9tlmx2m3o8p2ho1g9m50x0cqlyea4lj7wc0qdufs9858o221', 'axx5t90w0ywgffoer19vg7s0ct4hmmf0xtoi5u94se70bs7r5e', 'd0xbow7danaj1qv2yawkftp499qypth6am5ajt2p722e4rqaik', 'd3imb251wbkf655efqmaq5cs4nlu g', 'kwgshhyv9er27c8ey20oidem7g5db1');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  5', 'a31d49d5prtftipj2gvt7dn4dqmw6pa9jxfcnn6paw4isk7p79', 'fptm1brojcinsk4v1et19kbl5weyn9nirogji9heod4nduobo7', 'ch86l0u6i2 k 1vs8xf92j 58jvmy6244xs  5 i75 hadc3fj', 'fvot1n88hiox38v2lf36rsxuhrs4hy', 'lja15v9vw2g71ciwjkrb0xywxkv29b');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  6', '60m1cww64lo1iigd328f e0wgky6xs6u doy3o 9rrsqneucfh', 'a8bo0hxa4nevej10 ntrtmekwm4vvk9071kxchm7ftj6plw4cg', '9qr4dg9ixwqm5efm 1c6 yi8xuvtbi3gm4uw2cpx63e8gokxy4', 'w6sb5mxdmofpjg5qdcsujpa5krvok1', 'ykvu0swmixxshmxc0179t7pbc94cvr');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  6', 'lue5ervcfidp22eoy3fjwhibwesaa6hfvh3qm0jy8lae37wfpj', 'lo3sc76aopuqahft6jod8mecr0j c2bchdews8su ud4jhi377', 'bqk 69deyx211gmngtd6trsjaxth2oao30eh65n1jajdwed6s9', 'fmt9 np0f4o98gi5qpbyrqri gyjmq', 'tyu8s38tw2468fflbv0iq499y83rj ');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  7', 'w5q2mthwfaig08pok9xcupo26a2 ndh2uf5kdjks407xyahtum', '9rolfxwwdfrwcgktxw43jikkcxciqoe0j0mygtck3krcn5a5p ', 'mm9bslv8981 d8k8fdd8lp ga0hxa3p16xtdf8uxlhqasrpifx', 'd90j6lujtnr9cn1b65e9xyvofrkjco', 'h7kv542rd03w0vxlbncm6vl w39vcu');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  7', '0h05iwmyjtv8b spf02x9 wkrm2vr9pu4lh71nn8wrfxr1avob', '0c3fpivnwmk63lhk0lqvj20mkl97936xpy06rqa9menxbavifq', '71p8kfi8wko66fra2r1yoo84ane l57728c1l28y1g1 5y8483', '5psgqugqia2aqpsv4aee9p1ac mx01', '2kl2y6uhg3k9e2tm950q79c7ct mql');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  8', '4des52lrrepby6b0904pyox09m6ognavhkfjh51ec8lpf3ptny', 'j0u esm01as28k81867iqiwtiahhhxrwlkndyeomdkel3getuh', 'fyptsrciwfwbt64107lwu6c4uelln932xomu6opfvxlgyst2t8', 'sajd vxcypmqed itwy3i70fkmal4a', 'gxi13o22 ahd8qk p3j58hjk4856un');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  8', 'temwa7qr30e9wgljl ik9px9q5iobkbmf4x74laqnetk34gh4h', '1m50t4ga6l0v4sk uku9aak0sxh8f8s2j9ibv6re0ve0hr29eg', '6oski5fwo0653tntv1ipv wejawcbbo9f10 td6pa0mwqkxdtu', '2e1sd9pag3l924hlbbi6kgrvsippgn', 'mg40h xoex2jy78884fv6iti i6hd2');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  9', 'hnyy03japstv0yc6glxmslugmpnyswebxcwvr7d38mq3d lts9', 'c6rrv5eo6qk1eu0s79nkdelnxijapqmqlvgkmvo421ankdbbr8', '90w3exbqtv3qyg34n nswk4i71s3y9o94l4quul48iq3t m9w5', 'y0y634hgqn 26rn9mg0y83yf2bsjly', 'b8325cfmugvgef2e3xriqo90eekysu');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  9', '0lo0t0yhy4loxatj0g11q ohpc3wx36javx6v6rd3hvc9ccwh6', 'f0j 94416s9kwf wn21gt6aj1n4jcnb34d3eviog7vx38q usx', 'nmuga9y0tsq fn0l 7g4v48d6296vy5x 7es5dgyvi2hk2lo0m', 's 3gay1qx6b398pxgqqcev8xvlrc8t', '2qg8b0 q8dwijtmsp 9fcidf hukvf');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  a', 'vpevxfy7awjf6gnf4mwiplatiw2alkkiokqxrwhn5uas35m51a', '3j5guhqygp9kgdpm4acrbyjjm1ngtjloasx6 p7yykth2lhbbe', 'smm wph937h1mkpek22yqsfyaeqmslbv9lys gvyj4m 6tbsdx', 'rwfhmw2p4jyqoh fpiqamr9lu2 ayg', 'ipx18051xufms5l077w434a9n k3y0');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  a', 'm4hhgmfsh1cnaupf3dml5yl1q2aaq5j19s3rqv06u65wfpbf07', 'kdmtjgvh9m618yq8ha7xejixf7vv3ra373sn4mvpl91clu62ja', 'ow4uu7mdroq96g3qqpmnlmrrxhf 8c0kkml yggj9cufpfcmw6', 'jq46kl8j2ca7a9 1rpqwwqp xo92n0', '0pb5ns6nidu3ggfmk johaged1n3ir');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  b', 'f8ws6rcoyabwmxq8yn13y80pmhwimi1uluy21elrcj7nmshnf ', 'xltroac7t462l80wc8odkgnv9311enw58dcp anrk o368f62f', 'qi9drfil4hfxkdn 5cn1nkyrute10tp3tu8vep8jlxtl4ho1v2', 'm5n9aswd1pc40m534tkcvnvuucxwps', 'ej5lujfil9iujmx7s6vv0mp4v30no ');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  b', 'qgk9u0ni04552md5cun33qn515xetyjf ls1rn3qpf5fkl6p2b', 'r7436w22mrqkma np cg7 6i hsrivlro4l2gamlweaehrer95', ' idcsspwd9chnh8e47otvelrq5ulmbxinw55 vqy2ets6rjmqs', 'ivb4ig9pce3c93gif2eb6xhjfnibai', '3o79r2vh24s2knwijnt55b4795o12t');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  c', 'falc2gopc54l6lmonrxa8iny4nmmnfqfijyf8fulo0wbd1cpvq', 'rynvp4 w19  af7vk5ubx6hg6ibk1jobr573keg5ooqdwcoubw', 'r9tb4x fvpm3s9jk9r99913eu66r1vxmo77xwc3uqpu1syfchv', 'qg71n 1j6n16erabp16f2ol4btdkud', 'j7vw69jn77s9njp4ed 3pj96olhklm');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  c', 'py q83t7ltk8e5ec4r2bc qaoc9nw5d9wvokwhfgjplf6s2k6t', 'fk8nh6si6315buqlhqs4bjsq toae 4kgwfhdxvdxf4yuhehco', 'nrorkr3n6kk9p87aq xea68dynjve0lgukahxjqoolew17eqcf', '1270mi2nu 6x7p1ku0b64b7q54sh8b', 'wqcuc1tnx3qe4046625i kv5jas3i4');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  d', 'l3e8snycu u6oe04dj6pha 0cxd1sn9g35pm96puuls792kikj', '5wwkcblujt72awujo2kw9dq78c8i0k6eugi7jsldejm gl1djp', '09gqtjwttbgiisbhfx6oiana2m0p92kg7gp992w u0pw1i30td', '4a5worg9aa6ypi8ran r84p2h6rgow', '55f8cnl17x3nbga77igcj30ra53jd4');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  d', ' aounc52 ikjfbi0sit 0sdnjtfxap 9j0565qah7x64mocfm0', 'pxpd1u0i769mkmgmfr64b56obuodsqnqxure0qfj7bptird81d', 'ypibsqdbacki1ho8we8hnkqu2rmi5qjy06hfsj6topnfjpym8h', 'y5da8wpekpw k2wbfef5mux4 6f44p', 'de1jmdccocs1d8kd5 g vgfjwsb7cd');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  e', 'gs5fkb2t2 ws652os7rs1lkqyc5q9l4 n6nsbmg3h7ylje0j7f', 'c0here3d4p1mkrxb3lxfmyk68nd73l8rs9ul2gwuow61noco4c', 'tfv3s5gipv3qp72bw28ybjtcmv8vy5l3r23swe1 7scjm5nx1k', '0k83g7xyi nftm7ko1gfvr 8wp57cq', '4w67vobqvmvlpa4h m6sal1phhhm1v');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  e', '3ltm3xrokkim1 cuv326bb4qnjf it4hombw1l8a vau7nm8r1', 'jxtwx1c p0nbs1cfvotk78x0vfkg i8okcrr4w2yape60 0vv2', '1b 3474f2lhfdso95vgbvwmha9qfvbrmq 0m1brfy3nd9w9ee9', 'suwb3qjq82ghyff91pyf0og 5u77rg', 'o0ot6t9gvjlul5j5te6rynrl1hd243');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  f', '7t1duasf80soe4e93aovnil jop74cnnwsef6vv3pjahjsdcu3', 'y9y4m09lo lrcx3cglu8b2a6e9ck7qh6jol39caglkv3dsp41l', 'qa3s4e 743epnh0ye07ij1vmmrkrs1224btfw1piynhtqmib8l', '6ej81g60dl1oqcc75i85cblqkgpg9h', '2gwwqj42g638chpgb0pvfl7naih21a');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  f', 'gvu0horlkinsvcil141kl wefbppbnnnfktuum7fu0on44cbsb', '3e86v895 72h2ms16tm3jy5h4ej92v 6afa9ldtenj8hvm2lsa', 'cs btarqwtb7lfyx3faio ge9fho83pcga3y01x7wefx pip8r', 'y1avgbgsd9ajuydduhx9pfel14kgds', 'sxqgydmr 360l4lv7f4dmg6 auhsd5');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  g', 'jknhgegsnyf7q2bebexoq 05h3fi7lkfei525jsvuiq06u9hjb', ' 918lt45ejih925jco6a25v 1jxvekw15qrfk7ewb9exu1u1rf', 'ieja2huycy430s0fgk4ooea2q3b9cccj3db06f7q9 04xtb5np', 'frtfeslh62 32k88bes29biyliqw3u', 'oeccohj3ftt9re66qgey3im9gvhet8');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  g', '9h54gvsl9c2kb cjnv8hli9r it9yyf0crt3regpyl1jg8on6w', '4kwof7kyfuvlrfct3nvgvf42141osaxcboidng20qyys90 s8t', '0wycuw2sjojd2fm137v89qgcalvk6obty a7v1a3au8oq7osy6', 'ibyq76kho2 qboh3g62994ia75sado', 'um8fr84oy2 187qh76s7jlu9pgbt0w');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  h', '8mxjxwm2qhm37o9 oxpc 0b2m9p1u0cn 848hwhb iex0hmlii', '3xplqo kmk7uqwug9neyq7f4 wve3s7gs6k0 jfg37favibyau', 'gesb 28hqsj3syu405pc7v7kmvv869hse00m6jmf0a6kw53sia', 'h7nr2wb9y9ja7aeht9h0u6whisl5p2', 'xh6uctvu6k58nd03ptgf3e7h7sdh1a');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  h', 'i6ghylcahdxw19an7dqao99864ky16kk2l8d7u me0rttqi3md', 'mx67ncya5am7l8q vtsoqma5 rwwjk8fyuwl20c6xiq6h6ucma', 'ah71jxfvfp2rsib9eoi7 c0ttsstnt6ste65cxs9hw568gs1mv', 'jyy5ykfav8vixw71sxffin69tx y91', 'seg0bcn6xksxsuniuh1j1boe3o924 ');
 
-insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  i', 'cnnel9g44mf6i9vqwbyid6d3bxgilfpt5asiq5df6gn9deby 2', 'mr73r5g6dh1uvm2yam ss 1 od6lkcot0je261yeiv8nmdp0s ', '32lcjrypyw3ll59xdm8i2p0ffl9ktxgoucfa54pobos66g37ui', 'q3kh 6y0te7qor1emx9gy2ld05 aoq', 'u7v8rtex9ox7kjj0go4anhehp4crcq');
+insert into kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('  i', 'a6sd2t0w6 91i70q7fhfh esxn5juxyl6ycpopqhoe9my02lm7', '619y 9pait0hhi1rl3xrf7bwlwvj xlnlhy7hb6qcc0saeas74', 'm1e3awff4movlpoljd6mp0jwegdnee yyiye68wfn82ahepsgc', '40go7rwubkmx2bu592uhf2o74cq88t', 'j9ii51  s436 3evnhsxu 6ft5jirc');
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('upno3jmba1 i13dbx1ulhr38iqyi4dc194v6881lc7m8cyneqtd915dx221dumfnjcfhd8hp120', 'a0may', 'mt0i6klwuiwumo9lp4m9', '2u9egqbfua3ro6885jjrkh hfqn0b9repgokb9h1alpy773kmoixhvtdbvetr0ql7s8dxs7domkbbvovx5vpb7jli71kra nxxve', 'ini0 49q6x', 10, 18, 'r8oq88cks 4dcdtnt043et5ckr4uhhvi40e6dj627fxwv1ems4', 16, 19);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('mrl9rf n22jh8l0n0xapvobt2ogo6c2e9w jh5nlx31j0haqyndorf8qttcqktme8op77cy4dlo', 'g0owy', 'bitpfhfc3ri7y0u6w5kb', ' jkar 9s5k90aeinoa6lnbxhpb0n9gflsv4o8y6g007p0ox4taned0bshgg1bfld87wtcg3at2r1ho5evk4rxqvxwbt7bpcrtcol', '2m03aabga4', 5, 6, '0aidnlf 4b68t69okfu7tuu8pkq odcqihettu2i43gh3uxt4i', 13, 10);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('fcdc2iq7b4ykj55nvubd50pj6ahhbin6583dobwkli1ac3bavtoqyhxabssudbh 15t0trobi15', 'oq3vu', '5 p64vmnksghyehiivxh', 'o66fefm954f0pavh2ri66kexex41rg7w55h9djmuts3 5uldsqfa 44aup0c68pstbg61v3pilp0yxv3i79a6hlo9duc3ommaaok', 'orj2hyso 1', 1, 2, '93j1k3uhmwbawo2q5wkunhsd74tx411rvn4oh0trew3c0 8s5h', 13, 6);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('h0 6ksh15tdfhx7k919cm6c8  e4vouy7x30hqv2aubjdrwb poikwogfdnardlq98r 37xj1c6', 'qo8kk', 'vuols1ots8ls57dcvoii', 'kdok3h1vdqb9o aqemfja5po gjgn549i2 a0y3cgr0cndunyba1m6l85beyijtayhiaebuxn651xo95y05mlquyuhljuf9gt255', 'i3gq1ns39i', 16, 1, 'qkauekgidn9hi uy5mv8wr1iudc0 2gavbc2iplqq6nqqh4n4 ', 7, 1);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('htq74xfufrc6gsqvnvle2gb3q5 y7aj1elhw96gulai0m yc70 nve1gdjm pnx7ge9ugfmloid', 'a0may', '444hso98343kq16a8rvv', 'dqb7f7jec2c1b7aohp1rwi1x3hxm5g21wudes57n39d8cl0466ew0lb74tfm18scnc5wvxkfiu6eo89e2rf1u2qds9p8lu9b6ra1', 'c6mmkxmigp', 12, 15, 'gdef2h6qcq3q87bu26thisbjq38macxk9rq4ld9l6j880mbyue', 3, 15);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('6 wh4fb39 f0quojfy36a3y47ar7y4ewr42 0v9kpxw7pdtii0mgbut6r94t7 qfpx52ecl6rpj', '7y5t1', 'tt6b  lkok6 pgobvvdi', 'qb4b2 4gas06wf39i3s78q88rqut7t774tpjynok5qgwhtlqbmmmn9qv1gwpd8bnfo9tp612mfusiykknpg4lv 21mmqodne1sbs', '65f8pl jim', 1, 11, 'bqoly6lhevhg1l c0tav38soq17oqe4euhmanjjsmw3acipl9q', 15, 11);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('c71fs56o jkk9 1vf3147h8i b7sxdixlcq0mfvff468sysicfl2ei48k7nqnpjmh iq78qgiba', '364fj', 'xisykni7m9uvco5 tttm', 'yvsiekpwks4jgpoup9ju7r4kjg92m16sea9w5lpq6xym9lhnyda4ynshk7srkj2tibppnipkr6fyvjwdyjvx8smig04r8 xco346', 'nwmg6h6cql', 3, 11, 'cjylhsraehxla0q2rfyj8pjw8q55rehkjyb58q4710wlbs3pex', 19, 8);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('kjvf1bmxtwh82if4doytr9t5v1r12cxu2r0pmmw46lq7xblt323pwnha25pxd8gf4a9ks13hy95', '0f44a', 'y5cjq9mb2ep1bu0do7nu', 'x6qie cmy5b3rraxpxb8v83tqsp632c8bor4we0fy9lfn72hr8dj8fe37megdhqaqck06tuitogfujllq79xj9f2 j1j91re8av0', 'qxebnsba8x', 17, 9, 's0aqj0gnn4wmb5lt3kxx47kkbiply77xbds8mieke2f70moolc', 4, 5);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('eaw5r7i1q4vcxcaiddx0j7ufjt0lj5phetqlfvys5k6aoci9jomi7cf8ikig0ml0ofoqto6ycvc', 'ivmfi', '49uy 7bikdkn6rhalc03', 'ab0ql gy7ytn4ue4pacr svmajiddksr2dp7ynb9prvrv6aplrf2ycv ysdg0n92ggon7gfkf5klpe7un84w9e9o0pvw26ctgtkc', 'yfq66qtapp', 5, 7, 'wxqs37 el sowe9n0pj1p15u2k s7sa5m8yc3er8f jo4o4o69', 18, 1);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('gxwqeoj75xxuwvdkaa5h0phtl34we58 b8y66blwiw47h1qlu1ofjb3q 6b4h98cs50inu7mux4', '9jtt6', 'd 7w63x3cy4qosqchude', 'ybqhyahsm8laqqh4tw1g3ndhupm707yrk2f80ilxvvrw1a oqhyaqoi3ulfpdbdm28nxqd446 m12u1vn9tw7w10os44vc6u3200', '47pe302j 7', 8, 10, 'igb1my969oicsurhdlpc9vgp1a4bu fnaoibu4vkb3fvl 0216', 12, 2);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('j05j181mppw1cnlugpn3vo27fr9c7e1kr3mwkct2jo9pr3t8u d3mvh3kprfxf 9vj5v9xac 97', 'laumt', '9pmgpyxm46v29h8t5v29', 'wxll6ijx2fbi7 k3awnhfdh21jbpnew7a8kkfjd7qk2qi6r7dokh3yhlui wq11kcucnvxs09v4bpqlf4ejgbbs0opx6n 4q41he', 'vyvk98iq7u', 16, 17, 'dy55bxoffpgdvu4nltyu6ukshxvitrgmil8w6b8wv5m005ausv', 7, 5);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('2ptlpvua13 8rmn00gdd3kvjkiipju6q8c1uod0havahh16fy8 7wxqvji5wmwtpuf1p21thi9a', '4swxw', 'w6rv3jbr9cc6 uo8 tog', '0btcq6lkeweslf7t01woecn05lsd1t 6yetdg32pqh6b78lxtee7ngu60v1 uq1hs7qutdbu16w1s0befucluadofh6564f6vsg2', 'k5ealukct ', 13, 3, 'whgnrgkhxhjqx ariwy81bbt8fvtr7uwon02633078t ayofif', 2, 19);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('a9x5c3sa8irhdbio46kk7uiei8xn5a3 f5cd1sjd0fvoexnw o jexpkn7h frg6jhi6iq8xl s', 'ivmfi', '18kksmndqnpc74uqv28c', 'un w9prsiumb3sq597k37flocn43mytnc501fbis3664tfocmppf3wkl8uprwmf9u8maeu578rervs12ncw626tecvfe20rcb3f6', 'pcsy10i2vm', 15, 1, '3m9frht63fxengc6li41yg5xew5t c39e8tusy f5evnr8h2fq', 2, 11);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('t9ffsqu9p4v0bum4xl02n82nt54ml8tnm9l55bhs500415 cc t531ib91ltxc8jmc23h1jrcko', '19p1p', 'sqvqjr1gwnv5 if6v2sl', '1qhsa3jgd1nntowl 1wyiau9bcfuqte5xwohqvepjqse2unqqyxmlq2d9r6b4ed31lv9qnatlfslhqjbebxm2qbdmsorv9hihmxp', 'p8ksei267p', 3, 19, 'bfjau8xhjwo7370cl9emrj1deqkkuu5bxv2nocsa4s9o735wlg', 3, 12);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('mqt3qbpvi5ee5wklbhw2ssxm55tbp2c3rakdy6ch31sc3ocfksd6a5uyup3uv5efg9whmf71pyq', 'bswxg', '2pq g7a3ifn547ix50r7', ' bs 625pvbwh52l5valn8ckfayf4cfstwqrbpx57ibkxf63va5e2yb7to8f  7u2yxrh6lt4e0mu9feg4k j2a7bfjyitwjd pny', 'cbkedov5a7', 17, 19, 'ep6hb2yqlb4q8xdihjg2np2srcnhuqfmxn5apr1kdqocbyxsjn', 11, 14);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('f5iv764och98yfm3shydl2801ohivfirdm5pos3kx52t19juy9g91he7tjh3c gvccn29 r4acy', 'qm1bn', 'm00wk31xjl29042jpqie', 's5bkhlpkhb e0f75jqgxmvvk mdx2tpokl3hsmduo2rw5l2rsqsg8gngm70ma0uaxqjvs1m8s02g67l6p9x710rd4cuk92  uv3w', 'k1s g8wig5', 15, 18, '3cxa1iq4s19rfqht9uqnltu41ir2ud vuv2243s7vykgsoahll', 17, 14);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('ts694h70mie6sn6ue hog 2r1cqmvp01n cnuurqqn2lewwe2 ddvif430ikbeon8uxjt8wqddg', 'a0may', '861r9bdd2lmq5cxy57wf', 'frgyahyu2ybq8ag4r467tfke0cjwtqpdvh2vwtpqrbg4gx5 m2kj1d0h8sdfdkegf9gp xbhqh8sq2piwujyesetmxadjrh7i 7y', 'qssjd8f1ci', 19, 10, 'kkvbadkwahnvwnjta3 cvwbumhmlnr80 3wnvc dpibakrpvxy', 6, 4);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('0jy8ut2l0ow549s63xyobv4uqyxrnq8qr 9ymupb rqgw91 ixrbxgoukb9j2pvg2f7ofksvn3r', '4ld d', 'ourxiy8fg4lq8wtpe55q', 'ec6xqpjh nxice0594ukysmorxnggsif63n8k7577dy2xoh3tbhmrxmh7j9p2w 4bujwh4cm3smhu9am876bbmeepu4y413hr6au', 'ddrclpawgd', 2, 7, '25gwmhawi59nfs21v4n8b6l3mr1ve4iwxf 2xjc9byvcah503c', 11, 13);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('e5sdbhayce3f9c  oo nqfygm9799xqnkfhibrm61rrahw137ehwjoa86g7qsd6kom e7n7pnsd', 'lwgej', 'f3lxtivnqsgyuwasbxc7', 'eoi4ysqi 3069i3q8y2j tbvao0o6xoqxsayx1yn6eao0k vv3o0jwcnlld3vs2ugwwcodlca71uwxr0pb5o22x4gs3wpo9qvnyw', '1 28koghe9', 7, 0, '29ak11yes8kjf1n9aad8jixrn s9s3iy67kwxer6pg8mvughwx', 8, 7);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('7bqrmh568cnn1ne b0l8g7ga66kxtm18ytle2a d6q1j47uj2rv6di8f2eelyqgq4gublf9xi16', '8ew3u', 'xj4kxmix0fc m72ud4pc', 'umxileonmro1rdarla1k0vhs8owp s8b7d5f9rtsyeei7i3covy jmh16oqu8bnv9kmpbencovjx4bsqtsycb86rvlhnchmatyfh', '2edbqml15r', 6, 5, 'cyn7ojd gwe4a2ol4q  cc8inwh9d8p2g0thspy0n0nr6ow99y', 14, 15);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('nchbn6vxphx7c8pklu3lt16ag1bm2 aqbibd63j7n6ojoecjb868wkj7e kvgi2jgs660aw5jdw', '8p8qt', '2jf3tvardpq591ninuua', 're6bdpym8xrd4mo8wnhdyb5m740i4f9c93y h 45v82ylxqgw97448p j0sy4nyisv0co uq7 kal249g20r4h6vaovgwlfgii76', 'oknutv3s2a', 13, 6, 'v3ip an3duwdgyrylj6o2vlysx16c6vg 9 1 2ovqnwb9tmgrm', 5, 3);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('r0kspl61i3kcwnbq5dxrbu0hprhgwjqro09vqgwlxt00e2s6xi9ve3wkpc8go92gim0c9 54  p', '4swxw', 'v 6ybrviw185vrttl7fh', 'oxm2tfm pgivg4c63qifeebqs 9mvs nvw7 itk5so9 5cqr7acm0nwhrliaku5v40of2dqottwknj77p1fd3e9 348x8i7m9w9y', 'pnbt9mgk8a', 0, 14, 'mkd5giyjnjxdv5hvh8f7n8nc1eck9l4pc1e0e4i84nvgt2fv r', 19, 18);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('hv p9ou2r u7i7bmc b2eh6c5angfiy7mcx8uqrva33pv3kcuf86u3um1vprpxym cuc7u65a08', 'lwgej', '2ppys8il8n6859ram1y9', '5lpu4pxomstugioa0vc9nwb4hged375s0mm11dl06q8eckog158dcqyowbtmrl99fqq3 9ttwfwd5idkdy4jksfi85xo8pp7nkix', '6u52hdqihp', 2, 9, 'q6 evlur8iclkwukr72ybsq6h7eastync0ok9emwhugxog58ij', 10, 2);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('w37cf2 1btl54dilr3huxfmmxcas57eobgt68pqo1uuh9olmebrlwg53ve9dd0120fb3at0pl46', 'k5kfe', '3ws9m7mucs57o4v3lj4o', ' wul nbesb6aa7gv6au77e7gclt6tb3hut0q107lorlpa00m dhua932hj0ix 65h uoir6ggkovpokhcefe4lh9f7chhohdsuat', '9mtdnq2rpt', 14, 16, '1 vk r8irul9yoa5cgj0iqt07q0rp4ady99igxihfyyiacbr0e', 8, 6);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('nunc2meobaa2d1gqdghms u0h8mi1nbtjxogn8bqi2cahshmx46btgmb4q 86oc13h9tisa5per', 'oq3vu', 'pa85ebwynbg4nftny0iw', 'e4lcbcrcc2sn8vm95 5nlxa7tyh0wmnmd6pg3u 2ydtcvbl6bo9t5en1b5cnha5efwqpw6 fk 2 nq63ynqc1b641ktqowcmnb28', 'qo3k2s7wm0', 18, 4, 'csghve2wgykbmiiua5ukrgn ra8g4tl4188n2mw0xflerkj01s', 0, 0);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('b4hbmw1hh6lik bm3do969b kfdbw1pmmuilxb9sbkoddmdsuufmhywutf5f5 113oho3aflkti', '7y5t1', 't827s0oc11omol6fwahq', 'hutmix4 6iigcjd33cwu53mnw6uvxdoap6j1cj1 1u5x3hc1dfqup67ddc o20s2npqwlnwo8 okxku0ou9lcysun1m1ovtucgln', '5dxeyoyg3n', 7, 13, 'jfhmb4tr0o2g1dfkj0darr5kh26yto1x94f7wfjelvqjj5nnmn', 0, 7);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('5d88u127kfl8dtd43r37svtsklnbbyfee tnnei32s31e3rgwg ujn3xxco3cc7c tclvomnmnx', 'ivmfi', 'j3npghl3uibiiqojj6v ', 'eijgas0ktbs e1caja6lvt8muprvpssxcymdr7uor95yjgmatvdq7 n9cs9uq2u9hgkk5xinvpaatuto6hn  i 8m8 cfcxdlyxh', 's9t0 30yfj', 8, 12, 'wfk caanefie9lcw49ul ph4rmvhij61 grfys6yr0jdgajauc', 12, 9);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('o l623hf0nebpk4vffj134sy3uwemdvrnybuf22okej36be7n0dx5ngem1vfcjj q5qupjb4rqt', '4s6ji', 'ihrcldsttxjcuhaffn8b', '52mlec89dhqnflppgif 749jbfc5lfc1x3i1tcr72nador73meog5kd1osb9rp153ka5fe9xru8b6drxjqfu9adlnm67vdm9wu2s', 'qdpp04acen', 10, 17, 'e2kwqoi8 k t4indqmgf3qmwbtq2mklfl97dtjitj0j2psw05q', 6, 0);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('4akdtokwxj2gnct56wyp0xu1m0mf 89mfktn5kuqxkww4ehptdyr2jmj48 wg3g lfivuwku44y', '4dnbh', 'kkb4vsgoxyvpvkvfu5kv', '45ueklef5l2fxg8yn9vt1 cf07i4i6kvxfcjat4x2i87d2nd8hr 4u187oux1wmicpdaj88kkt 9xgn68wwacn14b50x3ojemf1m', 'jig7x2baa8', 6, 5, '7i4wpe7p ea3xd cn4p8ly412lx7vud6rvw2ajflowj l52v2u', 14, 16);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('7n65or7nfgdy8cpc50htprf92h02l9p509wcpmj4n klql 3oqblcqwxt4m5v4k1ayywnho11h8', '9jtt6', 'j7ssggltq459kua5hk71', 's0j5ghnfbkao251cwbio90pvok0 uvdm7nax8i1h3go29u727o0yqo4wje 8i343jw7mebb 78m4ai3twdwddt1nh394ogpgc9ss', 'm wxr028aa', 9, 2, 'lp176tui8kdomyhnksyo451vye9taew8ityfh8oka5ql5cxt7o', 16, 3);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('bwsgd3tg5g57v6dlxogj94ra9f5myid krfamuvojfc8hsv89msc693xytxc8x4wcrc4drxthgu', 'vhjvh', 'icyvochlpv9s2up2u2ov', 'thv863plxpbeoj8y9 lj5etxl2 pmb71n9f 0cnsur a7xlwdh942pubhgypnmltn0k1o t44i97xyjobkunxmh8p6qvmwmue8ar', '87ygx2k67e', 11, 8, 'iwogkge97 nu13kongwp492vn6imn0dr5vo0gef2my8ienabhv', 17, 12);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('r328cf9sv50u7rs5fklqj7geutrf5iiythmxxbabod7m61f3sa9s6b9 7b9ssec15uip4m5y147', 'k5kfe', '6tli4e6t2vldf4nwqyyv', 'cwt813s5hd88ci97o6gc5ue57ftqvejcns7bl9qrb7kpl8x d1tywxx 84nn wsh2 o3h wriagfdnri66y8qlany1qu7gtmh4q6', 'kv81ju2of3', 18, 8, 'oy444jbr2t9ekl2d8fvbptu8i8o993aqbeh5t7d6fcgg50u08e', 18, 16);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('s8mwskgrbr j4050m6ysia9qnv8x6idgld574gp3ch5 mavdxt0jqxwy0sfl  98tio96f4rwac', 'vhjvh', '95mo jcereaxj4j7tjyx', 'avyh8q3pgwehpof457xeahusy5jmj7soj8mhp3mf0ic771flnw489j38ltdcq8mgmn6c48d9av8chwhcxisrobn5 oxvpelya8rx', '03ly0stljx', 14, 16, '9 b soub1 fwgh5tt6h5j1a1 1al1idt5cb3 33ojcfrrxs0ce', 9, 18);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('se4pi6hxg2oo2180wte5f846ds11g1e72  67jiqktmqrekb0lmspj6fwbox6r5nclx2kuo37k ', 'u3l03', '3x6xcphi1wrb9p6safja', '3lodshnd0xgv5 3pa5rgqa1npqrhy8b1cecy65c9jbmgdawouyk 6iy7dhr4o0rvwq1ar54mm1uw4heaedv1xu8fngqt0kvn10wb', 'p7k080im5c', 4, 12, 'wp4sfeeswv5mqk6ga5jrjnf7li2j0e7v8mjuc5ypnwra0vgrtm', 1, 17);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('uaqo26g74jqkix7d6m8gd6s85wvst fwbw0mdwwiyv2h2oosoefl5ymnn920i2m06ctwo3bn4p5', 'c8sdd', 'ysuj53pag68bvl80ywja', '1m07ihr39ckr cfrouvl7 rp5tr5se7t2oneibf99evgc0bjcxftpc91vej7x 97vpk6jogdbxx51kk6vd97nujnn1if1bdy3wb0', 'drmmjkbi91', 9, 3, 'j6om1vaeupjh0gcop4c968hnv27i6hl0v1apkpmli1 utlntbp', 15, 10);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('bqh6sm0mw4kpadm0j6d8bmenho46pj0y0cdubbjb jud226ye52d632c89g3iwc59nba1u418lx', 'j4 nq', 'a0  jrjeej486el0aw1j', 'txxsldi6ui2djtqru 3 pem5hnr5pnwasf5ufl0g5vqljp1ly52ee57 rf wh3xu95lmr2jasiqfdio8e38x5l6fnqkanusq 3gt', 'vyup9rc5n2', 11, 4, '50ua4jn05yf89oqs22f4qrxlksdc99give15hqn mul9hvdi3e', 9, 4);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('4g119poom2xyj5a9f97ylwjp5lca3e357mbn2jx0qse bp jwm0xcjd56sqs6536trd6c4jcf49', 'xf441', 'inqn7drlyiyew9sxwh8g', 'fbxj7siqph1bfumbkuk1aina  rjhfuildmlrqp7gmbc9v1um90bnh5e44h6rb9gwe40ubutyau8m09nhbdanjiif6coph0ttcuu', 'wygg093l4u', 0, 14, '4roj9ucea17uv9 idjaiffyq5j4pyfap2jvwepoh1ohekbnhgs', 4, 17);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('pefxuse 7k3vixqwestbl9bg3f4akogf650det db24l3 4l21x7qyo4s78103 05jjlqbkj4jt', 'k5kfe', '34c0c22y1mkfffkyqm4h', 'v4aeoyo2jqdmj4wl2k5x7svd3d74utdur6bwu9picwu1u0y8 0n6igo2f9sdweax ol4j29kolm x4kfau36v251u227dgp2u1 n', 'vox2t4xxi8', 12, 15, '8v3yxpilksl7tfd9gecgw 2ln7uuajji 3cmxjx 5wd2ldqn66', 10, 9);
 
-insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('h43hynaliswtj45u7wft594ksy1 if viynvf45j 7du4dqvd6yc046s0ljt9si5kif9s2733l2', 'c8sdd', 'xl2m3oxfyhawuqo0shn7', 'e5kvd5unsmercoxe66ilc2wi4suo9kxwcosxfbaw2 tcxepq7t7qt1kutyp9qvbmn7ome8wxub5qi k1pqw5fthfoow09dp3a0rs', '0iagxqqrqo', 4, 13, 'ft7o54b xw3424h x6dy 9 3g428w1kk0wh0cpa02y fc16wp ', 1, 13);
+insert into roba (sifra_robe, sifra_magacina, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('hhk5nt22tc4qircfy 1rauyy4eyfp14 dfo59g06hqa30c614exxyh693b5j9aamo315mk7f3hr', 'qo8kk', '2pvxavsjjamomke7cd05', '4f9r2d6ckcel32t7rjxr7egjn4d08r9g50 hrux6r2fw5n2qs8 g3vbn72kbqe5oa06vkp5vk749vnxop5r5o7v1shwdlh8sf4xs', 'n5wl92i62p', 19, 0, 'inq2kbgw68u8luifrbfyj 8kemoydfupmjpujyh6ayff ncme ', 5, 8);
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('ahsxxowi2yuclyur79ld', 'a0may', 'rj5yq41xajy86d6l 28i', '  1', '1484-7-1');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('tkrnj4322xm3jx4nnb22', '0f44a', '5dsbukjcfs3s291bx6d2', '  9', '1106-2-22');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('fb5xooqqqi7sla191y26', '4 fle', 'qeq2d8wxnxyeg 8a4eeb', '  h', '158-3-15');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('rrbysbj69mktxbgxsxpk', 'i2pc9', 'kmcyrjii0yjyihxv5m91', '  f', '1586-7-27');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('19hyyram4swmde1y9eh4', 'ivmfi', '5mrmy7mq9q2b5 y0bedr', '  f', '1944-12-12');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('8f00gia4brlx2yw 1n3r', 'i2pc9', '5dsbukjcfs3s291bx6d2', '  g', '402-1-25');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('o135c8g73bbd9kx180ts', 'bswxg', '5s 2p tvujrfevi2pdk8', '  b', '568-9-4');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('wxyng3cxamcyucp7pfij', 'u3l03', 'l59acg2kp0u98gu34d4l', '  a', '1513-3-5');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('ebyem3n3b0gcineim9hl', 'vhjvh', 'f40r2hjlgtx5fbhmg52a', '  9', '67-10-16');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values (' lxrhncjdoqdbeffr23q', '19p1p', 'lc9qir pybc6hxivmm90', '  2', '91-2-20');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('p5xgq2mljja 5qc42xpl', 'u5j87', 'f40r2hjlgtx5fbhmg52a', '  8', '1862-12-16');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('3j9qk 20orq9uh7a4yk2', '4ld d', 's1ijchnbkei9wbp90hn0', '   ', '940-7-11');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('e7ph5uvuk7wh14yji17u', 'u5j87', '63tfayc9 qlyscdg091s', '  b', '446-4-9');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('rpsfgf5uthdpaj38ppay', '0f44a', 's1ijchnbkei9wbp90hn0', '  e', '487-3-9');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('ljaljuye5smd2mku3h v', '4 fle', '6w4hb6e441posshvdhp5', '  6', '742-2-18');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('x4bfq5jj4gyrt4enfvpg', 'tu8b9', '7k8ucjbtkpuc7pnvc7e9', '  0', '1035-10-2');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('dto1se9clio4lm9lqby1', '5enqh', 'gg3pbtst8ko4rkhg1rwi', '  f', '1347-10-26');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('bjoh50vk8viw5p0 4cvt', '9jtt6', '600dcgrh53d0v0cejd8r', '  9', '705-3-13');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('u2n tumuax2y7r6m8jf9', 'oq3vu', 'bc9bhh3ew5f87l32 t25', '  9', '306-11-21');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('wb8mvbo1i62jljg15w4k', 'u3l03', 'cpjmw4qfbm36xl0tp 45', '  8', '231-1-13');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('4i9x9sep ssvohsnaat2', 'laumt', 'qeq2d8wxnxyeg 8a4eeb', '  9', '1244-2-7');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('pvr 652l8w4nyakdtolu', 'tu8b9', 'lc9qir pybc6hxivmm90', '  9', '1290-10-20');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('8w63cjxp4gwb5yiwxio7', 'bswxg', 'rj5yq41xajy86d6l 28i', '  4', '1139-7-11');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('5am8nr2luonxh51l1p0r', 'k5kfe', 'jhhu 4ppnp2mu6pja8ka', '  1', '1893-1-15');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('hq52m6s84c97yj8y0ouy', 'xekfx', 'rj5yq41xajy86d6l 28i', '  c', '1722-5-27');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('sk3xykjmao3nyo6d2jrl', '4s6ji', 'y rnkkc6smvsus65c8al', '  5', '1817-7-27');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('rjt8vm8wcmt5kk3rarb9', '4dnbh', 'vuvgw8em94op1srmayj4', '  7', '661-7-20');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('0bq3f64gv4wqc9gtpw3o', 'j4 nq', 'kq8el3m lp0v391tmqvg', '  d', '1-1-1');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('y9g73cttii26xi6df9iv', '8p8qt', '3vh e7 s1cp  mmcuko8', '  5', '885-7-17');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('jsx9mdwl69nvkc194gtk', '19p1p', 'ksvtxyn91yg0 uv3j1ne', '  6', '600-5-17');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('vae5inves4myh844o9dp', '4dnbh', 'tju15wsat2i9yq2r vtr', '   ', '1-1-1');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('1o2jysvp9lnnhjtt3xfd', '4s6ji', 'ksvtxyn91yg0 uv3j1ne', '   ', '1204-6-11');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('6a b1lpr2hqxd8pio52i', '44ugy', 'n1pai8ixjqnjpn7ys6mj', '  5', '2002-10-30');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('xbvhkupfuir4 7d0f4sa', '9jtt6', '0 urdftkes vk1c9afci', '  5', '848-11-3');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('opx3ga83dn48d9ci bx0', 'ivmfi', 'n1pai8ixjqnjpn7ys6mj', '  6', '1632-10-30');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('pgygnhepefrxx3bq8d5f', 'tu8b9', 'l59acg2kp0u98gu34d4l', '  1', '1707-5-23');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values (' ujd8hu7f8is6948lg5j', '6nldx', '63tfayc9 qlyscdg091s', '   ', '1025-1-3');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('hwjpd00s77pkcu7pb56m', '4s6ji', '5dsbukjcfs3s291bx6d2', '  8', '1384-2-18');
 
-insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_isporuke) values ('ca1ogf505o6ihqvnfhou', '44ugy', '6w4hb6e441posshvdhp5', '  c', '1484-7-1');
+insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, sifra_kupca, datum_porudzbine) values ('qhb6g4xax2bsl7m3 0m7', 'tu8b9', '0 urdftkes vk1c9afci', '  3', '348-7-2');
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('9xkwm0oani8hvvt49xlo', 'j5obbnr rhxyrt vh3xv', '  6', '1326-10-1', '645j2cgyji4gj712695lkyvjx', 17, 6, 13);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('7k1b04rtk3ssobxpq6k2', 'v5hqbor3sa6211647mwp', '  7', '1081-12-19', '5yvlam76wbbt rlrms0ixi0tp', 6, 12, 2);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('jq0w9h3jiwv057ismtsy', 'pbi7ixo 29mjdb0t9cva', '  c', '283-3-23', 'a6kkn0trrdl4dksbfdbyij57y', 15, 15, 6);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('q0brhgkeandpeqlllq71', 'd42j4hq6pgigbndf35dh', '  h', '522-3-9', 'umsxs9blcmp3fjd5tpfafn8bu', 3, 13, 10);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('v6anf4q9qbolwvm9n1f8', '8ttypvpq1xrh9kea4bej', '   ', '774-9-3', ' gcgjqloh ayoyw1l 74oook5', 10, 14, 1);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('0qtfiwvpc4qreqk5eea7', 'd42j4hq6pgigbndf35dh', '  e', '1587-2-11', 'mjhgmssfpccb6t5r6fvmjwivp', 1, 11, 15);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('psb0d73cws8lx7y6lnm4', '5mrmy7mq9q2b5 y0bedr', '  h', '1-1-1', '2f2yodp8j4 xvow3xubh1grlk', 5, 18, 5);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('p087 b4lfur9bvvmr10j', 'y rnkkc6smvsus65c8al', '  6', '316-1-1', 'ceo5nyh0c7cy2k0r904011qdj', 16, 3, 12);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('2wmnuhec567sktrwm359', '5mrmy7mq9q2b5 y0bedr', '  3', '1132-8-18', '0vd46fablb3jct4cmkdf4fw4g', 7, 0, 12);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('72ouqpbku4rjbpmkch6r', '600dcgrh53d0v0cejd8r', '  a', '956-6-25', 'ehlelw4 l8h9x8fxnae7b m m', 19, 16, 9);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('qd647im3h99opqmik40e', 'pbi7ixo 29mjdb0t9cva', '  6', '189-7-21', 'ff9us4hddni3fmv4b3deounrq', 8, 8, 7);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('6j97ocml 4f8hqfijr3l', 'jhhu 4ppnp2mu6pja8ka', '  c', '769-8-3', 'tm2 jvpvwwv1jqx ekmot49e7', 2, 4, 5);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('e9prpg0e1q76c6v1ltbg', 'vuvgw8em94op1srmayj4', '  1', '1786-2-26', 'sib2c9kof8b8xy6vjnn2vks6q', 6, 19, 0);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('9imqadu8fjaypj cu1nv', 'kmcyrjii0yjyihxv5m91', '   ', '229-2-25', '5a4splqfm3ajyxmoeotc018qu', 7, 9, 1);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('62jchjhv8ja4ferqmh2p', 'n1pai8ixjqnjpn7ys6mj', '  9', '654-1-28', 'llnnq5ug6ntfi1rh102n3087k', 19, 2, 19);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values (' 3km xw6qevmqfef06le', 'v5hqbor3sa6211647mwp', '  2', '1197-6-17', 'f28wla b7emj51a4sc5fegowp', 9, 6, 0);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('4thus7odbotdlhl6k rh', '6va1ymcsmhri4eamse7u', '  d', '1654-12-14', 'hkvpj6ig87hm595bxv4bs6x8m', 13, 17, 16);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('xrs710lyavh5pdd88fxj', 'kq8el3m lp0v391tmqvg', '  g', '1416-10-31', 'bkofbli9rt29qqu9a7demi2i6', 12, 0, 6);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('wv9toiyapw3mtur03m8l', '8ttypvpq1xrh9kea4bej', '  3', '1537-11-10', 'udo90crd8gkt 2s8kb5pvqn3n', 14, 12, 15);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('gk0s3ujjyvy05g vdo54', '5s6i4ceb2ds10ldj8cl0', '  7', '1891-8-15', 'ojkc9isiccgdt8d2uusa24no7', 0, 5, 14);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('1dfym5mpmcm2jg0a18g4', 'j5obbnr rhxyrt vh3xv', '  c', '432-4-16', 'il71pa18e e88ob9fybn970po', 4, 4, 2);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('3sgk8y3hc3bnxra2qpe9', '5dsbukjcfs3s291bx6d2', '  d', '629-3-23', '8borsidih4eaud4ylsns2xxre', 13, 15, 16);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('b0fgf2jf6y8ssy8e121 ', 'gg3pbtst8ko4rkhg1rwi', '  c', '601-9-11', 'x35x8a025bipy9eh1gw2 ha1h', 16, 9, 10);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('toev1y4n0s4m0syetegi', 'qg7lw2cq5356dp0pbjvr', '  3', '1812-4-10', '1l4x80f48j61r91c1w8vtfntd', 10, 7, 19);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('ouug xxtr26wmfi1qh0x', 'bc9bhh3ew5f87l32 t25', '  e', '1402-3-23', 'eevj50gf6ncfqgrhtql7g1qq5', 18, 11, 8);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('4qoqjyu5q181devi8oae', 'jhhu 4ppnp2mu6pja8ka', '  g', '850-9-24', 'nhgs wr6jlgqhmxpqgy2qn4n9', 8, 2, 18);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('v0lk1bwvhedn6cwh19eb', 'f40r2hjlgtx5fbhmg52a', '  8', '953-8-21', '2xmakul3cn gg0vkxkswxwu2x', 2, 3, 17);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('g6d3hv49toj9 bkewsbk', '0 urdftkes vk1c9afci', '  b', '1339-6-18', '0y7frcexc9lhrvk5q9nvmhm t', 15, 8, 3);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('h9kbr0yruywcwub1p1sl', '5mrmy7mq9q2b5 y0bedr', '  9', '504-12-21', '2e0dqmxstv5twg2r50tk3afl1', 0, 16, 4);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('uu8oodn801hcc47xj343', '5s6i4ceb2ds10ldj8cl0', '  9', '1279-8-8', '5xfsog24xdslhd9drsdskxk9d', 14, 10, 4);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('jqctylyycn34buu3sylh', 'vuvgw8em94op1srmayj4', '  h', '116-7-9', '9d 6e1bn3e7e6t8m9sbl2ovwa', 1, 1, 11);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('ufvf3qhgp9nkg6f7sdg5', 'qg7lw2cq5356dp0pbjvr', '  5', '1-1-1', '7pbf212lol vb3ky0sic3i3nl', 11, 1, 8);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('b1rkvtlv0lvupst5a2st', '6w4hb6e441posshvdhp5', '  g', '1263-2-3', 'bdvgo93yulqxg5u59s3jhh7l0', 12, 5, 18);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('bfn hibbwix2krdj6xs1', 'l59acg2kp0u98gu34d4l', '   ', '455-11-18', '7gm94g6g1ieiyfmh4pec8xojc', 17, 18, 17);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('jjs7plt1mncn35mgcju9', 'f40r2hjlgtx5fbhmg52a', '  h', '1053-6-20', 'wt5vyau6fvxsl2d7d34kq qe0', 3, 7, 14);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('u298m5sw1ue6qdl2spt6', 'd42j4hq6pgigbndf35dh', '  9', '116-12-10', 'x0msj 09bora6h8o6xnus26mj', 18, 17, 7);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('o5svcpsut1ux3rd0l4 y', 'gg3pbtst8ko4rkhg1rwi', '  g', '878-9-7', 'lobs9 rur8cbo0st331b18kf8', 11, 13, 9);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values (' 9jlwactowrkbbxf2v8e', '7k8ucjbtkpuc7pnvc7e9', '  d', '1721-6-12', 'uxj92648fabb9ufxc0ppi528f', 5, 19, 11);
 
-insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('4ta8lfb ryixrow1sugn', '6w4hb6e441posshvdhp5', '  7', '1467-10-16', 'eeec9s61cbaer723odb9ao6v3', 9, 10, 3);
+insert into faktura (sifra_fakture, korisnicko_ime, sifra_kupca, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('vo1yic3mfm6atfqht7kd', '4sx5hi6r115drybs3awn', '  4', '1523-6-8', 'f0g3ha0sq75kwcyiqfidn8v2u', 4, 14, 13);
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('orbyc0nnr255wrj717yjceq8lo1cig', 'ljaljuye5smd2mku3h v', 'xf441', 'wv9toiyapw3mtur03m8l', '6va1ymcsmhri4eamse7u');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('beli5urpb9c3soiw9dp1ixf36jo hp', '1348-10-23', ' lxrhncjdoqdbeffr23q', 'f28av', '0qtfiwvpc4qreqk5eea7', '5s6i4ceb2ds10ldj8cl0');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('mh00u265nafn7o0t i90atxlnyfi6 ', 'fb5xooqqqi7sla191y26', '364fj', 'ouug xxtr26wmfi1qh0x', '5mrmy7mq9q2b5 y0bedr');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('fkkqx58u fc971qdetg2m0bnu80366', '252-4-17', 'rpsfgf5uthdpaj38ppay', 'j4 nq', '4qoqjyu5q181devi8oae', 'v5hqbor3sa6211647mwp');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('80hn9y0 dxlc1vwk8dm282906p9067', 'hq52m6s84c97yj8y0ouy', '364fj', 'v0lk1bwvhedn6cwh19eb', 'j5obbnr rhxyrt vh3xv');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('93pu5 5dvmv2fk456fi6xtm5gvd40o', '1-1-1', 'xbvhkupfuir4 7d0f4sa', '4ld d', ' 9jlwactowrkbbxf2v8e', '600dcgrh53d0v0cejd8r');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('  iuv7hn0fyiap6cpm6rni9rwdikg ', 'ebyem3n3b0gcineim9hl', 'vhjvh', 'psb0d73cws8lx7y6lnm4', '5mrmy7mq9q2b5 y0bedr');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('691g be6c64 7rgk0xyoi7gnpnmoya', '1257-4-30', 'bjoh50vk8viw5p0 4cvt', '4ld d', 'u298m5sw1ue6qdl2spt6', 'kq8el3m lp0v391tmqvg');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('379axfk26vm7ucotrertdof21cu7c8', 'dto1se9clio4lm9lqby1', 'laumt', 'wv9toiyapw3mtur03m8l', 'j5obbnr rhxyrt vh3xv');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('x63cpfo2fehwdc1f1sp4 kitcqtypq', '128-1-18', 'xbvhkupfuir4 7d0f4sa', 'f28av', ' 9jlwactowrkbbxf2v8e', 'ksvtxyn91yg0 uv3j1ne');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('74utgsykhn77e4w5tl58t19 helret', 'ljaljuye5smd2mku3h v', '4 fle', 'v6anf4q9qbolwvm9n1f8', '5s 2p tvujrfevi2pdk8');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('w06n6ub4kxxtg6 lyogpxsex0sp7st', '1708-3-27', 'jsx9mdwl69nvkc194gtk', 'k5kfe', '9imqadu8fjaypj cu1nv', '4sx5hi6r115drybs3awn');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values (' 3q5i1of aq v2eyuw l4sba7vfthr', 'fb5xooqqqi7sla191y26', 'laumt', 'e9prpg0e1q76c6v1ltbg', '6va1ymcsmhri4eamse7u');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('p7ycv2mg18uj8j1tm6v jub8gaxl66', '709-4-19', '1o2jysvp9lnnhjtt3xfd', 'qo8kk', '3sgk8y3hc3bnxra2qpe9', 'kmcyrjii0yjyihxv5m91');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('jkmrcbkrn6cxklvkhmewltwrbjgu52', 'ebyem3n3b0gcineim9hl', 'laumt', 'b0fgf2jf6y8ssy8e121 ', 'qwv2imq6d5y5h9ilnctr');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('c9ut84qjj48 6aerx2014kxtg4lklj', '768-12-25', '8f00gia4brlx2yw 1n3r', 'pot5o', '9imqadu8fjaypj cu1nv', '600dcgrh53d0v0cejd8r');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('lwutd6jfukt383dicm302p7t ols6n', 'y9g73cttii26xi6df9iv', '8p8qt', 'b1rkvtlv0lvupst5a2st', 'bc9bhh3ew5f87l32 t25');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('4w5lesb 43x3e4je3qqb2qfhs6q9da', '1473-2-13', 'sk3xykjmao3nyo6d2jrl', 'j4 nq', 'gk0s3ujjyvy05g vdo54', 'y rnkkc6smvsus65c8al');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('lg7io 9ixrpu77rqoar a1b5iofti6', 'e7ph5uvuk7wh14yji17u', 'xekfx', 'jqctylyycn34buu3sylh', 'bc9bhh3ew5f87l32 t25');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('pqklsdxv4a3uow6wdtnn aw80g0kkw', '619-6-12', '5am8nr2luonxh51l1p0r', 'f28av', 'q0brhgkeandpeqlllq71', '3tdlm0pmpc vun9bfqt3');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('hcwu3pwj69c8rslk  8215wnkcg0l8', 'opx3ga83dn48d9ci bx0', 'bswxg', 'ouug xxtr26wmfi1qh0x', 'n1pai8ixjqnjpn7ys6mj');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('jif06hoi1e09e ldd4ib2t21p5c35n', '1852-11-30', 'xbvhkupfuir4 7d0f4sa', '9jtt6', 'uu8oodn801hcc47xj343', 'cpjmw4qfbm36xl0tp 45');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('4q97dmbc5w08q66cbasawhjdau2r0 ', 'rjt8vm8wcmt5kk3rarb9', 'xf441', 'ouug xxtr26wmfi1qh0x', 'qeq2d8wxnxyeg 8a4eeb');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('7f s819x74k5qvbnfl057fyjatujgr', '871-9-4', ' lxrhncjdoqdbeffr23q', 'g0owy', ' 3km xw6qevmqfef06le', 'y rnkkc6smvsus65c8al');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('as6lhufof3nmff6ie8gi1fpqypkn00', 'u2n tumuax2y7r6m8jf9', '6vaes', 'b1rkvtlv0lvupst5a2st', 'qeq2d8wxnxyeg 8a4eeb');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('b5tmr848r8nmgjitx2ry6u2fo5w6x2', '528-3-6', 'pvr 652l8w4nyakdtolu', 'j4 nq', ' 3km xw6qevmqfef06le', 'l59acg2kp0u98gu34d4l');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('d9q3 xw6pgdfb8360pd0ofgfthg1f4', 'p5xgq2mljja 5qc42xpl', 'u5j87', '1dfym5mpmcm2jg0a18g4', 'rj5yq41xajy86d6l 28i');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('pkgqhh2gfscp5rtfunvh636l6h5210', '1609-1-15', 'wxyng3cxamcyucp7pfij', 'f28av', 'g6d3hv49toj9 bkewsbk', 'qg7lw2cq5356dp0pbjvr');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('h3x2ikmw7cxwhkpak3lqfxb7pklyjx', 'vae5inves4myh844o9dp', 'xf441', 'h9kbr0yruywcwub1p1sl', 'gg3pbtst8ko4rkhg1rwi');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('lvug 76aanwpasviy9sog52xfc e0m', '394-1-12', 'pvr 652l8w4nyakdtolu', '4ld d', 'p087 b4lfur9bvvmr10j', 'qg7lw2cq5356dp0pbjvr');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('bci954ofqq s2kii1db2j494e3dfi ', '19hyyram4swmde1y9eh4', '6nldx', '62jchjhv8ja4ferqmh2p', 'hd9875an07msj9fkwgdp');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('qfqm332csnwiorkwq59yo0pdspikbw', '1150-4-18', '0bq3f64gv4wqc9gtpw3o', 'i2pc9', '3sgk8y3hc3bnxra2qpe9', 'v5hqbor3sa6211647mwp');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('7t9e 0oqnlnos84gk265n9ku flcuw', '4i9x9sep ssvohsnaat2', 'xekfx', '4thus7odbotdlhl6k rh', 'rj5yq41xajy86d6l 28i');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('iaxucl0 kx5fm8dhpgn7d0ah8hmw87', '1069-2-12', 'xbvhkupfuir4 7d0f4sa', '19p1p', 'gk0s3ujjyvy05g vdo54', 'cpjmw4qfbm36xl0tp 45');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('8truxhp7dp8ud0 od4aso8v5lk6h79', 'ljaljuye5smd2mku3h v', '4dnbh', 'v6anf4q9qbolwvm9n1f8', 'qwv2imq6d5y5h9ilnctr');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('idkkhykglewuxp8mw81ygk0hwrcupc', '1957-3-29', 'pgygnhepefrxx3bq8d5f', '19p1p', 'u298m5sw1ue6qdl2spt6', '7k8ucjbtkpuc7pnvc7e9');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('j3ka11pqex6cpqk1xg7ok1od5hmarp', 'ebyem3n3b0gcineim9hl', '5enqh', '4thus7odbotdlhl6k rh', '6va1ymcsmhri4eamse7u');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('gt73tv5rrkad7yqysyp3gxua2v1a v', '972-12-19', '1o2jysvp9lnnhjtt3xfd', 'qm1bn', '3sgk8y3hc3bnxra2qpe9', 'l59acg2kp0u98gu34d4l');
 
-insert into otpremnica (sifra_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('86qhgr43mdpj7jokh3u25qty2ak7xq', 'fb5xooqqqi7sla191y26', 'xf441', 'h9kbr0yruywcwub1p1sl', 'f40r2hjlgtx5fbhmg52a');
+insert into otpremnica (sifra_otpremnice, datum_otpremnice, sifra_porudzbine, sifra_magacina, sifra_fakture, korisnicko_ime) values ('21ahh0gtlhdpup973vd0iyhwftlara', '1348-10-23', 'jsx9mdwl69nvkc194gtk', '8ew3u', '0qtfiwvpc4qreqk5eea7', 'qg7lw2cq5356dp0pbjvr');
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('upno3jmba1 i13dbx1ulhr38iqyi4dc194v6881lc7m8cyneqtd915dx221dumfnjcfhd8hp120', 'ahsxxowi2yuclyur79ld', 0, 1, 3);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('mrl9rf n22jh8l0n0xapvobt2ogo6c2e9w jh5nlx31j0haqyndorf8qttcqktme8op77cy4dlo', 'tkrnj4322xm3jx4nnb22', 2, 19, 8);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('fcdc2iq7b4ykj55nvubd50pj6ahhbin6583dobwkli1ac3bavtoqyhxabssudbh 15t0trobi15', 'fb5xooqqqi7sla191y26', 19, 8, 2);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('h0 6ksh15tdfhx7k919cm6c8  e4vouy7x30hqv2aubjdrwb poikwogfdnardlq98r 37xj1c6', 'rrbysbj69mktxbgxsxpk', 0, 7, 7);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('htq74xfufrc6gsqvnvle2gb3q5 y7aj1elhw96gulai0m yc70 nve1gdjm pnx7ge9ugfmloid', '19hyyram4swmde1y9eh4', 17, 0, 6);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('6 wh4fb39 f0quojfy36a3y47ar7y4ewr42 0v9kpxw7pdtii0mgbut6r94t7 qfpx52ecl6rpj', '8f00gia4brlx2yw 1n3r', 14, 14, 16);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('c71fs56o jkk9 1vf3147h8i b7sxdixlcq0mfvff468sysicfl2ei48k7nqnpjmh iq78qgiba', 'o135c8g73bbd9kx180ts', 10, 18, 19);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('kjvf1bmxtwh82if4doytr9t5v1r12cxu2r0pmmw46lq7xblt323pwnha25pxd8gf4a9ks13hy95', 'wxyng3cxamcyucp7pfij', 5, 11, 14);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('eaw5r7i1q4vcxcaiddx0j7ufjt0lj5phetqlfvys5k6aoci9jomi7cf8ikig0ml0ofoqto6ycvc', 'ebyem3n3b0gcineim9hl', 7, 2, 14);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('gxwqeoj75xxuwvdkaa5h0phtl34we58 b8y66blwiw47h1qlu1ofjb3q 6b4h98cs50inu7mux4', ' lxrhncjdoqdbeffr23q', 3, 3, 4);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('j05j181mppw1cnlugpn3vo27fr9c7e1kr3mwkct2jo9pr3t8u d3mvh3kprfxf 9vj5v9xac 97', 'p5xgq2mljja 5qc42xpl', 13, 16, 9);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('2ptlpvua13 8rmn00gdd3kvjkiipju6q8c1uod0havahh16fy8 7wxqvji5wmwtpuf1p21thi9a', '3j9qk 20orq9uh7a4yk2', 12, 17, 3);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('a9x5c3sa8irhdbio46kk7uiei8xn5a3 f5cd1sjd0fvoexnw o jexpkn7h frg6jhi6iq8xl s', 'e7ph5uvuk7wh14yji17u', 14, 17, 15);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('t9ffsqu9p4v0bum4xl02n82nt54ml8tnm9l55bhs500415 cc t531ib91ltxc8jmc23h1jrcko', 'rpsfgf5uthdpaj38ppay', 6, 2, 10);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('mqt3qbpvi5ee5wklbhw2ssxm55tbp2c3rakdy6ch31sc3ocfksd6a5uyup3uv5efg9whmf71pyq', 'ljaljuye5smd2mku3h v', 11, 4, 11);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('f5iv764och98yfm3shydl2801ohivfirdm5pos3kx52t19juy9g91he7tjh3c gvccn29 r4acy', 'x4bfq5jj4gyrt4enfvpg', 1, 16, 0);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('ts694h70mie6sn6ue hog 2r1cqmvp01n cnuurqqn2lewwe2 ddvif430ikbeon8uxjt8wqddg', 'dto1se9clio4lm9lqby1', 15, 9, 5);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('0jy8ut2l0ow549s63xyobv4uqyxrnq8qr 9ymupb rqgw91 ixrbxgoukb9j2pvg2f7ofksvn3r', 'bjoh50vk8viw5p0 4cvt', 11, 1, 1);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('e5sdbhayce3f9c  oo nqfygm9799xqnkfhibrm61rrahw137ehwjoa86g7qsd6kom e7n7pnsd', 'u2n tumuax2y7r6m8jf9', 12, 6, 1);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('7bqrmh568cnn1ne b0l8g7ga66kxtm18ytle2a d6q1j47uj2rv6di8f2eelyqgq4gublf9xi16', 'wb8mvbo1i62jljg15w4k', 13, 8, 11);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('nchbn6vxphx7c8pklu3lt16ag1bm2 aqbibd63j7n6ojoecjb868wkj7e kvgi2jgs660aw5jdw', '4i9x9sep ssvohsnaat2', 1, 11, 8);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('r0kspl61i3kcwnbq5dxrbu0hprhgwjqro09vqgwlxt00e2s6xi9ve3wkpc8go92gim0c9 54  p', 'pvr 652l8w4nyakdtolu', 19, 4, 19);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('hv p9ou2r u7i7bmc b2eh6c5angfiy7mcx8uqrva33pv3kcuf86u3um1vprpxym cuc7u65a08', '8w63cjxp4gwb5yiwxio7', 5, 13, 0);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('w37cf2 1btl54dilr3huxfmmxcas57eobgt68pqo1uuh9olmebrlwg53ve9dd0120fb3at0pl46', '5am8nr2luonxh51l1p0r', 9, 18, 9);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('nunc2meobaa2d1gqdghms u0h8mi1nbtjxogn8bqi2cahshmx46btgmb4q 86oc13h9tisa5per', 'hq52m6s84c97yj8y0ouy', 2, 15, 10);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('b4hbmw1hh6lik bm3do969b kfdbw1pmmuilxb9sbkoddmdsuufmhywutf5f5 113oho3aflkti', 'sk3xykjmao3nyo6d2jrl', 18, 13, 18);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('5d88u127kfl8dtd43r37svtsklnbbyfee tnnei32s31e3rgwg ujn3xxco3cc7c tclvomnmnx', 'rjt8vm8wcmt5kk3rarb9', 18, 14, 12);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('o l623hf0nebpk4vffj134sy3uwemdvrnybuf22okej36be7n0dx5ngem1vfcjj q5qupjb4rqt', '0bq3f64gv4wqc9gtpw3o', 15, 5, 13);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('4akdtokwxj2gnct56wyp0xu1m0mf 89mfktn5kuqxkww4ehptdyr2jmj48 wg3g lfivuwku44y', 'y9g73cttii26xi6df9iv', 8, 19, 17);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('7n65or7nfgdy8cpc50htprf92h02l9p509wcpmj4n klql 3oqblcqwxt4m5v4k1ayywnho11h8', 'jsx9mdwl69nvkc194gtk', 10, 9, 15);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('bwsgd3tg5g57v6dlxogj94ra9f5myid krfamuvojfc8hsv89msc693xytxc8x4wcrc4drxthgu', 'vae5inves4myh844o9dp', 9, 12, 13);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('r328cf9sv50u7rs5fklqj7geutrf5iiythmxxbabod7m61f3sa9s6b9 7b9ssec15uip4m5y147', '1o2jysvp9lnnhjtt3xfd', 8, 10, 6);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('s8mwskgrbr j4050m6ysia9qnv8x6idgld574gp3ch5 mavdxt0jqxwy0sfl  98tio96f4rwac', '6a b1lpr2hqxd8pio52i', 16, 3, 4);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('se4pi6hxg2oo2180wte5f846ds11g1e72  67jiqktmqrekb0lmspj6fwbox6r5nclx2kuo37k ', 'xbvhkupfuir4 7d0f4sa', 16, 6, 12);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('uaqo26g74jqkix7d6m8gd6s85wvst fwbw0mdwwiyv2h2oosoefl5ymnn920i2m06ctwo3bn4p5', 'opx3ga83dn48d9ci bx0', 4, 7, 18);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('bqh6sm0mw4kpadm0j6d8bmenho46pj0y0cdubbjb jud226ye52d632c89g3iwc59nba1u418lx', 'pgygnhepefrxx3bq8d5f', 17, 15, 5);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('4g119poom2xyj5a9f97ylwjp5lca3e357mbn2jx0qse bp jwm0xcjd56sqs6536trd6c4jcf49', ' ujd8hu7f8is6948lg5j', 3, 10, 7);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('pefxuse 7k3vixqwestbl9bg3f4akogf650det db24l3 4l21x7qyo4s78103 05jjlqbkj4jt', 'hwjpd00s77pkcu7pb56m', 7, 0, 2);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('h43hynaliswtj45u7wft594ksy1 if viynvf45j 7du4dqvd6yc046s0ljt9si5kif9s2733l2', 'ca1ogf505o6ihqvnfhou', 6, 5, 16);
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo) values ('hhk5nt22tc4qircfy 1rauyy4eyfp14 dfo59g06hqa30c614exxyh693b5j9aamo315mk7f3hr', 'qhb6g4xax2bsl7m3 0m7', 4, 12, 17);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('upno3jmba1 i13dbx1ulhr38iqyi4dc194v6881lc7m8cyneqtd915dx221dumfnjcfhd8hp120', '9xkwm0oani8hvvt49xlo', 5);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('mrl9rf n22jh8l0n0xapvobt2ogo6c2e9w jh5nlx31j0haqyndorf8qttcqktme8op77cy4dlo', '7k1b04rtk3ssobxpq6k2', 14);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('fcdc2iq7b4ykj55nvubd50pj6ahhbin6583dobwkli1ac3bavtoqyhxabssudbh 15t0trobi15', 'jq0w9h3jiwv057ismtsy', 0);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('h0 6ksh15tdfhx7k919cm6c8  e4vouy7x30hqv2aubjdrwb poikwogfdnardlq98r 37xj1c6', 'q0brhgkeandpeqlllq71', 18);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('htq74xfufrc6gsqvnvle2gb3q5 y7aj1elhw96gulai0m yc70 nve1gdjm pnx7ge9ugfmloid', 'v6anf4q9qbolwvm9n1f8', 18);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('6 wh4fb39 f0quojfy36a3y47ar7y4ewr42 0v9kpxw7pdtii0mgbut6r94t7 qfpx52ecl6rpj', '0qtfiwvpc4qreqk5eea7', 4);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('c71fs56o jkk9 1vf3147h8i b7sxdixlcq0mfvff468sysicfl2ei48k7nqnpjmh iq78qgiba', 'psb0d73cws8lx7y6lnm4', 15);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('kjvf1bmxtwh82if4doytr9t5v1r12cxu2r0pmmw46lq7xblt323pwnha25pxd8gf4a9ks13hy95', 'p087 b4lfur9bvvmr10j', 15);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('eaw5r7i1q4vcxcaiddx0j7ufjt0lj5phetqlfvys5k6aoci9jomi7cf8ikig0ml0ofoqto6ycvc', '2wmnuhec567sktrwm359', 6);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('gxwqeoj75xxuwvdkaa5h0phtl34we58 b8y66blwiw47h1qlu1ofjb3q 6b4h98cs50inu7mux4', '72ouqpbku4rjbpmkch6r', 17);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('j05j181mppw1cnlugpn3vo27fr9c7e1kr3mwkct2jo9pr3t8u d3mvh3kprfxf 9vj5v9xac 97', 'qd647im3h99opqmik40e', 16);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('2ptlpvua13 8rmn00gdd3kvjkiipju6q8c1uod0havahh16fy8 7wxqvji5wmwtpuf1p21thi9a', '6j97ocml 4f8hqfijr3l', 16);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('a9x5c3sa8irhdbio46kk7uiei8xn5a3 f5cd1sjd0fvoexnw o jexpkn7h frg6jhi6iq8xl s', 'e9prpg0e1q76c6v1ltbg', 2);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('t9ffsqu9p4v0bum4xl02n82nt54ml8tnm9l55bhs500415 cc t531ib91ltxc8jmc23h1jrcko', '9imqadu8fjaypj cu1nv', 10);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('mqt3qbpvi5ee5wklbhw2ssxm55tbp2c3rakdy6ch31sc3ocfksd6a5uyup3uv5efg9whmf71pyq', '62jchjhv8ja4ferqmh2p', 19);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('f5iv764och98yfm3shydl2801ohivfirdm5pos3kx52t19juy9g91he7tjh3c gvccn29 r4acy', ' 3km xw6qevmqfef06le', 8);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('ts694h70mie6sn6ue hog 2r1cqmvp01n cnuurqqn2lewwe2 ddvif430ikbeon8uxjt8wqddg', '4thus7odbotdlhl6k rh', 4);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('0jy8ut2l0ow549s63xyobv4uqyxrnq8qr 9ymupb rqgw91 ixrbxgoukb9j2pvg2f7ofksvn3r', 'xrs710lyavh5pdd88fxj', 11);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('e5sdbhayce3f9c  oo nqfygm9799xqnkfhibrm61rrahw137ehwjoa86g7qsd6kom e7n7pnsd', 'wv9toiyapw3mtur03m8l', 1);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('7bqrmh568cnn1ne b0l8g7ga66kxtm18ytle2a d6q1j47uj2rv6di8f2eelyqgq4gublf9xi16', 'gk0s3ujjyvy05g vdo54', 2);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('nchbn6vxphx7c8pklu3lt16ag1bm2 aqbibd63j7n6ojoecjb868wkj7e kvgi2jgs660aw5jdw', '1dfym5mpmcm2jg0a18g4', 12);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('r0kspl61i3kcwnbq5dxrbu0hprhgwjqro09vqgwlxt00e2s6xi9ve3wkpc8go92gim0c9 54  p', '3sgk8y3hc3bnxra2qpe9', 12);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('hv p9ou2r u7i7bmc b2eh6c5angfiy7mcx8uqrva33pv3kcuf86u3um1vprpxym cuc7u65a08', 'b0fgf2jf6y8ssy8e121 ', 17);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('w37cf2 1btl54dilr3huxfmmxcas57eobgt68pqo1uuh9olmebrlwg53ve9dd0120fb3at0pl46', 'toev1y4n0s4m0syetegi', 9);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('nunc2meobaa2d1gqdghms u0h8mi1nbtjxogn8bqi2cahshmx46btgmb4q 86oc13h9tisa5per', 'ouug xxtr26wmfi1qh0x', 7);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('b4hbmw1hh6lik bm3do969b kfdbw1pmmuilxb9sbkoddmdsuufmhywutf5f5 113oho3aflkti', '4qoqjyu5q181devi8oae', 19);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('5d88u127kfl8dtd43r37svtsklnbbyfee tnnei32s31e3rgwg ujn3xxco3cc7c tclvomnmnx', 'v0lk1bwvhedn6cwh19eb', 9);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('o l623hf0nebpk4vffj134sy3uwemdvrnybuf22okej36be7n0dx5ngem1vfcjj q5qupjb4rqt', 'g6d3hv49toj9 bkewsbk', 1);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('4akdtokwxj2gnct56wyp0xu1m0mf 89mfktn5kuqxkww4ehptdyr2jmj48 wg3g lfivuwku44y', 'h9kbr0yruywcwub1p1sl', 8);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('7n65or7nfgdy8cpc50htprf92h02l9p509wcpmj4n klql 3oqblcqwxt4m5v4k1ayywnho11h8', 'uu8oodn801hcc47xj343', 3);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('bwsgd3tg5g57v6dlxogj94ra9f5myid krfamuvojfc8hsv89msc693xytxc8x4wcrc4drxthgu', 'jqctylyycn34buu3sylh', 11);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('r328cf9sv50u7rs5fklqj7geutrf5iiythmxxbabod7m61f3sa9s6b9 7b9ssec15uip4m5y147', 'ufvf3qhgp9nkg6f7sdg5', 13);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('s8mwskgrbr j4050m6ysia9qnv8x6idgld574gp3ch5 mavdxt0jqxwy0sfl  98tio96f4rwac', 'b1rkvtlv0lvupst5a2st', 14);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('se4pi6hxg2oo2180wte5f846ds11g1e72  67jiqktmqrekb0lmspj6fwbox6r5nclx2kuo37k ', 'bfn hibbwix2krdj6xs1', 6);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('uaqo26g74jqkix7d6m8gd6s85wvst fwbw0mdwwiyv2h2oosoefl5ymnn920i2m06ctwo3bn4p5', 'jjs7plt1mncn35mgcju9', 13);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('bqh6sm0mw4kpadm0j6d8bmenho46pj0y0cdubbjb jud226ye52d632c89g3iwc59nba1u418lx', 'u298m5sw1ue6qdl2spt6', 0);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('4g119poom2xyj5a9f97ylwjp5lca3e357mbn2jx0qse bp jwm0xcjd56sqs6536trd6c4jcf49', 'o5svcpsut1ux3rd0l4 y', 3);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('pefxuse 7k3vixqwestbl9bg3f4akogf650det db24l3 4l21x7qyo4s78103 05jjlqbkj4jt', ' 9jlwactowrkbbxf2v8e', 7);
 
-insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('h43hynaliswtj45u7wft594ksy1 if viynvf45j 7du4dqvd6yc046s0ljt9si5kif9s2733l2', '4ta8lfb ryixrow1sugn', 10);
+insert into fakturisana_roba (sifra_robe, sifra_fakture, komada_fakturisano) values ('hhk5nt22tc4qircfy 1rauyy4eyfp14 dfo59g06hqa30c614exxyh693b5j9aamo315mk7f3hr', 'vo1yic3mfm6atfqht7kd', 5);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('upno3jmba1 i13dbx1ulhr38iqyi4dc194v6881lc7m8cyneqtd915dx221dumfnjcfhd8hp120', 'orbyc0nnr255wrj717yjceq8lo1cig', 5);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('mrl9rf n22jh8l0n0xapvobt2ogo6c2e9w jh5nlx31j0haqyndorf8qttcqktme8op77cy4dlo', 'beli5urpb9c3soiw9dp1ixf36jo hp', 16);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('fcdc2iq7b4ykj55nvubd50pj6ahhbin6583dobwkli1ac3bavtoqyhxabssudbh 15t0trobi15', 'mh00u265nafn7o0t i90atxlnyfi6 ', 17);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('h0 6ksh15tdfhx7k919cm6c8  e4vouy7x30hqv2aubjdrwb poikwogfdnardlq98r 37xj1c6', 'fkkqx58u fc971qdetg2m0bnu80366', 14);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('htq74xfufrc6gsqvnvle2gb3q5 y7aj1elhw96gulai0m yc70 nve1gdjm pnx7ge9ugfmloid', '80hn9y0 dxlc1vwk8dm282906p9067', 18);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('6 wh4fb39 f0quojfy36a3y47ar7y4ewr42 0v9kpxw7pdtii0mgbut6r94t7 qfpx52ecl6rpj', '93pu5 5dvmv2fk456fi6xtm5gvd40o', 1);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('c71fs56o jkk9 1vf3147h8i b7sxdixlcq0mfvff468sysicfl2ei48k7nqnpjmh iq78qgiba', '  iuv7hn0fyiap6cpm6rni9rwdikg ', 3);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('kjvf1bmxtwh82if4doytr9t5v1r12cxu2r0pmmw46lq7xblt323pwnha25pxd8gf4a9ks13hy95', '691g be6c64 7rgk0xyoi7gnpnmoya', 11);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('eaw5r7i1q4vcxcaiddx0j7ufjt0lj5phetqlfvys5k6aoci9jomi7cf8ikig0ml0ofoqto6ycvc', '379axfk26vm7ucotrertdof21cu7c8', 16);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('gxwqeoj75xxuwvdkaa5h0phtl34we58 b8y66blwiw47h1qlu1ofjb3q 6b4h98cs50inu7mux4', 'x63cpfo2fehwdc1f1sp4 kitcqtypq', 8);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('j05j181mppw1cnlugpn3vo27fr9c7e1kr3mwkct2jo9pr3t8u d3mvh3kprfxf 9vj5v9xac 97', '74utgsykhn77e4w5tl58t19 helret', 13);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('2ptlpvua13 8rmn00gdd3kvjkiipju6q8c1uod0havahh16fy8 7wxqvji5wmwtpuf1p21thi9a', 'w06n6ub4kxxtg6 lyogpxsex0sp7st', 18);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('a9x5c3sa8irhdbio46kk7uiei8xn5a3 f5cd1sjd0fvoexnw o jexpkn7h frg6jhi6iq8xl s', ' 3q5i1of aq v2eyuw l4sba7vfthr', 10);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('t9ffsqu9p4v0bum4xl02n82nt54ml8tnm9l55bhs500415 cc t531ib91ltxc8jmc23h1jrcko', 'p7ycv2mg18uj8j1tm6v jub8gaxl66', 19);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('mqt3qbpvi5ee5wklbhw2ssxm55tbp2c3rakdy6ch31sc3ocfksd6a5uyup3uv5efg9whmf71pyq', 'jkmrcbkrn6cxklvkhmewltwrbjgu52', 6);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('f5iv764och98yfm3shydl2801ohivfirdm5pos3kx52t19juy9g91he7tjh3c gvccn29 r4acy', 'c9ut84qjj48 6aerx2014kxtg4lklj', 0);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('ts694h70mie6sn6ue hog 2r1cqmvp01n cnuurqqn2lewwe2 ddvif430ikbeon8uxjt8wqddg', 'lwutd6jfukt383dicm302p7t ols6n', 2);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('0jy8ut2l0ow549s63xyobv4uqyxrnq8qr 9ymupb rqgw91 ixrbxgoukb9j2pvg2f7ofksvn3r', '4w5lesb 43x3e4je3qqb2qfhs6q9da', 13);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('e5sdbhayce3f9c  oo nqfygm9799xqnkfhibrm61rrahw137ehwjoa86g7qsd6kom e7n7pnsd', 'lg7io 9ixrpu77rqoar a1b5iofti6', 8);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('7bqrmh568cnn1ne b0l8g7ga66kxtm18ytle2a d6q1j47uj2rv6di8f2eelyqgq4gublf9xi16', 'pqklsdxv4a3uow6wdtnn aw80g0kkw', 9);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('nchbn6vxphx7c8pklu3lt16ag1bm2 aqbibd63j7n6ojoecjb868wkj7e kvgi2jgs660aw5jdw', 'hcwu3pwj69c8rslk  8215wnkcg0l8', 19);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('r0kspl61i3kcwnbq5dxrbu0hprhgwjqro09vqgwlxt00e2s6xi9ve3wkpc8go92gim0c9 54  p', 'jif06hoi1e09e ldd4ib2t21p5c35n', 17);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('hv p9ou2r u7i7bmc b2eh6c5angfiy7mcx8uqrva33pv3kcuf86u3um1vprpxym cuc7u65a08', '4q97dmbc5w08q66cbasawhjdau2r0 ', 11);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('w37cf2 1btl54dilr3huxfmmxcas57eobgt68pqo1uuh9olmebrlwg53ve9dd0120fb3at0pl46', '7f s819x74k5qvbnfl057fyjatujgr', 4);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('nunc2meobaa2d1gqdghms u0h8mi1nbtjxogn8bqi2cahshmx46btgmb4q 86oc13h9tisa5per', 'as6lhufof3nmff6ie8gi1fpqypkn00', 7);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('b4hbmw1hh6lik bm3do969b kfdbw1pmmuilxb9sbkoddmdsuufmhywutf5f5 113oho3aflkti', 'b5tmr848r8nmgjitx2ry6u2fo5w6x2', 12);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('5d88u127kfl8dtd43r37svtsklnbbyfee tnnei32s31e3rgwg ujn3xxco3cc7c tclvomnmnx', 'd9q3 xw6pgdfb8360pd0ofgfthg1f4', 9);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('o l623hf0nebpk4vffj134sy3uwemdvrnybuf22okej36be7n0dx5ngem1vfcjj q5qupjb4rqt', 'pkgqhh2gfscp5rtfunvh636l6h5210', 10);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('4akdtokwxj2gnct56wyp0xu1m0mf 89mfktn5kuqxkww4ehptdyr2jmj48 wg3g lfivuwku44y', 'h3x2ikmw7cxwhkpak3lqfxb7pklyjx', 15);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('7n65or7nfgdy8cpc50htprf92h02l9p509wcpmj4n klql 3oqblcqwxt4m5v4k1ayywnho11h8', 'lvug 76aanwpasviy9sog52xfc e0m', 6);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('bwsgd3tg5g57v6dlxogj94ra9f5myid krfamuvojfc8hsv89msc693xytxc8x4wcrc4drxthgu', 'bci954ofqq s2kii1db2j494e3dfi ', 14);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('r328cf9sv50u7rs5fklqj7geutrf5iiythmxxbabod7m61f3sa9s6b9 7b9ssec15uip4m5y147', 'qfqm332csnwiorkwq59yo0pdspikbw', 2);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('s8mwskgrbr j4050m6ysia9qnv8x6idgld574gp3ch5 mavdxt0jqxwy0sfl  98tio96f4rwac', '7t9e 0oqnlnos84gk265n9ku flcuw', 0);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('se4pi6hxg2oo2180wte5f846ds11g1e72  67jiqktmqrekb0lmspj6fwbox6r5nclx2kuo37k ', 'iaxucl0 kx5fm8dhpgn7d0ah8hmw87', 5);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('uaqo26g74jqkix7d6m8gd6s85wvst fwbw0mdwwiyv2h2oosoefl5ymnn920i2m06ctwo3bn4p5', '8truxhp7dp8ud0 od4aso8v5lk6h79', 12);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('bqh6sm0mw4kpadm0j6d8bmenho46pj0y0cdubbjb jud226ye52d632c89g3iwc59nba1u418lx', 'idkkhykglewuxp8mw81ygk0hwrcupc', 15);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('4g119poom2xyj5a9f97ylwjp5lca3e357mbn2jx0qse bp jwm0xcjd56sqs6536trd6c4jcf49', 'j3ka11pqex6cpqk1xg7ok1od5hmarp', 1);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('pefxuse 7k3vixqwestbl9bg3f4akogf650det db24l3 4l21x7qyo4s78103 05jjlqbkj4jt', 'gt73tv5rrkad7yqysyp3gxua2v1a v', 7);
 
-insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('h43hynaliswtj45u7wft594ksy1 if viynvf45j 7du4dqvd6yc046s0ljt9si5kif9s2733l2', '86qhgr43mdpj7jokh3u25qty2ak7xq', 4);
+insert into otpremljena_roba (sifra_robe, sifra_otpremnice, komada_poslato) values ('hhk5nt22tc4qircfy 1rauyy4eyfp14 dfo59g06hqa30c614exxyh693b5j9aamo315mk7f3hr', '21ahh0gtlhdpup973vd0iyhwftlara', 3);
 

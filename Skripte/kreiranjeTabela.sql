@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     5/11/2018 12:02:13 AM                        */
+/* Created on:     5/11/2018 9:01:08 PM                         */
 /*==============================================================*/
 
 
@@ -30,7 +30,7 @@ drop table if exists korisnik;
 /* Table: faktura                                               */
 /*==============================================================*/
 create table faktura
-(   
+(
    sifra_fakture        varchar(20) not null,
    korisnicko_ime       varchar(20) not null,
    sifra_kupca          varchar(3) not null,
@@ -128,8 +128,9 @@ create table otpremljena_roba
 /* Table: otpremnica                                            */
 /*==============================================================*/
 create table otpremnica
-(   
+(
    sifra_otpremnice     varchar(30) not null,
+   datum_otpremnice     date,
    sifra_porudzbine     varchar(20) not null,
    sifra_magacina       varchar(5) not null,
    sifra_fakture        varchar(20) not null,
@@ -141,12 +142,12 @@ create table otpremnica
 /* Table: porudzbina                                            */
 /*==============================================================*/
 create table porudzbina
-(   
+(
    sifra_porudzbine     varchar(20) not null,
    sifra_magacina       varchar(5) not null,
    korisnicko_ime       varchar(20) not null,
    sifra_kupca          varchar(3) not null,
-   datum_isporuke       date not null,
+   datum_porudzbine     date not null,
    primary key (sifra_porudzbine)
 );
 
