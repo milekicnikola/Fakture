@@ -19,7 +19,7 @@ public class DialogRobaAction extends AbstractAction {
 
 	public DialogRobaAction() {
 		putValue(NAME, "Roba");
-		putValue(SMALL_ICON, new ImageIcon("Images/banka.png"));
+		putValue(SMALL_ICON, new ImageIcon("Images/roba.png"));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_R);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.ALT_MASK));

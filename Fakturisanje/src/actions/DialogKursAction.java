@@ -13,7 +13,7 @@ public class DialogKursAction extends AbstractAction {
 	
 	public DialogKursAction() {
 		putValue(NAME, "Kurs");
-		putValue(SMALL_ICON, new ImageIcon("Images/banka.png"));
+		putValue(SMALL_ICON, new ImageIcon("Images/kurs.png"));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_V);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.ALT_MASK));

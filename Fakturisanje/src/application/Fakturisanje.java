@@ -6,10 +6,8 @@ public class Fakturisanje {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		LoginDialog f = new LoginDialog();
-		f.setVisible(true);	
-
+		f.setVisible(true);
 	}
-
 }

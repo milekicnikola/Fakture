@@ -44,7 +44,7 @@ public class MainFrame extends JFrame {
 		setLayout(new BorderLayout());
 		setTitle("Fakturisanje");		
 
-		setIconImage(new ImageIcon("Images/money.png").getImage());
+		setIconImage(new ImageIcon("Images/fakturisanje.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
 		setSize((int) (screenSize.getWidth() * 3 / 4),
@@ -91,7 +91,7 @@ public class MainFrame extends JFrame {
 		setJMenuBar(menu);
 
 		ImagePanel panel = new ImagePanel(
-				new ImageIcon(("images/bank.jpg")).getImage());
+				new ImageIcon(("images/gs.png")).getImage());
 		add(panel, BorderLayout.CENTER);
 		DBConnection.getConnection();
 		addWindowListener(new WindowAdapter() {

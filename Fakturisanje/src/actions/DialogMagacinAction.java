@@ -14,7 +14,7 @@ public class DialogMagacinAction extends AbstractAction {
 	
 	public DialogMagacinAction() {
 		putValue(NAME, "Magacin");
-		putValue(SMALL_ICON, new ImageIcon("Images/banka.png"));
+		putValue(SMALL_ICON, new ImageIcon("Images/magacin.png"));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_M);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_M, ActionEvent.ALT_MASK));

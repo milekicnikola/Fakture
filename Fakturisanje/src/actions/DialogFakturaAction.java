@@ -11,9 +11,14 @@ import javax.swing.KeyStroke;
 
 public class DialogFakturaAction extends AbstractAction {
 	
-	public DialogRobaAction() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DialogFakturaAction() {
 		putValue(NAME, "Faktura");
-		putValue(SMALL_ICON, new ImageIcon("Images/banka.png"));
+		putValue(SMALL_ICON, new ImageIcon("Images/faktura.png"));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_F);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_F, ActionEvent.ALT_MASK));

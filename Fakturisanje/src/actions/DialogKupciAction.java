@@ -19,7 +19,7 @@ public class DialogKupciAction extends AbstractAction{
 
 	public DialogKupciAction() {
 		putValue(NAME, "Kupci");
-		putValue(SMALL_ICON, new ImageIcon("Images/banka.png"));
+		putValue(SMALL_ICON, new ImageIcon("Images/kupci.png"));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_K);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.ALT_MASK));

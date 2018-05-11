@@ -37,15 +37,15 @@ public class LoginDialog extends JFrame{
 		setSize(264, 150);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(new ImageIcon("Images/money.png").getImage());
+		setIconImage(new ImageIcon("Images/fakturisanje.png").getImage());
 		getContentPane().setLayout(null);
-		setTitle("Banka");
-		JLabel lblUsername = new JLabel("User Name : ");
+		setTitle("Fakturisanje");
+		JLabel lblUsername = new JLabel("Korisničko ime : ");
 		lblUsername.setFont(new Font("Tahoma", Font.ITALIC, 12));
 		lblUsername.setBounds(10, 28, 89, 14);
 		getContentPane().add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("Password : ");
+		JLabel lblPassword = new JLabel("Lozinka : ");
 		lblPassword.setFont(new Font("Tahoma", Font.ITALIC, 12));
 		lblPassword.setBounds(10, 59, 89, 14);
 		getContentPane().add(lblPassword);

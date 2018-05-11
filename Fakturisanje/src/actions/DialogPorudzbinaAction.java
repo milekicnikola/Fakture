@@ -13,7 +13,7 @@ public class DialogPorudzbinaAction extends AbstractAction {
 	
 	public DialogPorudzbinaAction() {
 		putValue(NAME, "Porudzbina");
-		putValue(SMALL_ICON, new ImageIcon("Images/banka.png"));
+		putValue(SMALL_ICON, new ImageIcon("Images/porudzbina.png"));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_P);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.ALT_MASK));
