@@ -6,41 +6,49 @@ import gui.panels.RobaPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import databaseConnection.DBConnection;
+
 public class DialogRoba extends StandardDialog {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
 
 	public DialogRoba(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Roba");
 		setIconImage(new ImageIcon("Images/roba.png").getImage());
 
-		tableModel = new RobaTableModel(new String[] { "Šifra", "Interna šifra",
-				"Magacin", "Naziv", "Jedinica mere", "Komada u setu", "Težina", "Kvalitet", "Cena u evrima", "Cena u ronima" }, 0);
+		tableModel = new RobaTableModel(new String[] { "Šifra",
+				"Interna šifra", "Magacin", "Naziv", "Jedinica mere",
+				"Komada u setu", "Težina", "Kvalitet", "Cena u evrima",
+				"Cena u ronima" }, 0);
 
-		panel = new RobaPanel();		
+		panel = new RobaPanel();
 
 		if (zoom)
-			isZoom = true;		
+			isZoom = true;
 
 		initGUI();
 		initStandardActions();
-		initActions();				
+		initActions();
+
 	}
 
 	@Override
 	public void initActions() {
 
-		if (!isZoom) {			
+		if (!isZoom) {
 
 			toolbar.getBtnDelete().addActionListener(new ActionListener() {
 
@@ -59,8 +67,8 @@ public class DialogRoba extends StandardDialog {
 						}
 					} else {
 						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna roba nije selektovana.",
-								"Upozorenje", JOptionPane.PLAIN_MESSAGE,
+								"Nijedna roba nije selektovana.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE,
 								JOptionPane.WARNING_MESSAGE);
 					}
 				}
@@ -75,8 +83,8 @@ public class DialogRoba extends StandardDialog {
 						updateStateAndTextFields(State.AZURIRANJE);
 					} else {
 						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna roba nije selektovana.",
-								"Upozorenje", JOptionPane.PLAIN_MESSAGE,
+								"Nijedna roba nije selektovana.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE,
 								JOptionPane.WARNING_MESSAGE);
 					}
 
@@ -101,20 +109,20 @@ public class DialogRoba extends StandardDialog {
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							// TODO Auto-generated method stub
-							DialogMagacin dialog = new DialogMagacin(
-									MainFrame.getInstance(), true);
+							DialogMagacin dialog = new DialogMagacin(MainFrame
+									.getInstance(), true);
 							dialog.setVisible(true);
 							try {
 								if (!dialog.getZoom().equals(""))
-									((RobaPanel) panel).getTxtMagacin().setText(
-											dialog.getZoom());								
+									((RobaPanel) panel).getTxtMagacin()
+											.setText(dialog.getZoom());
 							} catch (NullPointerException n) {
 							}
 						}
 					});
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
-			toolbar.getBtnDelete().setEnabled(false);			
+			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
@@ -172,18 +180,20 @@ public class DialogRoba extends StandardDialog {
 			statusBar.getStatusState().setText("POGLED");
 			this.state = State.POGLED;
 		} else if (state == State.AZURIRANJE) {
-			btnEnable();	
+			btnEnable();
 			allEnable();
-			((RobaPanel) panel).getTxtSifra().setEditable(false);			
-			((RobaPanel) panel).getTxtMagacin().setEditable(false);			
+			((RobaPanel) panel).getTxtSifra().setEditable(false);
+			((RobaPanel) panel).getTxtMagacin().setEditable(false);
+			((RobaPanel) panel).getTxtRoni().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
 			btnEnable();
 			allEnable();
-			((RobaPanel) panel).getTxtMagacin().setEditable(false);			
+			((RobaPanel) panel).getTxtMagacin().setEditable(false);
 			((RobaPanel) panel).getTxtSifra().requestFocus();
+			((RobaPanel) panel).getTxtRoni().setEditable(false);
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
 		}
@@ -193,18 +203,34 @@ public class DialogRoba extends StandardDialog {
 	@Override
 	public void addRow() {
 
+		double trenutniKurs = 1;
+
+		try {
+			trenutniKurs = trenutniKurs();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
+					JOptionPane.ERROR_MESSAGE);
+		} catch (NumberFormatException ex1) {
+			trenutniKurs = 1;
+		}
+
 		String sifra = ((RobaPanel) panel).getTxtSifra().getText().trim();
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
 		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
-		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText().trim();
+		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText()
+				.trim();
 		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String kvalitet = ((RobaPanel) panel).getTxtKvalitet().getText().trim();
 		String evri = ((RobaPanel) panel).getTxtEvri().getText().trim();
-		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
-		String[] params = { sifra, interna, magacin, naziv, jedinica, komada, tezina, kvalitet, evri, roni };
+		double roniD = Double.parseDouble(evri) * trenutniKurs;
+
+		String roni = String.valueOf(roniD);
+
+		String[] params = { sifra, interna, magacin, naziv, jedinica, komada,
+				tezina, kvalitet, evri, roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -220,20 +246,36 @@ public class DialogRoba extends StandardDialog {
 
 	@Override
 	public void updateRow() {
+
+		double trenutniKurs = 1;
+
+		try {
+			trenutniKurs = trenutniKurs();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
+					JOptionPane.ERROR_MESSAGE);
+		} catch (NumberFormatException ex1) {
+			trenutniKurs = 1;
+		}
+
 		int i = table.getSelectedRow();
 		if (i == -1)
 			return;
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
 		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
-		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText().trim();
+		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText()
+				.trim();
 		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String kvalitet = ((RobaPanel) panel).getTxtKvalitet().getText().trim();
 		String evri = ((RobaPanel) panel).getTxtEvri().getText().trim();
-		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
+		double roniD = Double.parseDouble(evri) * trenutniKurs;
 
-		String[] params = { interna, magacin, naziv, jedinica, komada, tezina, kvalitet, evri, roni };
+		String roni = String.valueOf(roniD);
+
+		String[] params = { interna, magacin, naziv, jedinica, komada, tezina,
+				kvalitet, evri, roni };
 		int index = table.getSelectedRow();
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -252,14 +294,16 @@ public class DialogRoba extends StandardDialog {
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
 		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
-		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText().trim();
+		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText()
+				.trim();
 		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String kvalitet = ((RobaPanel) panel).getTxtKvalitet().getText().trim();
 		String evri = ((RobaPanel) panel).getTxtEvri().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
-		String[] params = { sifra, interna, magacin, naziv, jedinica, komada, tezina, kvalitet, evri, roni };
+		String[] params = { sifra, interna, magacin, naziv, jedinica, komada,
+				tezina, kvalitet, evri, roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -285,10 +329,10 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtTezina().setEditable(false);
 		((RobaPanel) panel).getTxtKvalitet().setEditable(false);
 		((RobaPanel) panel).getTxtEvri().setEditable(false);
-		((RobaPanel) panel).getTxtRoni().setEditable(false);		
-		
+		((RobaPanel) panel).getTxtRoni().setEditable(false);
+
 	}
-	
+
 	public void allEnable() {
 		((RobaPanel) panel).getBtnConfirm().setEnabled(true);
 		((RobaPanel) panel).getBtnCancel().setEnabled(true);
@@ -302,9 +346,9 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtTezina().setEditable(true);
 		((RobaPanel) panel).getTxtKvalitet().setEditable(true);
 		((RobaPanel) panel).getTxtEvri().setEditable(true);
-		((RobaPanel) panel).getTxtRoni().setEditable(true);		
+		((RobaPanel) panel).getTxtRoni().setEditable(true);
 	}
-	
+
 	public void clearAll() {
 		((RobaPanel) panel).getTxtSifra().setText("");
 		((RobaPanel) panel).getTxtInterna().setText("");
@@ -315,13 +359,39 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtTezina().setText("");
 		((RobaPanel) panel).getTxtKvalitet().setText("");
 		((RobaPanel) panel).getTxtEvri().setText("");
-		((RobaPanel) panel).getTxtRoni().setText("");	
+		((RobaPanel) panel).getTxtRoni().setText("");
 	}
-	
+
 	public void btnEnable() {
 		((RobaPanel) panel).getBtnConfirm().setEnabled(true);
 		((RobaPanel) panel).getBtnCancel().setEnabled(true);
 		((RobaPanel) panel).getBtnMagacin().setEnabled(true);
+	}
+
+	public double trenutniKurs() throws SQLException, NumberFormatException {
+
+		DBConnection.getConnection().setTransactionIsolation(
+				Connection.TRANSACTION_REPEATABLE_READ);
+		PreparedStatement selectStmt = DBConnection
+				.getConnection()
+				.prepareStatement(
+						"SELECT ron_evro FROM kurs WHERE kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs)");
+
+		ResultSet rset = selectStmt.executeQuery();
+
+		String kurs = "";
+
+		while (rset.next()) {
+			kurs = rset.getString("RON_EVRO").trim();
+		}
+
+		rset.close();
+		selectStmt.close();
+		DBConnection.getConnection().setTransactionIsolation(
+				Connection.TRANSACTION_READ_COMMITTED);
+
+		return Double.parseDouble(kurs);
+
 	}
 
 }

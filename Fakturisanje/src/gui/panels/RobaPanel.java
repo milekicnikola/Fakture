@@ -59,7 +59,7 @@ public class RobaPanel extends StandardPanel {
 		
 		txtMagacin.setEditable(false);
 		btnMagacin = new JButton("Izaberi magacin");
-		btnMagacin.setEnabled(false);
+		btnMagacin.setEnabled(false);		
 
 		add(lblSifra);
 		add(txtSifra);
