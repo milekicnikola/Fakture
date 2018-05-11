@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
 
 	private static MainFrame instance = null;	
 	
-	private String korisnik;
+	private String korisnik = "prazan";
 
 	private StatusBar statusBar;
 	private ToolBar toolbar;

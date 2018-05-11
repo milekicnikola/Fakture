@@ -1,12 +1,9 @@
 package gui.dialogs;
 
-import gui.MainFrame;
-
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
 public class DialogToolBar extends JToolBar {
@@ -28,9 +25,7 @@ public class DialogToolBar extends JToolBar {
 	JButton btnDelete;
 	JButton btnSearch;
 
-	JButton btnRefresh;
-	
-	JLabel lblKorisnik;	
+	JButton btnRefresh;	
 	
 	public DialogToolBar() {
 		super();
@@ -97,12 +92,7 @@ public class DialogToolBar extends JToolBar {
 		btnUpdate.setToolTipText("Izmeni slog");
 		btnUpdate.setIcon(new ImageIcon("Images/edit.png"));
 		btnUpdate.setMnemonic(KeyEvent.VK_F7);
-		add(btnUpdate);
-		
-		addSeparator();		
-		
-		lblKorisnik = new JLabel("               Korisnik:  " + MainFrame.getInstance().getKorisnik());		
-		add(lblKorisnik);		
+		add(btnUpdate);	
 		
 	}
 

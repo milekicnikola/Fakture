@@ -1,5 +1,6 @@
 package gui.dialogs;
 
+import gui.MainFrame;
 import gui.model.StandardTableModel;
 import gui.panels.StandardPanel;
 
@@ -94,6 +95,7 @@ public abstract class StandardDialog extends JDialog {
 		add(statusBar, "dock south");
 
 		statusBar.getStatusRow().setText("0/0");
+		statusBar.getStatusDialog().setText(MainFrame.getInstance().getKorisnik());
 		updateStateAndTextFields(State.POGLED);
 		updateStausBarRow(0, table.getRowCount());
 		updateStateAndTextFields(State.POGLED);

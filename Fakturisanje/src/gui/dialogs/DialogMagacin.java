@@ -33,9 +33,7 @@ public class DialogMagacin extends StandardDialog {
 
 		initGUI();
 		initStandardActions();
-		initActions();
-		
-		statusBar.getStatusDialog().setText("Magacin");
+		initActions();		
 	}
 
 	@Override

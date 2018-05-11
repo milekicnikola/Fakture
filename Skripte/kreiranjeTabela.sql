@@ -12,11 +12,11 @@ drop table if exists fakturisana_roba;
 
 drop table if exists otpremljena_roba;
 
-drop table if exists porudzbina;
+drop table if exists otpremnica;
 
 drop table if exists faktura;
 
-drop table if exists otpremnica;
+drop table if exists porudzbina;
 
 drop table if exists kupci;
 

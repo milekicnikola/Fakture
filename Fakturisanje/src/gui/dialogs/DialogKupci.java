@@ -33,9 +33,7 @@ public class DialogKupci extends StandardDialog {
 
 		initGUI();
 		initStandardActions();
-		initActions();
-
-		statusBar.getStatusDialog().setText("Kupci");
+		initActions();		
 	}
 
 	@Override

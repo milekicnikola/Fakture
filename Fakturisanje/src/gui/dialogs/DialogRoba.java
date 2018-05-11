@@ -34,9 +34,7 @@ public class DialogRoba extends StandardDialog {
 
 		initGUI();
 		initStandardActions();
-		initActions();
-		
-		statusBar.getStatusDialog().setText("Roba");		
+		initActions();				
 	}
 
 	@Override
