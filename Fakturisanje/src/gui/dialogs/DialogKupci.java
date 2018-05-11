@@ -21,7 +21,7 @@ public class DialogKupci extends StandardDialog {
 	public DialogKupci(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Kupci");
-		setIconImage(new ImageIcon("Images/banka.png").getImage());
+		setIconImage(new ImageIcon("Images/kupci.png").getImage());
 
 		tableModel = new KupciTableModel(new String[] { "Šifra", "Naziv",
 				"Drugi naziv", "Adresa", "Grad", "Država" }, 0);

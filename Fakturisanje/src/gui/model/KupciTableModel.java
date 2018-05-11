@@ -168,7 +168,7 @@ public class KupciTableModel extends StandardTableModel {
 	public void updateRow(int index, String[] params) throws SQLException {
 		checkRow(index);
 
-		String sifra_magacina = (String) getValueAt(index, 0);
+		String sifra_kupca = (String) getValueAt(index, 0);
 
 		PreparedStatement stmt = DBConnection
 				.getConnection()
@@ -180,7 +180,7 @@ public class KupciTableModel extends StandardTableModel {
 		stmt.setString(3, params[2]);
 		stmt.setString(4, params[3]);
 		stmt.setString(5, params[4]);
-		stmt.setString(6, sifra_magacina);
+		stmt.setString(6, sifra_kupca);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();

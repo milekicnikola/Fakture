@@ -21,7 +21,7 @@ public class DialogMagacin extends StandardDialog {
 	public DialogMagacin(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Magacin");
-		setIconImage(new ImageIcon("Images/banka.png").getImage());
+		setIconImage(new ImageIcon("Images/magacin.png").getImage());
 
 		tableModel = new MagacinTableModel(new String[] { "Šifra", "Naziv",
 				"Adresa", "Šef", "Telefon" }, 0);

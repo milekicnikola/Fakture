@@ -1,11 +1,12 @@
 package actions;
 
 public class ActionManager {
-	
+
 	private static ActionManager instance = null;
 	private DialogRobaAction roba = new DialogRobaAction();
 	private DialogMagacinAction magacin = new DialogMagacinAction();
-	private DialogKupciAction kupci = new DialogKupciAction();	
+	private DialogKupciAction kupci = new DialogKupciAction();
+	private DialogKursAction kurs = new DialogKursAction();
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -13,7 +14,7 @@ public class ActionManager {
 		}
 		return instance;
 	}
-	
+
 	public DialogRobaAction getDialogRobaAction() {
 		return roba;
 	}
@@ -21,7 +22,7 @@ public class ActionManager {
 	public void setDialogRobaAction(DialogRobaAction roba) {
 		this.roba = roba;
 	}
-	
+
 	public DialogMagacinAction getDialogMagacinAction() {
 		return magacin;
 	}
@@ -29,7 +30,7 @@ public class ActionManager {
 	public void setDialogMagacinAction(DialogMagacinAction magacin) {
 		this.magacin = magacin;
 	}
-	
+
 	public DialogKupciAction getDialogKupciAction() {
 		return kupci;
 	}
@@ -37,7 +38,13 @@ public class ActionManager {
 	public void setDialogKupciAction(DialogKupciAction kupci) {
 		this.kupci = kupci;
 	}
-	
-	
+
+	public DialogKursAction getDialogKursAction() {
+		return kurs;
+	}
+
+	public void setDialogKursAction(DialogKursAction kurs) {
+		this.kurs = kurs;
+	}
 
 }

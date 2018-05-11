@@ -22,7 +22,7 @@ public class DialogRoba extends StandardDialog {
 	public DialogRoba(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Roba");
-		setIconImage(new ImageIcon("Images/banka.png").getImage());
+		setIconImage(new ImageIcon("Images/roba.png").getImage());
 
 		tableModel = new RobaTableModel(new String[] { "Šifra", "Interna šifra",
 				"Magacin", "Naziv", "Jedinica mere", "Komada u setu", "Težina", "Kvalitet", "Cena u evrima", "Cena u ronima" }, 0);

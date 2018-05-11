@@ -70,9 +70,10 @@ public class MainFrame extends JFrame {
 				.getDialogMagacinAction());
 		kupci.addActionListener(ActionManager.getInstance()
 				.getDialogKupciAction());
-		/*		
 		kurs.addActionListener(ActionManager.getInstance()
 				.getDialogKursAction());
+		/*		
+		
 		faktura.addActionListener(ActionManager.getInstance()
 				.getDialogFakturaAction());
 		porudzbina.addActionListener(ActionManager.getInstance()
