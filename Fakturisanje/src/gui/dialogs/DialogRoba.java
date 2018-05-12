@@ -142,6 +142,7 @@ public class DialogRoba extends StandardDialog {
 		int index = table.getSelectedRow();
 		if (index < 0) {
 			clearAll();
+			toolbar.getBtnDelete().setEnabled(false);
 			return;
 		}
 		String sifra = (String) tableModel.getValueAt(index, 0);

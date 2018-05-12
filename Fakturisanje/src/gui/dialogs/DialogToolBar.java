@@ -25,8 +25,10 @@ public class DialogToolBar extends JToolBar {
 	JButton btnDelete;
 	JButton btnSearch;
 
-	JButton btnRefresh;	
+	JButton btnRefresh;
 	
+	JButton btnDetaljno;	
+
 	public DialogToolBar() {
 		super();
 
@@ -94,6 +96,9 @@ public class DialogToolBar extends JToolBar {
 		btnUpdate.setMnemonic(KeyEvent.VK_F7);
 		add(btnUpdate);	
 		
+		addSeparator();
+		addSeparator();		
+		
 	}
 
 	public JButton getBtnView() {
@@ -144,4 +149,17 @@ public class DialogToolBar extends JToolBar {
 		this.btnUnos = btnUnos;
 	}
 	
+	public JButton getBtnDetaljno() {
+		return btnDetaljno;
+	}
+
+	public void setBtnDetaljno(JButton btnDetaljno) {
+		this.btnDetaljno = btnDetaljno;
+	}
+	
+	public void dodajDetaljno(JButton detaljno) {
+		this.btnDetaljno = detaljno;
+		this.add(btnDetaljno);
+		
+	}
 }

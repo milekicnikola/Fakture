@@ -17,8 +17,6 @@ public class DialogMagacin extends StandardDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private String zoom2 = "";
 
 	public DialogMagacin(JFrame parent, Boolean zoom) {
 		super(parent);
@@ -28,20 +26,20 @@ public class DialogMagacin extends StandardDialog {
 		tableModel = new MagacinTableModel(new String[] { "Šifra", "Naziv",
 				"Adresa", "Šef", "Telefon" }, 0);
 
-		panel = new MagacinPanel();		
+		panel = new MagacinPanel();
 
 		if (zoom)
-			isZoom = true;		
+			isZoom = true;
 
 		initGUI();
 		initStandardActions();
-		initActions();		
+		initActions();
 	}
 
 	@Override
 	public void initActions() {
 
-		if (!isZoom) {			
+		if (!isZoom) {
 
 			toolbar.getBtnDelete().addActionListener(new ActionListener() {
 
@@ -94,11 +92,11 @@ public class DialogMagacin extends StandardDialog {
 					updateStateAndTextFields(State.POGLED);
 
 				}
-			});		
-			
+			});
+
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
-			toolbar.getBtnDelete().setEnabled(false);			
+			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
@@ -121,13 +119,13 @@ public class DialogMagacin extends StandardDialog {
 		String naziv = (String) tableModel.getValueAt(index, 1);
 		String adresa = (String) tableModel.getValueAt(index, 2);
 		String sef = (String) tableModel.getValueAt(index, 3);
-		String telefon = (String) tableModel.getValueAt(index, 4);		
+		String telefon = (String) tableModel.getValueAt(index, 4);
 
 		((MagacinPanel) panel).getTxtSifra().setText(sifra);
 		((MagacinPanel) panel).getTxtNaziv().setText(naziv);
 		((MagacinPanel) panel).getTxtAdresa().setText(adresa);
 		((MagacinPanel) panel).getTxtSef().setText(sef);
-		((MagacinPanel) panel).getTxtTelefon().setText(telefon);		
+		((MagacinPanel) panel).getTxtTelefon().setText(telefon);
 
 	}
 
@@ -146,15 +144,15 @@ public class DialogMagacin extends StandardDialog {
 			statusBar.getStatusState().setText("POGLED");
 			this.state = State.POGLED;
 		} else if (state == State.AZURIRANJE) {
-			btnEnable();	
+			btnEnable();
 			allEnable();
-			((MagacinPanel) panel).getTxtSifra().setEditable(false);						
+			((MagacinPanel) panel).getTxtSifra().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
 			btnEnable();
-			allEnable();						
+			allEnable();
 			((MagacinPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -169,7 +167,8 @@ public class DialogMagacin extends StandardDialog {
 		String naziv = ((MagacinPanel) panel).getTxtNaziv().getText().trim();
 		String adresa = ((MagacinPanel) panel).getTxtAdresa().getText().trim();
 		String sef = ((MagacinPanel) panel).getTxtSef().getText().trim();
-		String telefon = ((MagacinPanel) panel).getTxtTelefon().getText().trim();		
+		String telefon = ((MagacinPanel) panel).getTxtTelefon().getText()
+				.trim();
 
 		String[] params = { sifra, naziv, adresa, sef, telefon };
 
@@ -190,12 +189,13 @@ public class DialogMagacin extends StandardDialog {
 		int i = table.getSelectedRow();
 		if (i == -1)
 			return;
-		
+
 		String naziv = ((MagacinPanel) panel).getTxtNaziv().getText().trim();
 		String adresa = ((MagacinPanel) panel).getTxtAdresa().getText().trim();
 		String sef = ((MagacinPanel) panel).getTxtSef().getText().trim();
-		String telefon = ((MagacinPanel) panel).getTxtTelefon().getText().trim();
-		
+		String telefon = ((MagacinPanel) panel).getTxtTelefon().getText()
+				.trim();
+
 		String[] params = { naziv, adresa, sef, telefon };
 		int index = table.getSelectedRow();
 		try {
@@ -215,7 +215,8 @@ public class DialogMagacin extends StandardDialog {
 		String naziv = ((MagacinPanel) panel).getTxtNaziv().getText().trim();
 		String adresa = ((MagacinPanel) panel).getTxtAdresa().getText().trim();
 		String sef = ((MagacinPanel) panel).getTxtSef().getText().trim();
-		String telefon = ((MagacinPanel) panel).getTxtTelefon().getText().trim();		
+		String telefon = ((MagacinPanel) panel).getTxtTelefon().getText()
+				.trim();
 
 		String[] params = { sifra, naziv, adresa, sef, telefon };
 
@@ -237,10 +238,10 @@ public class DialogMagacin extends StandardDialog {
 		((MagacinPanel) panel).getTxtNaziv().setEditable(false);
 		((MagacinPanel) panel).getTxtAdresa().setEditable(false);
 		((MagacinPanel) panel).getTxtSef().setEditable(false);
-		((MagacinPanel) panel).getTxtTelefon().setEditable(false);		
-		
+		((MagacinPanel) panel).getTxtTelefon().setEditable(false);
+
 	}
-	
+
 	public void allEnable() {
 		((MagacinPanel) panel).getBtnConfirm().setEnabled(true);
 		((MagacinPanel) panel).getBtnCancel().setEnabled(true);
@@ -248,19 +249,19 @@ public class DialogMagacin extends StandardDialog {
 		((MagacinPanel) panel).getTxtNaziv().setEditable(true);
 		((MagacinPanel) panel).getTxtAdresa().setEditable(true);
 		((MagacinPanel) panel).getTxtSef().setEditable(true);
-		((MagacinPanel) panel).getTxtTelefon().setEditable(true);				
+		((MagacinPanel) panel).getTxtTelefon().setEditable(true);
 	}
-	
+
 	public void clearAll() {
 		((MagacinPanel) panel).getTxtSifra().setText("");
 		((MagacinPanel) panel).getTxtNaziv().setText("");
 		((MagacinPanel) panel).getTxtAdresa().setText("");
 		((MagacinPanel) panel).getTxtSef().setText("");
-		((MagacinPanel) panel).getTxtTelefon().setText("");			
+		((MagacinPanel) panel).getTxtTelefon().setText("");
 	}
-	
+
 	public void btnEnable() {
 		((MagacinPanel) panel).getBtnConfirm().setEnabled(true);
-		((MagacinPanel) panel).getBtnCancel().setEnabled(true);		
+		((MagacinPanel) panel).getBtnCancel().setEnabled(true);
 	}
 }

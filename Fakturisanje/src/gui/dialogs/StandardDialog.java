@@ -96,7 +96,8 @@ public abstract class StandardDialog extends JDialog {
 		add(statusBar, "dock south");
 
 		statusBar.getStatusRow().setText("0/0");
-		statusBar.getStatusDialog().setText(MainFrame.getInstance().getKorisnik());
+		statusBar.getStatusDialog().setText(
+				MainFrame.getInstance().getKorisnik());
 		updateStateAndTextFields(State.POGLED);
 		updateStausBarRow(0, table.getRowCount());
 		updateStateAndTextFields(State.POGLED);
@@ -162,6 +163,13 @@ public abstract class StandardDialog extends JDialog {
 						int rowCount = table.getModel().getRowCount();
 						int currentRow = table.getSelectedRow();
 						updateStausBarRow(currentRow + 1, rowCount);
+						if (currentRow < 0) {
+							toolbar.getBtnDelete().setEnabled(false);
+							toolbar.getBtnUpdate().setEnabled(false);
+						} else {
+							toolbar.getBtnDelete().setEnabled(true);
+							toolbar.getBtnUpdate().setEnabled(true);
+						}
 						sync();
 					}
 				});
@@ -228,6 +236,10 @@ public abstract class StandardDialog extends JDialog {
 			}
 		});
 		
+		toolbar.getBtnDelete().setEnabled(false);
+		toolbar.getBtnUpdate().setEnabled(false);
+		
+
 	}
 
 	public void goFirst() {
@@ -313,7 +325,7 @@ public abstract class StandardDialog extends JDialog {
 	public String getZoom1() {
 		return zoom1;
 	}
-	
+
 	public String getZoom2() {
 		return zoom2;
 	}

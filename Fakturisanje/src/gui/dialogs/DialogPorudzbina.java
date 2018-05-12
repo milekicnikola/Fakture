@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -28,16 +29,19 @@ public class DialogPorudzbina extends StandardDialog {
 		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
 
 		tableModel = new PorudzbinaTableModel(new String[] { "Šifra porudzbine", "Šifra magacina",
-				"Naziv magacina", "Korisnik", "Šifra kupca", "Naziv Kupca", "Datum" }, 0);
+				"Naziv magacina", "Korisnik", "Šifra kupca", "Naziv kupca", "Datum" }, 0);
 
 		panel = new PorudzbinaPanel();
 
 		if (zoom)
-			isZoom = true;
+			isZoom = true;		
 
 		initGUI();
 		initStandardActions();
-		initActions();		
+		initActions();
+		
+		addDetaljno();				
+		
 	}
 
 	@Override
@@ -84,7 +88,7 @@ public class DialogPorudzbina extends StandardDialog {
 					}
 
 				}
-			});
+			});			
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 
@@ -156,8 +160,11 @@ public class DialogPorudzbina extends StandardDialog {
 		int index = table.getSelectedRow();
 		if (index < 0) {
 			clearAll();
+			toolbar.getBtnDetaljno().setEnabled(false);
 			return;
 		}
+		toolbar.getBtnDetaljno().setEnabled(true);
+		
 		String sifra = (String) tableModel.getValueAt(index, 0);
 		String sifraM = (String) tableModel.getValueAt(index, 1);
 		String nazivM = (String) tableModel.getValueAt(index, 2);
@@ -210,8 +217,7 @@ public class DialogPorudzbina extends StandardDialog {
 			clearAll();
 			btnEnable();
 			allEnable();
-			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();
-			((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(false);			
+			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();						
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
 		}
@@ -342,5 +348,30 @@ public class DialogPorudzbina extends StandardDialog {
 		((PorudzbinaPanel) panel).getBtnCancel().setEnabled(true);
 		((PorudzbinaPanel) panel).getBtnMagacin().setEnabled(true);
 		((PorudzbinaPanel) panel).getBtnKupac().setEnabled(true);
+	}
+	
+	public void addDetaljno() {
+		
+		JButton btnDetaljno = new JButton("Detalji porudzbine");
+		btnDetaljno.setEnabled(false);
+		toolbar.dodajDetaljno(btnDetaljno);
+		
+		
+		toolbar.getBtnDetaljno().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (table.getSelectedRow() >= 0) {
+					DialogNarucena dialog = new DialogNarucena(MainFrame
+							.getInstance(), false, ((PorudzbinaPanel) panel).getTxtSifra().getText().trim());
+					dialog.setVisible(true);						
+				} else {
+					JOptionPane.showConfirmDialog(getParent(),
+							"Nijedna porudzbina nije selektovana.", "Upozorenje",
+							JOptionPane.PLAIN_MESSAGE,
+							JOptionPane.WARNING_MESSAGE);
+				}
+			}
+		});
 	}
 }
