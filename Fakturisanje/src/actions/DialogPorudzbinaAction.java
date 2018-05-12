@@ -1,6 +1,7 @@
 package actions;
 
 import gui.MainFrame;
+import gui.dialogs.DialogPorudzbina;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -11,6 +12,11 @@ import javax.swing.KeyStroke;
 
 public class DialogPorudzbinaAction extends AbstractAction {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public DialogPorudzbinaAction() {
 		putValue(NAME, "Porudzbina");
 		putValue(SMALL_ICON, new ImageIcon("Images/porudzbina.png"));

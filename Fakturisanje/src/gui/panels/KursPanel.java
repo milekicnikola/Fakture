@@ -34,7 +34,7 @@ public class KursPanel extends StandardPanel {
 		datePreferedSize = new Dimension(100, 20);
 
 		txtDatum = new JDateChooser();
-		txtDatum.setDateFormatString("yyyy-MM-dd");
+		txtDatum.setDateFormatString("dd-MM-yyyy");		
 		txtDatum.setPreferredSize(datePreferedSize);
 
 		add(lblDatum);

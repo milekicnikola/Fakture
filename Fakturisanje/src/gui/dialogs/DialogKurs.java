@@ -94,7 +94,7 @@ public class DialogKurs extends StandardDialog {
 					updateStateAndTextFields(State.POGLED);
 
 				}
-			});
+			});			
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
@@ -170,7 +170,11 @@ public class DialogKurs extends StandardDialog {
 	public void addRow() {
 
 		Date datum1 = ((KursPanel) panel).getTxtDatum().getDate();
-		String datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
+		String datum = "";
+		if (datum1 != null) {
+			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
+
+		}
 		String kurs = ((KursPanel) panel).getTxtKurs().getText().trim();		
 
 		String[] params = { datum, kurs };

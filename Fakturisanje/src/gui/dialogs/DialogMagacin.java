@@ -16,7 +16,9 @@ public class DialogMagacin extends StandardDialog {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
+	
+	private String zoom2 = "";
 
 	public DialogMagacin(JFrame parent, Boolean zoom) {
 		super(parent);
@@ -92,7 +94,8 @@ public class DialogMagacin extends StandardDialog {
 					updateStateAndTextFields(State.POGLED);
 
 				}
-			});
+			});		
+			
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);			

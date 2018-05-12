@@ -41,7 +41,8 @@ public abstract class StandardDialog extends JDialog {
 	public StandardPanel panel;
 	public String whereSQL = "";
 	public Boolean isZoom = false;
-	public String zoom = "";
+	public String zoom1 = "";
+	public String zoom2 = "";
 
 	public StandardDialog(JFrame parent) {
 		super(parent, true);
@@ -192,7 +193,9 @@ public abstract class StandardDialog extends JDialog {
 					if (table.getSelectedRow() >= 0) {
 						int i = table.getSelectedRow();
 						String code = (String) table.getValueAt(i, 0);
-						zoom = code;
+						String name = (String) table.getValueAt(i, 1);
+						zoom1 = code;
+						zoom2 = name;
 						dispose();
 					}
 
@@ -307,8 +310,12 @@ public abstract class StandardDialog extends JDialog {
 		panel.getBtnCancel().setEnabled(true);
 	}
 
-	public String getZoom() {
-		return zoom;
+	public String getZoom1() {
+		return zoom1;
+	}
+	
+	public String getZoom2() {
+		return zoom2;
 	}
 
 	abstract void initActions();

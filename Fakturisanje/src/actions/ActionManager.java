@@ -7,6 +7,7 @@ public class ActionManager {
 	private DialogMagacinAction magacin = new DialogMagacinAction();
 	private DialogKupciAction kupci = new DialogKupciAction();
 	private DialogKursAction kurs = new DialogKursAction();
+	private DialogPorudzbinaAction porudzbina = new DialogPorudzbinaAction();	
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -45,6 +46,14 @@ public class ActionManager {
 
 	public void setDialogKursAction(DialogKursAction kurs) {
 		this.kurs = kurs;
+	}
+	
+	public DialogPorudzbinaAction getDialogPorudzbinaAction() {
+		return porudzbina;
+	}
+
+	public void setDialogPorudzbinaAction(DialogPorudzbinaAction porudzbina) {
+		this.porudzbina = porudzbina;
 	}
 
 }

@@ -1,0 +1,7 @@
+datumi porudzbine, fakture, otpremnice
+
+racunanje cene u ronima prilikom dodavanja i izmene
+
+format datuma
+
+datum isporuke, da li na nivou porudzbine ili za svaku robu
