@@ -30,9 +30,9 @@ public class DialogRoba extends StandardDialog {
 		setIconImage(new ImageIcon("Images/roba.png").getImage());
 
 		tableModel = new RobaTableModel(new String[] { "Šifra",
-				"Interna šifra", "Magacin", "Naziv", "Jedinica mere",
-				"Komada u setu", "Težina", "Kvalitet", "Cena u evrima",
-				"Cena u ronima" }, 0);
+				"Interna šifra", "Šifra magacina", "Naziv magacina", "Naziv",
+				"Jedinica mere", "Komada u setu", "Težina", "Kvalitet",
+				"Cena u evrima", "Cena u ronima" }, 0);
 
 		panel = new RobaPanel();
 
@@ -114,8 +114,11 @@ public class DialogRoba extends StandardDialog {
 							dialog.setVisible(true);
 							try {
 								if (!dialog.getZoom1().equals(""))
-									((RobaPanel) panel).getTxtMagacin()
-											.setText(dialog.getZoom1());
+									((RobaPanel) panel).getTxtSifraM().setText(
+											dialog.getZoom1());
+								if (!dialog.getZoom2().equals(""))
+									((RobaPanel) panel).getTxtNazivM().setText(
+											dialog.getZoom2());
 							} catch (NullPointerException n) {
 							}
 						}
@@ -143,18 +146,20 @@ public class DialogRoba extends StandardDialog {
 		}
 		String sifra = (String) tableModel.getValueAt(index, 0);
 		String interna = (String) tableModel.getValueAt(index, 1);
-		String magacin = (String) tableModel.getValueAt(index, 2);
-		String naziv = (String) tableModel.getValueAt(index, 3);
-		String jedinica = (String) tableModel.getValueAt(index, 4);
-		String komada = (String) tableModel.getValueAt(index, 5);
-		String tezina = (String) tableModel.getValueAt(index, 6);
-		String kvalitet = (String) tableModel.getValueAt(index, 7);
-		String evri = (String) tableModel.getValueAt(index, 8);
-		String roni = (String) tableModel.getValueAt(index, 9);
+		String sifraM = (String) tableModel.getValueAt(index, 2);
+		String nazivM = (String) tableModel.getValueAt(index, 3);
+		String naziv = (String) tableModel.getValueAt(index, 4);
+		String jedinica = (String) tableModel.getValueAt(index, 5);
+		String komada = (String) tableModel.getValueAt(index, 6);
+		String tezina = (String) tableModel.getValueAt(index, 7);
+		String kvalitet = (String) tableModel.getValueAt(index, 8);
+		String evri = (String) tableModel.getValueAt(index, 9);
+		String roni = (String) tableModel.getValueAt(index, 10);
 
 		((RobaPanel) panel).getTxtSifra().setText(sifra);
 		((RobaPanel) panel).getTxtInterna().setText(interna);
-		((RobaPanel) panel).getTxtMagacin().setText(magacin);
+		((RobaPanel) panel).getTxtSifraM().setText(sifraM);
+		((RobaPanel) panel).getTxtNazivM().setText(nazivM);
 		((RobaPanel) panel).getTxtNaziv().setText(naziv);
 		((RobaPanel) panel).getTxtJedinicaMere().setText(jedinica);
 		((RobaPanel) panel).getTxtKomada().setText(komada);
@@ -182,14 +187,14 @@ public class DialogRoba extends StandardDialog {
 		} else if (state == State.AZURIRANJE) {
 			btnEnable();
 			allEnable();
-			((RobaPanel) panel).getTxtSifra().setEditable(false);			
+			((RobaPanel) panel).getTxtSifra().setEditable(false);
 			((RobaPanel) panel).getTxtRoni().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
 			btnEnable();
-			allEnable();			
+			allEnable();
 			((RobaPanel) panel).getTxtSifra().requestFocus();
 			((RobaPanel) panel).getTxtRoni().setEditable(false);
 			statusBar.getStatusState().setText(state.toString());
@@ -214,7 +219,8 @@ public class DialogRoba extends StandardDialog {
 
 		String sifra = ((RobaPanel) panel).getTxtSifra().getText().trim();
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
-		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
+		String sifraM = ((RobaPanel) panel).getTxtSifraM().getText().trim();
+		String nazivM = ((RobaPanel) panel).getTxtNazivM().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
 		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText()
 				.trim();
@@ -223,12 +229,16 @@ public class DialogRoba extends StandardDialog {
 		String kvalitet = ((RobaPanel) panel).getTxtKvalitet().getText().trim();
 		String evri = ((RobaPanel) panel).getTxtEvri().getText().trim();
 
-		double roniD = Double.parseDouble(evri) * trenutniKurs;
+		String roni = "0";
+		double roniD;
 
-		String roni = String.valueOf(roniD);
+		if (evri != null && !evri.equals("")) {
+			roniD = Double.parseDouble(evri) * trenutniKurs;
+			roni = String.valueOf(roniD);
+		}
 
-		String[] params = { sifra, interna, magacin, naziv, jedinica, komada,
-				tezina, kvalitet, evri, roni };
+		String[] params = { sifra, interna, sifraM, nazivM, naziv, jedinica,
+				komada, tezina, kvalitet, evri, roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -260,7 +270,8 @@ public class DialogRoba extends StandardDialog {
 		if (i == -1)
 			return;
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
-		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
+		String sifraM = ((RobaPanel) panel).getTxtSifraM().getText().trim();
+		String nazivM = ((RobaPanel) panel).getTxtNazivM().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
 		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText()
 				.trim();
@@ -268,12 +279,16 @@ public class DialogRoba extends StandardDialog {
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String kvalitet = ((RobaPanel) panel).getTxtKvalitet().getText().trim();
 		String evri = ((RobaPanel) panel).getTxtEvri().getText().trim();
-		double roniD = Double.parseDouble(evri) * trenutniKurs;
+		String roni = "0";
+		double roniD;
 
-		String roni = String.valueOf(roniD);
+		if (evri != null && !evri.equals("")) {
+			roniD = Double.parseDouble(evri) * trenutniKurs;
+			roni = String.valueOf(roniD);
+		}
 
-		String[] params = { interna, magacin, naziv, jedinica, komada, tezina,
-				kvalitet, evri, roni };
+		String[] params = { interna, sifraM, nazivM, naziv, jedinica, komada,
+				tezina, kvalitet, evri, roni };
 		int index = table.getSelectedRow();
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -290,7 +305,7 @@ public class DialogRoba extends StandardDialog {
 	public void search() {
 		String sifra = ((RobaPanel) panel).getTxtSifra().getText().trim();
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
-		String magacin = ((RobaPanel) panel).getTxtMagacin().getText().trim();
+		String sifraM = ((RobaPanel) panel).getTxtSifraM().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
 		String jedinica = ((RobaPanel) panel).getTxtJedinicaMere().getText()
 				.trim();
@@ -300,7 +315,7 @@ public class DialogRoba extends StandardDialog {
 		String evri = ((RobaPanel) panel).getTxtEvri().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
-		String[] params = { sifra, interna, magacin, naziv, jedinica, komada,
+		String[] params = { sifra, interna, sifraM, naziv, jedinica, komada,
 				tezina, kvalitet, evri, roni };
 
 		try {
@@ -320,7 +335,8 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getBtnMagacin().setEnabled(false);
 		((RobaPanel) panel).getTxtSifra().setEditable(false);
 		((RobaPanel) panel).getTxtInterna().setEditable(false);
-		((RobaPanel) panel).getTxtMagacin().setEditable(false);
+		((RobaPanel) panel).getTxtSifraM().setEditable(false);
+		((RobaPanel) panel).getTxtNazivM().setEditable(false);
 		((RobaPanel) panel).getTxtNaziv().setEditable(false);
 		((RobaPanel) panel).getTxtJedinicaMere().setEditable(false);
 		((RobaPanel) panel).getTxtKomada().setEditable(false);
@@ -336,7 +352,7 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getBtnCancel().setEnabled(true);
 		((RobaPanel) panel).getBtnMagacin().setEnabled(true);
 		((RobaPanel) panel).getTxtSifra().setEditable(true);
-		((RobaPanel) panel).getTxtInterna().setEditable(true);		
+		((RobaPanel) panel).getTxtInterna().setEditable(true);
 		((RobaPanel) panel).getTxtNaziv().setEditable(true);
 		((RobaPanel) panel).getTxtJedinicaMere().setEditable(true);
 		((RobaPanel) panel).getTxtKomada().setEditable(true);
@@ -349,7 +365,8 @@ public class DialogRoba extends StandardDialog {
 	public void clearAll() {
 		((RobaPanel) panel).getTxtSifra().setText("");
 		((RobaPanel) panel).getTxtInterna().setText("");
-		((RobaPanel) panel).getTxtMagacin().setText("");
+		((RobaPanel) panel).getTxtSifraM().setText("");
+		((RobaPanel) panel).getTxtNazivM().setText("");
 		((RobaPanel) panel).getTxtNaziv().setText("");
 		((RobaPanel) panel).getTxtJedinicaMere().setText("");
 		((RobaPanel) panel).getTxtKomada().setText("");

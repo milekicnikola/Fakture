@@ -10,7 +10,8 @@ public class RobaPanel extends StandardPanel {
 	
 	private JLabel lblSifra;
 	private JLabel lblInterna;
-	private JLabel lblMagacin;
+	private JLabel lblSifraM;
+	private JLabel lblNazivM;
 	private JLabel lblNaziv;
 	private JLabel lblJedinicaMere;
 	private JLabel lblKomada;
@@ -21,7 +22,8 @@ public class RobaPanel extends StandardPanel {
 		
 	private JTextField txtSifra;
 	private JTextField txtInterna;
-	private JTextField txtMagacin;
+	private JTextField txtSifraM;
+	private JTextField txtNazivM;
 	private JTextField txtNaziv;
 	private JTextField txtJedinicaMere;
 	private JTextField txtKomada;
@@ -36,7 +38,8 @@ public class RobaPanel extends StandardPanel {
 
 		lblSifra = new JLabel("Šifra robe");
 		lblInterna = new JLabel("Interna šifra robe");
-		lblMagacin = new JLabel("Magacin");
+		lblSifraM = new JLabel("Šifra magacina");
+		lblNazivM = new JLabel("Naziv magacin");
 		lblNaziv = new JLabel("Naziv robe");
 		lblJedinicaMere = new JLabel("Jedinica mere robe");
 		lblKomada = new JLabel("Komada u setu");
@@ -47,8 +50,9 @@ public class RobaPanel extends StandardPanel {
 		
 		txtSifra = new JTextField(20);
 		txtInterna = new JTextField(20);
-		txtMagacin = new JTextField(30);
-		txtNaziv = new JTextField(30);
+		txtSifraM = new JTextField(5);
+		txtNazivM = new JTextField(20);
+		txtNaziv = new JTextField(20);
 		txtJedinicaMere = new JTextField(10);
 		txtKomada = new JTextField(4);
 		txtTezina = new JTextField(10);
@@ -57,7 +61,8 @@ public class RobaPanel extends StandardPanel {
 		txtRoni = new JTextField(10);
 		//lblPrazno = new JLabel("     ");
 		
-		txtMagacin.setEditable(false);
+		txtSifraM.setEditable(false);
+		txtNazivM.setEditable(false);
 		btnMagacin = new JButton("Izaberi magacin");
 		btnMagacin.setEnabled(false);		
 
@@ -67,12 +72,14 @@ public class RobaPanel extends StandardPanel {
 		add(lblInterna);
 		add(txtInterna);
 		
-		add(lblMagacin);
-		add(txtMagacin);
-		add(btnMagacin);
+		add(lblSifraM);
+		add(txtSifraM);
+		add(lblNazivM);
+		add(txtNazivM);
+		add(btnMagacin, "wrap");
 		
 		add(lblNaziv);
-		add(txtNaziv, "wrap");
+		add(txtNaziv);
 		
 		add(lblJedinicaMere);
 		add(txtJedinicaMere);
@@ -97,6 +104,38 @@ public class RobaPanel extends StandardPanel {
 
 	}
 	
+	public JLabel getLblSifraM() {
+		return lblSifraM;
+	}
+
+	public void setLblSifraM(JLabel lblSifraM) {
+		this.lblSifraM = lblSifraM;
+	}
+
+	public JLabel getLblNazivM() {
+		return lblNazivM;
+	}
+
+	public void setLblNazivM(JLabel lblNazivM) {
+		this.lblNazivM = lblNazivM;
+	}
+
+	public JTextField getTxtSifraM() {
+		return txtSifraM;
+	}
+
+	public void setTxtSifraM(JTextField txtSifraM) {
+		this.txtSifraM = txtSifraM;
+	}
+
+	public JTextField getTxtNazivM() {
+		return txtNazivM;
+	}
+
+	public void setTxtNazivM(JTextField txtNazivM) {
+		this.txtNazivM = txtNazivM;
+	}
+
 	public JLabel getLblSifra() {
 		return lblSifra;
 	}
@@ -111,15 +150,7 @@ public class RobaPanel extends StandardPanel {
 
 	public void setLblInterna(JLabel lblInterna) {
 		this.lblInterna = lblInterna;
-	}
-
-	public JLabel getLblMagacin() {
-		return lblMagacin;
-	}
-
-	public void setLblMagacin(JLabel lblMagacin) {
-		this.lblMagacin = lblMagacin;
-	}
+	}	
 
 	public JLabel getLblNaziv() {
 		return lblNaziv;
@@ -191,15 +222,7 @@ public class RobaPanel extends StandardPanel {
 
 	public void setTxtInterna(JTextField txtInterna) {
 		this.txtInterna = txtInterna;
-	}
-
-	public JTextField getTxtMagacin() {
-		return txtMagacin;
-	}
-
-	public void setTxtMagacin(JTextField txtMagacin) {
-		this.txtMagacin = txtMagacin;
-	}
+	}	
 
 	public JTextField getTxtNaziv() {
 		return txtNaziv;
