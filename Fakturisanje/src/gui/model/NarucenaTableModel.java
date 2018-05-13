@@ -33,10 +33,11 @@ public class NarucenaTableModel extends StandardTableModel {
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_REPEATABLE_READ);
 		PreparedStatement selectStmt = DBConnection.getConnection()
-				.prepareStatement(basicQuery1 + " where narucena_roba.sifra_porudzbine = ? and narucena_roba.sifra_robe");
+				.prepareStatement(basicQuery1 + " where narucena_roba.sifra_porudzbine = ? and narucena_roba.sifra_robe = ?");
 
 		String sifraP = (String) getValueAt(index, 0);
 		String sifraR = (String) getValueAt(index, 1);
+		
 		selectStmt.setString(1, sifraP);
 		selectStmt.setString(2, sifraR);
 
@@ -85,8 +86,8 @@ public class NarucenaTableModel extends StandardTableModel {
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_READ_COMMITTED);
 		if (errorMsg != "") {
-			DBConnection.getConnection().commit();
-			throw new SQLException(errorMsg, "", CUSTOM_ERROR_CODE);
+			DBConnection.getConnection().commit();			
+			throw new SQLException(errorMsg, "", CUSTOM_ERROR_CODE);			
 		}
 	}
 
@@ -123,14 +124,15 @@ public class NarucenaTableModel extends StandardTableModel {
 	}
 
 	@Override
-	public void deleteRow(int index) throws SQLException {
+	public void deleteRow(int index) throws SQLException {		
 
-		checkRow(index);
+		checkRow(index);	
 
 		PreparedStatement stmt = DBConnection.getConnection().prepareStatement(
-				"DELETE FROM porudzbina WHERE sifra_porudzbine = ? and sifra_robe = ?");
+				"DELETE FROM narucena_roba WHERE sifra_porudzbine = ? and sifra_robe = ?");
 		String sifraP = (String) getValueAt(index, 0);
 		String sifraR = (String) getValueAt(index, 1);
+		
 		stmt.setString(1, sifraP);
 		stmt.setString(2, sifraR);
 		// Brisanje iz baze
@@ -150,7 +152,7 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, komada_naruceno, komada_poslato, komada_ostalo) VALUES (?, ?, ?, ?, ?, ?)");
+						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, komada_naruceno, komada_poslato, komada_ostalo) VALUES (?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[3]);
@@ -172,6 +174,7 @@ public class NarucenaTableModel extends StandardTableModel {
 
 	@Override
 	public void updateRow(int index, String[] params) throws SQLException {
+		
 		checkRow(index);
 
 		String sifra_porudzbine = (String) getValueAt(index, 0);
@@ -180,7 +183,7 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE porudzbina SET komada_naruceno = ?, komada_poslato = ?, komada_ostalo = ? WHERE sifra_porudzbine = ? and sifra_robe = ?");
+						"UPDATE narucena_roba SET komada_naruceno = ?, komada_poslato = ?, komada_ostalo = ? WHERE sifra_porudzbine = ? and sifra_robe = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
@@ -190,9 +193,9 @@ public class NarucenaTableModel extends StandardTableModel {
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
-		setValueAt(params[0], index, 1);
-		setValueAt(params[1], index, 2);
-		setValueAt(params[2], index, 3);		
+		setValueAt(params[0], index, 3);
+		setValueAt(params[1], index, 4);
+		setValueAt(params[2], index, 5);		
 		fireTableDataChanged();
 	}
 

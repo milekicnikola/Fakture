@@ -380,7 +380,8 @@ public class DialogRoba extends StandardDialog {
 	public void btnEnable() {
 		((RobaPanel) panel).getBtnConfirm().setEnabled(true);
 		((RobaPanel) panel).getBtnCancel().setEnabled(true);
-		((RobaPanel) panel).getBtnMagacin().setEnabled(true);
+		if (!isZoom)
+			((RobaPanel) panel).getBtnMagacin().setEnabled(true);
 	}
 
 	public double trenutniKurs() throws SQLException, NumberFormatException {

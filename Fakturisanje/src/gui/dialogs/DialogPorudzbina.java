@@ -145,6 +145,7 @@ public class DialogPorudzbina extends StandardDialog {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
+			toolbar.getBtnDetaljno().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 				@Override
@@ -210,13 +211,15 @@ public class DialogPorudzbina extends StandardDialog {
 		} else if (state == State.AZURIRANJE) {
 			btnEnable();
 			allEnable();
-			((PorudzbinaPanel) panel).getTxtSifra().setEditable(false);			
+			((PorudzbinaPanel) panel).getTxtSifra().setEditable(false);	
+			toolbar.getBtnDetaljno().setEnabled(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
 			btnEnable();
 			allEnable();
+			toolbar.getBtnDetaljno().setEnabled(false);
 			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();						
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;

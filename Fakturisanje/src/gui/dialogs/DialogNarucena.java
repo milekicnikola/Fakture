@@ -9,11 +9,12 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class DialogNarucena extends StandardDialog {
+	
+	private String porudzbina = "";
 
 	/**
 	 * 
@@ -22,8 +23,10 @@ public class DialogNarucena extends StandardDialog {
 	
 	public DialogNarucena(JFrame parent, Boolean zoom, String where) {
 		super(parent);
-		setTitle("Narucena");
+		setTitle("Naručena roba");
 		setIconImage(new ImageIcon("Images/Narucena.png").getImage());
+		
+		porudzbina = where;
 		
 		String whereStm = " WHERE narucena_roba.sifra_porudzbine = '" + where + "'";
 
@@ -37,11 +40,7 @@ public class DialogNarucena extends StandardDialog {
 
 		initGUI();
 		initStandardActions();
-		initActions();
-		
-		JButton btnDetaljno = new JButton("Detalji porudzbine");
-		btnDetaljno.setEnabled(false);
-		toolbar.dodajDetaljno(btnDetaljno);
+		initActions();		
 		
 	}
 	
@@ -138,7 +137,8 @@ public class DialogNarucena extends StandardDialog {
 							} catch (NullPointerException n) {
 							}
 						}
-					});			
+					});	
+			((NarucenaPanel) panel).getTxtSifraP().setText(porudzbina);
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
@@ -202,7 +202,7 @@ public class DialogNarucena extends StandardDialog {
 			clearAll();
 			btnEnable();
 			allEnable();
-			((NarucenaPanel) panel).getTxtSifraP().requestFocus();						
+			((NarucenaPanel) panel).getTxtNaruceno().requestFocus();						
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
 		}
@@ -238,13 +238,12 @@ public class DialogNarucena extends StandardDialog {
 		int i = table.getSelectedRow();
 		if (i == -1)
 			return;
-
-		String nazivR = ((NarucenaPanel) panel).getTxtNazivR().getText().trim();		
+				
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
 		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();
-		String ostalo = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();
+		String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
 		
-		String[] params = { nazivR, naruceno, poslato, ostalo, };
+		String[] params = { naruceno, poslato, ostalo };
 		int index = table.getSelectedRow();
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -299,8 +298,7 @@ public class DialogNarucena extends StandardDialog {
 		
 	}
 
-	public void clearAll() {
-		((NarucenaPanel) panel).getTxtSifraP().setText("");
+	public void clearAll() {		
 		((NarucenaPanel) panel).getTxtSifraR().setText("");
 		((NarucenaPanel) panel).getTxtNazivR().setText("");
 		((NarucenaPanel) panel).getTxtNaruceno().setText("");
