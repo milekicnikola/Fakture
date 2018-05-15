@@ -1,7 +1,5 @@
 package actions;
 
-import gui.MainFrame;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -28,8 +26,8 @@ public class DialogOtpremnicaAction extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		DialogOtpreminca otpremnica = new DialogOtpremnica(MainFrame.getInstance(), false);
-		otpremnica.setVisible(true);
+		//DialogOtpreminca otpremnica = new DialogOtpremnica(MainFrame.getInstance(), false);
+		//otpremnica.setVisible(true);
 
 	}
 

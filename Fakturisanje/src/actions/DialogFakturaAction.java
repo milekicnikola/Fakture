@@ -1,6 +1,7 @@
 package actions;
 
 import gui.MainFrame;
+import gui.dialogs.DialogFaktura;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

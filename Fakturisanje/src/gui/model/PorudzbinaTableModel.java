@@ -127,7 +127,7 @@ public class PorudzbinaTableModel extends StandardTableModel {
 		checkRow(index);
 
 		PreparedStatement stmt = DBConnection.getConnection().prepareStatement(
-				"DELETE FROM porudzbina WHERE sifra_porudzbine = ?");
+				"DELETE FROM porudzbina WHERE sifra_porudzbine = ? ");
 		String sifra = (String) getValueAt(index, 0);
 		stmt.setString(1, sifra);
 		// Brisanje iz baze

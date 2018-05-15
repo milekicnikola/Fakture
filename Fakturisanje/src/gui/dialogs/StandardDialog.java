@@ -208,11 +208,11 @@ public abstract class StandardDialog extends JDialog {
 					}
 
 				} else {
-					if (state == State.DODAVANJE) {
-						addRow();
+					if (state == State.DODAVANJE) {						
+						addRow();						
 					}
-					if (state == State.AZURIRANJE) {
-						updateRow();
+					if (state == State.AZURIRANJE) {						
+						updateRow();						
 					}
 					if (state == State.PRETRAGA) {
 						search();
@@ -294,6 +294,7 @@ public abstract class StandardDialog extends JDialog {
 	}
 
 	public void removeRow() {
+		toolbar.getBtnRefresh().doClick();
 		int index = table.getSelectedRow();
 		if (index == -1)
 			return;

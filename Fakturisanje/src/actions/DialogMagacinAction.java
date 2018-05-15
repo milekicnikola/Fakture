@@ -12,6 +12,11 @@ import javax.swing.KeyStroke;
 
 public class DialogMagacinAction extends AbstractAction {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public DialogMagacinAction() {
 		putValue(NAME, "Magacin");
 		putValue(SMALL_ICON, new ImageIcon("Images/magacin.png"));

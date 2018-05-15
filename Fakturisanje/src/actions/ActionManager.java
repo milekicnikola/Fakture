@@ -8,6 +8,7 @@ public class ActionManager {
 	private DialogKupciAction kupci = new DialogKupciAction();
 	private DialogKursAction kurs = new DialogKursAction();
 	private DialogPorudzbinaAction porudzbina = new DialogPorudzbinaAction();	
+	private DialogFakturaAction faktura = new DialogFakturaAction();	
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -54,6 +55,14 @@ public class ActionManager {
 
 	public void setDialogPorudzbinaAction(DialogPorudzbinaAction porudzbina) {
 		this.porudzbina = porudzbina;
+	}
+	
+	public DialogFakturaAction getDialogFakturaAction() {
+		return faktura;
+	}
+
+	public void setDialogFakturaAction(DialogFakturaAction faktura) {
+		this.faktura = faktura;
 	}
 
 }

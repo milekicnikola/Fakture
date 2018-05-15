@@ -240,7 +240,6 @@ public class DialogPorudzbina extends StandardDialog {
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
-
 		}		
 
 		String[] params = { sifra, sifraM, nazivM, ime, sifraK, nazivK, datum };
@@ -265,17 +264,16 @@ public class DialogPorudzbina extends StandardDialog {
 
 		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText().trim();
 		String nazivM = ((PorudzbinaPanel) panel).getTxtNazivM().getText().trim();
-		String ime = MainFrame.getInstance().getKorisnik();;
+		String ime = MainFrame.getInstance().getKorisnik();
 		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText().trim();
 		String nazivK = ((PorudzbinaPanel) panel).getTxtNazivK().getText().trim();
 		Date datum1 = ((PorudzbinaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
-
 		}			
 
-		String[] params = { sifraM, nazivM, ime, sifraK, nazivK, datum, };
+		String[] params = { sifraM, nazivM, ime, sifraK, nazivK, datum };
 		int index = table.getSelectedRow();
 		try {
 			PorudzbinaTableModel ctm = (PorudzbinaTableModel) table.getModel();
@@ -297,7 +295,6 @@ public class DialogPorudzbina extends StandardDialog {
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
-
 		}		
 
 		String[] params = { sifra, sifraM, sifraK, datum };
