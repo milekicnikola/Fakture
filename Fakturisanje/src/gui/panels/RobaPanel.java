@@ -1,6 +1,5 @@
 package gui.panels;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -9,9 +8,7 @@ public class RobaPanel extends StandardPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel lblSifra;
-	private JLabel lblInterna;
-	private JLabel lblSifraM;
-	private JLabel lblNazivM;
+	private JLabel lblInterna;	
 	private JLabel lblNaziv;
 	private JLabel lblJedinicaMere;
 	private JLabel lblKomada;
@@ -21,9 +18,7 @@ public class RobaPanel extends StandardPanel {
 	private JLabel lblRoni;
 		
 	private JTextField txtSifra;
-	private JTextField txtInterna;
-	private JTextField txtSifraM;
-	private JTextField txtNazivM;
+	private JTextField txtInterna;	
 	private JTextField txtNaziv;
 	private JTextField txtJedinicaMere;
 	private JTextField txtKomada;
@@ -31,15 +26,11 @@ public class RobaPanel extends StandardPanel {
 	private JTextField txtKvalitet;
 	private JTextField txtEvri;
 	private JTextField txtRoni;	
-
-	private JButton btnMagacin;
 	
 	public RobaPanel() {
 
 		lblSifra = new JLabel("Šifra robe");
-		lblInterna = new JLabel("Interna šifra robe");
-		lblSifraM = new JLabel("Šifra magacina");
-		lblNazivM = new JLabel("Naziv magacin");
+		lblInterna = new JLabel("Interna šifra robe");		
 		lblNaziv = new JLabel("Naziv robe");
 		lblJedinicaMere = new JLabel("Jedinica mere robe");
 		lblKomada = new JLabel("Komada u setu");
@@ -49,37 +40,23 @@ public class RobaPanel extends StandardPanel {
 		lblRoni = new JLabel("Cena robe u ronima");		
 		
 		txtSifra = new JTextField(20);
-		txtInterna = new JTextField(20);
-		txtSifraM = new JTextField(5);
-		txtNazivM = new JTextField(20);
+		txtInterna = new JTextField(20);	
 		txtNaziv = new JTextField(20);
 		txtJedinicaMere = new JTextField(10);
 		txtKomada = new JTextField(4);
 		txtTezina = new JTextField(10);
 		txtKvalitet = new JTextField(20);
 		txtEvri = new JTextField(10);
-		txtRoni = new JTextField(10);
-		//lblPrazno = new JLabel("     ");
-		
-		txtSifraM.setEditable(false);
-		txtNazivM.setEditable(false);
-		btnMagacin = new JButton("Izaberi magacin");
-		btnMagacin.setEnabled(false);		
+		txtRoni = new JTextField(10);				
 
 		add(lblSifra);
 		add(txtSifra);
 		
 		add(lblInterna);
-		add(txtInterna);
-		
-		add(lblSifraM);
-		add(txtSifraM);
-		add(lblNazivM);
-		add(txtNazivM);
-		add(btnMagacin, "wrap");
+		add(txtInterna);		
 		
 		add(lblNaziv);
-		add(txtNaziv);
+		add(txtNaziv, "wrap");
 		
 		add(lblJedinicaMere);
 		add(txtJedinicaMere);
@@ -102,40 +79,8 @@ public class RobaPanel extends StandardPanel {
 		add(btnConfirm);		
 		add(btnCancel);
 
-	}
+	}	
 	
-	public JLabel getLblSifraM() {
-		return lblSifraM;
-	}
-
-	public void setLblSifraM(JLabel lblSifraM) {
-		this.lblSifraM = lblSifraM;
-	}
-
-	public JLabel getLblNazivM() {
-		return lblNazivM;
-	}
-
-	public void setLblNazivM(JLabel lblNazivM) {
-		this.lblNazivM = lblNazivM;
-	}
-
-	public JTextField getTxtSifraM() {
-		return txtSifraM;
-	}
-
-	public void setTxtSifraM(JTextField txtSifraM) {
-		this.txtSifraM = txtSifraM;
-	}
-
-	public JTextField getTxtNazivM() {
-		return txtNazivM;
-	}
-
-	public void setTxtNazivM(JTextField txtNazivM) {
-		this.txtNazivM = txtNazivM;
-	}
-
 	public JLabel getLblSifra() {
 		return lblSifra;
 	}
@@ -278,14 +223,6 @@ public class RobaPanel extends StandardPanel {
 
 	public void setTxtRoni(JTextField txtRoni) {
 		this.txtRoni = txtRoni;
-	}
+	}	
 	
-	public JButton getBtnMagacin() {
-		return btnMagacin;
-	}
-
-	public void setBtnMagacin(JButton btnMagacin) {
-		this.btnMagacin = btnMagacin;
-	}
-
 }

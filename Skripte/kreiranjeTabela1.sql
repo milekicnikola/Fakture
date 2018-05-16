@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     5/16/2018 3:21:05 AM                         */
+/* Created on:     5/11/2018 9:01:08 PM                         */
 /*==============================================================*/
 
 
@@ -9,6 +9,10 @@ drop table if exists kurs;
 drop table if exists narucena_roba;
 
 drop table if exists fakturisana_roba;
+
+drop table if exists otpremljena_roba;
+
+drop table if exists otpremnica;
 
 drop table if exists faktura;
 
@@ -110,6 +114,31 @@ create table narucena_roba
 );
 
 /*==============================================================*/
+/* Table: otpremljena_roba                                      */
+/*==============================================================*/
+create table otpremljena_roba
+(
+   sifra_robe           varchar(75) not null,
+   sifra_otpremnice     varchar(30) not null,
+   komada_poslato       numeric(10,0),
+   primary key (sifra_robe, sifra_otpremnice)
+);
+
+/*==============================================================*/
+/* Table: otpremnica                                            */
+/*==============================================================*/
+create table otpremnica
+(
+   sifra_otpremnice     varchar(30) not null,
+   datum_otpremnice     date,
+   sifra_porudzbine     varchar(20) not null,
+   sifra_magacina       varchar(5) not null,
+   sifra_fakture        varchar(20) not null,
+   korisnicko_ime       varchar(20) not null,
+   primary key (sifra_otpremnice)
+);
+
+/*==============================================================*/
 /* Table: porudzbina                                            */
 /*==============================================================*/
 create table porudzbina
@@ -128,6 +157,7 @@ create table porudzbina
 create table roba
 (
    sifra_robe           varchar(75) not null,
+   sifra_magacina       varchar(5) not null,
    interna_sifra_robe   varchar(20) not null,
    naziv_robe           varchar(100) not null,
    jedinica_mere_robe   varchar(10),
@@ -157,6 +187,24 @@ alter table narucena_roba add constraint fk_narucena_roba foreign key (sifra_por
 alter table narucena_roba add constraint fk_narucena_roba1 foreign key (sifra_robe)
       references roba (sifra_robe) on delete restrict on update restrict;
 
+alter table otpremljena_roba add constraint fk_otpremljena_roba foreign key (sifra_otpremnice)
+      references otpremnica (sifra_otpremnice) on delete restrict on update restrict;
+
+alter table otpremljena_roba add constraint fk_otpremljena_roba1 foreign key (sifra_robe)
+      references roba (sifra_robe) on delete restrict on update restrict;
+
+alter table otpremnica add constraint fk_korisnik_otpremnica foreign key (korisnicko_ime)
+      references korisnik (korisnicko_ime) on delete restrict on update restrict;
+
+alter table otpremnica add constraint fk_otpremnica_iz_magacina foreign key (sifra_magacina)
+      references magacin (sifra_magacina) on delete restrict on update restrict;
+
+alter table otpremnica add constraint fk_otpremnica_po_fakturi foreign key (sifra_fakture)
+      references faktura (sifra_fakture) on delete restrict on update restrict;
+
+alter table otpremnica add constraint fk_otpremnica_po_porudzbini foreign key (sifra_porudzbine)
+      references porudzbina (sifra_porudzbine) on delete restrict on update restrict;
+
 alter table porudzbina add constraint fk_korisnik_porudzbina foreign key (korisnicko_ime)
       references korisnik (korisnicko_ime) on delete restrict on update restrict;
 
@@ -165,4 +213,7 @@ alter table porudzbina add constraint fk_porudzbina_iz_magacina foreign key (sif
 
 alter table porudzbina add constraint fk_porudzbina_kupca foreign key (sifra_kupca)
       references kupci (sifra_kupca) on delete restrict on update restrict;
+
+alter table roba add constraint fk_roba_u_magacinu foreign key (sifra_magacina)
+      references magacin (sifra_magacina) on delete restrict on update restrict;
 

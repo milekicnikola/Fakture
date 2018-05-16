@@ -201,7 +201,7 @@ public abstract class StandardDialog extends JDialog {
 					if (table.getSelectedRow() >= 0) {
 						int i = table.getSelectedRow();
 						String code = (String) table.getValueAt(i, 0);
-						String name = (String) table.getValueAt(i, 1);
+						String name = (String) table.getValueAt(i, 2);
 						zoom1 = code;
 						zoom2 = name;
 						dispose();
@@ -294,7 +294,7 @@ public abstract class StandardDialog extends JDialog {
 	}
 
 	public void removeRow() {
-		toolbar.getBtnRefresh().doClick();
+		//toolbar.getBtnRefresh().doClick();
 		int index = table.getSelectedRow();
 		if (index == -1)
 			return;
