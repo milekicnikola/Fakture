@@ -27,7 +27,7 @@ public class MagacinPanel extends StandardPanel {
 		lblSef = new JLabel("Šef magacina");
 		lblTelefon = new JLabel("Telefon magacina");
 
-		txtSifra = new JTextField(5);
+		txtSifra = new JTextField(10);
 		txtNaziv = new JTextField(30);
 		txtAdresa = new JTextField(30);
 		txtSef = new JTextField(30);

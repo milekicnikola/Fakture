@@ -10,7 +10,7 @@ import util.SortUtils;
 import databaseConnection.DBConnection;
 
 public class NarucenaTableModel extends StandardTableModel {
-	
+
 	private String basicQuery1;
 
 	/**
@@ -20,8 +20,9 @@ public class NarucenaTableModel extends StandardTableModel {
 
 	public NarucenaTableModel(Object[] colName, int rowCount, String where) {
 		super(colName, rowCount);
-		basicQuery = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe" + where;
-		basicQuery1 = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"; 
+		basicQuery = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
+				+ where;
+		basicQuery1 = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
 		orderBy = " ORDER BY narucena_roba.sifra_porudzbine";
 	}
 
@@ -32,18 +33,21 @@ public class NarucenaTableModel extends StandardTableModel {
 
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_REPEATABLE_READ);
-		PreparedStatement selectStmt = DBConnection.getConnection()
-				.prepareStatement(basicQuery1 + " where narucena_roba.sifra_porudzbine = ? and narucena_roba.sifra_robe = ?");
+		PreparedStatement selectStmt = DBConnection
+				.getConnection()
+				.prepareStatement(
+						basicQuery1
+								+ " where narucena_roba.sifra_porudzbine = ? and narucena_roba.sifra_robe = ?");
 
 		String sifraP = (String) getValueAt(index, 0);
 		String sifraR = (String) getValueAt(index, 1);
-		
+
 		selectStmt.setString(1, sifraP);
 		selectStmt.setString(2, sifraR);
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_porudzbine = "", sifra_robe = "", nazivR = "", naruceno = "", poslato = "", ostalo = "";
+		String sifra_porudzbine = "", sifra_robe = "", nazivR = "", naruceno = "", poslato = "", ostalo = "", datum = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
@@ -52,7 +56,8 @@ public class NarucenaTableModel extends StandardTableModel {
 			nazivR = rset.getString("NAZIV_ROBE").trim();
 			naruceno = rset.getString("KOMADA_NARUCENO").trim();
 			poslato = rset.getString("KOMADA_POSLATO");
-			ostalo = rset.getString("KOMADA_OSTALO");			
+			ostalo = rset.getString("KOMADA_OSTALO");
+			datum = rset.getString("DATUM_NARUCIVANJA");
 			postoji = true;
 		}
 		if (!postoji) {
@@ -70,14 +75,17 @@ public class NarucenaTableModel extends StandardTableModel {
 				|| (SortUtils.getLatCyrCollator().compare(poslato,
 						(String) getValueAt(index, 4)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(ostalo,
-						(String) getValueAt(index, 5)) != 0)) {
+						(String) getValueAt(index, 5)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(datum,
+						(String) getValueAt(index, 6)) != 0)) {
 
 			setValueAt(sifra_porudzbine, index, 0);
 			setValueAt(sifra_robe, index, 1);
 			setValueAt(nazivR, index, 2);
 			setValueAt(naruceno, index, 3);
 			setValueAt(poslato, index, 4);
-			setValueAt(ostalo, index, 5);			
+			setValueAt(ostalo, index, 5);
+			setValueAt(ostalo, index, 6);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -86,18 +94,19 @@ public class NarucenaTableModel extends StandardTableModel {
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_READ_COMMITTED);
 		if (errorMsg != "") {
-			DBConnection.getConnection().commit();			
-			throw new SQLException(errorMsg, "", CUSTOM_ERROR_CODE);			
+			DBConnection.getConnection().commit();
+			throw new SQLException(errorMsg, "", CUSTOM_ERROR_CODE);
 		}
 	}
 
 	@Override
 	public void search(String[] params) throws SQLException {
-		whereStmt = " WHERE narucena_roba.sifra_porudzbine LIKE '%" + params[0] + "%' AND "
-				+ "narucena_roba.sifra_robe LIKE '%" + params[1] + "%' AND "				
-				+ "komada_naruceno LIKE '%" + params[2] + "%' AND "
+		whereStmt = " WHERE narucena_roba.sifra_porudzbine LIKE '%" + params[0]
+				+ "%' AND " + "narucena_roba.sifra_robe LIKE '%" + params[1]
+				+ "%' AND " + "komada_naruceno LIKE '%" + params[2] + "%' AND "
 				+ "komada_poslato LIKE '%" + params[3] + "%' AND "
-				+ "komada_ostalo LIKE '%" + params[3] + "%'";
+				+ "komada_ostalo LIKE '%" + params[4] + "%' AND "
+				+ "datum_narucivanja LIKE '%" + params[5] + "%'";
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}
@@ -105,7 +114,7 @@ public class NarucenaTableModel extends StandardTableModel {
 	@Override
 	public void fillData(String sql) throws SQLException {
 		setRowCount(0);
-		Statement stmt = DBConnection.getConnection().createStatement();		
+		Statement stmt = DBConnection.getConnection().createStatement();
 		ResultSet rset = stmt.executeQuery(sql);
 		while (rset.next()) {
 			String sifra_porudzbine = rset.getString("sifraPorudzbine");
@@ -113,10 +122,11 @@ public class NarucenaTableModel extends StandardTableModel {
 			String nazivR = rset.getString("NAZIV_ROBE");
 			String naruceno = rset.getString("KOMADA_NARUCENO");
 			String poslato = rset.getString("KOMADA_POSLATO");
-			String ostalo = rset.getString("KOMADA_OSTALO");			
+			String ostalo = rset.getString("KOMADA_OSTALO");
+			String datum = rset.getString("DATUM_NARUCIVANJA");
 
-			addRow(new String[] { sifra_porudzbine, sifra_robe, nazivR, naruceno,
-					poslato, ostalo });
+			addRow(new String[] { sifra_porudzbine, sifra_robe, nazivR,
+					naruceno, poslato, ostalo, datum });
 		}
 		rset.close();
 		stmt.close();
@@ -124,15 +134,17 @@ public class NarucenaTableModel extends StandardTableModel {
 	}
 
 	@Override
-	public void deleteRow(int index) throws SQLException {		
+	public void deleteRow(int index) throws SQLException {
 
-		checkRow(index);	
+		checkRow(index);
 
-		PreparedStatement stmt = DBConnection.getConnection().prepareStatement(
-				"DELETE FROM narucena_roba WHERE sifra_porudzbine = ? and sifra_robe = ?");
+		PreparedStatement stmt = DBConnection
+				.getConnection()
+				.prepareStatement(
+						"DELETE FROM narucena_roba WHERE sifra_porudzbine = ? and sifra_robe = ?");
 		String sifraP = (String) getValueAt(index, 0);
 		String sifraR = (String) getValueAt(index, 1);
-		
+
 		stmt.setString(1, sifraP);
 		stmt.setString(2, sifraR);
 		// Brisanje iz baze
@@ -152,12 +164,13 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, komada_naruceno, komada_poslato, komada_ostalo) VALUES (?, ?, ?, ?, ?)");
+						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja) VALUES (?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[3]);
 		stmt.setString(4, params[4]);
-		stmt.setString(5, params[5]);		
+		stmt.setString(5, params[5]);
+		stmt.setString(6, params[6]);
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -174,7 +187,7 @@ public class NarucenaTableModel extends StandardTableModel {
 
 	@Override
 	public void updateRow(int index, String[] params) throws SQLException {
-		
+
 		checkRow(index);
 
 		String sifra_porudzbine = (String) getValueAt(index, 0);
@@ -183,19 +196,21 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE narucena_roba SET komada_naruceno = ?, komada_poslato = ?, komada_ostalo = ? WHERE sifra_porudzbine = ? and sifra_robe = ?");
+						"UPDATE narucena_roba SET komada_naruceno = ?, komada_poslato = ?, komada_ostalo = ?, datum_narucivanja = ? WHERE sifra_porudzbine = ? and sifra_robe = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
-		stmt.setString(3, params[2]);				
-		stmt.setString(4, sifra_porudzbine);
-		stmt.setString(5, sifra_robe);
+		stmt.setString(3, params[2]);
+		stmt.setString(4, params[3]);
+		stmt.setString(5, sifra_porudzbine);
+		stmt.setString(6, sifra_robe);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
 		setValueAt(params[0], index, 3);
 		setValueAt(params[1], index, 4);
-		setValueAt(params[2], index, 5);		
+		setValueAt(params[2], index, 5);
+		setValueAt(params[3], index, 6);
 		fireTableDataChanged();
 	}
 

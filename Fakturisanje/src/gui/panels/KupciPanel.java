@@ -26,17 +26,17 @@ public class KupciPanel extends StandardPanel {
 
 	public KupciPanel() {
 
-		lblSifra = new JLabel("Šifra kupca");
+		lblSifra = new JLabel("Pib kupca");
 		lblNaziv = new JLabel("Naziv kupca");
 		lblNaziv2 = new JLabel("Drugi naziv kupca");
 		lblAdresa = new JLabel("Adresa kupca");
 		lblGrad = new JLabel("Grad kupca");
 		lblDrzava = new JLabel("Država kupca");
 
-		txtSifra = new JTextField(3);
-		txtNaziv = new JTextField(30);
-		txtNaziv2 = new JTextField(30);
-		txtAdresa = new JTextField(30);
+		txtSifra = new JTextField(20);
+		txtNaziv = new JTextField(20);
+		txtNaziv2 = new JTextField(20);
+		txtAdresa = new JTextField(20);
 		txtGrad = new JTextField(20);
 		txtDrzava = new JTextField(20);
 

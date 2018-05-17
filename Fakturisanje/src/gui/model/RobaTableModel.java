@@ -18,7 +18,7 @@ public class RobaTableModel extends StandardTableModel {
 
 	public RobaTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_robe, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni FROM roba";
+		basicQuery = "SELECT sifra_robe, roba.jedinica_mere as jedinicaMere, interna_sifra_robe, naziv_robe, naziv_mere, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni FROM roba JOIN jedinica_mere ON roba.jedinica_mere = jedinica_mere.redni_broj";
 		orderBy = " ORDER BY sifra_robe";
 	}
 
@@ -37,14 +37,14 @@ public class RobaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_robe = "", interna_sifra = "", naziv = "", jedinica_mere = "", komada_u_setu = "", tezina = "", kvalitet = "", evri = "", roni = "";
+		String sifra_robe = "", interna_sifra = "", naziv = "", naziv_mere = "", komada_u_setu = "", tezina = "", kvalitet = "", evri = "", roni = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
 			sifra_robe = rset.getString("SIFRA_ROBE").trim();
-			interna_sifra = rset.getString("INTERNA_SIFRA_ROBE").trim();			
+			interna_sifra = rset.getString("INTERNA_SIFRA_ROBE").trim();
 			naziv = rset.getString("NAZIV_ROBE");
-			jedinica_mere = rset.getString("JEDINICA_MERE_ROBE");
+			naziv_mere = rset.getString("NAZIV_MERE");
 			komada_u_setu = rset.getString("KOMADA_U_SETU");
 			tezina = rset.getString("TEZINA_ROBE");
 			kvalitet = rset.getString("KVALITET_ROBE");
@@ -59,10 +59,10 @@ public class RobaTableModel extends StandardTableModel {
 		} else if ((SortUtils.getLatCyrCollator().compare(sifra_robe,
 				((String) getValueAt(index, 0)).trim()) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(interna_sifra,
-						(String) getValueAt(index, 1)) != 0)				
+						(String) getValueAt(index, 1)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(naziv,
 						(String) getValueAt(index, 2)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(jedinica_mere,
+				|| (SortUtils.getLatCyrCollator().compare(naziv_mere,
 						(String) getValueAt(index, 3)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(komada_u_setu,
 						(String) getValueAt(index, 4)) != 0)
@@ -76,9 +76,9 @@ public class RobaTableModel extends StandardTableModel {
 						(String) getValueAt(index, 8)) != 0)) {
 
 			setValueAt(sifra_robe, index, 0);
-			setValueAt(interna_sifra, index, 1);			
+			setValueAt(interna_sifra, index, 1);
 			setValueAt(naziv, index, 2);
-			setValueAt(jedinica_mere, index, 3);
+			setValueAt(naziv_mere, index, 3);
 			setValueAt(komada_u_setu, index, 4);
 			setValueAt(tezina, index, 5);
 			setValueAt(kvalitet, index, 6);
@@ -99,15 +99,14 @@ public class RobaTableModel extends StandardTableModel {
 
 	@Override
 	public void search(String[] params) throws SQLException {
-		whereStmt = " WHERE sifra_robe LIKE '%" + params[0] + "%' AND "
-				+ "interna_sifra_robe LIKE '%" + params[1] + "%' AND "				
+		whereStmt = " WHERE sifra_robe LIKE '%" + params[0] + "%' AND "				
+				+ "interna_sifra_robe LIKE '%" + params[1] + "%' AND "
 				+ "naziv_robe LIKE '%" + params[2] + "%' AND "
-				+ "jedinica_mere_robe LIKE '%" + params[3] + "%' AND "
-				+ "komada_u_setu LIKE '%" + params[4] + "%' AND "
-				+ "tezina_robe LIKE '%" + params[5] + "%' AND "
-				+ "kvalitet_robe LIKE '%" + params[6] + "%' AND "
-				+ "cena_evri LIKE '%" + params[7] + "%' AND "
-				+ "cena_roni LIKE '%" + params[8] + "%'";
+				+ "komada_u_setu LIKE '%" + params[3] + "%' AND "
+				+ "tezina_robe LIKE '%" + params[4] + "%' AND "
+				+ "kvalitet_robe LIKE '%" + params[5] + "%' AND "
+				+ "cena_evri LIKE '%" + params[6] + "%' AND "
+				+ "cena_roni LIKE '%" + params[7] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}
@@ -119,18 +118,17 @@ public class RobaTableModel extends StandardTableModel {
 		ResultSet rset = stmt.executeQuery(sql);
 		while (rset.next()) {
 			String sifra_robe = rset.getString("SIFRA_ROBE");
-			String interna_sifra = rset.getString("INTERNA_SIFRA_ROBE");			
+			String interna_sifra = rset.getString("INTERNA_SIFRA_ROBE");
 			String naziv = rset.getString("NAZIV_ROBE");
-			String jedinica_mere = rset.getString("JEDINICA_MERE_ROBE");
+			String jedinica_mere = rset.getString("NAZIV_MERE");
 			String komada_u_setu = rset.getString("KOMADA_U_SETU");
 			String tezina = rset.getString("TEZINA_ROBE");
 			String kvalitet = rset.getString("KVALITET_ROBE");
 			String evri = rset.getString("CENA_EVRI");
 			String roni = rset.getString("CENA_RONI");
 
-			addRow(new String[] { sifra_robe, interna_sifra,
-					naziv, jedinica_mere, komada_u_setu, tezina, kvalitet,
-					evri, roni });
+			addRow(new String[] { sifra_robe, interna_sifra, naziv,
+					jedinica_mere, komada_u_setu, tezina, kvalitet, evri, roni });
 		}
 		rset.close();
 		stmt.close();
@@ -163,16 +161,16 @@ public class RobaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO roba (sifra_robe, interna_sifra_robe, naziv_robe, jedinica_mere_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+						"INSERT INTO roba (sifra_robe, roba.jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
 		stmt.setString(4, params[3]);
-		stmt.setString(5, params[4]);
-		stmt.setString(6, params[5]);
-		stmt.setString(7, params[6]);
-		stmt.setString(8, params[7]);
-		stmt.setString(9, params[8]);		
+		stmt.setString(5, params[5]);
+		stmt.setString(6, params[6]);
+		stmt.setString(7, params[7]);
+		stmt.setString(8, params[8]);
+		stmt.setString(9, params[9]);
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -180,7 +178,9 @@ public class RobaTableModel extends StandardTableModel {
 		DBConnection.getConnection().commit();
 		if (rowsAffected > 0) {
 			// i unos u TableModel
-			retVal = sortedInsert(params);
+			String[] newParams = { params[0], params[2], params[3], params[4],
+					params[5], params[6], params[7], params[8], params[9] };
+			retVal = sortedInsert(newParams);
 			fireTableRowsInserted(retVal, retVal);
 
 		}
@@ -196,28 +196,28 @@ public class RobaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE roba SET interna_sifra_robe = ?, naziv_robe = ?, jedinica_mere_robe = ?, komada_u_setu = ?, tezina_robe = ?, kvalitet_robe = ?, cena_evri = ?, cena_roni = ? WHERE sifra_robe = ?");
+						"UPDATE roba SET roba.jedinica_mere = ?, interna_sifra_robe = ?, naziv_robe = ?, komada_u_setu = ?, tezina_robe = ?, kvalitet_robe = ?, cena_evri = ?, cena_roni = ? WHERE sifra_robe = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
-		stmt.setString(4, params[3]);
-		stmt.setString(5, params[4]);
-		stmt.setString(6, params[5]);
-		stmt.setString(7, params[6]);
-		stmt.setString(8, params[7]);		
+		stmt.setString(4, params[4]);
+		stmt.setString(5, params[5]);
+		stmt.setString(6, params[6]);
+		stmt.setString(7, params[7]);
+		stmt.setString(8, params[8]);
 		stmt.setString(9, sifra_robe);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
-		setValueAt(params[0], index, 1);
-		setValueAt(params[1], index, 2);
-		setValueAt(params[2], index, 3);
-		setValueAt(params[3], index, 4);
-		setValueAt(params[4], index, 5);
-		setValueAt(params[5], index, 6);
-		setValueAt(params[6], index, 7);
-		setValueAt(params[7], index, 8);				
+		setValueAt(params[1], index, 1);
+		setValueAt(params[2], index, 2);
+		setValueAt(params[3], index, 3);
+		setValueAt(params[4], index, 4);
+		setValueAt(params[5], index, 5);
+		setValueAt(params[6], index, 6);
+		setValueAt(params[7], index, 7);
+		setValueAt(params[8], index, 8);
 		fireTableDataChanged();
 	}
 

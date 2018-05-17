@@ -18,11 +18,11 @@ insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magaci
 
 insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('RAME', 'Rame magacin', 'Zrenjanin', 'Sef 5', '023666777');
 
-insert into jedinica_mere (redni_broj, naziv) values (1, 'komad');
+insert into jedinica_mere (redni_broj, naziv_mere) values (1, 'komad');
 
-insert into jedinica_mere (redni_broj, naziv) values (2, 'set');
+insert into jedinica_mere (redni_broj, naziv_mere) values (2, 'set');
 
-insert into jedinica_mere (redni_broj, naziv) values (3, 'metar');
+insert into jedinica_mere (redni_broj, naziv_mere) values (3, 'metar');
 
 insert into kurs (datum_kursa, ron_evro) values ('2016-3-30', 9.78);
 

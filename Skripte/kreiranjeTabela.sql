@@ -57,7 +57,7 @@ create table fakturisana_roba
 create table jedinica_mere
 (
    redni_broj           int not null,
-   naziv                varchar(20) not null,
+   naziv_mere           varchar(20) not null,
    primary key (redni_broj)
 );
 

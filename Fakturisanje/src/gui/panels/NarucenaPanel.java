@@ -1,8 +1,12 @@
 package gui.panels;
 
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.toedter.calendar.JDateChooser;
 
 public class NarucenaPanel extends StandardPanel {
 
@@ -16,7 +20,8 @@ public class NarucenaPanel extends StandardPanel {
 	private JLabel lblSifraP;
 	private JLabel lblNaruceno;
 	private JLabel lblPoslato;
-	private JLabel lblOstalo;	
+	private JLabel lblOstalo;
+	private JLabel lblDatum;
 
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;
@@ -27,6 +32,10 @@ public class NarucenaPanel extends StandardPanel {
 	
 	private JButton btnRoba;	
 
+	private JDateChooser txtDatum;
+
+	private Dimension datePreferedSize;
+
 	public NarucenaPanel() {
 
 		lblSifraR = new JLabel("Šifra robe");
@@ -35,13 +44,20 @@ public class NarucenaPanel extends StandardPanel {
 		lblNaruceno = new JLabel("Naručeno komada");
 		lblPoslato = new JLabel("Poslato komada");
 		lblOstalo = new JLabel("Ostalo komada");		
+		lblDatum = new JLabel("Datum narucivanja");
 
 		txtSifraR = new JTextField(20);
 		txtNazivR = new JTextField(20);
 		txtSifraP = new JTextField(20);		
 		txtNaruceno = new JTextField(10);
 		txtPoslato = new JTextField(10);
-		txtOstalo = new JTextField(10);		
+		txtOstalo = new JTextField(10);	
+		
+		datePreferedSize = new Dimension(100, 20);
+
+		txtDatum = new JDateChooser();
+		txtDatum.setDateFormatString("yyyy-MM-dd");
+		txtDatum.setPreferredSize(datePreferedSize);
 		
 		btnRoba = new JButton("Dodaj robu u porudzbinu");
 		btnRoba.setEnabled(false);
@@ -53,16 +69,19 @@ public class NarucenaPanel extends StandardPanel {
 		add(txtNazivR);
 
 		add(lblSifraP);
-		add(txtSifraP, "wrap");		
+		add(txtSifraP);		
 
 		add(lblNaruceno);
-		add(txtNaruceno);
+		add(txtNaruceno, "wrap");
 
 		add(lblPoslato);
 		add(txtPoslato);
 
 		add(lblOstalo);
 		add(txtOstalo);
+		
+		add(lblDatum);
+		add(txtDatum);
 		
 		add(btnRoba);		
 		add(btnConfirm);
@@ -172,6 +191,22 @@ public class NarucenaPanel extends StandardPanel {
 
 	public void setBtnRoba(JButton btnRoba) {
 		this.btnRoba = btnRoba;
+	}
+	
+	public JLabel getLblDatum() {
+		return lblDatum;
+	}
+
+	public void setLblDatum(JLabel lblDatum) {
+		this.lblDatum = lblDatum;
+	}
+
+	public JDateChooser getTxtDatum() {
+		return txtDatum;
+	}
+
+	public void setTxtDatum(JDateChooser txtDatum) {
+		this.txtDatum = txtDatum;
 	}
 
 }

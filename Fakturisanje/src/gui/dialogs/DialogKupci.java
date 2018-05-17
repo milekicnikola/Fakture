@@ -23,7 +23,7 @@ public class DialogKupci extends StandardDialog {
 		setTitle("Kupci");
 		setIconImage(new ImageIcon("Images/kupci.png").getImage());
 
-		tableModel = new KupciTableModel(new String[] { "Šifra", "Naziv",
+		tableModel = new KupciTableModel(new String[] { "PIB", "Naziv",
 				"Drugi naziv", "Adresa", "Grad", "Država" }, 0);
 
 		panel = new KupciPanel();

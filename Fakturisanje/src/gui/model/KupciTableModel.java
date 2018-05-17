@@ -18,8 +18,8 @@ public class KupciTableModel extends StandardTableModel {
 
 	public KupciTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca FROM kupci";
-		orderBy = " ORDER BY sifra_kupca";
+		basicQuery = "SELECT pib, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca FROM kupci";
+		orderBy = " ORDER BY pib";
 	}
 
 	// Dodate konstante za potrebe izvestavanja korisnika o greskama
@@ -30,7 +30,7 @@ public class KupciTableModel extends StandardTableModel {
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_REPEATABLE_READ);
 		PreparedStatement selectStmt = DBConnection.getConnection()
-				.prepareStatement(basicQuery + " where sifra_kupca = ?");
+				.prepareStatement(basicQuery + " where pib = ?");
 
 		String sifra = (String) getValueAt(index, 0);
 		selectStmt.setString(1, sifra);
@@ -41,7 +41,7 @@ public class KupciTableModel extends StandardTableModel {
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
-			sifra_kupca = rset.getString("SIFRA_KUPCA").trim();
+			sifra_kupca = rset.getString("PIB").trim();
 			naziv = rset.getString("NAZIV_KUPCA").trim();
 			naziv2 = rset.getString("NAZIV_KUPCA2").trim();
 			adresa = rset.getString("ADRESA_KUPCA").trim();
@@ -87,7 +87,7 @@ public class KupciTableModel extends StandardTableModel {
 
 	@Override
 	public void search(String[] params) throws SQLException {
-		whereStmt = " WHERE sifra_kupca LIKE '%" + params[0] + "%' AND "
+		whereStmt = " WHERE pib LIKE '%" + params[0] + "%' AND "
 				+ "naziv_kupca LIKE '%" + params[1] + "%' AND "
 				+ "naziv_kupca2 LIKE '%" + params[2] + "%' AND "
 				+ "adresa_kupca LIKE '%" + params[3] + "%' AND "
@@ -103,7 +103,7 @@ public class KupciTableModel extends StandardTableModel {
 		Statement stmt = DBConnection.getConnection().createStatement();
 		ResultSet rset = stmt.executeQuery(sql);
 		while (rset.next()) {
-			String sifra_kupca = rset.getString("SIFRA_KUPCA");
+			String sifra_kupca = rset.getString("PIB");
 			String naziv = rset.getString("NAZIV_KUPCA");
 			String naziv2 = rset.getString("NAZIV_KUPCA2");
 			String adresa = rset.getString("ADRESA_KUPCA");
@@ -123,7 +123,7 @@ public class KupciTableModel extends StandardTableModel {
 		checkRow(index);
 
 		PreparedStatement stmt = DBConnection.getConnection().prepareStatement(
-				"DELETE FROM kupci WHERE sifra_kupca = ?");
+				"DELETE FROM kupci WHERE pib = ?");
 		String sifra = (String) getValueAt(index, 0);
 		stmt.setString(1, sifra);
 		// Brisanje iz baze
@@ -143,7 +143,7 @@ public class KupciTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO kupci (sifra_kupca, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) VALUES (?, ?, ?, ?, ?, ?)");
+						"INSERT INTO kupci (pib, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) VALUES (?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
@@ -173,7 +173,7 @@ public class KupciTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE kupci SET naziv_kupca = ?, naziv_kupca2 = ?, adresa_kupca = ?, grad_kupca = ?, drzava_kupca = ? WHERE sifra_kupca = ?");
+						"UPDATE kupci SET naziv_kupca = ?, naziv_kupca2 = ?, adresa_kupca = ?, grad_kupca = ?, drzava_kupca = ? WHERE pib = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);

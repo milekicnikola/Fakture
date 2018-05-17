@@ -2,7 +2,6 @@ package gui.panels;
 
 import java.awt.Dimension;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -17,8 +16,8 @@ public class FakturaPanel extends StandardPanel {
 	
 	private JLabel lblSifra;
 	private JLabel lblDatum;
-	private JLabel lblSifraK;
-	private JLabel lblNazivK;
+	/*private JLabel lblSifraK;
+	private JLabel lblNazivK;*/
 	private JLabel lblKorisnik;
 	private JLabel lblParitet;
 	private JLabel lblBruto;
@@ -26,15 +25,15 @@ public class FakturaPanel extends StandardPanel {
 	private JLabel lblUkupno;	
 
 	private JTextField txtSifra;
-	private JTextField txtSifraK;
-	private JTextField txtNazivK;
+	/*private JTextField txtSifraK;
+	private JTextField txtNazivK;*/
 	private JTextField txtKorisnik;
 	private JTextField txtParitet;
 	private JTextField txtBruto;
 	private JTextField txtNeto;
 	private JTextField txtUkupno;
 	
-	private JButton btnKupac;
+	//private JButton btnKupac;
 
 	private JDateChooser txtDatum;
 
@@ -44,8 +43,8 @@ public class FakturaPanel extends StandardPanel {
 
 		lblSifra = new JLabel("Šifra fakture");
 		lblDatum = new JLabel("Datum fakture");
-		lblSifraK = new JLabel("Šifra kupca");
-		lblNazivK = new JLabel("Naziv kupca");
+		/*lblSifraK = new JLabel("PIB kupca");
+		lblNazivK = new JLabel("Naziv kupca");*/
 		lblKorisnik = new JLabel("Korisnik");
 		lblParitet = new JLabel("Paritet");
 		lblBruto = new JLabel("Bruto");
@@ -54,8 +53,8 @@ public class FakturaPanel extends StandardPanel {
 		
 
 		txtSifra = new JTextField(20);
-		txtSifraK = new JTextField(3);
-		txtNazivK = new JTextField(20);
+		/*txtSifraK = new JTextField(10);
+		txtNazivK = new JTextField(20);*/
 		txtKorisnik = new JTextField(20);
 		txtParitet = new JTextField(20);
 		txtBruto = new JTextField(10);
@@ -68,8 +67,8 @@ public class FakturaPanel extends StandardPanel {
 		txtDatum.setDateFormatString("yyyy-MM-dd");
 		txtDatum.setPreferredSize(datePreferedSize);
 		
-		btnKupac = new JButton("Izaberi kupca");		
-		btnKupac.setEnabled(false);
+		/*btnKupac = new JButton("Izaberi kupca");		
+		btnKupac.setEnabled(false);*/
 
 		add(lblSifra);
 		add(txtSifra);
@@ -77,22 +76,22 @@ public class FakturaPanel extends StandardPanel {
 		add(lblDatum);
 		add(txtDatum);
 		
-		add(lblSifraK);
+		/*add(lblSifraK);
 		add(txtSifraK);
 
 		add(lblNazivK);
 		add(txtNazivK);
-		add(btnKupac, "wrap");
+		add(btnKupac, "wrap");*/
 
 		
 		add(lblKorisnik);
-		add(txtKorisnik);
+		add(txtKorisnik, "wrap");
 		
 		add(lblParitet);
 		add(txtParitet);
 		
 		add(lblBruto);
-		add(txtBruto, "wrap");
+		add(txtBruto);
 		
 		add(lblNeto);
 		add(txtNeto);
@@ -121,7 +120,7 @@ public class FakturaPanel extends StandardPanel {
 		this.lblDatum = lblDatum;
 	}
 
-	public JLabel getLblSifraK() {
+	/*public JLabel getLblSifraK() {
 		return lblSifraK;
 	}
 
@@ -135,7 +134,7 @@ public class FakturaPanel extends StandardPanel {
 
 	public void setLblNazivK(JLabel lblNazivK) {
 		this.lblNazivK = lblNazivK;
-	}
+	}*/
 
 	public JLabel getLblKorisnik() {
 		return lblKorisnik;
@@ -185,7 +184,7 @@ public class FakturaPanel extends StandardPanel {
 		this.txtSifra = txtSifra;
 	}
 
-	public JTextField getTxtSifraK() {
+	/*public JTextField getTxtSifraK() {
 		return txtSifraK;
 	}
 
@@ -199,7 +198,7 @@ public class FakturaPanel extends StandardPanel {
 
 	public void setTxtNazivK(JTextField txtNazivK) {
 		this.txtNazivK = txtNazivK;
-	}
+	}*/
 
 	public JTextField getTxtKorisnik() {
 		return txtKorisnik;
@@ -241,13 +240,13 @@ public class FakturaPanel extends StandardPanel {
 		this.txtUkupno = txtUkupno;
 	}
 
-	public JButton getBtnKupac() {
+	/*public JButton getBtnKupac() {
 		return btnKupac;
 	}
 
 	public void setBtnKupac(JButton btnKupac) {
 		this.btnKupac = btnKupac;
-	}
+	}*/
 
 	public JDateChooser getTxtDatum() {
 		return txtDatum;

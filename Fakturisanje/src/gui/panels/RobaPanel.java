@@ -1,5 +1,6 @@
 package gui.panels;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -20,7 +21,7 @@ public class RobaPanel extends StandardPanel {
 	private JTextField txtSifra;
 	private JTextField txtInterna;	
 	private JTextField txtNaziv;
-	private JTextField txtJedinicaMere;
+	private JComboBox<String> cmbJedinicaMere;
 	private JTextField txtKomada;
 	private JTextField txtTezina;
 	private JTextField txtKvalitet;
@@ -42,7 +43,10 @@ public class RobaPanel extends StandardPanel {
 		txtSifra = new JTextField(20);
 		txtInterna = new JTextField(20);	
 		txtNaziv = new JTextField(20);
-		txtJedinicaMere = new JTextField(10);
+		cmbJedinicaMere = new JComboBox<String>();
+		cmbJedinicaMere.addItem("komad");
+		cmbJedinicaMere.addItem("set");
+		cmbJedinicaMere.addItem("metar");
 		txtKomada = new JTextField(4);
 		txtTezina = new JTextField(10);
 		txtKvalitet = new JTextField(20);
@@ -59,7 +63,7 @@ public class RobaPanel extends StandardPanel {
 		add(txtNaziv, "wrap");
 		
 		add(lblJedinicaMere);
-		add(txtJedinicaMere);
+		add(cmbJedinicaMere);
 		
 		add(lblKomada);
 		add(txtKomada);
@@ -175,15 +179,7 @@ public class RobaPanel extends StandardPanel {
 
 	public void setTxtNaziv(JTextField txtNaziv) {
 		this.txtNaziv = txtNaziv;
-	}
-
-	public JTextField getTxtJedinicaMere() {
-		return txtJedinicaMere;
-	}
-
-	public void setTxtJedinicaMere(JTextField txtJedinicaMere) {
-		this.txtJedinicaMere = txtJedinicaMere;
-	}
+	}	
 
 	public JTextField getTxtKomada() {
 		return txtKomada;
@@ -223,6 +219,14 @@ public class RobaPanel extends StandardPanel {
 
 	public void setTxtRoni(JTextField txtRoni) {
 		this.txtRoni = txtRoni;
-	}	
+	}
+	
+	public JComboBox<String> getCmbJedinicaMere() {
+		return cmbJedinicaMere;
+	}
+
+	public void setCmbJedinicaMere(JComboBox<String> cmbJedinicaMere) {
+		this.cmbJedinicaMere = cmbJedinicaMere;
+	}
 	
 }

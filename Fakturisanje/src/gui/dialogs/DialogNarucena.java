@@ -7,6 +7,9 @@ import gui.panels.NarucenaPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -31,7 +34,7 @@ public class DialogNarucena extends StandardDialog {
 		String whereStm = " WHERE narucena_roba.sifra_porudzbine = '" + where + "'";
 
 		tableModel = new NarucenaTableModel(new String[] { "Šifra porudzbine", "Šifra robe",
-				"Naziv robe", "Komada naručeno", "Komada poslato", "Komada ostalo" }, 0, whereStm);
+				"Naziv robe", "Komada naručeno", "Komada poslato", "Komada ostalo", "Datum naručivanja" }, 0, whereStm);
 
 		panel = new NarucenaPanel();
 
@@ -133,7 +136,7 @@ public class DialogNarucena extends StandardDialog {
 											.setText(dialog.getZoom1());
 								if (!dialog.getZoom2().equals(""))
 									((NarucenaPanel) panel).getTxtNazivR()
-											.setText(dialog.getZoom2());
+											.setText(dialog.getZoom3());
 							} catch (NullPointerException n) {
 							}
 						}
@@ -169,13 +172,25 @@ public class DialogNarucena extends StandardDialog {
 		String naruceno = (String) tableModel.getValueAt(index, 3);
 		String poslato = (String) tableModel.getValueAt(index, 4);
 		String ostalo = (String) tableModel.getValueAt(index, 5);		
+		String datum = (String) tableModel.getValueAt(index, 6);
 
 		((NarucenaPanel) panel).getTxtSifraP().setText(sifraP);
 		((NarucenaPanel) panel).getTxtSifraR().setText(sifraR);
 		((NarucenaPanel) panel).getTxtNazivR().setText(nazivR);
 		((NarucenaPanel) panel).getTxtNaruceno().setText(naruceno);
 		((NarucenaPanel) panel).getTxtPoslato().setText(poslato);
-		((NarucenaPanel) panel).getTxtOstalo().setText(ostalo);		
+		((NarucenaPanel) panel).getTxtOstalo().setText(ostalo);	
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = null;		
+		try {
+			date = sdf.parse(datum);			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		((NarucenaPanel) panel).getTxtDatum().setDate(date);
 
 	}
 
@@ -218,8 +233,13 @@ public class DialogNarucena extends StandardDialog {
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
 		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();		
 		String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
+		Date datum1 = ((NarucenaPanel) panel).getTxtDatum().getDate();
+		String datum = "";
+		if (datum1 != null) {
+			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
+		}		
 		
-		String[] params = { sifraP, sifraR, nazivR, naruceno, poslato, ostalo };
+		String[] params = { sifraP, sifraR, nazivR, naruceno, poslato, ostalo, datum };
 
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -242,8 +262,13 @@ public class DialogNarucena extends StandardDialog {
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
 		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();
 		String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
+		Date datum1 = ((NarucenaPanel) panel).getTxtDatum().getDate();
+		String datum = "";
+		if (datum1 != null) {
+			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
+		}
 		
-		String[] params = { naruceno, poslato, ostalo };
+		String[] params = { naruceno, poslato, ostalo, datum };
 		int index = table.getSelectedRow();
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -263,8 +288,13 @@ public class DialogNarucena extends StandardDialog {
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
 		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();
 		String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
+		Date datum1 = ((NarucenaPanel) panel).getTxtDatum().getDate();
+		String datum = "";
+		if (datum1 != null) {
+			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
+		}
 		
-		String[] params = { sifraP, sifraR, naruceno, poslato, ostalo };
+		String[] params = { sifraP, sifraR, naruceno, poslato, ostalo, datum };
 
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -287,6 +317,7 @@ public class DialogNarucena extends StandardDialog {
 		((NarucenaPanel) panel).getTxtNaruceno().setEditable(false);
 		((NarucenaPanel) panel).getTxtPoslato().setEditable(false);
 		((NarucenaPanel) panel).getTxtOstalo().setEditable(false);
+		((NarucenaPanel) panel).getTxtDatum().setEnabled(false);
 	}
 
 	public void allEnable() {
@@ -294,7 +325,8 @@ public class DialogNarucena extends StandardDialog {
 		((NarucenaPanel) panel).getBtnCancel().setEnabled(true);
 		((NarucenaPanel) panel).getTxtNaruceno().setEditable(true);
 		((NarucenaPanel) panel).getTxtPoslato().setEditable(true);
-		((NarucenaPanel) panel).getTxtOstalo().setEditable(true);		
+		((NarucenaPanel) panel).getTxtOstalo().setEditable(true);
+		((NarucenaPanel) panel).getTxtDatum().setEnabled(true);
 		
 	}
 
@@ -303,7 +335,8 @@ public class DialogNarucena extends StandardDialog {
 		((NarucenaPanel) panel).getTxtNazivR().setText("");
 		((NarucenaPanel) panel).getTxtNaruceno().setText("");
 		((NarucenaPanel) panel).getTxtPoslato().setText("");
-		((NarucenaPanel) panel).getTxtOstalo().setText("");		
+		((NarucenaPanel) panel).getTxtOstalo().setText("");	
+		((NarucenaPanel) panel).getTxtDatum().setCalendar(null);
 	}
 
 	public void btnEnable() {

@@ -43,6 +43,7 @@ public abstract class StandardDialog extends JDialog {
 	public Boolean isZoom = false;
 	public String zoom1 = "";
 	public String zoom2 = "";
+	public String zoom3 = "";
 
 	public StandardDialog(JFrame parent) {
 		super(parent, true);
@@ -201,9 +202,11 @@ public abstract class StandardDialog extends JDialog {
 					if (table.getSelectedRow() >= 0) {
 						int i = table.getSelectedRow();
 						String code = (String) table.getValueAt(i, 0);
-						String name = (String) table.getValueAt(i, 2);
+						String name = (String) table.getValueAt(i, 1);
+						String treci = (String) table.getValueAt(i, 2);
 						zoom1 = code;
 						zoom2 = name;
+						zoom3 = treci;
 						dispose();
 					}
 
@@ -329,6 +332,10 @@ public abstract class StandardDialog extends JDialog {
 
 	public String getZoom2() {
 		return zoom2;
+	}
+	
+	public String getZoom3() {
+		return zoom3;
 	}
 
 	abstract void initActions();

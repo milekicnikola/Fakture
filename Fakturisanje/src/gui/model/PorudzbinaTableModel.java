@@ -18,7 +18,7 @@ public class PorudzbinaTableModel extends StandardTableModel {
 
 	public PorudzbinaTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_porudzbine, porudzbina.sifra_magacina as sifraMagacina, naziv_magacina, porudzbina.korisnicko_ime as korisnickoIme, porudzbina.sifra_kupca as sifraKupca, naziv_kupca, datum_porudzbine FROM porudzbina JOIN magacin ON porudzbina.sifra_magacina = magacin.sifra_magacina JOIN korisnik ON porudzbina.korisnicko_ime = korisnik.korisnicko_ime JOIN kupci ON porudzbina.sifra_kupca = kupci.sifra_kupca";
+		basicQuery = "SELECT sifra_porudzbine, porudzbina.sifra_magacina as sifraMagacina, naziv_magacina, porudzbina.korisnicko_ime as korisnickoIme, porudzbina.pib_kupca as sifraKupca, naziv_kupca, datum_porudzbine FROM porudzbina JOIN magacin ON porudzbina.sifra_magacina = magacin.sifra_magacina JOIN korisnik ON porudzbina.korisnicko_ime = korisnik.korisnicko_ime JOIN kupci ON porudzbina.pib_kupca = kupci.pib";
 		orderBy = " ORDER BY sifra_porudzbine";
 	}
 
@@ -93,7 +93,7 @@ public class PorudzbinaTableModel extends StandardTableModel {
 	public void search(String[] params) throws SQLException {
 		whereStmt = " WHERE sifra_porudzbine LIKE '%" + params[0] + "%' AND "
 				+ "porudzbina.sifra_magacina LIKE '%" + params[1] + "%' AND "				
-				+ "porudzbina.sifra_kupca LIKE '%" + params[2] + "%' AND "
+				+ "porudzbina.pib_kupca LIKE '%" + params[2] + "%' AND "
 				+ "datum_porudzbine LIKE '%" + params[3] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
@@ -147,7 +147,7 @@ public class PorudzbinaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO porudzbina (sifra_porudzbine, porudzbina.sifra_magacina, porudzbina.korisnicko_ime, porudzbina.sifra_kupca, datum_porudzbine) VALUES (?, ?, ?, ?, ?)");
+						"INSERT INTO porudzbina (sifra_porudzbine, porudzbina.sifra_magacina, porudzbina.korisnicko_ime, porudzbina.pib_kupca, datum_porudzbine) VALUES (?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[3]);
@@ -176,7 +176,7 @@ public class PorudzbinaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE porudzbina SET sifra_magacina = ?, korisnicko_ime = ?, sifra_kupca = ?, datum_porudzbine = ? WHERE sifra_porudzbine = ?");
+						"UPDATE porudzbina SET sifra_magacina = ?, korisnicko_ime = ?, pib_kupca = ?, datum_porudzbine = ? WHERE sifra_porudzbine = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[2]);

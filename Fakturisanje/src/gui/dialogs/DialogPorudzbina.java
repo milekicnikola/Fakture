@@ -29,7 +29,7 @@ public class DialogPorudzbina extends StandardDialog {
 		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
 
 		tableModel = new PorudzbinaTableModel(new String[] { "Šifra porudzbine", "Šifra magacina",
-				"Naziv magacina", "Korisnik", "Šifra kupca", "Naziv kupca", "Datum" }, 0);
+				"Naziv magacina", "Korisnik", "PIB kupca", "Naziv kupca", "Datum" }, 0);
 
 		panel = new PorudzbinaPanel();
 

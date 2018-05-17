@@ -43,15 +43,15 @@ public class PorudzbinaPanel extends StandardPanel {
 		lblSifraM = new JLabel("Šifra magacina");
 		lblNazivM = new JLabel("Naziv magacina");
 		lblKorisnik = new JLabel("Korisnik");
-		lblSifraK = new JLabel("Šifra kupca");
+		lblSifraK = new JLabel("PIB kupca");
 		lblNazivK = new JLabel("Naziv kupca");
 		lblDatum = new JLabel("Datum porudzbine");
 
 		txtSifra = new JTextField(20);
-		txtSifraM = new JTextField(5);
+		txtSifraM = new JTextField(10);
 		txtNazivM = new JTextField(20);
 		txtKorisnik = new JTextField(20);
-		txtSifraK = new JTextField(3);
+		txtSifraK = new JTextField(10);
 		txtNazivK = new JTextField(20);
 
 		datePreferedSize = new Dimension(100, 20);

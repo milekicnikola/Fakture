@@ -33,8 +33,7 @@ public class MainFrame extends JFrame {
 	private JMenuItem magacin;	
 	private JMenuItem kurs;	
 	private JMenuItem faktura;	
-	private JMenuItem porudzbina;
-	private JMenuItem otpremnica;
+	private JMenuItem porudzbina;	
 
 	private MainFrame() {
 
@@ -61,8 +60,7 @@ public class MainFrame extends JFrame {
 		magacin = new JMenuItem("Magacin");
 		kurs = new JMenuItem("Kurs");
 		faktura = new JMenuItem("Faktura");
-		porudzbina = new JMenuItem("Porudzbina");
-		otpremnica = new JMenuItem("Otpremnica");
+		porudzbina = new JMenuItem("Porudzbina");		
 
 		roba.addActionListener(ActionManager.getInstance()
 				.getDialogRobaAction());
@@ -81,9 +79,9 @@ public class MainFrame extends JFrame {
 		menu.add(kupci);
 		menu.add(magacin);
 		menu.add(kurs);
-		menu.add(faktura);
 		menu.add(porudzbina);
-		menu.add(otpremnica);
+		menu.add(faktura);
+				
 
 		add(toolbar, BorderLayout.NORTH);
 		add(statusBar, BorderLayout.SOUTH);
