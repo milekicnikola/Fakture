@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     5/17/2018 2:39:34 AM                         */
+/* Created on:     5/19/2018 3:40:08 AM                         */
 /*==============================================================*/
 
 
@@ -18,11 +18,14 @@ drop table if exists kupci;
 
 drop table if exists roba;
 
+drop table if exists prevod;
+
 drop table if exists jedinica_mere;
 
 drop table if exists magacin;
 
 drop table if exists korisnik;
+
 
 /*==============================================================*/
 /* Table: faktura                                               */
@@ -36,6 +39,7 @@ create table faktura
    bruto_fakture        decimal(10,2),
    neto_fakture         decimal(10,2),
    ukupno_komada_robe   numeric(10,0),
+   poslata_faktura      boolean,
    primary key (sifra_fakture)
 );
 
@@ -46,8 +50,10 @@ create table fakturisana_roba
 (
    sifra_robe           varchar(75) not null,
    sifra_porudzbine     varchar(20),
+   datum_isporuke       date,
    sifra_fakture        varchar(20) not null,
    komada_fakturisano   numeric(10,0) not null,
+   opis                 varchar(1000),
    primary key (sifra_robe, sifra_fakture)
 );
 
@@ -91,7 +97,7 @@ create table kupci
 create table kurs
 (
    datum_kursa          date not null,
-   ron_evro             decimal(10,4) not null,
+   ron_evro             decimal(10,2) not null,
    primary key (datum_kursa)
 );
 
@@ -118,8 +124,9 @@ create table narucena_roba
    komada_naruceno      numeric(10,0) not null,
    komada_poslato       numeric(10,0),
    komada_ostalo        numeric(10,0),
-   datum_narucivanja    date not null,
-   primary key (sifra_robe, sifra_porudzbine)
+   datum_isporuke       date not null,
+   ko_radi              varchar(30),
+   primary key (sifra_robe, sifra_porudzbine, datum_isporuke)
 );
 
 /*==============================================================*/
@@ -136,19 +143,28 @@ create table porudzbina
 );
 
 /*==============================================================*/
+/* Table: prevod                                                */
+/*==============================================================*/
+create table prevod
+(
+   redni_broj           int not null,
+   naziv_prevoda        varchar(40) not null,
+   primary key (redni_broj)
+);
+
+/*==============================================================*/
 /* Table: roba                                                  */
 /*==============================================================*/
 create table roba
 (
    sifra_robe           varchar(75) not null,
    jedinica_mere        int not null,
+   prevod               int not null,
    interna_sifra_robe   varchar(5) not null,
    naziv_robe           varchar(100) not null,
    komada_u_setu        numeric(4,0),
    tezina_robe          decimal(10,2),
-   kvalitet_robe        varchar(50),
-   cena_evri            decimal(10,4) not null,
-   cena_roni            decimal(10,4),
+   cena_roni            decimal(10,2),
    primary key (sifra_robe)
 );
 
@@ -158,8 +174,8 @@ alter table faktura add constraint fk_korisnik_faktura foreign key (korisnicko_i
 alter table fakturisana_roba add constraint fk_fakturisana_roba foreign key (sifra_fakture)
       references faktura (sifra_fakture) on delete restrict on update restrict;
 
-alter table fakturisana_roba add constraint fk_fakturisana_roba1 foreign key (sifra_robe, sifra_porudzbine)
-      references narucena_roba (sifra_robe, sifra_porudzbine) on delete restrict on update restrict;
+alter table fakturisana_roba add constraint fk_fakturisana_roba1 foreign key (sifra_robe, sifra_porudzbine, datum_isporuke)
+      references narucena_roba (sifra_robe, sifra_porudzbine, datum_isporuke) on delete restrict on update restrict;
 
 alter table narucena_roba add constraint fk_narucena_roba foreign key (sifra_porudzbine)
       references porudzbina (sifra_porudzbine) on delete restrict on update restrict;
@@ -178,4 +194,7 @@ alter table porudzbina add constraint fk_porudzbina_kupca foreign key (pib_kupca
 
 alter table roba add constraint fk_jedinica_mere_robe foreign key (jedinica_mere)
       references jedinica_mere (redni_broj) on delete restrict on update restrict;
+
+alter table roba add constraint fk_prevod_roba foreign key (prevod)
+      references prevod (redni_broj) on delete restrict on update restrict;
 

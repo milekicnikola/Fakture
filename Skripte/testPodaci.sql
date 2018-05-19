@@ -44,16 +44,6 @@ insert into kupci (pib, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drz
 
 insert into kupci (pib, naziv_kupca, naziv_kupca2, adresa_kupca, grad_kupca, drzava_kupca) values ('0000000005', '1kysnc3pckqglscej', 'gpkuqkcyh48iww1s', 'l0w7p4jnqca', 'u5mma8y', 'g9 hn08kv9');
 
-insert into roba (sifra_robe, jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('001', 1, '1', 'Prva roba', 0, 4.6, '7vquee fdn7kiy5x8ph1', 4.7, 50.14);
-
-insert into roba (sifra_robe, jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('002', 2, '2', 'Druga roba ', 5, 10, '9y3327d8co7l9dsnou9', 1.2, 15.6);
-
-insert into roba (sifra_robe, jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('003', 3, '3', 'Treca roba', 0, 2.5, '2lywrkwykdrips', 3, 12.6);
-
-insert into roba (sifra_robe, jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('004', 1, '4', 'Cetvrta roba', 0, 3.8, 'r1v8r1v2nunk', 2.8, 22.4);
-
-insert into roba (sifra_robe, jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) values ('005', 2, '5', 'Peta roba', 10, 4.7, 'lvj8kvb6wchl1sovt', 1, 10.5);
-
 insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, pib_kupca, datum_porudzbine) values ('v4xcjqc0sftoo8p2qysf', 'CRW1', 'admin', '0000000004', '2016-4-5');
 
 insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, pib_kupca, datum_porudzbine) values ('afey8j pey4ygvriivef', 'SPC', 'admin', '0000000003', '2018-6-18');
@@ -64,25 +54,49 @@ insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, pib_ku
 
 insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, pib_kupca, datum_porudzbine) values ('hjawx4qubflkp4p3ssuh', 'SPC', '1xohvehyvpyhrrfdpnqb', '0000000001', '2018-9-18');
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('9d7q278jjxynhwjhbbr0', '1xohvehyvpyhrrfdpnqb', '2018-10-6', 'd4n63573f', 20.75, 42.34, 17);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('9d7q278jjxynhwjhbbr0', '1xohvehyvpyhrrfdpnqb', '2018-10-6', 'd4n63573f', 20.75, 42.34, 17, 0);
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('nf11uyv43ffj3qi1ee5v', '1xohvehyvpyhrrfdpnqb', '2017-11-8', 'q22pgc8a', 34.85, 12.52, 36);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('nf11uyv43ffj3qi1ee5v', '1xohvehyvpyhrrfdpnqb', '2017-11-8', 'q22pgc8a', 34.85, 12.52, 36, 1);
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('qwp9qft4sggnfwblteyf', 'admin', '2018-12-30', 'c7dogsyy55', 54.69, 24.67, 54);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('qwp9qft4sggnfwblteyf', 'admin', '2018-12-30', 'c7dogsyy55', 54.69, 24.67, 54, 0);
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('wfxtq536evdsc8oa8ic7', '7t3cninx25ug6k3wsgoe', '2018-1-1', 't7orsx49j', 35, 254.7, 4);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('wfxtq536evdsc8oa8ic7', '7t3cninx25ug6k3wsgoe', '2018-1-1', 't7orsx49j', 35, 254.7, 4, 0);
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe) values ('evh2p9nvbylgn13ejukg', 'admin', '2016-11-4', 'cisn24kw', 11.45, 45.8, 17);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('evh2p9nvbylgn13ejukg', 'admin', '2016-11-4', 'cisn24kw', 11.45, 45.8, 17, 1);
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja) values ('001', 'v4xcjqc0sftoo8p2qysf', 22, 1, 21, '2018-8-6');
+insert into prevod (redni_broj, naziv_prevoda) values (1, 'El. constructi matalice bucati');
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja) values ('003', 'afey8j pey4ygvriivef', 30, 0, 30, '2018-11-7');
+insert into prevod (redni_broj, naziv_prevoda) values (2, 'El. constructi matalice in metri');
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja) values ('002', 'enwem42i j954absle8p', 50, 25, 25, '2018-1-1');
+insert into prevod (redni_broj, naziv_prevoda) values (3, 'El. constructi matalice seturi');
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja) values ('001', '4cefbnn4kgx2qpjls3r3', 1, 1, 0, '2017-11-12');
+insert into prevod (redni_broj, naziv_prevoda) values (4, 'Cuti carton');
 
-insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_narucivanja) values ('002', 'afey8j pey4ygvriivef', 12, 8, 4, '2018-6-20');
+insert into prevod (redni_broj, naziv_prevoda) values (5, 'Separator carton');
+
+insert into prevod (redni_broj, naziv_prevoda) values (6, 'Coltar carton');
+
+insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('001', 1, 6, '1', 'Prva roba', 0, 4.6, 21);
+
+insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('002', 2, 5, '2', 'Druga roba', 5, 10, 15);
+
+insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('003', 3, 4, '3', 'Treca roba', 0, 2.5, 36);
+
+insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('004', 1, 3, '4', 'Cetvrta roba', 0, 0.2, 53);
+
+insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('005', 2, 2, '5', 'Peta roba', 10, 2.1, 46);
+
+insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('006', 1, 1, '6', 'Sesta roba', 0, 7, 74);
+
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('001', 'v4xcjqc0sftoo8p2qysf', 22, 1, 21, '2018-8-6', 'Radnik 1');
+
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('003', 'afey8j pey4ygvriivef', 30, 0, 30, '2018-11-7', 'Radnik 2');
+
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('002', 'enwem42i j954absle8p', 50, 25, 25, '2018-1-1', 'Radnik 3');
+
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('001', '4cefbnn4kgx2qpjls3r3', 1, 1, 0, '2017-11-12', 'Radnik 4');
+
+insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('002', 'afey8j pey4ygvriivef', 12, 8, 4, '2018-6-20', 'Radnik 5');
 
 insert into fakturisana_roba (sifra_robe, sifra_porudzbine, sifra_fakture, komada_fakturisano) values ('001', 'v4xcjqc0sftoo8p2qysf', '9d7q278jjxynhwjhbbr0', 2);
 
