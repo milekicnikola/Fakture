@@ -22,6 +22,7 @@ public class NarucenaPanel extends StandardPanel {
 	private JLabel lblPoslato;
 	private JLabel lblOstalo;
 	private JLabel lblDatum;
+	private JLabel lblKo;
 
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;
@@ -29,12 +30,15 @@ public class NarucenaPanel extends StandardPanel {
 	private JTextField txtNaruceno;
 	private JTextField txtPoslato;
 	private JTextField txtOstalo; 
+	private JTextField txtKo;
 	
 	private JButton btnRoba;	
 
 	private JDateChooser txtDatum;
 
 	private Dimension datePreferedSize;
+	
+	private JLabel lblPrazno;
 
 	public NarucenaPanel() {
 
@@ -44,7 +48,9 @@ public class NarucenaPanel extends StandardPanel {
 		lblNaruceno = new JLabel("Naručeno komada");
 		lblPoslato = new JLabel("Poslato komada");
 		lblOstalo = new JLabel("Ostalo komada");		
-		lblDatum = new JLabel("Datum narucivanja");
+		lblDatum = new JLabel("Datum isporuke");
+		lblKo = new JLabel("Ko radi");
+		lblPrazno = new JLabel("     ");
 
 		txtSifraR = new JTextField(20);
 		txtNazivR = new JTextField(20);
@@ -52,6 +58,7 @@ public class NarucenaPanel extends StandardPanel {
 		txtNaruceno = new JTextField(10);
 		txtPoslato = new JTextField(10);
 		txtOstalo = new JTextField(10);	
+		txtKo = new JTextField(20);
 		
 		datePreferedSize = new Dimension(100, 20);
 
@@ -69,10 +76,10 @@ public class NarucenaPanel extends StandardPanel {
 		add(txtNazivR);
 
 		add(lblSifraP);
-		add(txtSifraP);		
+		add(txtSifraP, "wrap");		
 
 		add(lblNaruceno);
-		add(txtNaruceno, "wrap");
+		add(txtNaruceno);
 
 		add(lblPoslato);
 		add(txtPoslato);
@@ -81,9 +88,15 @@ public class NarucenaPanel extends StandardPanel {
 		add(txtOstalo);
 		
 		add(lblDatum);
-		add(txtDatum);
+		add(txtDatum, "wrap");
 		
-		add(btnRoba);		
+		add(lblKo);
+		add(txtKo);
+		
+		add(lblPrazno);
+		
+		add(btnRoba);	
+		
 		add(btnConfirm);
 		add(btnCancel);
 
@@ -207,6 +220,22 @@ public class NarucenaPanel extends StandardPanel {
 
 	public void setTxtDatum(JDateChooser txtDatum) {
 		this.txtDatum = txtDatum;
+	}
+	
+	public JLabel getLblKo() {
+		return lblKo;
+	}
+
+	public void setLblKo(JLabel lblKo) {
+		this.lblKo = lblKo;
+	}
+
+	public JTextField getTxtKo() {
+		return txtKo;
+	}
+
+	public void setTxtKo(JTextField txtKo) {
+		this.txtKo = txtKo;
 	}
 
 }

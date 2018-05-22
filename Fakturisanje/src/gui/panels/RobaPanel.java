@@ -5,86 +5,85 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class RobaPanel extends StandardPanel {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private JLabel lblSifra;
-	private JLabel lblInterna;	
+	private JLabel lblInterna;
 	private JLabel lblNaziv;
 	private JLabel lblJedinicaMere;
 	private JLabel lblKomada;
 	private JLabel lblTezina;
-	private JLabel lblKvalitet;
-	private JLabel lblEvri;
+	private JLabel lblPrevod;
 	private JLabel lblRoni;
-		
+
 	private JTextField txtSifra;
-	private JTextField txtInterna;	
+	private JTextField txtInterna;
 	private JTextField txtNaziv;
 	private JComboBox<String> cmbJedinicaMere;
 	private JTextField txtKomada;
-	private JTextField txtTezina;
-	private JTextField txtKvalitet;
-	private JTextField txtEvri;
-	private JTextField txtRoni;	
-	
+	private JTextField txtTezina;	
+	private JComboBox<String> cmbPrevod;
+	private JTextField txtRoni;
+
 	public RobaPanel() {
 
 		lblSifra = new JLabel("Šifra robe");
-		lblInterna = new JLabel("Interna šifra robe");		
+		lblInterna = new JLabel("Interna šifra robe");
 		lblNaziv = new JLabel("Naziv robe");
 		lblJedinicaMere = new JLabel("Jedinica mere robe");
 		lblKomada = new JLabel("Komada u setu");
+		lblPrevod = new JLabel("Prevod");
 		lblTezina = new JLabel("Težina robe");
-		lblKvalitet = new JLabel("Kvalitet robe");
-		lblEvri = new JLabel("Cena robe u evrima");
-		lblRoni = new JLabel("Cena robe u ronima");		
-		
+		lblRoni = new JLabel("Cena robe u ronima");
+
 		txtSifra = new JTextField(20);
-		txtInterna = new JTextField(20);	
+		txtInterna = new JTextField(20);
 		txtNaziv = new JTextField(20);
 		cmbJedinicaMere = new JComboBox<String>();
 		cmbJedinicaMere.addItem("komad");
 		cmbJedinicaMere.addItem("set");
 		cmbJedinicaMere.addItem("metar");
 		txtKomada = new JTextField(4);
-		txtTezina = new JTextField(10);
-		txtKvalitet = new JTextField(20);
-		txtEvri = new JTextField(10);
-		txtRoni = new JTextField(10);				
+		txtTezina = new JTextField(10);		
+		txtRoni = new JTextField(10);
+		cmbPrevod = new JComboBox<String>();
+		cmbPrevod.addItem("el. constructi metalice bucati");
+		cmbPrevod.addItem("el. constructi metalice in metri");
+		cmbPrevod.addItem("el. constructi metalice seturi");
+		cmbPrevod.addItem("cuti carton");
+		cmbPrevod.addItem("separator carton");
+		cmbPrevod.addItem("coltar carton");
 
 		add(lblSifra);
 		add(txtSifra);
-		
+
 		add(lblInterna);
-		add(txtInterna);		
-		
+		add(txtInterna);
+
 		add(lblNaziv);
 		add(txtNaziv, "wrap");
-		
+
 		add(lblJedinicaMere);
 		add(cmbJedinicaMere);
-		
+
 		add(lblKomada);
 		add(txtKomada);
-		
+
+		add(lblPrevod);
+		add(cmbPrevod);
+
 		add(lblTezina);
-		add(txtTezina);
-		
-		add(lblKvalitet);
-		add(txtKvalitet, "wrap");
-		
-		add(lblEvri);
-		add(txtEvri);
-		
+		add(txtTezina, "wrap");
+
 		add(lblRoni);
-		add(txtRoni);		
-		//add(lblPrazno);		
-		add(btnConfirm);		
+		add(txtRoni);
+
+		add(btnConfirm);
 		add(btnCancel);
 
-	}	
-	
+	}
+
 	public JLabel getLblSifra() {
 		return lblSifra;
 	}
@@ -99,7 +98,7 @@ public class RobaPanel extends StandardPanel {
 
 	public void setLblInterna(JLabel lblInterna) {
 		this.lblInterna = lblInterna;
-	}	
+	}
 
 	public JLabel getLblNaziv() {
 		return lblNaziv;
@@ -133,22 +132,6 @@ public class RobaPanel extends StandardPanel {
 		this.lblTezina = lblTezina;
 	}
 
-	public JLabel getLblKvalitet() {
-		return lblKvalitet;
-	}
-
-	public void setLblKvalitet(JLabel lblKvalitet) {
-		this.lblKvalitet = lblKvalitet;
-	}
-
-	public JLabel getLblEvri() {
-		return lblEvri;
-	}
-
-	public void setLblEvri(JLabel lblEvri) {
-		this.lblEvri = lblEvri;
-	}
-
 	public JLabel getLblRoni() {
 		return lblRoni;
 	}
@@ -171,7 +154,7 @@ public class RobaPanel extends StandardPanel {
 
 	public void setTxtInterna(JTextField txtInterna) {
 		this.txtInterna = txtInterna;
-	}	
+	}
 
 	public JTextField getTxtNaziv() {
 		return txtNaziv;
@@ -179,7 +162,7 @@ public class RobaPanel extends StandardPanel {
 
 	public void setTxtNaziv(JTextField txtNaziv) {
 		this.txtNaziv = txtNaziv;
-	}	
+	}
 
 	public JTextField getTxtKomada() {
 		return txtKomada;
@@ -196,23 +179,7 @@ public class RobaPanel extends StandardPanel {
 	public void setTxtTezina(JTextField txtTezina) {
 		this.txtTezina = txtTezina;
 	}
-
-	public JTextField getTxtKvalitet() {
-		return txtKvalitet;
-	}
-
-	public void setTxtKvalitet(JTextField txtKvalitet) {
-		this.txtKvalitet = txtKvalitet;
-	}
-
-	public JTextField getTxtEvri() {
-		return txtEvri;
-	}
-
-	public void setTxtEvri(JTextField txtEvri) {
-		this.txtEvri = txtEvri;
-	}
-
+	
 	public JTextField getTxtRoni() {
 		return txtRoni;
 	}
@@ -220,7 +187,7 @@ public class RobaPanel extends StandardPanel {
 	public void setTxtRoni(JTextField txtRoni) {
 		this.txtRoni = txtRoni;
 	}
-	
+
 	public JComboBox<String> getCmbJedinicaMere() {
 		return cmbJedinicaMere;
 	}
@@ -228,5 +195,21 @@ public class RobaPanel extends StandardPanel {
 	public void setCmbJedinicaMere(JComboBox<String> cmbJedinicaMere) {
 		this.cmbJedinicaMere = cmbJedinicaMere;
 	}
-	
+
+	public JLabel getLblPrevod() {
+		return lblPrevod;
+	}
+
+	public void setLblPrevod(JLabel lblPrevod) {
+		this.lblPrevod = lblPrevod;
+	}
+
+	public JComboBox<String> getCmbPrevod() {
+		return cmbPrevod;
+	}
+
+	public void setCmbPrevod(JComboBox<String> cmbPrevod) {
+		this.cmbPrevod = cmbPrevod;
+	}
+
 }

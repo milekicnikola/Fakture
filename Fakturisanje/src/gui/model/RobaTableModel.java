@@ -18,7 +18,7 @@ public class RobaTableModel extends StandardTableModel {
 
 	public RobaTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_robe, roba.jedinica_mere as jedinicaMere, interna_sifra_robe, naziv_robe, naziv_mere, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni FROM roba JOIN jedinica_mere ON roba.jedinica_mere = jedinica_mere.redni_broj";
+		basicQuery = "SELECT sifra_robe, roba.jedinica_mere as jedinicaMere, roba.prevod as prevod, interna_sifra_robe, naziv_robe, naziv_mere, komada_u_setu, naziv_prevoda, tezina_robe, cena_roni FROM roba JOIN jedinica_mere ON roba.jedinica_mere = jedinica_mere.redni_broj JOIN prevod ON prevod = prevod.redni_broj";
 		orderBy = " ORDER BY sifra_robe";
 	}
 
@@ -37,7 +37,7 @@ public class RobaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_robe = "", interna_sifra = "", naziv = "", naziv_mere = "", komada_u_setu = "", tezina = "", kvalitet = "", evri = "", roni = "";
+		String sifra_robe = "", interna_sifra = "", naziv = "", naziv_mere = "", komada_u_setu = "", prevod = "", tezina = "", roni = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
@@ -46,9 +46,8 @@ public class RobaTableModel extends StandardTableModel {
 			naziv = rset.getString("NAZIV_ROBE");
 			naziv_mere = rset.getString("NAZIV_MERE");
 			komada_u_setu = rset.getString("KOMADA_U_SETU");
+			prevod = rset.getString("NAZIV_PREVODA");
 			tezina = rset.getString("TEZINA_ROBE");
-			kvalitet = rset.getString("KVALITET_ROBE");
-			evri = rset.getString("CENA_EVRI");
 			roni = rset.getString("CENA_RONI");
 			postoji = true;
 		}
@@ -66,24 +65,21 @@ public class RobaTableModel extends StandardTableModel {
 						(String) getValueAt(index, 3)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(komada_u_setu,
 						(String) getValueAt(index, 4)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(tezina,
+				|| (SortUtils.getLatCyrCollator().compare(prevod,
 						(String) getValueAt(index, 5)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(kvalitet,
+				|| (SortUtils.getLatCyrCollator().compare(tezina,
 						(String) getValueAt(index, 6)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(evri,
-						(String) getValueAt(index, 7)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(roni,
-						(String) getValueAt(index, 8)) != 0)) {
+						(String) getValueAt(index, 7)) != 0)) {
 
 			setValueAt(sifra_robe, index, 0);
 			setValueAt(interna_sifra, index, 1);
 			setValueAt(naziv, index, 2);
 			setValueAt(naziv_mere, index, 3);
 			setValueAt(komada_u_setu, index, 4);
-			setValueAt(tezina, index, 5);
-			setValueAt(kvalitet, index, 6);
-			setValueAt(evri, index, 7);
-			setValueAt(roni, index, 8);
+			setValueAt(prevod, index, 5);			
+			setValueAt(tezina, index, 6);
+			setValueAt(roni, index, 7);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -99,14 +95,12 @@ public class RobaTableModel extends StandardTableModel {
 
 	@Override
 	public void search(String[] params) throws SQLException {
-		whereStmt = " WHERE sifra_robe LIKE '%" + params[0] + "%' AND "				
+		whereStmt = " WHERE sifra_robe LIKE '%" + params[0] + "%' AND "
 				+ "interna_sifra_robe LIKE '%" + params[1] + "%' AND "
 				+ "naziv_robe LIKE '%" + params[2] + "%' AND "
 				+ "komada_u_setu LIKE '%" + params[3] + "%' AND "
-				+ "tezina_robe LIKE '%" + params[4] + "%' AND "
-				+ "kvalitet_robe LIKE '%" + params[5] + "%' AND "
-				+ "cena_evri LIKE '%" + params[6] + "%' AND "
-				+ "cena_roni LIKE '%" + params[7] + "%'";
+				+ "tezina_robe LIKE '%" + params[4] + "%' AND "				
+				+ "cena_roni LIKE '%" + params[5] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}
@@ -122,13 +116,12 @@ public class RobaTableModel extends StandardTableModel {
 			String naziv = rset.getString("NAZIV_ROBE");
 			String jedinica_mere = rset.getString("NAZIV_MERE");
 			String komada_u_setu = rset.getString("KOMADA_U_SETU");
-			String tezina = rset.getString("TEZINA_ROBE");
-			String kvalitet = rset.getString("KVALITET_ROBE");
-			String evri = rset.getString("CENA_EVRI");
+			String prevod = rset.getString("NAZIV_PREVODA");
+			String tezina = rset.getString("TEZINA_ROBE");			
 			String roni = rset.getString("CENA_RONI");
 
 			addRow(new String[] { sifra_robe, interna_sifra, naziv,
-					jedinica_mere, komada_u_setu, tezina, kvalitet, evri, roni });
+					jedinica_mere, komada_u_setu, prevod, tezina, roni });
 		}
 		rset.close();
 		stmt.close();
@@ -161,16 +154,15 @@ public class RobaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO roba (sifra_robe, roba.jedinica_mere, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, kvalitet_robe, cena_evri, cena_roni) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+						"INSERT INTO roba (sifra_robe, roba.jedinica_mere, roba.prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
 		stmt.setString(4, params[3]);
-		stmt.setString(5, params[5]);
+		stmt.setString(5, params[4]);
 		stmt.setString(6, params[6]);
-		stmt.setString(7, params[7]);
-		stmt.setString(8, params[8]);
-		stmt.setString(9, params[9]);
+		stmt.setString(7, params[8]);
+		stmt.setString(8, params[9]);		
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -178,7 +170,7 @@ public class RobaTableModel extends StandardTableModel {
 		DBConnection.getConnection().commit();
 		if (rowsAffected > 0) {
 			// i unos u TableModel
-			String[] newParams = { params[0], params[2], params[3], params[4],
+			String[] newParams = { params[0], params[3], params[4],
 					params[5], params[6], params[7], params[8], params[9] };
 			retVal = sortedInsert(newParams);
 			fireTableRowsInserted(retVal, retVal);
@@ -196,28 +188,26 @@ public class RobaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE roba SET roba.jedinica_mere = ?, interna_sifra_robe = ?, naziv_robe = ?, komada_u_setu = ?, tezina_robe = ?, kvalitet_robe = ?, cena_evri = ?, cena_roni = ? WHERE sifra_robe = ?");
+						"UPDATE roba SET roba.jedinica_mere = ?, roba.prevod = ?, interna_sifra_robe = ?, naziv_robe = ?, komada_u_setu = ?, tezina_robe = ?, cena_roni = ? WHERE sifra_robe = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
-		stmt.setString(4, params[4]);
-		stmt.setString(5, params[5]);
-		stmt.setString(6, params[6]);
-		stmt.setString(7, params[7]);
-		stmt.setString(8, params[8]);
-		stmt.setString(9, sifra_robe);
+		stmt.setString(4, params[3]);
+		stmt.setString(5, params[5]);		
+		stmt.setString(6, params[7]);
+		stmt.setString(7, params[8]);
+		stmt.setString(8, sifra_robe);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
-		setValueAt(params[1], index, 1);
-		setValueAt(params[2], index, 2);
-		setValueAt(params[3], index, 3);
-		setValueAt(params[4], index, 4);
-		setValueAt(params[5], index, 5);
-		setValueAt(params[6], index, 6);
-		setValueAt(params[7], index, 7);
-		setValueAt(params[8], index, 8);
+		setValueAt(params[2], index, 1);
+		setValueAt(params[3], index, 2);
+		setValueAt(params[4], index, 3);
+		setValueAt(params[5], index, 4);
+		setValueAt(params[6], index, 5);
+		setValueAt(params[7], index, 6);
+		setValueAt(params[8], index, 7);		
 		fireTableDataChanged();
 	}
 

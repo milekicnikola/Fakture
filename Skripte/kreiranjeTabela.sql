@@ -42,7 +42,7 @@ create table faktura
    bruto_fakture        decimal(10,2),
    neto_fakture         decimal(10,2),
    ukupno_komada_robe   numeric(10,0),
-   poslata_faktura      bool,
+   poslata_faktura      varchar(3),
    primary key (sifra_fakture)
 );
 

@@ -52,15 +52,15 @@ insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, pib_ku
 
 insert into porudzbina (sifra_porudzbine, sifra_magacina, korisnicko_ime, pib_kupca, datum_porudzbine) values ('115', 'SPC', 'jteoic1s5gyt037f3sv', '0000000001', '2018-9-18');
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('221', 'jteoic1s5gyt037f3sv', '2018-10-6', 'd4n63573f', 20.75, 42.34, 17, 0);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('221', 'jteoic1s5gyt037f3sv', '2018-10-6', 'd4n63573f', 20.75, 42.34, 17, "ne");
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('222', '9yricdbvwkdpi4n2y86', '2017-11-8', 'q22pgc8a', 34.85, 12.52, 36, 1);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('222', '9yricdbvwkdpi4n2y86', '2017-11-8', 'q22pgc8a', 34.85, 12.52, 36, "da");
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('223', 'admin', '2018-12-30', 'c7dogsyy55', 54.69, 24.67, 54, 0);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('223', 'admin', '2018-12-30', 'c7dogsyy55', 54.69, 24.67, 54, "ne");
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('224', 'fgjj56wcpkp0y5np6h8', '2018-1-1', 't7orsx49j', 35, 254.7, 4, 0);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('224', 'fgjj56wcpkp0y5np6h8', '2018-1-1', 't7orsx49j', 35, 254.7, 4, "ne");
 
-insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('225', 'admin', '2016-11-4', 'cisn24kw', 11.45, 45.8, 17, 1);
+insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('225', 'admin', '2016-11-4', 'cisn24kw', 11.45, 45.8, 17, "da");
 
 insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice) values ('551', 'admin', 'CRW1', '2017-6-8');
 
@@ -72,17 +72,17 @@ insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_
 
 insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice) values ('555', 'jteoic1s5gyt037f3sv', 'CRW2', '2018-11-1');
 
-insert into prevod (redni_broj, naziv_prevoda) values (1, 'El. constructi matalice bucati');
+insert into prevod (redni_broj, naziv_prevoda) values (1, 'el. constructi metalice bucati');
 
-insert into prevod (redni_broj, naziv_prevoda) values (2, 'El. constructi matalice in metri');
+insert into prevod (redni_broj, naziv_prevoda) values (2, 'el. constructi metalice in metri');
 
-insert into prevod (redni_broj, naziv_prevoda) values (3, 'El. constructi matalice seturi');
+insert into prevod (redni_broj, naziv_prevoda) values (3, 'el. constructi metalice seturi');
 
-insert into prevod (redni_broj, naziv_prevoda) values (4, 'Cuti carton');
+insert into prevod (redni_broj, naziv_prevoda) values (4, 'cuti carton');
 
-insert into prevod (redni_broj, naziv_prevoda) values (5, 'Separator carton');
+insert into prevod (redni_broj, naziv_prevoda) values (5, 'separator carton');
 
-insert into prevod (redni_broj, naziv_prevoda) values (6, 'Coltar carton');
+insert into prevod (redni_broj, naziv_prevoda) values (6, 'coltar carton');
 
 insert into roba (sifra_robe, jedinica_mere, prevod, interna_sifra_robe, naziv_robe, komada_u_setu, tezina_robe, cena_roni) values ('001', 1, 6, '1', 'Prva roba', 0, 4.6, 21);
 

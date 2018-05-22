@@ -219,6 +219,10 @@ public class DialogPorudzbina extends StandardDialog {
 			clearAll();
 			btnEnable();
 			allEnable();
+			
+			if (state == State.PRETRAGA)
+				((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(true);
+			
 			toolbar.getBtnDetaljno().setEnabled(false);
 			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();						
 			statusBar.getStatusState().setText(state.toString());
@@ -290,6 +294,7 @@ public class DialogPorudzbina extends StandardDialog {
 	public void search() {
 		String sifra = ((PorudzbinaPanel) panel).getTxtSifra().getText().trim();
 		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText().trim();		
+		String korisnik = ((PorudzbinaPanel) panel).getTxtKorisnik().getText().trim();
 		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText().trim();
 		Date datum1 = ((PorudzbinaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
@@ -297,7 +302,7 @@ public class DialogPorudzbina extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}		
 
-		String[] params = { sifra, sifraM, sifraK, datum };
+		String[] params = { sifra, sifraM, korisnik, sifraK, datum };
 
 		try {
 			PorudzbinaTableModel ctm = (PorudzbinaTableModel) table.getModel();

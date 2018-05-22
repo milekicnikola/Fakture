@@ -7,8 +7,9 @@ public class ActionManager {
 	private DialogMagacinAction magacin = new DialogMagacinAction();
 	private DialogKupciAction kupci = new DialogKupciAction();
 	private DialogKursAction kurs = new DialogKursAction();
-	private DialogPorudzbinaAction porudzbina = new DialogPorudzbinaAction();	
-	private DialogFakturaAction faktura = new DialogFakturaAction();	
+	private DialogPorudzbinaAction porudzbina = new DialogPorudzbinaAction();
+	private DialogFakturaAction faktura = new DialogFakturaAction();
+	private DialogOtpremnicaAction otpremnica = new DialogOtpremnicaAction();
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -48,7 +49,7 @@ public class ActionManager {
 	public void setDialogKursAction(DialogKursAction kurs) {
 		this.kurs = kurs;
 	}
-	
+
 	public DialogPorudzbinaAction getDialogPorudzbinaAction() {
 		return porudzbina;
 	}
@@ -56,13 +57,21 @@ public class ActionManager {
 	public void setDialogPorudzbinaAction(DialogPorudzbinaAction porudzbina) {
 		this.porudzbina = porudzbina;
 	}
-	
+
 	public DialogFakturaAction getDialogFakturaAction() {
 		return faktura;
 	}
 
 	public void setDialogFakturaAction(DialogFakturaAction faktura) {
 		this.faktura = faktura;
+	}
+
+	public DialogOtpremnicaAction getDialogOtpremnicaAction() {
+		return otpremnica;
+	}
+
+	public void setDialogOtpremnicaAction(DialogOtpremnicaAction otpremnica) {
+		this.otpremnica = otpremnica;
 	}
 
 }

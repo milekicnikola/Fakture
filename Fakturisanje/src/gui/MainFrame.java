@@ -34,6 +34,7 @@ public class MainFrame extends JFrame {
 	private JMenuItem kurs;	
 	private JMenuItem faktura;	
 	private JMenuItem porudzbina;	
+	private JMenuItem otpremnica;
 
 	private MainFrame() {
 
@@ -59,8 +60,9 @@ public class MainFrame extends JFrame {
 		kupci = new JMenuItem("Kupci");
 		magacin = new JMenuItem("Magacin");
 		kurs = new JMenuItem("Kurs");
-		faktura = new JMenuItem("Faktura");
-		porudzbina = new JMenuItem("Porudzbina");		
+		porudzbina = new JMenuItem("Porudzbina");
+		faktura = new JMenuItem("Faktura");				
+		otpremnica = new JMenuItem("Otpremnica");
 
 		roba.addActionListener(ActionManager.getInstance()
 				.getDialogRobaAction());
@@ -74,6 +76,8 @@ public class MainFrame extends JFrame {
 				.getDialogPorudzbinaAction());		
 		faktura.addActionListener(ActionManager.getInstance()
 				.getDialogFakturaAction());		
+		otpremnica.addActionListener(ActionManager.getInstance()
+				.getDialogOtpremnicaAction());
 		
 		menu.add(roba);
 		menu.add(kupci);
@@ -81,6 +85,7 @@ public class MainFrame extends JFrame {
 		menu.add(kurs);
 		menu.add(porudzbina);
 		menu.add(faktura);
+		menu.add(otpremnica);
 				
 
 		add(toolbar, BorderLayout.NORTH);
