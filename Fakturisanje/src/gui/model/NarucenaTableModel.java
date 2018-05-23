@@ -41,7 +41,7 @@ public class NarucenaTableModel extends StandardTableModel {
 
 		String sifraP = (String) getValueAt(index, 0);
 		String sifraR = (String) getValueAt(index, 1);
-		String datum = (String) getValueAt(index, 6);
+		String datum = (String) getValueAt(index, 3);
 
 		selectStmt.setString(1, sifraP);
 		selectStmt.setString(2, sifraR);
@@ -73,13 +73,13 @@ public class NarucenaTableModel extends StandardTableModel {
 						(String) getValueAt(index, 1)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(nazivR,
 						(String) getValueAt(index, 2)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(naruceno,
-						(String) getValueAt(index, 3)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(poslato,
-						(String) getValueAt(index, 4)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(ostalo,
-						(String) getValueAt(index, 5)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(datum_isporuke,
+						(String) getValueAt(index, 3)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(naruceno,
+						(String) getValueAt(index, 4)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(poslato,
+						(String) getValueAt(index, 5)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(ostalo,
 						(String) getValueAt(index, 6)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(ko,
 						(String) getValueAt(index, 7)) != 0)) {
@@ -87,10 +87,10 @@ public class NarucenaTableModel extends StandardTableModel {
 			setValueAt(sifra_porudzbine, index, 0);
 			setValueAt(sifra_robe, index, 1);
 			setValueAt(nazivR, index, 2);
-			setValueAt(naruceno, index, 3);
-			setValueAt(poslato, index, 4);
-			setValueAt(ostalo, index, 5);
-			setValueAt(datum_isporuke, index, 6);
+			setValueAt(datum_isporuke, index, 3);
+			setValueAt(naruceno, index, 4);
+			setValueAt(poslato, index, 5);
+			setValueAt(ostalo, index, 6);			
 			setValueAt(ko, index, 7);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
@@ -133,8 +133,8 @@ public class NarucenaTableModel extends StandardTableModel {
 			String datum = rset.getString("DATUM_ISPORUKE");
 			String ko = rset.getString("KO_RADI");
 
-			addRow(new String[] { sifra_porudzbine, sifra_robe, nazivR,
-					naruceno, poslato, ostalo, datum, ko });
+			addRow(new String[] { sifra_porudzbine, sifra_robe, nazivR, datum,
+					naruceno, poslato, ostalo, ko });
 		}
 		rset.close();
 		stmt.close();
@@ -152,7 +152,7 @@ public class NarucenaTableModel extends StandardTableModel {
 						"DELETE FROM narucena_roba WHERE sifra_porudzbine = ? and sifra_robe = ? and datum_isporuke = ?");
 		String sifraP = (String) getValueAt(index, 0);
 		String sifraR = (String) getValueAt(index, 1);
-		String datum = (String) getValueAt(index, 6);
+		String datum = (String) getValueAt(index, 3);
 
 		stmt.setString(1, sifraP);
 		stmt.setString(2, sifraR);
@@ -177,10 +177,10 @@ public class NarucenaTableModel extends StandardTableModel {
 						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) VALUES (?, ?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
-		stmt.setString(3, params[3]);
-		stmt.setString(4, params[4]);
-		stmt.setString(5, params[5]);
-		stmt.setString(6, params[6]);
+		stmt.setString(3, params[4]);
+		stmt.setString(4, params[5]);
+		stmt.setString(5, params[6]);
+		stmt.setString(6, params[3]);
 		stmt.setString(7, params[7]);
 
 		int rowsAffected = stmt.executeUpdate();
@@ -203,7 +203,7 @@ public class NarucenaTableModel extends StandardTableModel {
 
 		String sifra_porudzbine = (String) getValueAt(index, 0);
 		String sifra_robe = (String) getValueAt(index, 1);
-		String datum = (String) getValueAt(index, 6);
+		String datum = (String) getValueAt(index, 3);
 
 		PreparedStatement stmt = DBConnection
 				.getConnection()
@@ -220,9 +220,9 @@ public class NarucenaTableModel extends StandardTableModel {
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
-		setValueAt(params[0], index, 3);
-		setValueAt(params[1], index, 4);
-		setValueAt(params[2], index, 5);
+		setValueAt(params[0], index, 4);
+		setValueAt(params[1], index, 5);
+		setValueAt(params[2], index, 6);
 		setValueAt(params[3], index, 7);
 		fireTableDataChanged();
 	}

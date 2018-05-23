@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     5/21/2018 9:59:08 PM                         */
+/* Created on:     5/23/2018 3:20:26 AM                         */
 /*==============================================================*/
 
 
@@ -51,14 +51,14 @@ create table faktura
 /*==============================================================*/
 create table fakturisana_roba
 (
-   sifra_robe           varchar(75) not null,
-   sifra_porudzbine     varchar(20),
-   datum_isporuke       date,
+   sifra_robe           varchar(50) not null,
+   sifra_porudzbine     varchar(20) not null,
+   datum_isporuke       date not null,
    sifra_fakture        varchar(20) not null,
    komada_fakturisano   numeric(10,0) not null,
    opis                 varchar(1000),
    roba_otpremljena     varchar(3),
-   primary key (sifra_robe, sifra_fakture)
+   primary key (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
 /*==============================================================*/
@@ -123,7 +123,7 @@ create table magacin
 /*==============================================================*/
 create table narucena_roba
 (
-   sifra_robe           varchar(75) not null,
+   sifra_robe           varchar(50) not null,
    sifra_porudzbine     varchar(20) not null,
    komada_naruceno      numeric(10,0) not null,
    komada_poslato       numeric(10,0),
@@ -139,9 +139,11 @@ create table narucena_roba
 create table otpremljena_roba
 (
    sifra_otpremnice     varchar(20) not null,
-   sifra_robe           varchar(75) not null,
-   sifra_fakture        varchar(20),
-   primary key (sifra_otpremnice, sifra_robe)
+   sifra_robe           varchar(50) not null,
+   sifra_porudzbine     varchar(20) not null,
+   datum_isporuke       date not null,
+   sifra_fakture        varchar(20) not null,
+   primary key (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
 /*==============================================================*/
@@ -184,12 +186,12 @@ create table prevod
 /*==============================================================*/
 create table roba
 (
-   sifra_robe           varchar(100) not null,
+   sifra_robe           varchar(50) not null,
    jedinica_mere        int not null,
    prevod               int not null,
-   interna_sifra_robe   varchar(5) not null,
+   interna_sifra_robe   varchar(10) not null,
    naziv_robe           varchar(100) not null,
-   interni_naziv		varchar(50),
+   interni_naziv        varchar(50),
    komada_u_setu        numeric(4,0),
    tezina_robe          decimal(10,2),
    cena_roni            decimal(10,2),
@@ -211,8 +213,8 @@ alter table narucena_roba add constraint fk_narucena_roba foreign key (sifra_por
 alter table narucena_roba add constraint fk_narucena_roba1 foreign key (sifra_robe)
       references roba (sifra_robe) on delete restrict on update restrict;
 
-alter table otpremljena_roba add constraint fk_otpremljena_roba foreign key (sifra_robe, sifra_fakture)
-      references fakturisana_roba (sifra_robe, sifra_fakture) on delete restrict on update restrict;
+alter table otpremljena_roba add constraint fk_otpremljena_roba foreign key (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
+      references fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture) on delete restrict on update restrict;
 
 alter table otpremljena_roba add constraint fk_otpremljena_roba1 foreign key (sifra_otpremnice)
       references otpremnica (sifra_otpremnice) on delete restrict on update restrict;

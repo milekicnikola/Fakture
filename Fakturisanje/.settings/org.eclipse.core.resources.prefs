@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/gui/dialogs/DialogFakturisana.java=UTF-8
 encoding//src/gui/dialogs/DialogNarucena.java=UTF-8
 encoding//src/gui/dialogs/LoginDialog.java=UTF-8
+encoding//src/gui/panels/FakturisanaPanel.java=UTF-8
 encoding//src/gui/panels/NarucenaPanel.java=UTF-8

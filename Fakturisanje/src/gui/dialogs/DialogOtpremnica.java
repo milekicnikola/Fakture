@@ -199,7 +199,9 @@ public class DialogOtpremnica extends StandardDialog {
 			allEnable();	
 			
 			if (state == State.PRETRAGA)
-				((OtpremnicaPanel) panel).getTxtKorisnik().setEditable(true);				
+				((OtpremnicaPanel) panel).getTxtKorisnik().setEditable(true);
+			else 
+				((OtpremnicaPanel) panel).getTxtKorisnik().setEditable(false);
 			
 			toolbar.getBtnDetaljno().setEnabled(false);
 			((OtpremnicaPanel) panel).getTxtSifra().requestFocus();

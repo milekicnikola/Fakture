@@ -222,6 +222,8 @@ public class DialogPorudzbina extends StandardDialog {
 			
 			if (state == State.PRETRAGA)
 				((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(true);
+			else
+				((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(false);
 			
 			toolbar.getBtnDetaljno().setEnabled(false);
 			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();						

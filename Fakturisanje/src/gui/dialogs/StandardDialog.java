@@ -43,7 +43,8 @@ public abstract class StandardDialog extends JDialog {
 	public Boolean isZoom = false;
 	public String zoom1 = "";
 	public String zoom2 = "";
-	public String zoom3 = "";
+	public String zoom3 = "";	
+	public String zoom4 = "";
 
 	public StandardDialog(JFrame parent) {
 		super(parent, true);
@@ -164,12 +165,14 @@ public abstract class StandardDialog extends JDialog {
 						int rowCount = table.getModel().getRowCount();
 						int currentRow = table.getSelectedRow();
 						updateStausBarRow(currentRow + 1, rowCount);
-						if (currentRow < 0) {
-							toolbar.getBtnDelete().setEnabled(false);
-							toolbar.getBtnUpdate().setEnabled(false);
-						} else {
-							toolbar.getBtnDelete().setEnabled(true);
-							toolbar.getBtnUpdate().setEnabled(true);
+						if (!isZoom) {
+							if (currentRow < 0) {
+								toolbar.getBtnDelete().setEnabled(false);
+								toolbar.getBtnUpdate().setEnabled(false);
+							} else {
+								toolbar.getBtnDelete().setEnabled(true);
+								toolbar.getBtnUpdate().setEnabled(true);
+							}
 						}
 						sync();
 					}
@@ -204,18 +207,20 @@ public abstract class StandardDialog extends JDialog {
 						String code = (String) table.getValueAt(i, 0);
 						String name = (String) table.getValueAt(i, 1);
 						String treci = (String) table.getValueAt(i, 2);
+						String cetvrti = (String) table.getValueAt(i, 3);
 						zoom1 = code;
 						zoom2 = name;
 						zoom3 = treci;
+						zoom4 = cetvrti;
 						dispose();
 					}
 
 				} else {
-					if (state == State.DODAVANJE) {						
-						addRow();						
+					if (state == State.DODAVANJE) {
+						addRow();
 					}
-					if (state == State.AZURIRANJE) {						
-						updateRow();						
+					if (state == State.AZURIRANJE) {
+						updateRow();
 					}
 					if (state == State.PRETRAGA) {
 						search();
@@ -238,10 +243,9 @@ public abstract class StandardDialog extends JDialog {
 					allDisable();
 			}
 		});
-		
+
 		toolbar.getBtnDelete().setEnabled(false);
 		toolbar.getBtnUpdate().setEnabled(false);
-		
 
 	}
 
@@ -297,7 +301,7 @@ public abstract class StandardDialog extends JDialog {
 	}
 
 	public void removeRow() {
-		//toolbar.getBtnRefresh().doClick();
+		// toolbar.getBtnRefresh().doClick();
 		int index = table.getSelectedRow();
 		if (index == -1)
 			return;
@@ -333,9 +337,13 @@ public abstract class StandardDialog extends JDialog {
 	public String getZoom2() {
 		return zoom2;
 	}
-	
+
 	public String getZoom3() {
 		return zoom3;
+	}
+	
+	public String getZoom4() {
+		return zoom4;
 	}
 
 	abstract void initActions();

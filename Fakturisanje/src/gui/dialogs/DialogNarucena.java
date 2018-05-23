@@ -27,20 +27,27 @@ public class DialogNarucena extends StandardDialog {
 	public DialogNarucena(JFrame parent, Boolean zoom, String where) {
 		super(parent);
 		setTitle("Naručena roba");
-		setIconImage(new ImageIcon("Images/Narucena.png").getImage());
+		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
 		
-		porudzbina = where;
-		
-		String whereStm = " WHERE narucena_roba.sifra_porudzbine = '" + where + "'";
-
-		tableModel = new NarucenaTableModel(new String[] { "Šifra porudzbine", "Šifra robe",
-				"Naziv robe", "Komada naručeno", "Komada poslato", "Komada ostalo", "Datum isporuke", "Ko radi" }, 0, whereStm);
-
-		panel = new NarucenaPanel();
-
+		String whereStm = "";
+					
 		if (zoom)
 			isZoom = true;
+		
+		if (!isZoom) {
+		
+		porudzbina = where;
+		whereStm = " WHERE narucena_roba.sifra_porudzbine = '" + where + "'";
+		
+		} else {
+			whereStm = "";			
+		}		
+		
+		tableModel = new NarucenaTableModel(new String[] { "Šifra porudzbine", "Šifra robe",
+				"Naziv robe", "Datum isporuke", "Komada naručeno", "Komada poslato", "Komada ostalo", "Ko radi" }, 0, whereStm);
 
+		panel = new NarucenaPanel();
+		
 		initGUI();
 		initStandardActions();
 		initActions();		
@@ -134,7 +141,7 @@ public class DialogNarucena extends StandardDialog {
 								if (!dialog.getZoom1().equals(""))
 									((NarucenaPanel) panel).getTxtSifraR()
 											.setText(dialog.getZoom1());
-								if (!dialog.getZoom2().equals(""))
+								if (!dialog.getZoom3().equals(""))
 									((NarucenaPanel) panel).getTxtNazivR()
 											.setText(dialog.getZoom3());
 							} catch (NullPointerException n) {
@@ -169,10 +176,10 @@ public class DialogNarucena extends StandardDialog {
 		String sifraP = (String) tableModel.getValueAt(index, 0);
 		String sifraR = (String) tableModel.getValueAt(index, 1);
 		String nazivR = (String) tableModel.getValueAt(index, 2);
-		String naruceno = (String) tableModel.getValueAt(index, 3);
-		String poslato = (String) tableModel.getValueAt(index, 4);
-		String ostalo = (String) tableModel.getValueAt(index, 5);		
-		String datum = (String) tableModel.getValueAt(index, 6);
+		String datum = (String) tableModel.getValueAt(index, 3);
+		String naruceno = (String) tableModel.getValueAt(index, 4);
+		String poslato = (String) tableModel.getValueAt(index, 5);
+		String ostalo = (String) tableModel.getValueAt(index, 6);		
 		String ko = (String) tableModel.getValueAt(index, 7);
 
 		((NarucenaPanel) panel).getTxtSifraP().setText(sifraP);
@@ -220,7 +227,7 @@ public class DialogNarucena extends StandardDialog {
 		} else {
 			clearAll();
 			btnEnable();
-			allEnable();
+			allEnable();				
 			((NarucenaPanel) panel).getTxtNaruceno().requestFocus();						
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -244,7 +251,7 @@ public class DialogNarucena extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}		
 		
-		String[] params = { sifraP, sifraR, nazivR, naruceno, poslato, ostalo, datum, ko };
+		String[] params = { sifraP, sifraR, nazivR, datum, naruceno, poslato, ostalo, ko };
 
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -289,6 +296,7 @@ public class DialogNarucena extends StandardDialog {
 
 	@Override
 	public void search() {
+		
 		String sifraP = ((NarucenaPanel) panel).getTxtSifraP().getText().trim();
 		String sifraR = ((NarucenaPanel) panel).getTxtSifraR().getText().trim();		
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();

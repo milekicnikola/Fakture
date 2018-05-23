@@ -208,6 +208,9 @@ public class DialogFaktura extends StandardDialog {
 			if (state == State.PRETRAGA) {
 				((FakturaPanel) panel).getTxtPoslata().setEditable(true);
 				((FakturaPanel) panel).getTxtKorisnik().setEditable(true);
+			} else {
+				((FakturaPanel) panel).getTxtPoslata().setEditable(false);
+				((FakturaPanel) panel).getTxtKorisnik().setEditable(false);
 			}
 
 			toolbar.getBtnDetaljno().setEnabled(false);
@@ -239,7 +242,7 @@ public class DialogFaktura extends StandardDialog {
 		String neto = ((FakturaPanel) panel).getTxtNeto().getText().trim();
 		String ukupno = ((FakturaPanel) panel).getTxtUkupno().getText().trim();
 
-		String[] params = { sifra, datum, ime, paritet, bruto, neto, ukupno };
+		String[] params = { sifra, datum, ime, paritet, bruto, neto, ukupno, "ne" };
 
 		try {
 			FakturaTableModel ctm = (FakturaTableModel) table.getModel();
@@ -276,8 +279,9 @@ public class DialogFaktura extends StandardDialog {
 		String bruto = ((FakturaPanel) panel).getTxtBruto().getText().trim();
 		String neto = ((FakturaPanel) panel).getTxtNeto().getText().trim();
 		String ukupno = ((FakturaPanel) panel).getTxtUkupno().getText().trim();
+		String poslata = ((FakturaPanel) panel).getTxtPoslata().getText().trim();
 
-		String[] params = { datum, ime, paritet, bruto, neto, ukupno };
+		String[] params = { datum, ime, paritet, bruto, neto, ukupno, poslata };
 		int index = table.getSelectedRow();
 		try {
 			FakturaTableModel ctm = (FakturaTableModel) table.getModel();
@@ -383,12 +387,12 @@ public class DialogFaktura extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (table.getSelectedRow() >= 0) {
-					/*
-					 * DialogNarucena dialog = new DialogNarucena(MainFrame
-					 * .getInstance(), false, ((FakturaPanel) panel)
-					 * .getTxtSifra().getText().trim());
-					 * dialog.setVisible(true);
-					 */
+					
+					 DialogFakturisana dialog = new DialogFakturisana(MainFrame
+					 .getInstance(), false, ((FakturaPanel) panel)
+					 .getTxtSifra().getText().trim());
+					 dialog.setVisible(true);
+					 
 				} else {
 					JOptionPane.showConfirmDialog(getParent(),
 							"Nijedna faktura nije selektovana.", "Upozorenje",

@@ -172,7 +172,7 @@ public class FakturaTableModel extends StandardTableModel {
 		stmt.setString(5, params[4]);
 		stmt.setString(6, params[5]);
 		stmt.setString(7, params[6]);
-		stmt.setString(8, "ne");		
+		stmt.setString(8, params[7]);		
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -214,6 +214,7 @@ public class FakturaTableModel extends StandardTableModel {
 		setValueAt(params[3], index, 4);
 		setValueAt(params[4], index, 5);
 		setValueAt(params[5], index, 6);
+		setValueAt(params[6], index, 7);
 		fireTableDataChanged();
 	}
 

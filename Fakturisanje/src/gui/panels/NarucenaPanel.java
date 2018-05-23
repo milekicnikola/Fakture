@@ -15,18 +15,18 @@ public class NarucenaPanel extends StandardPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel lblSifraR;
-	private JLabel lblNazivR;
 	private JLabel lblSifraP;
+	private JLabel lblSifraR;
+	private JLabel lblNazivR;	
 	private JLabel lblNaruceno;
 	private JLabel lblPoslato;
 	private JLabel lblOstalo;
 	private JLabel lblDatum;
 	private JLabel lblKo;
 
+	private JTextField txtSifraP;
 	private JTextField txtSifraR;
-	private JTextField txtNazivR;
-	private JTextField txtSifraP;	
+	private JTextField txtNazivR;		
 	private JTextField txtNaruceno;
 	private JTextField txtPoslato;
 	private JTextField txtOstalo; 
@@ -42,9 +42,9 @@ public class NarucenaPanel extends StandardPanel {
 
 	public NarucenaPanel() {
 
+		lblSifraP = new JLabel("Šifra porudzbine");
 		lblSifraR = new JLabel("Šifra robe");
-		lblNazivR = new JLabel("Naziv robe");
-		lblSifraP = new JLabel("Šifra porudzbine");		
+		lblNazivR = new JLabel("Naziv robe");				
 		lblNaruceno = new JLabel("Naručeno komada");
 		lblPoslato = new JLabel("Poslato komada");
 		lblOstalo = new JLabel("Ostalo komada");		
@@ -52,9 +52,9 @@ public class NarucenaPanel extends StandardPanel {
 		lblKo = new JLabel("Ko radi");
 		lblPrazno = new JLabel("     ");
 
+		txtSifraP = new JTextField(20);
 		txtSifraR = new JTextField(20);
-		txtNazivR = new JTextField(20);
-		txtSifraP = new JTextField(20);		
+		txtNazivR = new JTextField(20);				
 		txtNaruceno = new JTextField(10);
 		txtPoslato = new JTextField(10);
 		txtOstalo = new JTextField(10);	
@@ -69,14 +69,17 @@ public class NarucenaPanel extends StandardPanel {
 		btnRoba = new JButton("Dodaj robu u porudzbinu");
 		btnRoba.setEnabled(false);
 
+		add(lblSifraP);
+		add(txtSifraP);
+		
 		add(lblSifraR);
 		add(txtSifraR);
 		
 		add(lblNazivR);
-		add(txtNazivR);
-
-		add(lblSifraP);
-		add(txtSifraP, "wrap");		
+		add(txtNazivR, "wrap");
+		
+		add(lblDatum);
+		add(txtDatum);
 
 		add(lblNaruceno);
 		add(txtNaruceno);
@@ -85,10 +88,7 @@ public class NarucenaPanel extends StandardPanel {
 		add(txtPoslato);
 
 		add(lblOstalo);
-		add(txtOstalo);
-		
-		add(lblDatum);
-		add(txtDatum, "wrap");
+		add(txtOstalo, "wrap");		
 		
 		add(lblKo);
 		add(txtKo);
