@@ -57,7 +57,7 @@ create table fakturisana_roba
    sifra_fakture        varchar(20) not null,
    komada_fakturisano   numeric(10,0) not null,
    opis                 varchar(1000),
-   roba_otpremljena     bool,
+   roba_otpremljena     varchar(3),
    primary key (sifra_robe, sifra_fakture)
 );
 
@@ -184,11 +184,12 @@ create table prevod
 /*==============================================================*/
 create table roba
 (
-   sifra_robe           varchar(75) not null,
+   sifra_robe           varchar(100) not null,
    jedinica_mere        int not null,
    prevod               int not null,
    interna_sifra_robe   varchar(5) not null,
    naziv_robe           varchar(100) not null,
+   interni_naziv		varchar(50),
    komada_u_setu        numeric(4,0),
    tezina_robe          decimal(10,2),
    cena_roni            decimal(10,2),

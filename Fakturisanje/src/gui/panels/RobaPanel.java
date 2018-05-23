@@ -11,6 +11,7 @@ public class RobaPanel extends StandardPanel {
 	private JLabel lblSifra;
 	private JLabel lblInterna;
 	private JLabel lblNaziv;
+	private JLabel lblInterni;
 	private JLabel lblJedinicaMere;
 	private JLabel lblKomada;
 	private JLabel lblTezina;
@@ -20,9 +21,10 @@ public class RobaPanel extends StandardPanel {
 	private JTextField txtSifra;
 	private JTextField txtInterna;
 	private JTextField txtNaziv;
+	private JTextField txtInterni;
 	private JComboBox<String> cmbJedinicaMere;
 	private JTextField txtKomada;
-	private JTextField txtTezina;	
+	private JTextField txtTezina;
 	private JComboBox<String> cmbPrevod;
 	private JTextField txtRoni;
 
@@ -31,6 +33,7 @@ public class RobaPanel extends StandardPanel {
 		lblSifra = new JLabel("Šifra robe");
 		lblInterna = new JLabel("Interna šifra robe");
 		lblNaziv = new JLabel("Naziv robe");
+		lblInterni = new JLabel("Interni naziv");
 		lblJedinicaMere = new JLabel("Jedinica mere robe");
 		lblKomada = new JLabel("Komada u setu");
 		lblPrevod = new JLabel("Prevod");
@@ -40,12 +43,13 @@ public class RobaPanel extends StandardPanel {
 		txtSifra = new JTextField(20);
 		txtInterna = new JTextField(20);
 		txtNaziv = new JTextField(20);
+		txtInterni = new JTextField(20);
 		cmbJedinicaMere = new JComboBox<String>();
 		cmbJedinicaMere.addItem("komad");
 		cmbJedinicaMere.addItem("set");
 		cmbJedinicaMere.addItem("metar");
 		txtKomada = new JTextField(4);
-		txtTezina = new JTextField(10);		
+		txtTezina = new JTextField(10);
 		txtRoni = new JTextField(10);
 		cmbPrevod = new JComboBox<String>();
 		cmbPrevod.addItem("el. constructi metalice bucati");
@@ -62,7 +66,10 @@ public class RobaPanel extends StandardPanel {
 		add(txtInterna);
 
 		add(lblNaziv);
-		add(txtNaziv, "wrap");
+		add(txtNaziv);
+
+		add(lblInterni);
+		add(txtInterni, "wrap");
 
 		add(lblJedinicaMere);
 		add(cmbJedinicaMere);
@@ -179,7 +186,7 @@ public class RobaPanel extends StandardPanel {
 	public void setTxtTezina(JTextField txtTezina) {
 		this.txtTezina = txtTezina;
 	}
-	
+
 	public JTextField getTxtRoni() {
 		return txtRoni;
 	}
@@ -210,6 +217,22 @@ public class RobaPanel extends StandardPanel {
 
 	public void setCmbPrevod(JComboBox<String> cmbPrevod) {
 		this.cmbPrevod = cmbPrevod;
+	}
+
+	public JLabel getLblInterni() {
+		return lblInterni;
+	}
+
+	public void setLblInterni(JLabel lblInterni) {
+		this.lblInterni = lblInterni;
+	}
+
+	public JTextField getTxtInterni() {
+		return txtInterni;
+	}
+
+	public void setTxtInterni(JTextField txtInterni) {
+		this.txtInterni = txtInterni;
 	}
 
 }
