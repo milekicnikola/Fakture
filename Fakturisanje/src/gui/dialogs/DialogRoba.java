@@ -370,10 +370,8 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtSifra().setEditable(false);
 		((RobaPanel) panel).getTxtInterna().setEditable(false);
 		((RobaPanel) panel).getTxtNaziv().setEditable(false);
-		((RobaPanel) panel).getTxtInterni().setEditable(false);
-		((RobaPanel) panel).getCmbJedinicaMere().setEditable(false);
-		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(false);
-		((RobaPanel) panel).getCmbPrevod().setEditable(false);
+		((RobaPanel) panel).getTxtInterni().setEditable(false);		
+		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(false);		
 		((RobaPanel) panel).getCmbPrevod().setEnabled(false);
 		((RobaPanel) panel).getTxtKomada().setEditable(false);
 		((RobaPanel) panel).getTxtTezina().setEditable(false);		
@@ -387,10 +385,8 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtSifra().setEditable(true);
 		((RobaPanel) panel).getTxtInterna().setEditable(true);
 		((RobaPanel) panel).getTxtNaziv().setEditable(true);
-		((RobaPanel) panel).getTxtInterni().setEditable(true);
-		((RobaPanel) panel).getCmbJedinicaMere().setEditable(true);
-		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(true);
-		((RobaPanel) panel).getCmbPrevod().setEditable(true);
+		((RobaPanel) panel).getTxtInterni().setEditable(true);		
+		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(true);		
 		((RobaPanel) panel).getCmbPrevod().setEnabled(true);
 		((RobaPanel) panel).getTxtKomada().setEditable(true);
 		((RobaPanel) panel).getTxtTezina().setEditable(true);		

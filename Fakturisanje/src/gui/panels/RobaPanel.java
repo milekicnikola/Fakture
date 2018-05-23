@@ -48,6 +48,7 @@ public class RobaPanel extends StandardPanel {
 		cmbJedinicaMere.addItem("komad");
 		cmbJedinicaMere.addItem("set");
 		cmbJedinicaMere.addItem("metar");
+		cmbJedinicaMere.setEditable(false);
 		txtKomada = new JTextField(4);
 		txtTezina = new JTextField(10);
 		txtRoni = new JTextField(10);
@@ -58,6 +59,7 @@ public class RobaPanel extends StandardPanel {
 		cmbPrevod.addItem("cuti carton");
 		cmbPrevod.addItem("separator carton");
 		cmbPrevod.addItem("coltar carton");
+		cmbPrevod.setEditable(false);
 
 		add(lblSifra);
 		add(txtSifra);
