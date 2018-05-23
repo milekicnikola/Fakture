@@ -87,8 +87,8 @@ public abstract class StandardDialog extends JDialog {
 
 		JScrollPane scrollPane = new JScrollPane(table);
 
-		splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, panel);
-		splitPane.setResizeWeight(1.0);
+		splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, panel, scrollPane);
+		splitPane.setResizeWeight(0.0);
 
 		add(splitPane, "dock center");
 
