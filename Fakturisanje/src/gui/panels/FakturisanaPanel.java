@@ -22,7 +22,7 @@ public class FakturisanaPanel extends StandardPanel {
 	private JLabel lblDatum;	
 	private JLabel lblKomada;
 	private JLabel lblOpis;
-	private JLabel lblOtpremljeno;
+	private JLabel lblStatus;
 
 	private JTextField txtSifraF;
 	private JTextField txtSifraR;
@@ -30,7 +30,7 @@ public class FakturisanaPanel extends StandardPanel {
 	private JTextField txtSifraP;	
 	private JTextField txtKomada;
 	private JTextField txtOpis;
-	private JTextField txtOtpremljeno;
+	private JTextField txtStatus;
 
 	private JButton btnRoba;
 
@@ -49,7 +49,7 @@ public class FakturisanaPanel extends StandardPanel {
 		lblDatum = new JLabel("Datum isporuke");		
 		lblKomada = new JLabel("Fakturisano komada");
 		lblOpis = new JLabel("Opis");
-		lblOtpremljeno = new JLabel("Otpremljeno");
+		lblStatus = new JLabel("Status");
 		// lblPrazno = new JLabel("     ");
 
 		txtSifraF = new JTextField(20);
@@ -58,7 +58,7 @@ public class FakturisanaPanel extends StandardPanel {
 		txtSifraP = new JTextField(20);		
 		txtKomada = new JTextField(10);
 		txtOpis = new JTextField(20);
-		txtOtpremljeno = new JTextField(3);
+		txtStatus = new JTextField(15);
 
 		datePreferedSize = new Dimension(100, 20);
 
@@ -90,8 +90,8 @@ public class FakturisanaPanel extends StandardPanel {
 		add(lblOpis);
 		add(txtOpis, "wrap");
 
-		add(lblOtpremljeno);
-		add(txtOtpremljeno);
+		add(lblStatus);
+		add(txtStatus);
 
 		// add(lblPrazno);
 
@@ -158,12 +158,12 @@ public class FakturisanaPanel extends StandardPanel {
 		this.lblOpis = lblOpis;
 	}
 
-	public JLabel getLblOtpremljeno() {
-		return lblOtpremljeno;
+	public JLabel getLblStatus() {
+		return lblStatus;
 	}
 
-	public void setLblOtpremljeno(JLabel lblOtpremljeno) {
-		this.lblOtpremljeno = lblOtpremljeno;
+	public void setLblStatus(JLabel lblStatus) {
+		this.lblStatus = lblStatus;
 	}
 
 	public JTextField getTxtSifraR() {
@@ -214,12 +214,12 @@ public class FakturisanaPanel extends StandardPanel {
 		this.txtOpis = txtOpis;
 	}
 
-	public JTextField getTxtOtpremljeno() {
-		return txtOtpremljeno;
+	public JTextField getTxtStatus() {
+		return txtStatus;
 	}
 
-	public void setTxtOtpremljeno(JTextField txtOtpremljeno) {
-		this.txtOtpremljeno = txtOtpremljeno;
+	public void setTxtStatus(JTextField txtStatus) {
+		this.txtStatus = txtStatus;
 	}
 
 	public JButton getBtnRoba() {

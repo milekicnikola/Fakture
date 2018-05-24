@@ -392,7 +392,9 @@ public class DialogFaktura extends StandardDialog {
 					 .getInstance(), false, ((FakturaPanel) panel)
 					 .getTxtSifra().getText().trim(), ((FakturaPanel) panel)
 					 .getTxtPoslata().getText().trim() );
-					 dialog.setVisible(true);					 
+					 dialog.setVisible(true);
+					 
+					 toolbar.getBtnRefresh().doClick();
 					 
 				} else {
 					JOptionPane.showConfirmDialog(getParent(),

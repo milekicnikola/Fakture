@@ -106,15 +106,15 @@ insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada
 
 insert into narucena_roba (sifra_robe, sifra_porudzbine, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('002', '111', 12, 8, 4, '2018-6-20', 'Radnik 5');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, roba_otpremljena) values ('001', '112', '2018-8-6', '222', 2, '', 'ne');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status) values ('001', '112', '2018-8-6', '222', 2, '', 'narucena');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, roba_otpremljena) values ('003', '113', '2018-11-7', '222', 5, 'Ovde ide neki tamo opis.', 'ne');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status) values ('003', '113', '2018-11-7', '222', 5, 'Ovde ide neki tamo opis.', 'narucena');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, roba_otpremljena) values ('002', '114', '2018-1-1', '221', 3, '', 'da');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status) values ('002', '114', '2018-1-1', '221', 3, '', 'narucena');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, roba_otpremljena) values ('001', '112', '2017-11-12', '224', 1, '', 'ne');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status) values ('001', '112', '2017-11-12', '224', 1, '', 'fakturisana');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, roba_otpremljena) values ('002', '114', '2018-1-1', '223', 4, '', 'da');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status) values ('002', '114', '2018-1-1', '223', 4, '', 'otpremljena');
 
 insert into otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture) values ('554', '003', '113', '2018-11-7', '222');
 

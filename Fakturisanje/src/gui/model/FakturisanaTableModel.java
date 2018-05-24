@@ -20,9 +20,9 @@ public class FakturisanaTableModel extends StandardTableModel {
 
 	public FakturisanaTableModel(Object[] colName, int rowCount, String where) {
 		super(colName, rowCount);
-		basicQuery = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, roba_otpremljena FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
+		basicQuery = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
 				+ where;
-		basicQuery1 = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, roba_otpremljena FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
+		basicQuery1 = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
 		orderBy = " ORDER BY fakturisana_roba.sifra_fakture";
 	}
 
@@ -51,7 +51,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_robe = "", naziv_robe = "", sifra_porudzbine = "", datum = "", faktura = "", komada = "", opis = "", otpremljena = "";
+		String sifra_robe = "", naziv_robe = "", sifra_porudzbine = "", datum = "", faktura = "", komada = "", opis = "", status = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
@@ -62,7 +62,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 			faktura = rset.getString("sifraFakture").trim();
 			komada = rset.getString("KOMADA_FAKTURISANO");
 			opis = rset.getString("OPIS");
-			otpremljena = rset.getString("ROBA_OTPREMLJENA");
+			status = rset.getString("STATUS");
 			postoji = true;
 		}
 		if (!postoji) {
@@ -83,7 +83,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 						(String) getValueAt(index, 5)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(opis,
 						(String) getValueAt(index, 6)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(otpremljena,
+				|| (SortUtils.getLatCyrCollator().compare(status,
 						(String) getValueAt(index, 7)) != 0)) {
 
 			setValueAt(faktura, index, 0);
@@ -93,7 +93,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 			setValueAt(datum, index, 4);
 			setValueAt(komada, index, 5);
 			setValueAt(opis, index, 6);
-			setValueAt(otpremljena, index, 7);
+			setValueAt(status, index, 7);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -116,7 +116,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 				+ "%' AND " + "fakturisana_roba.sifra_fakture LIKE '%"
 				+ params[3] + "%' AND " + "komada_fakturisano LIKE '%"
 				+ params[4] + "%' AND " + "opis LIKE '%" + params[5]
-				+ "%' AND " + "roba_otpremljena LIKE '%" + params[6] + "%'";
+				+ "%' AND " + "status LIKE '%" + params[6] + "%'";
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}
@@ -134,10 +134,10 @@ public class FakturisanaTableModel extends StandardTableModel {
 			String faktura = rset.getString("sifraFakture");
 			String komada = rset.getString("KOMADA_FAKTURISANO");
 			String opis = rset.getString("OPIS");
-			String otpremljena = rset.getString("ROBA_OTPREMLJENA");
+			String status = rset.getString("STATUS");
 
 			addRow(new String[] { faktura, sifra_robe, naziv_robe,
-					sifra_porudzbine, datum, komada, opis, otpremljena });
+					sifra_porudzbine, datum, komada, opis, status });
 		}
 		rset.close();
 		stmt.close();
@@ -180,7 +180,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, roba_otpremljena) VALUES (?, ?, ?, ?, ?, ?, ?)");
+						"INSERT INTO fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[1]);
 		stmt.setString(2, params[3]);
 		stmt.setString(3, params[4]);

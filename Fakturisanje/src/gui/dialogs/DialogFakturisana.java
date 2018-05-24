@@ -44,7 +44,7 @@ public class DialogFakturisana extends StandardDialog {
 		tableModel = new FakturisanaTableModel(
 				new String[] { "Šifra fakture", "Šifra robe", "Naziv robe",
 						"Šifra porudzbine", "Datum isporuke",
-						"Komada fakturisano", "Opis", "Otpremljena", }, 0,
+						"Komada fakturisano", "Opis", "Status", }, 0,
 				whereStm);
 
 		panel = new FakturisanaPanel();
@@ -201,7 +201,7 @@ public class DialogFakturisana extends StandardDialog {
 		String datum = (String) tableModel.getValueAt(index, 4);
 		String komada = (String) tableModel.getValueAt(index, 5);
 		String opis = (String) tableModel.getValueAt(index, 6);
-		String otpremljena = (String) tableModel.getValueAt(index, 7);
+		String status = (String) tableModel.getValueAt(index, 7);
 
 		((FakturisanaPanel) panel).getTxtSifraF().setText(sifraF);
 		((FakturisanaPanel) panel).getTxtSifraP().setText(sifraP);
@@ -209,7 +209,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtNazivR().setText(nazivR);
 		((FakturisanaPanel) panel).getTxtKomada().setText(komada);
 		((FakturisanaPanel) panel).getTxtOpis().setText(opis);
-		((FakturisanaPanel) panel).getTxtOtpremljeno().setText(otpremljena);
+		((FakturisanaPanel) panel).getTxtStatus().setText(status);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
@@ -252,11 +252,11 @@ public class DialogFakturisana extends StandardDialog {
 			btnEnable();
 			allEnable();
 			if (state == State.PRETRAGA) {
-				((FakturisanaPanel) panel).getTxtOtpremljeno()
+				((FakturisanaPanel) panel).getTxtStatus()
 						.setEditable(true);
 				((FakturisanaPanel) panel).getTxtSifraP().setEditable(true);
 			} else {
-				((FakturisanaPanel) panel).getTxtOtpremljeno().setEditable(
+				((FakturisanaPanel) panel).getTxtStatus().setEditable(
 						false);
 				((FakturisanaPanel) panel).getTxtSifraP().setEditable(false);
 			}
@@ -283,7 +283,7 @@ public class DialogFakturisana extends StandardDialog {
 		String opis = ((FakturisanaPanel) panel).getTxtOpis().getText().trim();
 
 		String[] params = { sifraF, sifraR, nazivR, sifraP, preuzetDatum,
-				komada, opis, "ne" };
+				komada, opis, "narucena" };
 
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -307,7 +307,7 @@ public class DialogFakturisana extends StandardDialog {
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTxtOpis().getText().trim();
-		String otpremljena = ((FakturisanaPanel) panel).getTxtOtpremljeno()
+		String status = ((FakturisanaPanel) panel).getTxtStatus()
 				.getText().trim();
 		/*
 		 * Date datum1 = ((FakturisanaPanel) panel).getTxtDatum().getDate();
@@ -315,7 +315,7 @@ public class DialogFakturisana extends StandardDialog {
 		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
 		 */
 
-		String[] params = { komada, opis, otpremljena };
+		String[] params = { komada, opis, status };
 		int index = table.getSelectedRow();
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -341,11 +341,11 @@ public class DialogFakturisana extends StandardDialog {
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTxtOpis().getText().trim();
-		String otpremljena = ((FakturisanaPanel) panel).getTxtOtpremljeno()
+		String status = ((FakturisanaPanel) panel).getTxtStatus()
 				.getText().trim();
 
 		String[] params = { sifraR, sifraP, preuzetDatum, sifraF, komada, opis,
-				otpremljena };
+				status };
 
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -370,7 +370,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(false);
 		((FakturisanaPanel) panel).getTxtOpis().setEditable(false);
 		((FakturisanaPanel) panel).getTxtDatum().setEnabled(false);
-		((FakturisanaPanel) panel).getTxtOtpremljeno().setEditable(false);
+		((FakturisanaPanel) panel).getTxtStatus().setEditable(false);
 	}
 
 	public void allEnable() {
@@ -385,7 +385,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtSifraR().setText("");
 		((FakturisanaPanel) panel).getTxtNazivR().setText("");
 		((FakturisanaPanel) panel).getTxtKomada().setText("");
-		((FakturisanaPanel) panel).getTxtOtpremljeno().setText("");
+		((FakturisanaPanel) panel).getTxtStatus().setText("");
 		((FakturisanaPanel) panel).getTxtOpis().setText("");
 		((FakturisanaPanel) panel).getTxtSifraP().setText("");
 		((FakturisanaPanel) panel).getTxtDatum().setCalendar(null);
@@ -456,9 +456,9 @@ public class DialogFakturisana extends StandardDialog {
 				PreparedStatement stmt2 = DBConnection
 						.getConnection()
 						.prepareStatement(
-								"UPDATE fakturisana_roba SET roba_otpremljena = ? WHERE sifra_robe = ? and sifra_porudzbine = ? and datum_isporuke = ? and sifra_fakture = ?");
+								"UPDATE fakturisana_roba SET status = ? WHERE sifra_robe = ? and sifra_porudzbine = ? and datum_isporuke = ? and sifra_fakture = ?");
 
-				stmt2.setString(1, "da");
+				stmt2.setString(1, "fakturisana");
 				stmt2.setString(2, sifra_robe);
 				stmt2.setString(3, sifra_porudzbine);
 				stmt2.setString(4, datum);
