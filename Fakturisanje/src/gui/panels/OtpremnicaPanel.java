@@ -20,11 +20,13 @@ public class OtpremnicaPanel extends StandardPanel {
 	private JLabel lblSifraM;
 	private JLabel lblMagacin;
 	private JLabel lblDatum;
+	private JLabel lblTransport;
 
 	private JTextField txtSifra;
 	private JTextField txtKorisnik;
 	private JTextField txtSifraM;
 	private JTextField txtMagacin;
+	private JTextField txtTransport;
 
 	private JButton btnMagacin;
 
@@ -39,11 +41,13 @@ public class OtpremnicaPanel extends StandardPanel {
 		lblSifraM = new JLabel("Šifra magacina");
 		lblMagacin = new JLabel("Magacin");
 		lblDatum = new JLabel("Datum otpremanja");
+		lblTransport = new JLabel("Transport");
 
 		txtSifra = new JTextField(20);
 		txtKorisnik = new JTextField(20);
 		txtSifraM = new JTextField(10);
 		txtMagacin = new JTextField(20);
+		txtTransport = new JTextField(20);
 
 		datePreferedSize = new Dimension(100, 20);
 
@@ -69,6 +73,9 @@ public class OtpremnicaPanel extends StandardPanel {
 
 		add(lblDatum);
 		add(txtDatum);
+
+		add(lblTransport);
+		add(txtTransport);
 
 		add(btnConfirm);
 		add(btnCancel);
@@ -161,6 +168,22 @@ public class OtpremnicaPanel extends StandardPanel {
 
 	public void setTxtSifraM(JTextField txtSifraM) {
 		this.txtSifraM = txtSifraM;
+	}
+
+	public JLabel getLblTransport() {
+		return lblTransport;
+	}
+
+	public void setLblTransport(JLabel lblTransport) {
+		this.lblTransport = lblTransport;
+	}
+
+	public JTextField getTxtTransport() {
+		return txtTransport;
+	}
+
+	public void setTxtTransport(JTextField txtTransport) {
+		this.txtTransport = txtTransport;
 	}
 
 }

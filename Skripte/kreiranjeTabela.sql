@@ -155,6 +155,7 @@ create table otpremnica
    korisnicko_ime       varchar(20) not null,
    sifra_magacina       varchar(10) not null,
    datum_otpremnice     date not null,
+   transport			varchar(30),
    primary key (sifra_otpremnice)
 );
 
@@ -167,7 +168,7 @@ create table porudzbina
    sifra_magacina       varchar(10) not null,
    korisnicko_ime       varchar(20) not null,
    pib_kupca            varchar(15) not null,
-   datum_porudzbine     date not null,
+   datum_porudzbine     date not null,   
    primary key (sifra_porudzbine)
 );
 
