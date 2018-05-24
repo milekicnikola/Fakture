@@ -222,6 +222,7 @@ public class DialogNarucena extends StandardDialog {
 			allEnable();			
 			((NarucenaPanel) panel).getBtnRoba().setEnabled(false);
 			((NarucenaPanel) panel).getTxtDatum().setEnabled(false);
+			((NarucenaPanel) panel).getTxtNaruceno().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
@@ -242,8 +243,8 @@ public class DialogNarucena extends StandardDialog {
 		String sifraR = ((NarucenaPanel) panel).getTxtSifraR().getText().trim();
 		String nazivR = ((NarucenaPanel) panel).getTxtNazivR().getText().trim();
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
-		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();		
-		String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
+		String poslato = "0";		
+		String ostalo = naruceno;
 		String ko = ((NarucenaPanel) panel).getTxtKo().getText().trim();
 		Date datum1 = ((NarucenaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
@@ -271,9 +272,9 @@ public class DialogNarucena extends StandardDialog {
 		if (i == -1)
 			return;
 				
-		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
-		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();
-		String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
+		//String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText().trim();
+		//String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText().trim();
+		//String ostalo = ((NarucenaPanel) panel).getTxtOstalo().getText().trim();
 		String ko = ((NarucenaPanel) panel).getTxtKo().getText().trim();
 		/*Date datum1 = ((NarucenaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
@@ -281,7 +282,7 @@ public class DialogNarucena extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}*/
 		
-		String[] params = { naruceno, poslato, ostalo, ko };
+		String[] params = { ko };
 		int index = table.getSelectedRow();
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -340,8 +341,8 @@ public class DialogNarucena extends StandardDialog {
 		((NarucenaPanel) panel).getBtnConfirm().setEnabled(true);
 		((NarucenaPanel) panel).getBtnCancel().setEnabled(true);
 		((NarucenaPanel) panel).getTxtNaruceno().setEditable(true);
-		((NarucenaPanel) panel).getTxtPoslato().setEditable(true);
-		((NarucenaPanel) panel).getTxtOstalo().setEditable(true);
+		//((NarucenaPanel) panel).getTxtPoslato().setEditable(true);
+		//((NarucenaPanel) panel).getTxtOstalo().setEditable(true);
 		((NarucenaPanel) panel).getTxtDatum().setEnabled(true);
 		((NarucenaPanel) panel).getTxtKo().setEditable(true);
 		

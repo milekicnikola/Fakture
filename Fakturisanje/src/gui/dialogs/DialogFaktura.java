@@ -390,8 +390,9 @@ public class DialogFaktura extends StandardDialog {
 					
 					 DialogFakturisana dialog = new DialogFakturisana(MainFrame
 					 .getInstance(), false, ((FakturaPanel) panel)
-					 .getTxtSifra().getText().trim());
-					 dialog.setVisible(true);
+					 .getTxtSifra().getText().trim(), ((FakturaPanel) panel)
+					 .getTxtPoslata().getText().trim() );
+					 dialog.setVisible(true);					 
 					 
 				} else {
 					JOptionPane.showConfirmDialog(getParent(),
@@ -401,5 +402,5 @@ public class DialogFaktura extends StandardDialog {
 				}
 			}
 		});
-	}
+	}	
 }

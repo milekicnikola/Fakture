@@ -28,6 +28,7 @@ public class DialogToolBar extends JToolBar {
 	JButton btnRefresh;
 	
 	JButton btnDetaljno;	
+	JButton btnPosalji;	
 
 	public DialogToolBar() {
 		super();
@@ -159,7 +160,19 @@ public class DialogToolBar extends JToolBar {
 	
 	public void dodajDetaljno(JButton detaljno) {
 		this.btnDetaljno = detaljno;
-		this.add(btnDetaljno);
-		
+		this.add(btnDetaljno);		
+	}
+	
+	public JButton getBtnPosalji() {
+		return btnPosalji;
+	}
+
+	public void setBtnPosalji(JButton btnPosalji) {
+		this.btnPosalji = btnPosalji;
+	}
+	
+	public void dodajPosalji(JButton posalji) {
+		this.btnPosalji = posalji;
+		this.add(btnPosalji);		
 	}
 }

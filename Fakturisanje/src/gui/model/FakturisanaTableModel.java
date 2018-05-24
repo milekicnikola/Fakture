@@ -11,7 +11,7 @@ import databaseConnection.DBConnection;
 
 public class FakturisanaTableModel extends StandardTableModel {
 
-	private String basicQuery1;
+	public String basicQuery1;
 
 	/**
 	 * 

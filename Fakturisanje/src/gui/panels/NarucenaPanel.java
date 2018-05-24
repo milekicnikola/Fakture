@@ -52,8 +52,8 @@ public class NarucenaPanel extends StandardPanel {
 		lblKo = new JLabel("Ko radi");
 		lblPrazno = new JLabel("     ");
 
-		txtSifraP = new JTextField(20);
-		txtSifraR = new JTextField(20);
+		txtSifraP = new JTextField(15);
+		txtSifraR = new JTextField(15);
 		txtNazivR = new JTextField(20);				
 		txtNaruceno = new JTextField(10);
 		txtPoslato = new JTextField(10);
@@ -66,7 +66,7 @@ public class NarucenaPanel extends StandardPanel {
 		txtDatum.setDateFormatString("yyyy-MM-dd");
 		txtDatum.setPreferredSize(datePreferedSize);
 		
-		btnRoba = new JButton("Dodaj robu u porudzbinu");
+		btnRoba = new JButton("Dodaj robu");
 		btnRoba.setEnabled(false);
 
 		add(lblSifraP);
@@ -76,7 +76,9 @@ public class NarucenaPanel extends StandardPanel {
 		add(txtSifraR);
 		
 		add(lblNazivR);
-		add(txtNazivR, "wrap");
+		add(txtNazivR);
+		
+		add(btnRoba, "wrap");
 		
 		add(lblDatum);
 		add(txtDatum);
@@ -93,9 +95,7 @@ public class NarucenaPanel extends StandardPanel {
 		add(lblKo);
 		add(txtKo);
 		
-		add(lblPrazno);
-		
-		add(btnRoba);	
+		add(lblPrazno);			
 		
 		add(btnConfirm);
 		add(btnCancel);

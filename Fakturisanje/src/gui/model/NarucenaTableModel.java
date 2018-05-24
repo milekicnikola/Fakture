@@ -208,22 +208,16 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE narucena_roba SET komada_naruceno = ?, komada_poslato = ?, komada_ostalo = ?, ko_radi = ? WHERE sifra_porudzbine = ? and sifra_robe = ? and datum_isporuke = ?");
+						"UPDATE narucena_roba SET ko_radi = ? WHERE sifra_porudzbine = ? and sifra_robe = ? and datum_isporuke = ?");
 
-		stmt.setString(1, params[0]);
-		stmt.setString(2, params[1]);
-		stmt.setString(3, params[2]);
-		stmt.setString(4, params[3]);
-		stmt.setString(5, sifra_porudzbine);
-		stmt.setString(6, sifra_robe);
-		stmt.setString(7, datum);
+		stmt.setString(1, params[0]);				
+		stmt.setString(2, sifra_porudzbine);
+		stmt.setString(3, sifra_robe);
+		stmt.setString(4, datum);
 		stmt.executeUpdate();
 		stmt.close();
-		DBConnection.getConnection().commit();
-		setValueAt(params[0], index, 4);
-		setValueAt(params[1], index, 5);
-		setValueAt(params[2], index, 6);
-		setValueAt(params[3], index, 7);
+		DBConnection.getConnection().commit();				
+		setValueAt(params[0], index, 7);
 		fireTableDataChanged();
 	}
 
