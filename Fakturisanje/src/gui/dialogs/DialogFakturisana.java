@@ -138,7 +138,7 @@ public class DialogFakturisana extends StandardDialog {
 						public void actionPerformed(ActionEvent arg0) {
 							// TODO Auto-generated method stub
 							DialogNarucena dialog = new DialogNarucena(
-									MainFrame.getInstance(), true, "");
+									MainFrame.getInstance(), true, "faktura");
 							dialog.setVisible(true);
 							try {
 								if (!dialog.getZoom1().equals(""))
@@ -208,7 +208,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtSifraR().setText(sifraR);
 		((FakturisanaPanel) panel).getTxtNazivR().setText(nazivR);
 		((FakturisanaPanel) panel).getTxtKomada().setText(komada);
-		((FakturisanaPanel) panel).getTxtOpis().setText(opis);
+		((FakturisanaPanel) panel).getTaOpis().setText(opis);
 		((FakturisanaPanel) panel).getTxtStatus().setText(status);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -280,7 +280,7 @@ public class DialogFakturisana extends StandardDialog {
 				.trim();
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
-		String opis = ((FakturisanaPanel) panel).getTxtOpis().getText().trim();
+		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
 
 		String[] params = { sifraF, sifraR, nazivR, sifraP, preuzetDatum,
 				komada, opis, "narucena" };
@@ -306,7 +306,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
-		String opis = ((FakturisanaPanel) panel).getTxtOpis().getText().trim();
+		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
 		String status = ((FakturisanaPanel) panel).getTxtStatus()
 				.getText().trim();
 		/*
@@ -340,7 +340,7 @@ public class DialogFakturisana extends StandardDialog {
 				.trim();
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
-		String opis = ((FakturisanaPanel) panel).getTxtOpis().getText().trim();
+		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
 		String status = ((FakturisanaPanel) panel).getTxtStatus()
 				.getText().trim();
 
@@ -368,7 +368,8 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtNazivR().setEditable(false);
 		((FakturisanaPanel) panel).getTxtSifraF().setEditable(false);
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(false);
-		((FakturisanaPanel) panel).getTxtOpis().setEditable(false);
+		((FakturisanaPanel) panel).getTaOpis().setEditable(false);
+		((FakturisanaPanel) panel).getTaOpis().setEnabled(false);
 		((FakturisanaPanel) panel).getTxtDatum().setEnabled(false);
 		((FakturisanaPanel) panel).getTxtStatus().setEditable(false);
 	}
@@ -377,7 +378,8 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getBtnConfirm().setEnabled(true);
 		((FakturisanaPanel) panel).getBtnCancel().setEnabled(true);
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(true);
-		((FakturisanaPanel) panel).getTxtOpis().setEditable(true);
+		((FakturisanaPanel) panel).getTaOpis().setEditable(true);
+		((FakturisanaPanel) panel).getTaOpis().setEnabled(true);
 
 	}
 
@@ -386,7 +388,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtNazivR().setText("");
 		((FakturisanaPanel) panel).getTxtKomada().setText("");
 		((FakturisanaPanel) panel).getTxtStatus().setText("");
-		((FakturisanaPanel) panel).getTxtOpis().setText("");
+		((FakturisanaPanel) panel).getTaOpis().setText("");
 		((FakturisanaPanel) panel).getTxtSifraP().setText("");
 		((FakturisanaPanel) panel).getTxtDatum().setCalendar(null);
 	}

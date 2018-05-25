@@ -369,8 +369,9 @@ public class DialogPorudzbina extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (table.getSelectedRow() >= 0) {
+					String where = ((PorudzbinaPanel) panel).getTxtSifra().getText().trim();					
 					DialogNarucena dialog = new DialogNarucena(MainFrame
-							.getInstance(), false, ((PorudzbinaPanel) panel).getTxtSifra().getText().trim());
+							.getInstance(), false, where);
 					dialog.setVisible(true);						
 				} else {
 					JOptionPane.showConfirmDialog(getParent(),

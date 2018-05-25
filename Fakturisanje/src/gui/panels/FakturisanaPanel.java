@@ -4,6 +4,8 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
@@ -19,7 +21,7 @@ public class FakturisanaPanel extends StandardPanel {
 	private JLabel lblSifraR;
 	private JLabel lblNazivR;
 	private JLabel lblSifraP;
-	private JLabel lblDatum;	
+	private JLabel lblDatum;
 	private JLabel lblKomada;
 	private JLabel lblOpis;
 	private JLabel lblStatus;
@@ -27,9 +29,9 @@ public class FakturisanaPanel extends StandardPanel {
 	private JTextField txtSifraF;
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;
-	private JTextField txtSifraP;	
+	private JTextField txtSifraP;
 	private JTextField txtKomada;
-	private JTextField txtOpis;
+	private JTextArea taOpis;
 	private JTextField txtStatus;
 
 	private JButton btnRoba;
@@ -38,26 +40,24 @@ public class FakturisanaPanel extends StandardPanel {
 
 	private Dimension datePreferedSize;
 
-	// private JLabel lblPrazno;
-
-	public FakturisanaPanel() {
+	public FakturisanaPanel() {		
 
 		lblSifraF = new JLabel("Šifra fakture");
 		lblSifraR = new JLabel("Šifra robe");
 		lblNazivR = new JLabel("Naziv robe");
 		lblSifraP = new JLabel("Šifra porudzbine");
-		lblDatum = new JLabel("Datum isporuke");		
+		lblDatum = new JLabel("Datum isporuke");
 		lblKomada = new JLabel("Fakturisano komada");
 		lblOpis = new JLabel("Opis");
-		lblStatus = new JLabel("Status");
-		// lblPrazno = new JLabel("     ");
+		lblStatus = new JLabel("Status");		
 
 		txtSifraF = new JTextField(20);
 		txtSifraR = new JTextField(20);
 		txtNazivR = new JTextField(20);
-		txtSifraP = new JTextField(20);		
+		txtSifraP = new JTextField(20);
 		txtKomada = new JTextField(10);
-		txtOpis = new JTextField(20);
+		taOpis = new JTextArea(4, 25);
+		JScrollPane scrollPane = new JScrollPane(taOpis);		
 		txtStatus = new JTextField(15);
 
 		datePreferedSize = new Dimension(100, 20);
@@ -71,34 +71,32 @@ public class FakturisanaPanel extends StandardPanel {
 
 		add(lblSifraF);
 		add(txtSifraF);
-		
+
 		add(lblSifraR);
 		add(txtSifraR);
 
 		add(lblNazivR);
 		add(txtNazivR);
+		
+		add(btnRoba, "wrap");
 
 		add(lblSifraP);
-		add(txtSifraP, "wrap");
+		add(txtSifraP);
 
 		add(lblDatum);
-		add(txtDatum);		
+		add(txtDatum);
 
 		add(lblKomada);
-		add(txtKomada);
-
-		add(lblOpis);
-		add(txtOpis, "wrap");
+		add(txtKomada, "wrap");		
 
 		add(lblStatus);
 		add(txtStatus);
-
-		// add(lblPrazno);
-
-		add(btnRoba);
+		
+		add(lblOpis);
+		add(scrollPane, "height 80::, span 2 2");		
 
 		add(btnConfirm);
-		add(btnCancel);
+		add(btnCancel);		
 
 	}
 
@@ -206,12 +204,12 @@ public class FakturisanaPanel extends StandardPanel {
 		this.txtKomada = txtKomada;
 	}
 
-	public JTextField getTxtOpis() {
-		return txtOpis;
+	public JTextArea getTaOpis() {
+		return taOpis;
 	}
 
-	public void setTxtOpis(JTextField txtOpis) {
-		this.txtOpis = txtOpis;
+	public void setTaOpis(JTextArea taOpis) {
+		this.taOpis = taOpis;
 	}
 
 	public JTextField getTxtStatus() {
