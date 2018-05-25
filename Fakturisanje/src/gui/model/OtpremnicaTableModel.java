@@ -18,7 +18,7 @@ public class OtpremnicaTableModel extends StandardTableModel {
 
 	public OtpremnicaTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_otpremnice, otpremnica.korisnicko_ime as korisnickoIme, otpremnica.sifra_magacina as magacin, naziv_magacina, datum_otpremnice, transport FROM otpremnica JOIN korisnik ON otpremnica.korisnicko_ime = korisnik.korisnicko_ime JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina";
+		basicQuery = "SELECT sifra_otpremnice, otpremnica.korisnicko_ime as korisnickoIme, otpremnica.sifra_magacina as magacin, naziv_magacina, datum_otpremnice, transport, poslata_otpremnica FROM otpremnica JOIN korisnik ON otpremnica.korisnicko_ime = korisnik.korisnicko_ime JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina";
 		orderBy = " ORDER BY sifra_otpremnice";
 	}
 
@@ -37,7 +37,7 @@ public class OtpremnicaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_otpremnice = "", korisnik = "", sifraM = "", magacin = "", datum = "", transport = "";
+		String sifra_otpremnice = "", korisnik = "", sifraM = "", magacin = "", datum = "", transport = "", poslata = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
@@ -47,6 +47,7 @@ public class OtpremnicaTableModel extends StandardTableModel {
 			magacin = rset.getString("NAZIV_MAGACINA");
 			datum = rset.getString("DATUM_OTPREMNICE");
 			transport = rset.getString("TRANSPORT");
+			poslata = rset.getString("POSLATA_OTPREMNICA");
 			postoji = true;
 		}
 		if (!postoji) {
@@ -64,7 +65,9 @@ public class OtpremnicaTableModel extends StandardTableModel {
 				|| (SortUtils.getLatCyrCollator().compare(datum,
 						(String) getValueAt(index, 4)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(transport,
-						(String) getValueAt(index, 5)) != 0)) {
+						(String) getValueAt(index, 5)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(poslata,
+						(String) getValueAt(index, 6)) != 0)) {
 
 			setValueAt(sifra_otpremnice, index, 0);
 			setValueAt(korisnik, index, 1);
@@ -72,6 +75,7 @@ public class OtpremnicaTableModel extends StandardTableModel {
 			setValueAt(magacin, index, 3);
 			setValueAt(datum, index, 4);
 			setValueAt(transport, index, 5);
+			setValueAt(poslata, index, 6);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -91,7 +95,8 @@ public class OtpremnicaTableModel extends StandardTableModel {
 				+ "otpremnica.korisnicko_ime LIKE '%" + params[1] + "%' AND "
 				+ "otpremnica.sifra_magacina LIKE '%" + params[2] + "%' AND "
 				+ "datum_otpremnice LIKE '%" + params[3] + "%' AND "
-				+ "transport LIKE '%" + params[4] + "%'";
+				+ "transport LIKE '%" + params[4] + "%' AND "
+				+ "poslata LIKE '%" + params[5] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}
@@ -108,9 +113,10 @@ public class OtpremnicaTableModel extends StandardTableModel {
 			String magacin = rset.getString("NAZIV_MAGACINA");
 			String datum = rset.getString("DATUM_OTPREMNICE");
 			String transport = rset.getString("TRANSPORT");
+			String poslata = rset.getString("POSLATA_OTPREMNICA");
 
 			addRow(new String[] { sifra_otpremnice, korisnik, sifraM, magacin,
-					datum, transport });
+					datum, transport, poslata });
 		}
 		rset.close();
 		stmt.close();
@@ -143,12 +149,13 @@ public class OtpremnicaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO otpremnica (sifra_otpremnice, otpremnica.korisnicko_ime, otpremnica.sifra_magacina, datum_otpremnice, transport) VALUES (?, ?, ?, ?, ?)");
+						"INSERT INTO otpremnica (sifra_otpremnice, otpremnica.korisnicko_ime, otpremnica.sifra_magacina, datum_otpremnice, transport, poslata) VALUES (?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
 		stmt.setString(4, params[4]);
 		stmt.setString(5, params[5]);
+		stmt.setString(5, params[6]);
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();

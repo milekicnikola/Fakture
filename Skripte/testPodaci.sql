@@ -62,15 +62,15 @@ insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_faktu
 
 insert into faktura (sifra_fakture, korisnicko_ime, datum_fakture, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) values ('225', 'admin', '2016-11-4', 'cisn24kw', 11.45, 45.8, 17, "da");
 
-insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport) values ('551', 'admin', 'CRW1', '2017-6-8', 'ZR075CI/BD772ZR');
+insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) values ('551', 'admin', 'CRW1', '2017-6-8', 'ZR075CI/BD772ZR', 'ne');
 
-insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport) values ('552', '9yricdbvwkdpi4n2y86', 'CRW1', '2018-1-1', 'ZR075CI/AC688ZR');
+insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) values ('552', '9yricdbvwkdpi4n2y86', 'CRW1', '2018-1-1', 'ZR075CI/AC688ZR', 'ne');
 
-insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport) values ('553', 'admin', 'SPC', '2018-3-15', 'BG075CI/AC688BG');
+insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) values ('553', 'admin', 'SPC', '2018-3-15', 'BG075CI/AC688BG', 'ne');
 
-insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport) values ('554', 'admin', 'RAME', '2017-8-4', 'ZR075CI/AC688ZR');
+insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) values ('554', 'admin', 'RAME', '2017-8-4', 'ZR075CI/AC688ZR', 'ne');
 
-insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport) values ('555', 'jteoic1s5gyt037f3sv', 'CRW2', '2018-11-1', 'ZR12T85/AC688ZR');
+insert into otpremnica (sifra_otpremnice, korisnicko_ime, sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) values ('555', 'jteoic1s5gyt037f3sv', 'CRW2', '2018-11-1', 'ZR12T85/AC688ZR', 'ne');
 
 insert into prevod (redni_broj, naziv_prevoda) values (1, 'el. constructi metalice bucati');
 

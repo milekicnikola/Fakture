@@ -156,6 +156,7 @@ create table otpremnica
    sifra_magacina       varchar(10) not null,
    datum_otpremnice     date not null,
    transport			varchar(30),
+   poslata_otpremnica	varchar(3),
    primary key (sifra_otpremnice)
 );
 

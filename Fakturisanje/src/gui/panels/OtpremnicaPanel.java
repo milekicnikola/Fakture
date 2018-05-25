@@ -21,12 +21,14 @@ public class OtpremnicaPanel extends StandardPanel {
 	private JLabel lblMagacin;
 	private JLabel lblDatum;
 	private JLabel lblTransport;
+	private JLabel lblPoslata;
 
 	private JTextField txtSifra;
 	private JTextField txtKorisnik;
 	private JTextField txtSifraM;
 	private JTextField txtMagacin;
 	private JTextField txtTransport;
+	private JTextField txtPoslata;
 
 	private JButton btnMagacin;
 
@@ -42,12 +44,14 @@ public class OtpremnicaPanel extends StandardPanel {
 		lblMagacin = new JLabel("Magacin");
 		lblDatum = new JLabel("Datum otpremanja");
 		lblTransport = new JLabel("Transport");
+		lblPoslata = new JLabel("Poslata");
 
 		txtSifra = new JTextField(20);
 		txtKorisnik = new JTextField(20);
 		txtSifraM = new JTextField(10);
 		txtMagacin = new JTextField(20);
 		txtTransport = new JTextField(20);
+		txtPoslata = new JTextField(3);
 
 		datePreferedSize = new Dimension(100, 20);
 
@@ -76,6 +80,9 @@ public class OtpremnicaPanel extends StandardPanel {
 
 		add(lblTransport);
 		add(txtTransport);
+		
+		add(lblPoslata);
+		add(txtPoslata);
 
 		add(btnConfirm);
 		add(btnCancel);
@@ -184,6 +191,22 @@ public class OtpremnicaPanel extends StandardPanel {
 
 	public void setTxtTransport(JTextField txtTransport) {
 		this.txtTransport = txtTransport;
+	}
+	
+	public JLabel getLblPoslata() {
+		return lblPoslata;
+	}
+
+	public void setLblPoslata(JLabel lblPoslata) {
+		this.lblPoslata = lblPoslata;
+	}
+
+	public JTextField getTxtPoslata() {
+		return txtPoslata;
+	}
+
+	public void setTxtPoslata(JTextField txtPoslata) {
+		this.txtPoslata = txtPoslata;
 	}
 
 }
