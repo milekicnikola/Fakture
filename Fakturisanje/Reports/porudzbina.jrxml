@@ -18,7 +18,7 @@ inner join porudzbina on narucena_roba.sifra_porudzbine = porudzbina.sifra_porud
 inner join magacin on porudzbina.sifra_magacina=magacin.sifra_magacina 
 inner join kupci on porudzbina.pib_kupca=kupci.pib
 inner join kurs
-where porudzbina.sifra_porudzbine="112" and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs)
+where porudzbina.sifra_porudzbine="222" and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs)
 order by narucena_roba.sifra_porudzbine, ko_radi, datum_isporuke, narucena_roba.sifra_robe]]>
 	</queryString>
 	<field name="sifra_robe" class="java.lang.String"/>

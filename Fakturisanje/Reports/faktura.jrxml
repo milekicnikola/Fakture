@@ -26,7 +26,7 @@ inner join narucena_roba on fakturisana_roba.sifra_porudzbine=narucena_roba.sifr
 inner join kurs
 inner join roba on narucena_roba.sifra_robe = roba.sifra_robe
 inner join prevod on roba.prevod = prevod.redni_broj
-where fakturisana_roba.sifra_fakture="222" and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs) 
+where fakturisana_roba.sifra_fakture="333" and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs) 
 order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 	</queryString>
 	<field name="sifra_robe" class="java.lang.String"/>

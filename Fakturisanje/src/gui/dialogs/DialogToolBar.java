@@ -188,6 +188,7 @@ public class DialogToolBar extends JToolBar {
 	
 	public void dodajIzvestaj(JButton izvestaj) {
 		this.btnIzvestaj = izvestaj;
+		this.addSeparator();
 		this.add(btnIzvestaj);		
 	}
 }
