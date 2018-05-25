@@ -149,13 +149,13 @@ public class OtpremnicaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO otpremnica (sifra_otpremnice, otpremnica.korisnicko_ime, otpremnica.sifra_magacina, datum_otpremnice, transport, poslata) VALUES (?, ?, ?, ?, ?, ?)");
+						"INSERT INTO otpremnica (sifra_otpremnice, otpremnica.korisnicko_ime, otpremnica.sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) VALUES (?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
 		stmt.setString(4, params[4]);
 		stmt.setString(5, params[5]);
-		stmt.setString(5, params[6]);
+		stmt.setString(6, params[6]);
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
