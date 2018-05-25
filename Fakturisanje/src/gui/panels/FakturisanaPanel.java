@@ -22,6 +22,7 @@ public class FakturisanaPanel extends StandardPanel {
 	private JLabel lblNazivR;
 	private JLabel lblSifraP;
 	private JLabel lblDatum;
+	private JLabel lblNaruceno;
 	private JLabel lblKomada;
 	private JLabel lblOpis;
 	private JLabel lblStatus;
@@ -30,6 +31,7 @@ public class FakturisanaPanel extends StandardPanel {
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;
 	private JTextField txtSifraP;
+	private JTextField txtNaruceno;
 	private JTextField txtKomada;
 	private JTextArea taOpis;
 	private JTextField txtStatus;
@@ -47,6 +49,7 @@ public class FakturisanaPanel extends StandardPanel {
 		lblNazivR = new JLabel("Naziv robe");
 		lblSifraP = new JLabel("Šifra porudzbine");
 		lblDatum = new JLabel("Datum isporuke");
+		lblNaruceno = new JLabel("Naručeno komada");
 		lblKomada = new JLabel("Fakturisano komada");
 		lblOpis = new JLabel("Opis");
 		lblStatus = new JLabel("Status");		
@@ -55,6 +58,7 @@ public class FakturisanaPanel extends StandardPanel {
 		txtSifraR = new JTextField(20);
 		txtNazivR = new JTextField(20);
 		txtSifraP = new JTextField(20);
+		txtNaruceno = new JTextField(10);
 		txtKomada = new JTextField(10);
 		taOpis = new JTextArea(4, 25);
 		JScrollPane scrollPane = new JScrollPane(taOpis);		
@@ -85,6 +89,9 @@ public class FakturisanaPanel extends StandardPanel {
 
 		add(lblDatum);
 		add(txtDatum);
+		
+		add(lblNaruceno);
+		add(txtNaruceno);
 
 		add(lblKomada);
 		add(txtKomada, "wrap");		
@@ -234,6 +241,22 @@ public class FakturisanaPanel extends StandardPanel {
 
 	public void setTxtDatum(JDateChooser txtDatum) {
 		this.txtDatum = txtDatum;
+	}
+	
+	public JLabel getLblNaruceno() {
+		return lblNaruceno;
+	}
+
+	public void setLblNaruceno(JLabel lblNaruceno) {
+		this.lblNaruceno = lblNaruceno;
+	}
+
+	public JTextField getTxtNaruceno() {
+		return txtNaruceno;
+	}
+
+	public void setTxtNaruceno(JTextField txtNaruceno) {
+		this.txtNaruceno = txtNaruceno;
 	}
 
 }

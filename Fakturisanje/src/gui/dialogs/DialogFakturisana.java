@@ -40,6 +40,7 @@ public class DialogFakturisana extends StandardDialog {
 
 	private String faktura = "";
 	private String preuzetDatum = "";
+	private String poslata = "";
 
 	/**
 	 * 
@@ -47,20 +48,21 @@ public class DialogFakturisana extends StandardDialog {
 	private static final long serialVersionUID = 1L;
 
 	public DialogFakturisana(JFrame parent, Boolean zoom, String where,
-			String poslata) {
+			String poslata1) {
 		super(parent);
 		setTitle("Fakturisana roba");
 		setIconImage(new ImageIcon("Images/faktura.png").getImage());
 
 		faktura = where;
+		poslata = poslata1;
 
 		String whereStm = " WHERE fakturisana_roba.sifra_fakture = '" + where
 				+ "'";
 
 		tableModel = new FakturisanaTableModel(new String[] { "Šifra fakture",
 				"Šifra robe", "Naziv robe", "Šifra porudzbine",
-				"Datum isporuke", "Komada fakturisano", "Opis", "Status", }, 0,
-				whereStm);
+				"Datum isporuke", "Komada naručeno", "Komada fakturisano",
+				"Opis", "Status", }, 0, whereStm);
 
 		panel = new FakturisanaPanel();
 
@@ -73,9 +75,17 @@ public class DialogFakturisana extends StandardDialog {
 
 		if (poslata.equals("ne"))
 			addPosalji();
-		
-		if(!isZoom)
+		else {
+			toolbar.getBtnDelete().setEnabled(false);
+			toolbar.getBtnUpdate().setEnabled(false);
+			toolbar.getBtnAdd().setEnabled(false);
+		}
+
+		if (!isZoom)
 			addIzvestaj();
+		
+		if (poslata.equals("da"))
+			isZoom = true;
 
 	}
 
@@ -183,11 +193,15 @@ public class DialogFakturisana extends StandardDialog {
 									((FakturisanaPanel) panel).getTxtDatum()
 											.setDate(date);
 								}
+								if (!dialog.getZoom5().equals(""))
+									((FakturisanaPanel) panel).getTxtNaruceno()
+											.setText(dialog.getZoom5());
 							} catch (NullPointerException n) {
 							}
 						}
 					});
 			((FakturisanaPanel) panel).getTxtSifraF().setText(faktura);
+
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
@@ -217,14 +231,16 @@ public class DialogFakturisana extends StandardDialog {
 		String nazivR = (String) tableModel.getValueAt(index, 2);
 		String sifraP = (String) tableModel.getValueAt(index, 3);
 		String datum = (String) tableModel.getValueAt(index, 4);
-		String komada = (String) tableModel.getValueAt(index, 5);
-		String opis = (String) tableModel.getValueAt(index, 6);
-		String status = (String) tableModel.getValueAt(index, 7);
+		String naruceno = (String) tableModel.getValueAt(index, 5);
+		String komada = (String) tableModel.getValueAt(index, 6);
+		String opis = (String) tableModel.getValueAt(index, 7);
+		String status = (String) tableModel.getValueAt(index, 8);
 
 		((FakturisanaPanel) panel).getTxtSifraF().setText(sifraF);
 		((FakturisanaPanel) panel).getTxtSifraP().setText(sifraP);
 		((FakturisanaPanel) panel).getTxtSifraR().setText(sifraR);
 		((FakturisanaPanel) panel).getTxtNazivR().setText(nazivR);
+		((FakturisanaPanel) panel).getTxtNaruceno().setText(naruceno);
 		((FakturisanaPanel) panel).getTxtKomada().setText(komada);
 		((FakturisanaPanel) panel).getTaOpis().setText(opis);
 		((FakturisanaPanel) panel).getTxtStatus().setText(status);
@@ -271,9 +287,11 @@ public class DialogFakturisana extends StandardDialog {
 			if (state == State.PRETRAGA) {
 				((FakturisanaPanel) panel).getTxtStatus().setEditable(true);
 				((FakturisanaPanel) panel).getTxtSifraP().setEditable(true);
+				((FakturisanaPanel) panel).getTxtNaruceno().setEditable(true);
 			} else {
 				((FakturisanaPanel) panel).getTxtStatus().setEditable(false);
 				((FakturisanaPanel) panel).getTxtSifraP().setEditable(false);
+				((FakturisanaPanel) panel).getTxtNaruceno().setEditable(false);
 			}
 		}
 		((FakturisanaPanel) panel).getTxtKomada().requestFocus();
@@ -293,12 +311,14 @@ public class DialogFakturisana extends StandardDialog {
 				.trim();
 		String sifraF = ((FakturisanaPanel) panel).getTxtSifraF().getText()
 				.trim();
+		String naruceno = ((FakturisanaPanel) panel).getTxtNaruceno().getText()
+				.trim();
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
 
 		String[] params = { sifraF, sifraR, nazivR, sifraP, preuzetDatum,
-				komada, opis, "narucena" };
+				naruceno, komada, opis, "narucena" };
 
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -319,6 +339,8 @@ public class DialogFakturisana extends StandardDialog {
 		if (i == -1)
 			return;
 
+		String naruceno = ((FakturisanaPanel) panel).getTxtNaruceno().getText()
+				.trim();
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
@@ -330,7 +352,7 @@ public class DialogFakturisana extends StandardDialog {
 		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
 		 */
 
-		String[] params = { komada, opis, status };
+		String[] params = { naruceno, komada, opis, status };
 		int index = table.getSelectedRow();
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -353,14 +375,16 @@ public class DialogFakturisana extends StandardDialog {
 				.trim();
 		String sifraR = ((FakturisanaPanel) panel).getTxtSifraR().getText()
 				.trim();
+		String naruceno = ((FakturisanaPanel) panel).getTxtNaruceno().getText()
+				.trim();
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
 		String status = ((FakturisanaPanel) panel).getTxtStatus().getText()
 				.trim();
 
-		String[] params = { sifraR, sifraP, preuzetDatum, sifraF, komada, opis,
-				status };
+		String[] params = { sifraR, sifraP, preuzetDatum, sifraF, naruceno,
+				komada, opis, status };
 
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -384,9 +408,10 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtSifraF().setEditable(false);
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(false);
 		((FakturisanaPanel) panel).getTaOpis().setEditable(false);
-		((FakturisanaPanel) panel).getTaOpis().setEnabled(false);
+		//((FakturisanaPanel) panel).getTaOpis().setEnabled(false);
 		((FakturisanaPanel) panel).getTxtDatum().setEnabled(false);
 		((FakturisanaPanel) panel).getTxtStatus().setEditable(false);
+		((FakturisanaPanel) panel).getTxtNaruceno().setEditable(false);
 	}
 
 	public void allEnable() {
@@ -394,7 +419,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getBtnCancel().setEnabled(true);
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(true);
 		((FakturisanaPanel) panel).getTaOpis().setEditable(true);
-		((FakturisanaPanel) panel).getTaOpis().setEnabled(true);
+		//((FakturisanaPanel) panel).getTaOpis().setEnabled(true);
 
 	}
 
@@ -405,6 +430,7 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtStatus().setText("");
 		((FakturisanaPanel) panel).getTaOpis().setText("");
 		((FakturisanaPanel) panel).getTxtSifraP().setText("");
+		((FakturisanaPanel) panel).getTxtNaruceno().setText("");
 		((FakturisanaPanel) panel).getTxtDatum().setCalendar(null);
 	}
 
@@ -533,10 +559,10 @@ public class DialogFakturisana extends StandardDialog {
 					e.printStackTrace();
 				} catch (ClassNotFoundException e1) {
 					System.out.println("Nema klase");
-				} catch ( SQLException e2) {
+				} catch (SQLException e2) {
 					System.out.println("SQL error");
 				}
-				
+
 			}
 
 		});
@@ -547,8 +573,9 @@ public class DialogFakturisana extends StandardDialog {
 			SQLException {
 
 		String reportSrcFile = "Reports/faktura.jrxml";
-		
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());		
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
 
 		// First, compile jrxml file.
 		JasperReport jasperReport = JasperCompileManager
@@ -563,8 +590,8 @@ public class DialogFakturisana extends StandardDialog {
 				parameters, conn);
 
 		// Make sure the output directory exists.
-		//File outDir = new File("C:/jasperoutput");
-		//outDir.mkdirs();
+		// File outDir = new File("C:/jasperoutput");
+		// outDir.mkdirs();
 
 		// PDF Exportor.
 		JRPdfExporter exporter = new JRPdfExporter();
@@ -584,7 +611,7 @@ public class DialogFakturisana extends StandardDialog {
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
 
-		System.out.print("Done!");		
+		System.out.print("Done!");
 
 	}
 

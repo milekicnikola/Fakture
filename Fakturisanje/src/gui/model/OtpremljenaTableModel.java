@@ -23,14 +23,14 @@ public class OtpremljenaTableModel extends StandardTableModel {
 	public OtpremljenaTableModel(Object[] colName, int rowCount, String where,
 			String otpremnica1, String poslata1, String bQ) {
 		super(colName, rowCount);
-		
+
 		poslata = poslata1;
 
 		if (poslata.equals("ne")) {
 
-			basicQuery = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
+			basicQuery = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
 					+ where;
-			basicQuery1 = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
+			basicQuery1 = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
 			orderBy = " ORDER BY fakturisana_roba.sifra_fakture";
 		} else {
 			basicQuery = where;
@@ -44,22 +44,18 @@ public class OtpremljenaTableModel extends StandardTableModel {
 	// Dodata metoda za proveru i zakljucavanje tekuceg reda
 	@Override
 	public void checkRow(int index) throws SQLException {
-		
-		
+
 		String where = "";
-		
+
 		if (poslata.equals("ne"))
 			where = " where fakturisana_roba.sifra_robe = ? and fakturisana_roba.sifra_porudzbine = ? and fakturisana_roba.datum_isporuke = ? and fakturisana_roba.sifra_fakture = ?";
-		else 
+		else
 			where = " where otpremljena_roba.sifra_robe = ? and otpremljena_roba.sifra_porudzbine = ? and otpremeljena_roba.datum_isporuke = ? and otpremljena_roba.sifra_fakture = ?";
 
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_REPEATABLE_READ);
-		PreparedStatement selectStmt = DBConnection
-				.getConnection()
-				.prepareStatement(
-						basicQuery1
-								+ where);
+		PreparedStatement selectStmt = DBConnection.getConnection()
+				.prepareStatement(basicQuery1 + where);
 
 		String f = (String) getValueAt(index, 0);
 		String r = (String) getValueAt(index, 1);
@@ -73,7 +69,7 @@ public class OtpremljenaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_robe = "", naziv_robe = "", sifra_porudzbine = "", datum = "", faktura = "", komada = "", opis = "", status = "";
+		String sifra_robe = "", naziv_robe = "", sifra_porudzbine = "", datum = "", faktura = "", naruceno = "", komada = "", opis = "", status = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
@@ -82,6 +78,7 @@ public class OtpremljenaTableModel extends StandardTableModel {
 			sifra_porudzbine = rset.getString("sifraPorudzbine").trim();
 			datum = rset.getString("datumIsporuke");
 			faktura = rset.getString("sifraFakture").trim();
+			naruceno = rset.getString("KOMADA_NARUCENO");
 			komada = rset.getString("KOMADA_FAKTURISANO");
 			opis = rset.getString("OPIS");
 			status = rset.getString("STATUS");
@@ -101,23 +98,26 @@ public class OtpremljenaTableModel extends StandardTableModel {
 						(String) getValueAt(index, 3)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(datum,
 						(String) getValueAt(index, 4)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(komada,
+				|| (SortUtils.getLatCyrCollator().compare(naruceno,
 						(String) getValueAt(index, 5)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(opis,
+				|| (SortUtils.getLatCyrCollator().compare(komada,
 						(String) getValueAt(index, 6)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(status,
+				|| (SortUtils.getLatCyrCollator().compare(opis,
 						(String) getValueAt(index, 7)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(status,
+						(String) getValueAt(index, 8)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(otpremnica,
-						(String) getValueAt(index, 8)) != 0)) {
+						(String) getValueAt(index, 9)) != 0)) {
 
 			setValueAt(faktura, index, 0);
 			setValueAt(sifra_robe, index, 1);
 			setValueAt(naziv_robe, index, 2);
 			setValueAt(sifra_porudzbine, index, 3);
 			setValueAt(datum, index, 4);
-			setValueAt(komada, index, 5);
-			setValueAt(opis, index, 6);
-			setValueAt(status, index, 7);
+			setValueAt(naruceno, index, 5);
+			setValueAt(komada, index, 6);
+			setValueAt(opis, index, 7);
+			setValueAt(status, index, 8);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -131,19 +131,18 @@ public class OtpremljenaTableModel extends StandardTableModel {
 		}
 	}
 
-/*	@Override
-	public void search(String[] params) throws SQLException {
-		whereStmt = " WHERE fakturisana_roba.sifra_robe LIKE '%" + params[0]
-				+ "%' AND " + "fakturisana_roba.sifra_porudzbine LIKE '%"
-				+ params[1] + "%' AND "
-				+ "fakturisana_roba.datum_isporuke LIKE '%" + params[2]
-				+ "%' AND " + "fakturisana_roba.sifra_fakture LIKE '%"
-				+ params[3] + "%' AND " + "komada_fakturisano LIKE '%"
-				+ params[4] + "%' AND " + "opis LIKE '%" + params[5]
-				+ "%' AND " + "status LIKE '%" + params[6] + "%'";
-		fillData(basicQuery1 + whereStmt + orderBy);
-
-	}*/
+	/*
+	 * @Override public void search(String[] params) throws SQLException {
+	 * whereStmt = " WHERE fakturisana_roba.sifra_robe LIKE '%" + params[0] +
+	 * "%' AND " + "fakturisana_roba.sifra_porudzbine LIKE '%" + params[1] +
+	 * "%' AND " + "fakturisana_roba.datum_isporuke LIKE '%" + params[2] +
+	 * "%' AND " + "fakturisana_roba.sifra_fakture LIKE '%" + params[3] +
+	 * "%' AND " + "komada_fakturisano LIKE '%" + params[4] + "%' AND " +
+	 * "opis LIKE '%" + params[5] + "%' AND " + "status LIKE '%" + params[6] +
+	 * "%'"; fillData(basicQuery1 + whereStmt + orderBy);
+	 * 
+	 * }
+	 */
 
 	@Override
 	public void fillData(String sql) throws SQLException {
@@ -156,12 +155,13 @@ public class OtpremljenaTableModel extends StandardTableModel {
 			String sifra_porudzbine = rset.getString("sifraPorudzbine");
 			String datum = rset.getString("datumIsporuke");
 			String faktura = rset.getString("sifraFakture");
+			String naruceno = rset.getString("KOMADA_NARUCENO");
 			String komada = rset.getString("KOMADA_FAKTURISANO");
 			String opis = rset.getString("OPIS");
 			String status = rset.getString("STATUS");
 
 			addRow(new String[] { faktura, sifra_robe, naziv_robe,
-					sifra_porudzbine, datum, komada, opis, status, otpremnica });
+					sifra_porudzbine, datum, naruceno, komada, opis, status, otpremnica });
 		}
 		rset.close();
 		stmt.close();

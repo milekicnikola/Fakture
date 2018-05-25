@@ -18,6 +18,7 @@ public class OtpremljenaPanel extends StandardPanel {
 	private JLabel lblNazivR;
 	private JLabel lblSifraP;
 	private JLabel lblDatum;
+	private JLabel lblNaruceno;
 	private JLabel lblKomada;
 	private JLabel lblOpis;
 	private JLabel lblStatus;
@@ -27,6 +28,7 @@ public class OtpremljenaPanel extends StandardPanel {
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;
 	private JTextField txtSifraP;
+	private JTextField txtNaruceno;
 	private JTextField txtKomada;
 	private JTextArea taOpis;
 	private JTextField txtStatus;
@@ -34,12 +36,13 @@ public class OtpremljenaPanel extends StandardPanel {
 
 	public OtpremljenaPanel() {		
 
-		lblOtpremnica = new JLabel("äifra otpremnice");
-		lblSifraF = new JLabel("äifra fakture");
-		lblSifraR = new JLabel("äifra robe");
+		lblOtpremnica = new JLabel("≈†ifra otpremnice");
+		lblSifraF = new JLabel("≈†ifra fakture");
+		lblSifraR = new JLabel("≈†ifra robe");
 		lblNazivR = new JLabel("Naziv robe");
-		lblSifraP = new JLabel("äifra porudzbine");
+		lblSifraP = new JLabel("≈†ifra porudzbine");
 		lblDatum = new JLabel("Datum isporuke");
+		lblNaruceno = new JLabel("Naruƒçeno komada");
 		lblKomada = new JLabel("Fakturisano komada");
 		lblOpis = new JLabel("Opis");
 		lblStatus = new JLabel("Status");		
@@ -49,6 +52,7 @@ public class OtpremljenaPanel extends StandardPanel {
 		txtSifraR = new JTextField(20);
 		txtNazivR = new JTextField(20);
 		txtSifraP = new JTextField(20);
+		txtNaruceno = new JTextField(10);
 		txtKomada = new JTextField(10);
 		txtDatum = new JTextField(10);
 		taOpis = new JTextArea(4, 20);
@@ -69,6 +73,9 @@ public class OtpremljenaPanel extends StandardPanel {
 
 		add(lblDatum);
 		add(txtDatum);
+		
+		add(lblNaruceno);
+		add(txtNaruceno);
 
 		add(lblKomada);
 		add(txtKomada);		
@@ -229,6 +236,22 @@ public class OtpremljenaPanel extends StandardPanel {
 
 	public void setTxtDatum(JTextField txtDatum) {
 		this.txtDatum = txtDatum;
+	}
+	
+	public JLabel getLblNaruceno() {
+		return lblNaruceno;
+	}
+
+	public void setLblNaruceno(JLabel lblNaruceno) {
+		this.lblNaruceno = lblNaruceno;
+	}
+
+	public JTextField getTxtNaruceno() {
+		return txtNaruceno;
+	}
+
+	public void setTxtNaruceno(JTextField txtNaruceno) {
+		this.txtNaruceno = txtNaruceno;
 	}
 
 }

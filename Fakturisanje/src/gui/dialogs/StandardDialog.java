@@ -43,8 +43,9 @@ public abstract class StandardDialog extends JDialog {
 	public Boolean isZoom = false;
 	public String zoom1 = "";
 	public String zoom2 = "";
-	public String zoom3 = "";	
+	public String zoom3 = "";
 	public String zoom4 = "";
+	public String zoom5 = "";
 
 	public StandardDialog(JFrame parent) {
 		super(parent, true);
@@ -208,10 +209,17 @@ public abstract class StandardDialog extends JDialog {
 						String name = (String) table.getValueAt(i, 1);
 						String treci = (String) table.getValueAt(i, 2);
 						String cetvrti = (String) table.getValueAt(i, 3);
+						String peti = "";
+						try {
+							peti = (String) table.getValueAt(i, 4);
+						} catch (ArrayIndexOutOfBoundsException e) {
+							peti = "";
+						}
 						zoom1 = code;
 						zoom2 = name;
 						zoom3 = treci;
 						zoom4 = cetvrti;
+						zoom5 = peti;
 						dispose();
 					}
 
@@ -341,9 +349,13 @@ public abstract class StandardDialog extends JDialog {
 	public String getZoom3() {
 		return zoom3;
 	}
-	
+
 	public String getZoom4() {
 		return zoom4;
+	}
+	
+	public String getZoom5() {
+		return zoom5;
 	}
 
 	abstract void initActions();

@@ -60,15 +60,16 @@ public class DialogOtpremljena extends StandardDialog {
 			whereStm = " WHERE fakturisana_roba.status = 'fakturisana' and porudzbina.sifra_magacina = '"
 					+ magacin + "'";
 		} else {
-			whereStm = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe WHERE otpremljena_roba.sifra_otpremnice = '"
+			whereStm = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe WHERE otpremljena_roba.sifra_otpremnice = '"
 					+ otpremnica + "'";
-			bQ = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
+			bQ = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
 		}
 
-		tableModel = new OtpremljenaTableModel(new String[] { "äifra fakture",
-				"äifra robe", "Naziv robe", "äifra porudzbine",
-				"Datum isporuke", "Komada fakturisano", "Opis", "Status",
-				"Otpremnica" }, 0, whereStm, otpremnica, poslata, bQ);
+		tableModel = new OtpremljenaTableModel(new String[] { "≈†ifra fakture",
+				"≈†ifra robe", "Naziv robe", "≈†ifra porudzbine",
+				"Datum isporuke", "Komada naruƒçecno", "Komada fakturisano",
+				"Opis", "Status", "Otpremnica" }, 0, whereStm, otpremnica,
+				poslata, bQ);
 
 		panel = new OtpremljenaPanel();
 
@@ -81,7 +82,7 @@ public class DialogOtpremljena extends StandardDialog {
 
 		if (poslata.equals("ne"))
 			addPosalji();
-		
+
 		addIzvestaj();
 
 		toolbar.getBtnAdd().setEnabled(false);
@@ -102,7 +103,7 @@ public class DialogOtpremljena extends StandardDialog {
 						int dialogResult = JOptionPane
 								.showConfirmDialog(
 										getParent(),
-										"Da li ste sigurni da ûelite da obriöete ovu stavku?",
+										"Da li ste sigurni da ≈æelite da obri≈°ete ovu stavku?",
 										"Brisanje sloga",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.INFORMATION_MESSAGE);
@@ -211,15 +212,17 @@ public class DialogOtpremljena extends StandardDialog {
 		String nazivR = (String) tableModel.getValueAt(index, 2);
 		String sifraP = (String) tableModel.getValueAt(index, 3);
 		String datum = (String) tableModel.getValueAt(index, 4);
-		String komada = (String) tableModel.getValueAt(index, 5);
-		String opis = (String) tableModel.getValueAt(index, 6);
-		String status = (String) tableModel.getValueAt(index, 7);
-		String otpremnica = (String) tableModel.getValueAt(index, 8);
+		String naruceno = (String) tableModel.getValueAt(index, 5);
+		String komada = (String) tableModel.getValueAt(index, 6);
+		String opis = (String) tableModel.getValueAt(index, 7);
+		String status = (String) tableModel.getValueAt(index, 8);
+		String otpremnica = (String) tableModel.getValueAt(index, 9);
 
 		((OtpremljenaPanel) panel).getTxtSifraF().setText(sifraF);
 		((OtpremljenaPanel) panel).getTxtSifraP().setText(sifraP);
 		((OtpremljenaPanel) panel).getTxtSifraR().setText(sifraR);
 		((OtpremljenaPanel) panel).getTxtNazivR().setText(nazivR);
+		((OtpremljenaPanel) panel).getTxtNaruceno().setText(naruceno);
 		((OtpremljenaPanel) panel).getTxtKomada().setText(komada);
 		((OtpremljenaPanel) panel).getTaOpis().setText(opis);
 		((OtpremljenaPanel) panel).getTxtStatus().setText(status);
@@ -247,9 +250,10 @@ public class DialogOtpremljena extends StandardDialog {
 			btnEnable();
 			allEnable();
 			// ((OtpremljenaPanel) panel).getBtnRoba().setEnabled(false);
-			((OtpremljenaPanel) panel).getTxtDatum().setEnabled(false);
-			((OtpremljenaPanel) panel).getTxtSifraP().setEnabled(false);
-			statusBar.getStatusState().setText("AéURIRANJE");
+			((OtpremljenaPanel) panel).getTxtDatum().setEditable(false);
+			((OtpremljenaPanel) panel).getTxtSifraP().setEditable(false);
+			((OtpremljenaPanel) panel).getTxtNaruceno().setEditable(false);
+			statusBar.getStatusState().setText("A≈ΩURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
@@ -258,9 +262,11 @@ public class DialogOtpremljena extends StandardDialog {
 			if (state == State.PRETRAGA) {
 				((OtpremljenaPanel) panel).getTxtStatus().setEditable(true);
 				((OtpremljenaPanel) panel).getTxtSifraP().setEditable(true);
+				((OtpremljenaPanel) panel).getTxtNaruceno().setEditable(true);
 			} else {
 				((OtpremljenaPanel) panel).getTxtStatus().setEditable(false);
 				((OtpremljenaPanel) panel).getTxtSifraP().setEditable(false);
+				((OtpremljenaPanel) panel).getTxtNaruceno().setEditable(false);
 			}
 		}
 		((OtpremljenaPanel) panel).getTxtKomada().requestFocus();
@@ -289,7 +295,7 @@ public class DialogOtpremljena extends StandardDialog {
 		 * .getModel(); int index = ctm.insertRow(params);
 		 * table.setRowSelectionInterval(index, index);
 		 * updateStateAndTextFields(State.DODAVANJE); } catch (SQLException ex)
-		 * { JOptionPane.showMessageDialog(this, ex.getMessage(), "Greöka",
+		 * { JOptionPane.showMessageDialog(this, ex.getMessage(), "Gre≈°ka",
 		 * JOptionPane.ERROR_MESSAGE); }
 		 */
 
@@ -315,7 +321,7 @@ public class DialogOtpremljena extends StandardDialog {
 		 * (FakturisanaTableModel) table .getModel(); ctm.updateRow(index,
 		 * params); updateStateAndTextFields(State.AZURIRANJE); } catch
 		 * (SQLException ex) { JOptionPane.showMessageDialog(this,
-		 * ex.getMessage(), "Greöka1", JOptionPane.ERROR_MESSAGE); }
+		 * ex.getMessage(), "Gre≈°ka1", JOptionPane.ERROR_MESSAGE); }
 		 * table.setRowSelectionInterval(index, index);
 		 */
 	}
@@ -339,7 +345,7 @@ public class DialogOtpremljena extends StandardDialog {
 		 * try { FakturisanaTableModel ctm = (FakturisanaTableModel) table
 		 * .getModel(); ctm.search(params);
 		 * updateStateAndTextFields(State.PRETRAGA); } catch (SQLException ex) {
-		 * JOptionPane.showMessageDialog(this, ex.getMessage(), "Greöka",
+		 * JOptionPane.showMessageDialog(this, ex.getMessage(), "Gre≈°ka",
 		 * JOptionPane.ERROR_MESSAGE); }
 		 */
 	}
@@ -358,6 +364,7 @@ public class DialogOtpremljena extends StandardDialog {
 		((OtpremljenaPanel) panel).getTxtDatum().setEditable(false);
 		((OtpremljenaPanel) panel).getTxtStatus().setEditable(false);
 		((OtpremljenaPanel) panel).getTxtOtpremnica().setEditable(false);
+		((OtpremljenaPanel) panel).getTxtNaruceno().setEditable(false);
 	}
 
 	public void allEnable() {
@@ -477,14 +484,14 @@ public class DialogOtpremljena extends StandardDialog {
 			// JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE); }
 
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greöka",
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Gre≈°ka",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
 	public void addIzvestaj() {
 
-		JButton btnIzvestaj = new JButton("Napravi izveötaj");
+		JButton btnIzvestaj = new JButton("Napravi izve≈°taj");
 		btnIzvestaj.setEnabled(true);
 		toolbar.dodajIzvestaj(btnIzvestaj);
 
