@@ -5,11 +5,30 @@ import gui.panels.RobaPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import databaseConnection.DBConnection;
 
 public class DialogRoba extends StandardDialog {
 
@@ -24,8 +43,8 @@ public class DialogRoba extends StandardDialog {
 		setIconImage(new ImageIcon("Images/roba.png").getImage());
 
 		tableModel = new RobaTableModel(new String[] { "Šifra",
-				"Interna šifra", "Naziv", "Interni naziv", "Jedinica mere", "Komada u setu",
-				"Prevod", "Težina", "Cena u ronima" }, 0);
+				"Interna šifra", "Naziv", "Interni naziv", "Jedinica mere",
+				"Komada u setu", "Prevod", "Težina", "Cena u ronima" }, 0);
 
 		panel = new RobaPanel();
 
@@ -35,6 +54,9 @@ public class DialogRoba extends StandardDialog {
 		initGUI();
 		initStandardActions();
 		initActions();
+
+		if (!isZoom)
+			addIzvestaj();
 
 	}
 
@@ -163,7 +185,7 @@ public class DialogRoba extends StandardDialog {
 	public void updateStateAndTextFields(State state) {
 		if (this.state == State.PRETRAGA && state != State.PRETRAGA) {
 			try {
-				tableModel.open();				
+				tableModel.open();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -183,14 +205,14 @@ public class DialogRoba extends StandardDialog {
 			clearAll();
 			btnEnable();
 			allEnable();
-			
+
 			if (state == State.PRETRAGA) {
 				((RobaPanel) panel).getCmbJedinicaMere().setEditable(false);
 				((RobaPanel) panel).getCmbJedinicaMere().setEnabled(false);
 				((RobaPanel) panel).getCmbPrevod().setEditable(false);
 				((RobaPanel) panel).getCmbPrevod().setEnabled(false);
 			}
-				
+
 			((RobaPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -254,8 +276,8 @@ public class DialogRoba extends StandardDialog {
 		 * String.valueOf(roniD); }
 		 */
 
-		String[] params = { sifra, mera, prevod, interna, naziv, interni, jedinica,
-				komada, naziv_prevoda, tezina, roni };
+		String[] params = { sifra, mera, prevod, interna, naziv, interni,
+				jedinica, komada, naziv_prevoda, tezina, roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -327,8 +349,8 @@ public class DialogRoba extends StandardDialog {
 		 * String.valueOf(roniD); }
 		 */
 
-		String[] params = { mera, prevod, interna, naziv, interni, jedinica, komada,
-				naziv_prevoda, tezina, roni };
+		String[] params = { mera, prevod, interna, naziv, interni, jedinica,
+				komada, naziv_prevoda, tezina, roni };
 		int index = table.getSelectedRow();
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -351,7 +373,8 @@ public class DialogRoba extends StandardDialog {
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
-		String[] params = { sifra, interna, naziv, interni, komada, tezina, roni };
+		String[] params = { sifra, interna, naziv, interni, komada, tezina,
+				roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -370,11 +393,11 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtSifra().setEditable(false);
 		((RobaPanel) panel).getTxtInterna().setEditable(false);
 		((RobaPanel) panel).getTxtNaziv().setEditable(false);
-		((RobaPanel) panel).getTxtInterni().setEditable(false);		
-		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(false);		
+		((RobaPanel) panel).getTxtInterni().setEditable(false);
+		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(false);
 		((RobaPanel) panel).getCmbPrevod().setEnabled(false);
 		((RobaPanel) panel).getTxtKomada().setEditable(false);
-		((RobaPanel) panel).getTxtTezina().setEditable(false);		
+		((RobaPanel) panel).getTxtTezina().setEditable(false);
 		((RobaPanel) panel).getTxtRoni().setEditable(false);
 
 	}
@@ -385,11 +408,11 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtSifra().setEditable(true);
 		((RobaPanel) panel).getTxtInterna().setEditable(true);
 		((RobaPanel) panel).getTxtNaziv().setEditable(true);
-		((RobaPanel) panel).getTxtInterni().setEditable(true);		
-		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(true);		
+		((RobaPanel) panel).getTxtInterni().setEditable(true);
+		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(true);
 		((RobaPanel) panel).getCmbPrevod().setEnabled(true);
 		((RobaPanel) panel).getTxtKomada().setEditable(true);
-		((RobaPanel) panel).getTxtTezina().setEditable(true);		
+		((RobaPanel) panel).getTxtTezina().setEditable(true);
 		((RobaPanel) panel).getTxtRoni().setEditable(true);
 	}
 
@@ -399,7 +422,7 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtNaziv().setText("");
 		((RobaPanel) panel).getTxtInterni().setText("");
 		((RobaPanel) panel).getTxtKomada().setText("");
-		((RobaPanel) panel).getTxtTezina().setText("");		
+		((RobaPanel) panel).getTxtTezina().setText("");
 		((RobaPanel) panel).getTxtRoni().setText("");
 	}
 
@@ -431,5 +454,78 @@ public class DialogRoba extends StandardDialog {
 	 * 
 	 * }
 	 */
+
+	public void addIzvestaj() {
+
+		JButton btnIzvestaj = new JButton("Napravi izveštaj");
+		btnIzvestaj.setEnabled(true);
+		toolbar.dodajIzvestaj(btnIzvestaj);
+
+		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					napraviIzvestaj();
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+
+	}
+
+	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
+			SQLException {
+
+		String reportSrcFile = "Reports/roba.jrxml";
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
+
+		// First, compile jrxml file.
+		JasperReport jasperReport = JasperCompileManager
+				.compileReport(reportSrcFile);
+
+		Connection conn = DBConnection.getConnection();
+
+		// Parameters for report
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		JasperPrint print = JasperFillManager.fillReport(jasperReport,
+				parameters, conn);
+
+		// Make sure the output directory exists.
+		// File outDir = new File("C:/jasperoutput");
+		// outDir.mkdirs();
+
+		// PDF Exportor.
+		JRPdfExporter exporter = new JRPdfExporter();
+
+		ExporterInput exporterInput = new SimpleExporterInput(print);
+		// ExporterInput
+		exporter.setExporterInput(exporterInput);
+
+		// ExporterOutput
+		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+				"GeneratedReports/Roba" + timeStamp + ".pdf");
+		// Output
+		exporter.setExporterOutput(exporterOutput);
+
+		//
+		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+		exporter.setConfiguration(configuration);
+		exporter.exportReport();
+
+		System.out.print("Done!");
+
+	}
 
 }

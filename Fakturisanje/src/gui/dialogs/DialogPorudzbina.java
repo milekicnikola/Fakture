@@ -40,7 +40,7 @@ public class DialogPorudzbina extends StandardDialog {
 		initStandardActions();
 		initActions();
 		
-		addDetaljno();				
+		addDetaljno();	
 		
 	}
 
@@ -382,4 +382,5 @@ public class DialogPorudzbina extends StandardDialog {
 			}
 		});
 	}
+	
 }

@@ -5,11 +5,30 @@ import gui.panels.MagacinPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import databaseConnection.DBConnection;
 
 public class DialogMagacin extends StandardDialog {
 
@@ -34,6 +53,9 @@ public class DialogMagacin extends StandardDialog {
 		initGUI();
 		initStandardActions();
 		initActions();
+
+		if (!isZoom)
+			addIzvestaj();
 	}
 
 	@Override
@@ -263,5 +285,78 @@ public class DialogMagacin extends StandardDialog {
 	public void btnEnable() {
 		((MagacinPanel) panel).getBtnConfirm().setEnabled(true);
 		((MagacinPanel) panel).getBtnCancel().setEnabled(true);
+	}
+
+	public void addIzvestaj() {
+
+		JButton btnIzvestaj = new JButton("Napravi izveštaj");
+		btnIzvestaj.setEnabled(true);
+		toolbar.dodajIzvestaj(btnIzvestaj);
+
+		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					napraviIzvestaj();
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+
+	}
+
+	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
+			SQLException {
+
+		String reportSrcFile = "Reports/magacin.jrxml";
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
+
+		// First, compile jrxml file.
+		JasperReport jasperReport = JasperCompileManager
+				.compileReport(reportSrcFile);
+
+		Connection conn = DBConnection.getConnection();
+
+		// Parameters for report
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		JasperPrint print = JasperFillManager.fillReport(jasperReport,
+				parameters, conn);
+
+		// Make sure the output directory exists.
+		// File outDir = new File("C:/jasperoutput");
+		// outDir.mkdirs();
+
+		// PDF Exportor.
+		JRPdfExporter exporter = new JRPdfExporter();
+
+		ExporterInput exporterInput = new SimpleExporterInput(print);
+		// ExporterInput
+		exporter.setExporterInput(exporterInput);
+
+		// ExporterOutput
+		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+				"GeneratedReports/Magacin" + timeStamp + ".pdf");
+		// Output
+		exporter.setExporterOutput(exporterOutput);
+
+		//
+		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+		exporter.setConfiguration(configuration);
+		exporter.exportReport();
+
+		System.out.print("Done!");
+
 	}
 }
