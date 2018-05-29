@@ -147,7 +147,7 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="38" width="250" height="56" uuid="b4c38384-1a8e-489b-bbe8-5303804f9667"/>
-				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
+				<text><![CDATA[TemiÅ¡varski drum bb, Zrenjanin, Srbija
 Mob: 06520 10 373;  mail: generalsolutions@gmail.com
 PIB 107648029
 Banka: CREDIT AGRICOLAE BANK AD
@@ -205,12 +205,12 @@ RO21108359]]></text>
 			<staticText>
 				<reportElement style="Column header" x="39" y="0" width="111" height="15" forecolor="#736343" uuid="5b83655d-ffaf-4516-8b78-6d123e97f413"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Šifra robe]]></text>
+				<text><![CDATA[Å ifra robe]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="158" y="0" width="32" height="15" forecolor="#736343" uuid="83f548f8-1e37-44f7-86ab-a516532bd7e2"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Interna šifra]]></text>
+				<text><![CDATA[Interna Å¡ifra]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="197" y="0" width="154" height="15" forecolor="#736343" uuid="40662b58-c424-4006-8195-3a6c56f82434"/>
@@ -248,6 +248,13 @@ RO21108359]]></text>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[SET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="416" y="0" width="35" height="15" forecolor="#736343" uuid="2f5fbb89-7aa4-4bb4-9ca1-35db01bb5ba4">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[OPIS]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -317,6 +324,11 @@ RO21108359]]></text>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
 				</textField>
+				<textField>
+					<reportElement x="415" y="0" width="35" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{opis}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</detail>
@@ -378,7 +390,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[Oslobođeno plaćanja PDV-a po čl. 24 stav 1 tačka 2 (SL.GL.RS 84/2004) zakona o PDV-u.]]></text>
+				<text><![CDATA[OsloboÄ‘eno plaÄ‡anja PDV-a po Ä�l. 24 stav 1 taÄ�ka 2 (SL.GL.RS 84/2004) zakona o PDV-u.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="70" y="71" width="104" height="15" uuid="4e578697-c901-463f-bc02-517ca287e9fe">

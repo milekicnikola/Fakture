@@ -411,7 +411,7 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtInterni().setEditable(true);
 		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(true);
 		((RobaPanel) panel).getCmbPrevod().setEnabled(true);
-		((RobaPanel) panel).getTxtKomada().setEditable(true);
+		//((RobaPanel) panel).getTxtKomada().setEditable(true);
 		((RobaPanel) panel).getTxtTezina().setEditable(true);
 		((RobaPanel) panel).getTxtRoni().setEditable(true);
 	}
@@ -421,7 +421,7 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtInterna().setText("");
 		((RobaPanel) panel).getTxtNaziv().setText("");
 		((RobaPanel) panel).getTxtInterni().setText("");
-		((RobaPanel) panel).getTxtKomada().setText("");
+		//((RobaPanel) panel).getTxtKomada().setText("");
 		((RobaPanel) panel).getTxtTezina().setText("");
 		((RobaPanel) panel).getTxtRoni().setText("");
 	}
