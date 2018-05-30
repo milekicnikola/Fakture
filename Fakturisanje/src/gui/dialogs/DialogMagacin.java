@@ -196,7 +196,7 @@ public class DialogMagacin extends StandardDialog {
 
 		try {
 			MagacinTableModel ctm = (MagacinTableModel) table.getModel();
-			int index = ctm.insertRow(params);
+			int index = ctm.insertRow(params);			
 			table.setRowSelectionInterval(index, index);
 			updateStateAndTextFields(State.DODAVANJE);
 		} catch (SQLException ex) {

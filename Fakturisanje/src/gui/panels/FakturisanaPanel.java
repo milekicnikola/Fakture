@@ -20,20 +20,24 @@ public class FakturisanaPanel extends StandardPanel {
 	private JLabel lblSifraF;
 	private JLabel lblSifraR;
 	private JLabel lblNazivR;
+	private JLabel lblMera;
 	private JLabel lblSifraP;
 	private JLabel lblDatum;
 	private JLabel lblNaruceno;
 	private JLabel lblKomada;
 	private JLabel lblOpis;
+	private JLabel lblMetri;
 	private JLabel lblStatus;
 
 	private JTextField txtSifraF;
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;
+	private JTextField txtMera;
 	private JTextField txtSifraP;
 	private JTextField txtNaruceno;
 	private JTextField txtKomada;
 	private JTextArea taOpis;
+	private JTextField txtMetri;
 	private JTextField txtStatus;
 
 	private JButton btnRoba;
@@ -42,26 +46,30 @@ public class FakturisanaPanel extends StandardPanel {
 
 	private Dimension datePreferedSize;
 
-	public FakturisanaPanel() {		
+	public FakturisanaPanel() {
 
 		lblSifraF = new JLabel("Šifra fakture");
 		lblSifraR = new JLabel("Šifra robe");
 		lblNazivR = new JLabel("Naziv robe");
+		lblMera = new JLabel("Jedinica mere");
 		lblSifraP = new JLabel("Šifra porudzbine");
 		lblDatum = new JLabel("Datum isporuke");
 		lblNaruceno = new JLabel("Naručeno komada");
 		lblKomada = new JLabel("Fakturisano komada");
 		lblOpis = new JLabel("Opis");
-		lblStatus = new JLabel("Status");		
+		lblMetri = new JLabel("Komada u metru");
+		lblStatus = new JLabel("Status");
 
 		txtSifraF = new JTextField(20);
 		txtSifraR = new JTextField(20);
 		txtNazivR = new JTextField(20);
+		txtMera = new JTextField(6);
 		txtSifraP = new JTextField(20);
-		txtNaruceno = new JTextField(10);
-		txtKomada = new JTextField(10);
+		txtNaruceno = new JTextField(5);
+		txtKomada = new JTextField(5);
 		taOpis = new JTextArea(4, 25);
-		JScrollPane scrollPane = new JScrollPane(taOpis);		
+		JScrollPane scrollPane = new JScrollPane(taOpis);
+		txtMetri = new JTextField(5);
 		txtStatus = new JTextField(15);
 
 		datePreferedSize = new Dimension(100, 20);
@@ -81,7 +89,10 @@ public class FakturisanaPanel extends StandardPanel {
 
 		add(lblNazivR);
 		add(txtNazivR);
-		
+
+		add(lblMera);
+		add(txtMera);
+
 		add(btnRoba, "wrap");
 
 		add(lblSifraP);
@@ -89,21 +100,24 @@ public class FakturisanaPanel extends StandardPanel {
 
 		add(lblDatum);
 		add(txtDatum);
-		
+
 		add(lblNaruceno);
 		add(txtNaruceno);
 
 		add(lblKomada);
-		add(txtKomada, "wrap");		
+		add(txtKomada, "wrap");
+
+		add(lblOpis);
+		add(scrollPane, "height 80::, span 3 3");
+
+		add(lblMetri);
+		add(txtMetri);
 
 		add(lblStatus);
-		add(txtStatus);
-		
-		add(lblOpis);
-		add(scrollPane, "height 80::, span 2 2");		
+		add(txtStatus, "wrap");
 
-		add(btnConfirm);
-		add(btnCancel);		
+		add(btnConfirm, "cell 4 4");
+		add(btnCancel, "cell 5 4");
 
 	}
 
@@ -242,7 +256,7 @@ public class FakturisanaPanel extends StandardPanel {
 	public void setTxtDatum(JDateChooser txtDatum) {
 		this.txtDatum = txtDatum;
 	}
-	
+
 	public JLabel getLblNaruceno() {
 		return lblNaruceno;
 	}
@@ -257,6 +271,38 @@ public class FakturisanaPanel extends StandardPanel {
 
 	public void setTxtNaruceno(JTextField txtNaruceno) {
 		this.txtNaruceno = txtNaruceno;
+	}
+
+	public JLabel getLblMera() {
+		return lblMera;
+	}
+
+	public void setLblMera(JLabel lblMera) {
+		this.lblMera = lblMera;
+	}
+
+	public JLabel getLblMetri() {
+		return lblMetri;
+	}
+
+	public void setLblMetri(JLabel lblMetri) {
+		this.lblMetri = lblMetri;
+	}
+
+	public JTextField getTxtMera() {
+		return txtMera;
+	}
+
+	public void setTxtMera(JTextField txtMera) {
+		this.txtMera = txtMera;
+	}
+
+	public JTextField getTxtMetri() {
+		return txtMetri;
+	}
+
+	public void setTxtMetri(JTextField txtMetri) {
+		this.txtMetri = txtMetri;
 	}
 
 }

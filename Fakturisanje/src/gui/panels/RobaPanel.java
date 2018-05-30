@@ -1,8 +1,5 @@
 package gui.panels;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -54,7 +51,7 @@ public class RobaPanel extends StandardPanel {
 		cmbJedinicaMere.setEditable(false);
 		txtKomada = new JTextField(4);
 		txtKomada.setText("1");
-		txtKomada.setEnabled(false);
+		txtKomada.setEditable(false);
 		txtTezina = new JTextField(10);
 		txtRoni = new JTextField(10);
 		cmbPrevod = new JComboBox<String>();
@@ -64,20 +61,7 @@ public class RobaPanel extends StandardPanel {
 		cmbPrevod.addItem("cuti carton");
 		cmbPrevod.addItem("separator carton");
 		cmbPrevod.addItem("coltar carton");
-		cmbPrevod.setEditable(false);
-		
-		cmbJedinicaMere.addActionListener (new ActionListener () {
-		    public void actionPerformed(ActionEvent e) {
-		        if (cmbJedinicaMere.getSelectedItem() == "komad" || cmbJedinicaMere.getSelectedItem() == "metar") {
-		        	txtKomada.setText("1");
-		        	txtKomada.setEnabled(false);
-		        }
-		        else if (cmbJedinicaMere.getSelectedItem() == "set") {
-		        	txtKomada.setText("");
-		        	txtKomada.setEnabled(true);
-		        }
-		    }
-		});
+		cmbPrevod.setEditable(false);		
 
 		add(lblSifra);
 		add(txtSifra);

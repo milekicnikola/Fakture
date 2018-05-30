@@ -117,6 +117,28 @@ public class DialogRoba extends StandardDialog {
 
 				}
 			});
+
+			((RobaPanel) panel).getCmbJedinicaMere().addActionListener(
+					new ActionListener() {
+						public void actionPerformed(ActionEvent e) {							
+							if (!statusBar.getStatusState().getText().equals("POGLED") && !statusBar.getStatusState().getText().equals("PRETRAGA")) {
+								if (((RobaPanel) panel).getCmbJedinicaMere()
+										.getSelectedItem() == "komad"
+										|| ((RobaPanel) panel)
+												.getCmbJedinicaMere()
+												.getSelectedItem() == "metar") {
+									((RobaPanel) panel).getTxtKomada().setText("1");
+									((RobaPanel) panel).getTxtKomada().setEditable(false);
+								} else if (((RobaPanel) panel).getCmbJedinicaMere()
+										.getSelectedItem() == "set") {
+									((RobaPanel) panel).getTxtKomada().setEditable(true);
+									((RobaPanel) panel).getTxtKomada().setText("1");
+
+								}
+							}
+						}
+					});
+
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
@@ -198,7 +220,7 @@ public class DialogRoba extends StandardDialog {
 		} else if (state == State.AZURIRANJE) {
 			btnEnable();
 			allEnable();
-			((RobaPanel) panel).getTxtSifra().setEditable(false);
+			((RobaPanel) panel).getTxtSifra().setEditable(false);			
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
@@ -211,6 +233,7 @@ public class DialogRoba extends StandardDialog {
 				((RobaPanel) panel).getCmbJedinicaMere().setEnabled(false);
 				((RobaPanel) panel).getCmbPrevod().setEditable(false);
 				((RobaPanel) panel).getCmbPrevod().setEnabled(false);
+				((RobaPanel) panel).getTxtKomada().setEditable(false);
 			}
 
 			((RobaPanel) panel).getTxtSifra().requestFocus();
@@ -411,7 +434,7 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtInterni().setEditable(true);
 		((RobaPanel) panel).getCmbJedinicaMere().setEnabled(true);
 		((RobaPanel) panel).getCmbPrevod().setEnabled(true);
-		//((RobaPanel) panel).getTxtKomada().setEditable(true);
+		// ((RobaPanel) panel).getTxtKomada().setEditable(true);
 		((RobaPanel) panel).getTxtTezina().setEditable(true);
 		((RobaPanel) panel).getTxtRoni().setEditable(true);
 	}
@@ -421,7 +444,7 @@ public class DialogRoba extends StandardDialog {
 		((RobaPanel) panel).getTxtInterna().setText("");
 		((RobaPanel) panel).getTxtNaziv().setText("");
 		((RobaPanel) panel).getTxtInterni().setText("");
-		//((RobaPanel) panel).getTxtKomada().setText("");
+		// ((RobaPanel) panel).getTxtKomada().setText("");
 		((RobaPanel) panel).getTxtTezina().setText("");
 		((RobaPanel) panel).getTxtRoni().setText("");
 	}

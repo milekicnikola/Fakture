@@ -60,9 +60,10 @@ public class DialogFakturisana extends StandardDialog {
 				+ "'";
 
 		tableModel = new FakturisanaTableModel(new String[] { "Šifra fakture",
-				"Šifra robe", "Naziv robe", "Šifra porudzbine",
-				"Datum isporuke", "Komada naručeno", "Komada fakturisano",
-				"Opis", "Status", }, 0, whereStm);
+				"Šifra robe", "Naziv robe", "Jedinica mere",
+				"Šifra porudzbine", "Datum isporuke", "Komada naručeno",
+				"Komada fakturisano", "Opis", "Komada u metru", "Status", }, 0,
+				whereStm);
 
 		panel = new FakturisanaPanel();
 
@@ -83,7 +84,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		if (!isZoom)
 			addIzvestaj();
-		
+
 		if (poslata.equals("da"))
 			isZoom = true;
 
@@ -196,6 +197,49 @@ public class DialogFakturisana extends StandardDialog {
 								if (!dialog.getZoom5().equals(""))
 									((FakturisanaPanel) panel).getTxtNaruceno()
 											.setText(dialog.getZoom5());
+
+								try {
+
+									String upit = "SELECT naziv_mere FROM jedinica_mere JOIN roba ON jedinica_mere.redni_broj = roba.jedinica_mere WHERE roba.sifra_robe = '"
+											+ dialog.getZoom2() + "'";
+
+									DBConnection
+											.getConnection()
+											.setTransactionIsolation(
+													Connection.TRANSACTION_REPEATABLE_READ);
+									PreparedStatement stmt = DBConnection
+											.getConnection().prepareStatement(
+													upit);
+									ResultSet rset = stmt.executeQuery();
+
+									while (rset.next()) {
+										String mera = rset
+												.getString("NAZIV_MERE");
+										((FakturisanaPanel) panel).getTxtMera()
+												.setText(mera);
+									}
+									rset.close();
+									stmt.close();
+									DBConnection
+											.getConnection()
+											.setTransactionIsolation(
+													Connection.TRANSACTION_READ_COMMITTED);
+									DBConnection.getConnection().commit();
+								} catch (SQLException e) {
+									e.printStackTrace();
+								}
+								if (((FakturisanaPanel) panel).getTxtMera()
+										.getText().equals("metar")) {
+									((FakturisanaPanel) panel).getTxtMetri()
+											.setEditable(true);
+									((FakturisanaPanel) panel).getTxtMetri()
+											.setText("1");
+								} else {
+									((FakturisanaPanel) panel).getTxtMetri()
+											.setEditable(false);
+									((FakturisanaPanel) panel).getTxtMetri()
+											.setText("1");
+								}
 							} catch (NullPointerException n) {
 							}
 						}
@@ -229,20 +273,24 @@ public class DialogFakturisana extends StandardDialog {
 		String sifraF = (String) tableModel.getValueAt(index, 0);
 		String sifraR = (String) tableModel.getValueAt(index, 1);
 		String nazivR = (String) tableModel.getValueAt(index, 2);
-		String sifraP = (String) tableModel.getValueAt(index, 3);
-		String datum = (String) tableModel.getValueAt(index, 4);
-		String naruceno = (String) tableModel.getValueAt(index, 5);
-		String komada = (String) tableModel.getValueAt(index, 6);
-		String opis = (String) tableModel.getValueAt(index, 7);
-		String status = (String) tableModel.getValueAt(index, 8);
+		String mera = (String) tableModel.getValueAt(index, 3);
+		String sifraP = (String) tableModel.getValueAt(index, 4);
+		String datum = (String) tableModel.getValueAt(index, 5);
+		String naruceno = (String) tableModel.getValueAt(index, 6);
+		String komada = (String) tableModel.getValueAt(index, 7);
+		String opis = (String) tableModel.getValueAt(index, 8);
+		String metri = (String) tableModel.getValueAt(index, 9);
+		String status = (String) tableModel.getValueAt(index, 10);
 
 		((FakturisanaPanel) panel).getTxtSifraF().setText(sifraF);
 		((FakturisanaPanel) panel).getTxtSifraP().setText(sifraP);
 		((FakturisanaPanel) panel).getTxtSifraR().setText(sifraR);
 		((FakturisanaPanel) panel).getTxtNazivR().setText(nazivR);
+		((FakturisanaPanel) panel).getTxtMera().setText(mera);
 		((FakturisanaPanel) panel).getTxtNaruceno().setText(naruceno);
 		((FakturisanaPanel) panel).getTxtKomada().setText(komada);
 		((FakturisanaPanel) panel).getTaOpis().setText(opis);
+		((FakturisanaPanel) panel).getTxtMetri().setText(metri);
 		((FakturisanaPanel) panel).getTxtStatus().setText(status);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -309,6 +357,7 @@ public class DialogFakturisana extends StandardDialog {
 				.trim();
 		String nazivR = ((FakturisanaPanel) panel).getTxtNazivR().getText()
 				.trim();
+		String mera = ((FakturisanaPanel) panel).getTxtMera().getText().trim();
 		String sifraF = ((FakturisanaPanel) panel).getTxtSifraF().getText()
 				.trim();
 		String naruceno = ((FakturisanaPanel) panel).getTxtNaruceno().getText()
@@ -316,9 +365,11 @@ public class DialogFakturisana extends StandardDialog {
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
+		String metri = ((FakturisanaPanel) panel).getTxtMetri().getText()
+				.trim();
 
-		String[] params = { sifraF, sifraR, nazivR, sifraP, preuzetDatum,
-				naruceno, komada, opis, "narucena" };
+		String[] params = { sifraF, sifraR, nazivR, mera, sifraP, preuzetDatum,
+				naruceno, komada, opis, metri, "narucena" };
 
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -344,6 +395,8 @@ public class DialogFakturisana extends StandardDialog {
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
+		String metri = ((FakturisanaPanel) panel).getTxtMetri().getText()
+				.trim();
 		String status = ((FakturisanaPanel) panel).getTxtStatus().getText()
 				.trim();
 		/*
@@ -352,7 +405,7 @@ public class DialogFakturisana extends StandardDialog {
 		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
 		 */
 
-		String[] params = { naruceno, komada, opis, status };
+		String[] params = { naruceno, komada, opis, metri, status };
 		int index = table.getSelectedRow();
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -380,11 +433,13 @@ public class DialogFakturisana extends StandardDialog {
 		String komada = ((FakturisanaPanel) panel).getTxtKomada().getText()
 				.trim();
 		String opis = ((FakturisanaPanel) panel).getTaOpis().getText().trim();
+		String metri = ((FakturisanaPanel) panel).getTxtMetri().getText()
+				.trim();
 		String status = ((FakturisanaPanel) panel).getTxtStatus().getText()
 				.trim();
 
 		String[] params = { sifraR, sifraP, preuzetDatum, sifraF, naruceno,
-				komada, opis, status };
+				komada, opis, metri, status };
 
 		try {
 			FakturisanaTableModel ctm = (FakturisanaTableModel) table
@@ -405,12 +460,14 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getTxtSifraP().setEditable(false);
 		((FakturisanaPanel) panel).getTxtSifraR().setEditable(false);
 		((FakturisanaPanel) panel).getTxtNazivR().setEditable(false);
+		((FakturisanaPanel) panel).getTxtMera().setEditable(false);
 		((FakturisanaPanel) panel).getTxtSifraF().setEditable(false);
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(false);
 		((FakturisanaPanel) panel).getTaOpis().setEditable(false);
-		//((FakturisanaPanel) panel).getTaOpis().setEnabled(false);
+		// ((FakturisanaPanel) panel).getTaOpis().setEnabled(false);
 		((FakturisanaPanel) panel).getTxtDatum().setEnabled(false);
 		((FakturisanaPanel) panel).getTxtStatus().setEditable(false);
+		((FakturisanaPanel) panel).getTxtMetri().setEditable(false);
 		((FakturisanaPanel) panel).getTxtNaruceno().setEditable(false);
 	}
 
@@ -418,19 +475,22 @@ public class DialogFakturisana extends StandardDialog {
 		((FakturisanaPanel) panel).getBtnConfirm().setEnabled(true);
 		((FakturisanaPanel) panel).getBtnCancel().setEnabled(true);
 		((FakturisanaPanel) panel).getTxtKomada().setEditable(true);
+		// ((FakturisanaPanel) panel).getTxtMetri().setEditable(true);
 		((FakturisanaPanel) panel).getTaOpis().setEditable(true);
-		//((FakturisanaPanel) panel).getTaOpis().setEnabled(true);
+		// ((FakturisanaPanel) panel).getTaOpis().setEnabled(true);
 
 	}
 
 	public void clearAll() {
 		((FakturisanaPanel) panel).getTxtSifraR().setText("");
 		((FakturisanaPanel) panel).getTxtNazivR().setText("");
+		((FakturisanaPanel) panel).getTxtMera().setText("");
 		((FakturisanaPanel) panel).getTxtKomada().setText("");
 		((FakturisanaPanel) panel).getTxtStatus().setText("");
 		((FakturisanaPanel) panel).getTaOpis().setText("");
 		((FakturisanaPanel) panel).getTxtSifraP().setText("");
 		((FakturisanaPanel) panel).getTxtNaruceno().setText("");
+		((FakturisanaPanel) panel).getTxtMetri().setText("");
 		((FakturisanaPanel) panel).getTxtDatum().setCalendar(null);
 	}
 

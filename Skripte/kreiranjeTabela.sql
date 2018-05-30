@@ -58,6 +58,7 @@ create table fakturisana_roba
    komada_fakturisano   numeric(10,0) not null,
    opis                 varchar(1000),
    status			    varchar(15),
+   komada_u_metru		numeric(4,0),
    primary key (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
