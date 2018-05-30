@@ -10,6 +10,7 @@ public class ActionManager {
 	private DialogPorudzbinaAction porudzbina = new DialogPorudzbinaAction();
 	private DialogFakturaAction faktura = new DialogFakturaAction();
 	private DialogOtpremnicaAction otpremnica = new DialogOtpremnicaAction();
+	private DialogOtvoreneStavkeAction stavke = new DialogOtvoreneStavkeAction();
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -73,5 +74,15 @@ public class ActionManager {
 	public void setDialogOtpremnicaAction(DialogOtpremnicaAction otpremnica) {
 		this.otpremnica = otpremnica;
 	}
+	
+	public DialogOtvoreneStavkeAction getDialogOtvoreneStavkeAction() {
+		return stavke;
+	}
+
+	public void setDialogOtvoreneStavkeAction(DialogOtvoreneStavkeAction stavke) {
+		this.stavke = stavke;
+	}
+	
+	
 
 }

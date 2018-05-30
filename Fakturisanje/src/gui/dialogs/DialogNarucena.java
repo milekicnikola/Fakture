@@ -49,8 +49,9 @@ public class DialogNarucena extends StandardDialog {
 
 		String whereStm = "";
 
-		if (zoom)
-			isZoom = true;
+		if (zoom) {
+			isZoom = true;			
+		}
 
 		if (!isZoom) {
 
@@ -149,7 +150,8 @@ public class DialogNarucena extends StandardDialog {
 					updateStateAndTextFields(State.POGLED);
 
 				}
-			});
+			});			
+			
 			((NarucenaPanel) panel).getBtnRoba().addActionListener(
 					new ActionListener() {
 
@@ -175,6 +177,7 @@ public class DialogNarucena extends StandardDialog {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
+			toolbar.getBtnSearch().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 				@Override
