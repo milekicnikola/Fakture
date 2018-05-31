@@ -58,7 +58,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		if (!isZoom)
+		if (isZoom)
 			addIzvestaj();
 
 		toolbar.getBtnAdd().setEnabled(false);
@@ -311,7 +311,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
 			SQLException {
 
-		String reportSrcFile = "Reports/porudzbina.jrxml";
+		String reportSrcFile = "Reports/ios.jrxml";
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(Calendar.getInstance().getTime());
@@ -341,16 +341,19 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Porudzbina" + timeStamp + ".pdf");
+				"GeneratedReports/Otvorene Stavke " + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();
-
-		System.out.print("Done!");
+		exporter.exportReport();		
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o otvorenim stavkama je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

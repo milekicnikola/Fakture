@@ -347,7 +347,7 @@ public class DialogMagacin extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Magacin" + timeStamp + ".pdf");
+				"GeneratedReports/Magacin" + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -355,8 +355,11 @@ public class DialogMagacin extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-
-		System.out.print("Done!");
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o magacinima je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

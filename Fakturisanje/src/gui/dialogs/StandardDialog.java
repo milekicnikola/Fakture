@@ -226,9 +226,11 @@ public abstract class StandardDialog extends JDialog {
 				} else {
 					if (state == State.DODAVANJE) {
 						addRow();
+						toolbar.getBtnRefresh().doClick();
 					}
 					if (state == State.AZURIRANJE) {
 						updateRow();
+						toolbar.getBtnRefresh().doClick();
 					}
 					if (state == State.PRETRAGA) {
 						search();

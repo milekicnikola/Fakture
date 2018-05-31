@@ -605,8 +605,11 @@ public class DialogFakturisana extends StandardDialog {
 	public void addIzvestaj() {
 
 		JButton btnIzvestaj = new JButton("Napravi izveštaj");
+		JButton btnPrevod = new JButton("Napravi prevod");
 		btnIzvestaj.setEnabled(true);
+		btnPrevod.setEnabled(true);
 		toolbar.dodajIzvestaj(btnIzvestaj);
+		toolbar.dodajIzvestaj2(btnPrevod);
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 
@@ -614,6 +617,25 @@ public class DialogFakturisana extends StandardDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					napraviIzvestaj();
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+
+		toolbar.getBtnIzvestaj2().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					napraviPrevod();
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();
@@ -646,6 +668,8 @@ public class DialogFakturisana extends StandardDialog {
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
+		parameters.put("sifraFakture", faktura);
+
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
 
@@ -662,7 +686,8 @@ public class DialogFakturisana extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Faktura" + timeStamp + ".pdf");
+				"GeneratedReports/Faktura " + faktura + " - " + timeStamp
+						+ ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -670,8 +695,63 @@ public class DialogFakturisana extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
-		System.out.print("Done!");
+	}
+
+	public void napraviPrevod() throws JRException, ClassNotFoundException,
+			SQLException {
+
+		String reportSrcFile = "Reports/prevod.jrxml";
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
+
+		// First, compile jrxml file.
+		JasperReport jasperReport = JasperCompileManager
+				.compileReport(reportSrcFile);
+
+		Connection conn = DBConnection.getConnection();
+
+		// Parameters for report
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("sifraFakture", faktura);
+
+		JasperPrint print = JasperFillManager.fillReport(jasperReport,
+				parameters, conn);
+
+		// Make sure the output directory exists.
+		// File outDir = new File("C:/jasperoutput");
+		// outDir.mkdirs();
+
+		// PDF Exportor.
+		JRPdfExporter exporter = new JRPdfExporter();
+
+		ExporterInput exporterInput = new SimpleExporterInput(print);
+		// ExporterInput
+		exporter.setExporterInput(exporterInput);
+
+		// ExporterOutput
+		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+				"GeneratedReports/Prevod " + faktura + " - " + timeStamp
+						+ ".pdf");
+		// Output
+		exporter.setExporterOutput(exporterOutput);
+
+		//
+		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+		exporter.setConfiguration(configuration);
+		exporter.exportReport();
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o fakturi sa prevodom je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

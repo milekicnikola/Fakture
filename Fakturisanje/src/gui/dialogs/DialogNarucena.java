@@ -441,6 +441,8 @@ public class DialogNarucena extends StandardDialog {
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		parameters.put("sifraPorudzbine", porudzbina);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
@@ -458,16 +460,19 @@ public class DialogNarucena extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Porudzbina" + timeStamp + ".pdf");
+				"GeneratedReports/Porudzbina " + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();
-
-		System.out.print("Done!");
+		exporter.exportReport();	
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o porudzbini je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-13T16:34:50 -->
+<!-- 2018-05-30T23:41:39 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="magacin" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -109,7 +109,7 @@ IBAN: RS35330007010009823559]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="460" y="0" width="86" height="15" forecolor="#736343" uuid="dc9e184f-68f4-452a-baaa-9bb7aec5db71"/>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Telefon]]></text>
@@ -129,7 +129,9 @@ IBAN: RS35330007010009823559]]></text>
 					<textFieldExpression><![CDATA[$F{naziv_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="222" y="0" width="138" height="15" uuid="63a9f503-d5cf-4489-af51-86b77a34a90f"/>
+					<reportElement style="Detail" x="222" y="0" width="138" height="15" uuid="63a9f503-d5cf-4489-af51-86b77a34a90f">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
 					<textFieldExpression><![CDATA[$F{adresa_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
@@ -137,7 +139,8 @@ IBAN: RS35330007010009823559]]></text>
 					<textFieldExpression><![CDATA[$F{sef_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="459" y="6" width="86" height="15" uuid="83eb0545-44da-411e-a432-7b0db48dde68"/>
+					<reportElement style="Detail" x="459" y="0" width="86" height="15" uuid="83eb0545-44da-411e-a432-7b0db48dde68"/>
+					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{telefon_magacina}]]></textFieldExpression>
 				</textField>
 			</frame>

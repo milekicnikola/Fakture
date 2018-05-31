@@ -340,16 +340,19 @@ public class DialogKurs extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Kurs" + timeStamp + ".pdf");
+				"GeneratedReports/Kurs" + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();
-
-		System.out.print("Done!");
+		exporter.exportReport();		
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o kursnoj listi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

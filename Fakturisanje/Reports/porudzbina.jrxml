@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-23T23:33:34 -->
+<!-- 2018-05-31T00:46:38 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="porudzbina" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -10,15 +10,17 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>
+	<parameter name="sifraPorudzbine" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select *, (narucena_roba.komada_naruceno*roba.cena_roni)/kurs.ron_evro+0.00 as ukupno, (roba.cena_roni/kurs.ron_evro) as cenauevri
+		<![CDATA[select *, (narucena_roba.komada_naruceno*roba.cena_roni)+0.00 as ukupno
 from narucena_roba
 inner join roba on narucena_roba.sifra_robe = roba.sifra_robe 
 inner join porudzbina on narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine
 inner join magacin on porudzbina.sifra_magacina=magacin.sifra_magacina 
+join jedinica_mere on roba.jedinica_mere = jedinica_mere.redni_broj
 inner join kupci on porudzbina.pib_kupca=kupci.pib
 inner join kurs
-where porudzbina.sifra_porudzbine="222" and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs)
+where narucena_roba.sifra_porudzbine=$P{sifraPorudzbine} and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs)
 order by narucena_roba.sifra_porudzbine, ko_radi, datum_isporuke, narucena_roba.sifra_robe]]>
 	</queryString>
 	<field name="sifra_robe" class="java.lang.String"/>
@@ -47,6 +49,8 @@ order by narucena_roba.sifra_porudzbine, ko_radi, datum_isporuke, narucena_roba.
 	<field name="adresa_magacina" class="java.lang.String"/>
 	<field name="sef_magacina" class="java.lang.String"/>
 	<field name="telefon_magacina" class="java.lang.String"/>
+	<field name="redni_broj" class="java.lang.Integer"/>
+	<field name="naziv_mere" class="java.lang.String"/>
 	<field name="pib" class="java.lang.String"/>
 	<field name="naziv_kupca" class="java.lang.String"/>
 	<field name="naziv_kupca2" class="java.lang.String"/>
@@ -56,7 +60,6 @@ order by narucena_roba.sifra_porudzbine, ko_radi, datum_isporuke, narucena_roba.
 	<field name="datum_kursa" class="java.sql.Date"/>
 	<field name="ron_evro" class="java.math.BigDecimal"/>
 	<field name="ukupno" class="java.math.BigDecimal"/>
-	<field name="cenauevri" class="java.math.BigDecimal"/>
 	<variable name="zbirukupno" class="java.math.BigDecimal" calculation="Sum">
 		<variableExpression><![CDATA[$F{ukupno}]]></variableExpression>
 	</variable>
@@ -116,7 +119,7 @@ ROMANIA]]></text>
 				<textElement textAlignment="Center">
 					<font size="20" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{sifra_porudzbine}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{sifraPorudzbine}]]></textFieldExpression>
 			</textField>
 			<rectangle>
 				<reportElement mode="Transparent" x="0" y="0" width="181" height="88" uuid="7b7979dc-f506-421d-9f0b-7ef4d4a1d2df"/>
@@ -233,7 +236,7 @@ ROMANIA]]></text>
 				<text><![CDATA[Naziv robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="425" y="1" width="35" height="15" forecolor="#736343" uuid="8046ef4e-4c4b-410e-817d-5711c934282d"/>
+				<reportElement style="Column header" x="418" y="1" width="45" height="15" forecolor="#736343" uuid="8046ef4e-4c4b-410e-817d-5711c934282d"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
@@ -244,7 +247,7 @@ ROMANIA]]></text>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[EURO]]></text>
+				<text><![CDATA[RON]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="517" y="0" width="50" height="15" forecolor="#736343" uuid="c627a31b-6088-4801-88c4-bb661b0b94b4"/>
@@ -298,14 +301,14 @@ ROMANIA]]></text>
 						<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 					</textField>
 					<textField isStretchWithOverflow="true">
-						<reportElement style="Detail" x="185" y="0" width="35" height="15" uuid="fcb47634-aa02-4e20-b31c-c8aab51c2654"/>
+						<reportElement style="Detail" x="178" y="0" width="45" height="15" uuid="fcb47634-aa02-4e20-b31c-c8aab51c2654"/>
 						<textElement textAlignment="Center"/>
-						<textFieldExpression><![CDATA[$F{jedinica_mere}]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
 					</textField>
 					<textField isStretchWithOverflow="true" pattern="#,###.00;(#,###.00-)">
 						<reportElement style="Detail" x="230" y="0" width="38" height="15" uuid="70ea6596-de76-4765-a0df-12b6e125f6b4"/>
 						<textElement textAlignment="Right"/>
-						<textFieldExpression><![CDATA[$F{cenauevri}]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$F{cena_roni}]]></textFieldExpression>
 					</textField>
 					<textField pattern="#,###.00;(#,###.00-)">
 						<reportElement x="270" y="1" width="61" height="14" uuid="a9936b57-70a1-4c4c-a542-51519b1c9053"/>
@@ -318,7 +321,9 @@ ROMANIA]]></text>
 						<reportElement x="62" y="-2" width="67" height="15" uuid="90de549d-1a5f-4134-aed8-ac47f217e6bf">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
-						<textElement textAlignment="Right"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Arial" size="12"/>
+						</textElement>
 						<textFieldExpression><![CDATA[$F{datum_isporuke}]]></textFieldExpression>
 					</textField>
 				</frame>

@@ -492,8 +492,12 @@ public class DialogOtpremljena extends StandardDialog {
 	public void addIzvestaj() {
 
 		JButton btnIzvestaj = new JButton("Napravi izveštaj");
+		JButton btnIzvestajC = new JButton("Napravi izveštaj za C");
 		btnIzvestaj.setEnabled(true);
+		btnIzvestajC.setEnabled(true);
+
 		toolbar.dodajIzvestaj(btnIzvestaj);
+		toolbar.dodajIzvestaj2(btnIzvestajC);
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 
@@ -501,6 +505,25 @@ public class DialogOtpremljena extends StandardDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					napraviIzvestaj();
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+
+		toolbar.getBtnIzvestaj2().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					napraviIzvestaj2();
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();
@@ -533,6 +556,8 @@ public class DialogOtpremljena extends StandardDialog {
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
+		parameters.put("sifraOtpremnice", otpremnica);
+
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
 
@@ -549,7 +574,8 @@ public class DialogOtpremljena extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Otpremnica" + timeStamp + ".pdf");
+				"GeneratedReports/Otpremnica " + otpremnica + " - " + timeStamp
+						+ ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -558,7 +584,66 @@ public class DialogOtpremljena extends StandardDialog {
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
 
-		System.out.print("Done!");
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o otpremnici je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
+
+	}
+
+	public void napraviIzvestaj2() throws JRException, ClassNotFoundException,
+			SQLException {
+
+		String reportSrcFile = "Reports/otpremnicaCprofil.jrxml";
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
+
+		// First, compile jrxml file.
+		JasperReport jasperReport = JasperCompileManager
+				.compileReport(reportSrcFile);
+
+		Connection conn = DBConnection.getConnection();
+
+		// Parameters for report
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("sifraOtpremnice", otpremnica);
+
+		JasperPrint print = JasperFillManager.fillReport(jasperReport,
+				parameters, conn);
+
+		// Make sure the output directory exists.
+		// File outDir = new File("C:/jasperoutput");
+		// outDir.mkdirs();
+
+		// PDF Exportor.
+		JRPdfExporter exporter = new JRPdfExporter();
+
+		ExporterInput exporterInput = new SimpleExporterInput(print);
+		// ExporterInput
+		exporter.setExporterInput(exporterInput);
+
+		// ExporterOutput
+		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+				"GeneratedReports/Otpremnica C-profil " + otpremnica + " - "
+						+ timeStamp + ".pdf");
+		// Output
+		exporter.setExporterOutput(exporterOutput);
+
+		//
+		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+		exporter.setConfiguration(configuration);
+		exporter.exportReport();
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o otpremnici C-profila je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

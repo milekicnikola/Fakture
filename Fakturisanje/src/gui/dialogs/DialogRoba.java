@@ -538,7 +538,7 @@ public class DialogRoba extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Roba" + timeStamp + ".pdf");
+				"GeneratedReports/Roba" + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -546,8 +546,11 @@ public class DialogRoba extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-
-		System.out.print("Done!");
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o robi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

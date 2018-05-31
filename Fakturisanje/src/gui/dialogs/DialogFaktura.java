@@ -141,6 +141,7 @@ public class DialogFaktura extends StandardDialog {
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
+			toolbar.getBtnIzvestaj().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 				@Override
@@ -157,9 +158,11 @@ public class DialogFaktura extends StandardDialog {
 		if (index < 0) {
 			clearAll();
 			toolbar.getBtnDetaljno().setEnabled(false);
+			toolbar.getBtnIzvestaj().setEnabled(false);
 			return;
 		}
 		toolbar.getBtnDetaljno().setEnabled(true);
+		toolbar.getBtnIzvestaj().setEnabled(true);
 
 		String sifra = (String) tableModel.getValueAt(index, 0);
 		String datum = (String) tableModel.getValueAt(index, 1);
@@ -218,6 +221,7 @@ public class DialogFaktura extends StandardDialog {
 			allEnable();
 			((FakturaPanel) panel).getTxtSifra().setEditable(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
+			toolbar.getBtnIzvestaj().setEnabled(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
@@ -234,6 +238,7 @@ public class DialogFaktura extends StandardDialog {
 			}
 
 			toolbar.getBtnDetaljno().setEnabled(false);
+			toolbar.getBtnIzvestaj().setEnabled(false);
 			((FakturaPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -428,8 +433,8 @@ public class DialogFaktura extends StandardDialog {
 	
 	public void addIzvestaj() {
 
-		JButton btnIzvestaj = new JButton("Napravi izveštaj");
-		btnIzvestaj.setEnabled(true);
+		JButton btnIzvestaj = new JButton("Prošireni izveštaj");
+		btnIzvestaj.setEnabled(false);
 		toolbar.dodajIzvestaj(btnIzvestaj);
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
@@ -469,6 +474,10 @@ public class DialogFaktura extends StandardDialog {
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		String faktura = ((FakturaPanel) panel).getTxtSifra().getText().trim();
+		
+		parameters.put("sifraFakture", faktura);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
@@ -486,16 +495,19 @@ public class DialogFaktura extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/ProsirenaFaktura" + timeStamp + ".pdf");
+				"GeneratedReports/Prosirena Faktura " + faktura + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();
-
-		System.out.print("Done!");
+		exporter.exportReport();		
+		
+		JOptionPane.showConfirmDialog(getParent(),
+				"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

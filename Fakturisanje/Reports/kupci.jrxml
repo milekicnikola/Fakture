@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-13T16:34:54 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Coffee" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+<!-- 2018-05-31T00:36:23 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Kupci" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
@@ -92,7 +92,7 @@ IBAN: RS35330007010009823559]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="222" y="0" width="111" height="15" forecolor="#736343" uuid="ba7cab62-0cea-4e24-a853-23aac254d01d"/>
-				<text><![CDATA[Naziv kupca2]]></text>
+				<text><![CDATA[Naziv kupca 2]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="333" y="0" width="111" height="15" forecolor="#736343" uuid="870defe9-adde-4554-ba7c-4412315f563e"/>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-16T23:52:45 -->
+<!-- 2018-05-31T00:38:41 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="roba" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -19,14 +19,21 @@
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>
 	<queryString>
-		<![CDATA[select * from roba]]>
+		<![CDATA[select * from roba
+join jedinica_mere on roba.jedinica_mere = jedinica_mere.redni_broj
+order by sifra_robe]]>
 	</queryString>
-	<field name="sifra_robe" class="java.lang.String"/>	
+	<field name="sifra_robe" class="java.lang.String"/>
+	<field name="jedinica_mere" class="java.lang.Integer"/>
+	<field name="prevod" class="java.lang.Integer"/>
 	<field name="interna_sifra_robe" class="java.lang.String"/>
-	<field name="naziv_robe" class="java.lang.String"/>	
+	<field name="naziv_robe" class="java.lang.String"/>
+	<field name="interni_naziv" class="java.lang.String"/>
 	<field name="komada_u_setu" class="java.math.BigDecimal"/>
-	<field name="tezina_robe" class="java.math.BigDecimal"/>		
-	<field name="cena_roni" class="java.math.BigDecimal"/>		
+	<field name="tezina_robe" class="java.math.BigDecimal"/>
+	<field name="cena_roni" class="java.math.BigDecimal"/>
+	<field name="redni_broj" class="java.lang.Integer"/>
+	<field name="naziv_mere" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -54,11 +61,11 @@ IBAN: RS35330007010009823559]]></text>
 		<band height="29" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement x="170" y="1" width="250" height="28" uuid="5dac3e35-e48d-4bcc-86ea-08594689ff40"/>
+				<reportElement x="225" y="1" width="250" height="28" uuid="5dac3e35-e48d-4bcc-86ea-08594689ff40"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ROBA U MAGACINU]]></text>
+				<text><![CDATA[ROBA]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -85,28 +92,28 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Interna]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="195" y="0" width="190" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
+				<reportElement style="Column header" x="195" y="0" width="280" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Naziv robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="470" y="0" width="53" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
+				<reportElement style="Column header" x="493" y="0" width="53" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[JM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="531" y="0" width="39" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc"/>
+				<reportElement style="Column header" x="579" y="0" width="39" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Set]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="580" y="0" width="42" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
+				<reportElement style="Column header" x="648" y="0" width="42" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -115,25 +122,11 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Težina]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="640" y="0" width="21" height="15" forecolor="#736343" uuid="8295fd13-3b83-4213-b78a-5a2a802ae4b9"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Kv.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="670" y="0" width="58" height="15" forecolor="#736343" uuid="f5ac2985-f351-4c01-9531-23feb8830dc2"/>
+				<reportElement style="Column header" x="720" y="0" width="75" height="15" forecolor="#736343" uuid="9c7afc84-caee-464f-b97b-9661750022d3"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Euro]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="742" y="0" width="53" height="15" forecolor="#736343" uuid="9c7afc84-caee-464f-b97b-9661750022d3"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[RON]]></text>
+				<text><![CDATA[Cena]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -151,38 +144,33 @@ IBAN: RS35330007010009823559]]></text>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="195" y="0" width="190" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
+					<reportElement style="Detail" x="195" y="0" width="280" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
 					<textElement textAlignment="Left"/>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
-				</textField>				
+				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="531" y="0" width="39" height="15" uuid="1b55b863-abd2-4e66-a287-51a9eb183f28"/>
+					<reportElement style="Detail" x="493" y="0" width="53" height="15" uuid="e5633045-4a3b-4bd6-b9bd-596ef9f071d8"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="579" y="0" width="39" height="15" uuid="1b55b863-abd2-4e66-a287-51a9eb183f28"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="580" y="0" width="42" height="15" uuid="f5e5b55e-b466-4ee8-80f3-e79405951845"/>
+					<reportElement style="Detail" x="648" y="0" width="42" height="15" uuid="f5e5b55e-b466-4ee8-80f3-e79405951845"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{tezina_robe}]]></textFieldExpression>
-				</textField>								
+				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.00">
-					<reportElement style="Detail" x="741" y="0" width="53" height="15" uuid="2801a65b-c41d-41eb-81db-2dc762254fab"/>
+					<reportElement style="Detail" x="719" y="0" width="75" height="15" uuid="2801a65b-c41d-41eb-81db-2dc762254fab"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{cena_roni}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="800" height="1" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
-	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>

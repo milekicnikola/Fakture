@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-12T06:17:07 -->
+<!-- 2018-05-30T23:24:19 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kurs" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -58,11 +58,12 @@ IBAN: RS35330007010009823559]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="0" y="0" width="277" height="15" forecolor="#736343" uuid="84095921-b7da-4921-9fff-dd1f5a712a53"/>
+				<reportElement style="Column header" x="22" y="0" width="240" height="15" forecolor="#736343" uuid="84095921-b7da-4921-9fff-dd1f5a712a53"/>
 				<text><![CDATA[Datum kursa]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="277" y="0" width="277" height="15" forecolor="#736343" uuid="a0f50205-5d2f-4874-b841-68d18672fe97"/>
+				<reportElement style="Column header" x="290" y="0" width="194" height="15" forecolor="#736343" uuid="a0f50205-5d2f-4874-b841-68d18672fe97"/>
+				<textElement textAlignment="Right"/>
 				<text><![CDATA[Ron - evro]]></text>
 			</staticText>
 		</band>
@@ -71,12 +72,13 @@ IBAN: RS35330007010009823559]]></text>
 		<band height="15" splitType="Stretch">
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="0" y="0" width="277" height="15" uuid="cfaed414-a403-4f27-b3b8-5f79eae31083"/>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyy">
+					<reportElement style="Detail" x="22" y="0" width="240" height="15" uuid="cfaed414-a403-4f27-b3b8-5f79eae31083"/>
 					<textFieldExpression><![CDATA[$F{datum_kursa}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="277" y="0" width="277" height="15" uuid="2cc7b818-18fa-4372-807b-b2f0902dd1d6"/>
+					<reportElement style="Detail" x="290" y="0" width="194" height="15" uuid="2cc7b818-18fa-4372-807b-b2f0902dd1d6"/>
+					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{ron_evro}]]></textFieldExpression>
 				</textField>
 			</frame>
