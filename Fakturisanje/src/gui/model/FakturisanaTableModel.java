@@ -227,8 +227,8 @@ public class FakturisanaTableModel extends StandardTableModel {
 
 		String faktura = (String) getValueAt(index, 0);
 		String sifra_robe = (String) getValueAt(index, 1);
-		String sifra_porudzbine = (String) getValueAt(index, 3);
-		String datum = (String) getValueAt(index, 4);
+		String sifra_porudzbine = (String) getValueAt(index, 4);
+		String datum = (String) getValueAt(index, 5);
 
 		PreparedStatement stmt = DBConnection
 				.getConnection()

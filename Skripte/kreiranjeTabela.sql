@@ -1,10 +1,12 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     5/23/2018 3:20:26 AM                         */
+/* Created on:     6/2/2018 4:38:05 AM                          */
 /*==============================================================*/
 
 
 drop table if exists kurs;
+
+drop table if exists poslata_roba;
 
 drop table if exists otpremljena_roba;
 
@@ -36,12 +38,11 @@ drop table if exists prevod;
 create table faktura
 (
    sifra_fakture        varchar(20) not null,
-   korisnicko_ime       varchar(20) not null,
    datum_fakture        date not null,
    paritet_fakture      varchar(25),
-   bruto_fakture        decimal(10,2),
+   ukupna_tezina        decimal(10,2),
    neto_fakture         decimal(10,2),
-   ukupno_komada_robe   numeric(10,0),
+   transport_fakture	varchar(30),
    poslata_faktura      varchar(3),
    primary key (sifra_fakture)
 );
@@ -57,8 +58,8 @@ create table fakturisana_roba
    sifra_fakture        varchar(20) not null,
    komada_fakturisano   numeric(10,0) not null,
    opis                 varchar(1000),
-   status			    varchar(15),
-   komada_u_metru		numeric(4,0),
+   status               varchar(15),
+   komada_u_metru       numeric(4,0),
    primary key (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
@@ -126,6 +127,7 @@ create table narucena_roba
 (
    sifra_robe           varchar(50) not null,
    sifra_porudzbine     varchar(20) not null,
+   korisnicko_ime       varchar(20) not null,
    komada_naruceno      numeric(10,0) not null,
    komada_poslato       numeric(10,0),
    komada_ostalo        numeric(10,0),
@@ -144,6 +146,7 @@ create table otpremljena_roba
    sifra_porudzbine     varchar(20) not null,
    datum_isporuke       date not null,
    sifra_fakture        varchar(20) not null,
+   status_robe			varchar(15),
    primary key (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
@@ -153,11 +156,9 @@ create table otpremljena_roba
 create table otpremnica
 (
    sifra_otpremnice     varchar(20) not null,
-   korisnicko_ime       varchar(20) not null,
    sifra_magacina       varchar(10) not null,
-   datum_otpremnice     date not null,
-   transport			varchar(30),
-   poslata_otpremnica	varchar(3),
+   sifra_fakture        varchar(20),
+   poslata_otpremnica   varchar(3),
    primary key (sifra_otpremnice)
 );
 
@@ -168,10 +169,22 @@ create table porudzbina
 (
    sifra_porudzbine     varchar(20) not null,
    sifra_magacina       varchar(10) not null,
-   korisnicko_ime       varchar(20) not null,
    pib_kupca            varchar(15) not null,
-   datum_porudzbine     date not null,   
+   datum_porudzbine     date not null,
    primary key (sifra_porudzbine)
+);
+
+/*==============================================================*/
+/* Table: poslata_roba                                          */
+/*==============================================================*/
+create table poslata_roba
+(
+   sifra_otpremnice     varchar(20) not null,
+   sifra_robe           varchar(50) not null,
+   sifra_porudzbine     varchar(20) not null,
+   datum_isporuke       date not null,
+   sifra_fakture        varchar(20) not null,
+   primary key (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
 /*==============================================================*/
@@ -201,14 +214,14 @@ create table roba
    primary key (sifra_robe)
 );
 
-alter table faktura add constraint fk_korisnik_faktura foreign key (korisnicko_ime)
-      references korisnik (korisnicko_ime) on delete restrict on update restrict;
-
 alter table fakturisana_roba add constraint fk_fakturisana_roba foreign key (sifra_fakture)
       references faktura (sifra_fakture) on delete restrict on update restrict;
 
 alter table fakturisana_roba add constraint fk_fakturisana_roba1 foreign key (sifra_robe, sifra_porudzbine, datum_isporuke)
       references narucena_roba (sifra_robe, sifra_porudzbine, datum_isporuke) on delete restrict on update restrict;
+
+alter table narucena_roba add constraint fk_korisnik_porudzbina foreign key (korisnicko_ime)
+      references korisnik (korisnicko_ime) on delete restrict on update restrict;
 
 alter table narucena_roba add constraint fk_narucena_roba foreign key (sifra_porudzbine)
       references porudzbina (sifra_porudzbine) on delete restrict on update restrict;
@@ -222,20 +235,20 @@ alter table otpremljena_roba add constraint fk_otpremljena_roba foreign key (sif
 alter table otpremljena_roba add constraint fk_otpremljena_roba1 foreign key (sifra_otpremnice)
       references otpremnica (sifra_otpremnice) on delete restrict on update restrict;
 
-alter table otpremnica add constraint fk_korisnik_otpremnica foreign key (korisnicko_ime)
-      references korisnik (korisnicko_ime) on delete restrict on update restrict;
+alter table otpremnica add constraint fk_otpremnica_po_fakturi foreign key (sifra_fakture)
+      references faktura (sifra_fakture) on delete restrict on update restrict;
 
 alter table otpremnica add constraint fk_otpremnica_iz_magacina foreign key (sifra_magacina)
       references magacin (sifra_magacina) on delete restrict on update restrict;
-
-alter table porudzbina add constraint fk_korisnik_porudzbina foreign key (korisnicko_ime)
-      references korisnik (korisnicko_ime) on delete restrict on update restrict;
 
 alter table porudzbina add constraint fk_porudzbina_iz_magacina foreign key (sifra_magacina)
       references magacin (sifra_magacina) on delete restrict on update restrict;
 
 alter table porudzbina add constraint fk_porudzbina_kupca foreign key (pib_kupca)
       references kupci (pib) on delete restrict on update restrict;
+
+alter table poslata_roba add constraint fk_poslata_roba foreign key (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
+      references otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture) on delete restrict on update restrict;
 
 alter table roba add constraint fk_jedinica_mere_robe foreign key (jedinica_mere)
       references jedinica_mere (redni_broj) on delete restrict on update restrict;
