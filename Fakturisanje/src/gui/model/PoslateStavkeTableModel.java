@@ -9,7 +9,7 @@ import java.sql.Statement;
 import util.SortUtils;
 import databaseConnection.DBConnection;
 
-public class OtvoreneStavkeTableModel extends StandardTableModel {
+public class PoslateStavkeTableModel extends StandardTableModel {
 
 	private String basicQuery1;
 	/**
@@ -17,9 +17,9 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public OtvoreneStavkeTableModel(Object[] colName, int rowCount) {
+	public PoslateStavkeTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE komada_ostalo > 0";
+		basicQuery = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE komada_poslato > 0";
 		basicQuery1 = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime";
 		orderBy = " ORDER BY ko_radi, narucena_roba.sifra_robe";
 	}
@@ -120,7 +120,7 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 				+ "komada_ostalo LIKE '%" + params[4] + "%' AND "
 				+ "datum_isporuke LIKE '%" + params[5] + "%' AND "
 				+ "narucena_roba.korisnicko_ime LIKE '%" + params[6] + "%' AND "
-				+ "ko_radi LIKE '%" + params[7] + "%' AND komada_ostalo > 0";
+				+ "ko_radi LIKE '%" + params[7] + "%' AND komada_poslato > 0";
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}

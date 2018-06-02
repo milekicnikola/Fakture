@@ -16,21 +16,22 @@ public class OtpremnicaPanel extends StandardPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JLabel lblSifra;
-	private JLabel lblKorisnik;
 	private JLabel lblSifraM;
-	private JLabel lblMagacin;
+	private JLabel lblNazivM;
+	private JLabel lblSifraF;
 	private JLabel lblDatum;
 	private JLabel lblTransport;
 	private JLabel lblPoslata;
 
 	private JTextField txtSifra;
-	private JTextField txtKorisnik;
 	private JTextField txtSifraM;
-	private JTextField txtMagacin;
+	private JTextField txtNazivM;
+	private JTextField txtSifraF;
 	private JTextField txtTransport;
 	private JTextField txtPoslata;
 
 	private JButton btnMagacin;
+	private JButton btnFaktura;
 
 	private JDateChooser txtDatum;
 
@@ -39,17 +40,17 @@ public class OtpremnicaPanel extends StandardPanel {
 	public OtpremnicaPanel() {
 
 		lblSifra = new JLabel("Šifra otpremnice");
-		lblKorisnik = new JLabel("Korisnik");
 		lblSifraM = new JLabel("Šifra magacina");
-		lblMagacin = new JLabel("Magacin");
-		lblDatum = new JLabel("Datum otpremanja");
+		lblNazivM = new JLabel("Naziv magacina");
+		lblSifraF = new JLabel("Šifra fakture");
+		lblDatum = new JLabel("Datum fakture");
 		lblTransport = new JLabel("Transport");
 		lblPoslata = new JLabel("Poslata");
 
 		txtSifra = new JTextField(20);
-		txtKorisnik = new JTextField(20);
 		txtSifraM = new JTextField(10);
-		txtMagacin = new JTextField(20);
+		txtNazivM = new JTextField(20);
+		txtSifraF = new JTextField(10);
 		txtTransport = new JTextField(20);
 		txtPoslata = new JTextField(3);
 
@@ -62,25 +63,29 @@ public class OtpremnicaPanel extends StandardPanel {
 		btnMagacin = new JButton("Izaberi magacin");
 		btnMagacin.setEnabled(false);
 
+		btnFaktura = new JButton("Izaberi fakturu");
+		btnFaktura.setEnabled(false);
+
 		add(lblSifra);
 		add(txtSifra);
-
-		add(lblKorisnik);
-		add(txtKorisnik);
 
 		add(lblSifraM);
 		add(txtSifraM);
 
-		add(lblMagacin);
-		add(txtMagacin);
+		add(lblNazivM);
+		add(txtNazivM);
 		add(btnMagacin, "wrap");
+
+		add(lblSifraF);
+		add(txtSifraF);
 
 		add(lblDatum);
 		add(txtDatum);
 
 		add(lblTransport);
 		add(txtTransport);
-		
+		add(btnFaktura, "wrap");
+
 		add(lblPoslata);
 		add(txtPoslata);
 
@@ -97,20 +102,28 @@ public class OtpremnicaPanel extends StandardPanel {
 		this.lblSifra = lblSifra;
 	}
 
-	public JLabel getLblKorisnik() {
-		return lblKorisnik;
+	public JLabel getLblSifraM() {
+		return lblSifraM;
 	}
 
-	public void setLblKorisnik(JLabel lblKorisnik) {
-		this.lblKorisnik = lblKorisnik;
+	public void setLblSifraM(JLabel lblSifraM) {
+		this.lblSifraM = lblSifraM;
 	}
 
-	public JLabel getLblMagacin() {
-		return lblMagacin;
+	public JLabel getLblNazivM() {
+		return lblNazivM;
 	}
 
-	public void setLblMagacin(JLabel lblMagacin) {
-		this.lblMagacin = lblMagacin;
+	public void setLblNazivM(JLabel lblNazivM) {
+		this.lblNazivM = lblNazivM;
+	}
+
+	public JLabel getLblSifraF() {
+		return lblSifraF;
+	}
+
+	public void setLblSifraF(JLabel lblSifraF) {
+		this.lblSifraF = lblSifraF;
 	}
 
 	public JLabel getLblDatum() {
@@ -121,52 +134,28 @@ public class OtpremnicaPanel extends StandardPanel {
 		this.lblDatum = lblDatum;
 	}
 
+	public JLabel getLblTransport() {
+		return lblTransport;
+	}
+
+	public void setLblTransport(JLabel lblTransport) {
+		this.lblTransport = lblTransport;
+	}
+
+	public JLabel getLblPoslata() {
+		return lblPoslata;
+	}
+
+	public void setLblPoslata(JLabel lblPoslata) {
+		this.lblPoslata = lblPoslata;
+	}
+
 	public JTextField getTxtSifra() {
 		return txtSifra;
 	}
 
 	public void setTxtSifra(JTextField txtSifra) {
 		this.txtSifra = txtSifra;
-	}
-
-	public JTextField getTxtKorisnik() {
-		return txtKorisnik;
-	}
-
-	public void setTxtKorisnik(JTextField txtKorisnik) {
-		this.txtKorisnik = txtKorisnik;
-	}
-
-	public JTextField getTxtMagacin() {
-		return txtMagacin;
-	}
-
-	public void setTxtMagacin(JTextField txtMagacin) {
-		this.txtMagacin = txtMagacin;
-	}
-
-	public JButton getBtnMagacin() {
-		return btnMagacin;
-	}
-
-	public void setBtnMagacin(JButton btnMagacin) {
-		this.btnMagacin = btnMagacin;
-	}
-
-	public JDateChooser getTxtDatum() {
-		return txtDatum;
-	}
-
-	public void setTxtDatum(JDateChooser txtDatum) {
-		this.txtDatum = txtDatum;
-	}
-
-	public JLabel getLblSifraM() {
-		return lblSifraM;
-	}
-
-	public void setLblSifraM(JLabel lblSifraM) {
-		this.lblSifraM = lblSifraM;
 	}
 
 	public JTextField getTxtSifraM() {
@@ -177,12 +166,20 @@ public class OtpremnicaPanel extends StandardPanel {
 		this.txtSifraM = txtSifraM;
 	}
 
-	public JLabel getLblTransport() {
-		return lblTransport;
+	public JTextField getTxtNazivM() {
+		return txtNazivM;
 	}
 
-	public void setLblTransport(JLabel lblTransport) {
-		this.lblTransport = lblTransport;
+	public void setTxtNazivM(JTextField txtNazivM) {
+		this.txtNazivM = txtNazivM;
+	}
+
+	public JTextField getTxtSifraF() {
+		return txtSifraF;
+	}
+
+	public void setTxtSifraF(JTextField txtSifraF) {
+		this.txtSifraF = txtSifraF;
 	}
 
 	public JTextField getTxtTransport() {
@@ -192,14 +189,6 @@ public class OtpremnicaPanel extends StandardPanel {
 	public void setTxtTransport(JTextField txtTransport) {
 		this.txtTransport = txtTransport;
 	}
-	
-	public JLabel getLblPoslata() {
-		return lblPoslata;
-	}
-
-	public void setLblPoslata(JLabel lblPoslata) {
-		this.lblPoslata = lblPoslata;
-	}
 
 	public JTextField getTxtPoslata() {
 		return txtPoslata;
@@ -207,6 +196,30 @@ public class OtpremnicaPanel extends StandardPanel {
 
 	public void setTxtPoslata(JTextField txtPoslata) {
 		this.txtPoslata = txtPoslata;
+	}
+
+	public JButton getBtnMagacin() {
+		return btnMagacin;
+	}
+
+	public void setBtnMagacin(JButton btnMagacin) {
+		this.btnMagacin = btnMagacin;
+	}
+
+	public JButton getBtnFaktura() {
+		return btnFaktura;
+	}
+
+	public void setBtnFaktura(JButton btnFaktura) {
+		this.btnFaktura = btnFaktura;
+	}
+
+	public JDateChooser getTxtDatum() {
+		return txtDatum;
+	}
+
+	public void setTxtDatum(JDateChooser txtDatum) {
+		this.txtDatum = txtDatum;
 	}
 
 }

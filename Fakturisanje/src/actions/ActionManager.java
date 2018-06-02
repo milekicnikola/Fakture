@@ -10,7 +10,8 @@ public class ActionManager {
 	private DialogPorudzbinaAction porudzbina = new DialogPorudzbinaAction();
 	private DialogFakturaAction faktura = new DialogFakturaAction();
 	private DialogOtpremnicaAction otpremnica = new DialogOtpremnicaAction();
-	private DialogOtvoreneStavkeAction stavke = new DialogOtvoreneStavkeAction();
+	private DialogOtvoreneStavkeAction otvoreneStavke = new DialogOtvoreneStavkeAction();
+	private DialogPoslateStavkeAction poslateStavke = new DialogPoslateStavkeAction();
 
 	public static ActionManager getInstance() {
 		if (instance == null) {
@@ -76,11 +77,19 @@ public class ActionManager {
 	}
 	
 	public DialogOtvoreneStavkeAction getDialogOtvoreneStavkeAction() {
-		return stavke;
+		return otvoreneStavke;
 	}
 
-	public void setDialogOtvoreneStavkeAction(DialogOtvoreneStavkeAction stavke) {
-		this.stavke = stavke;
+	public void setDialogOtvoreneStavkeAction(DialogOtvoreneStavkeAction otvoreneStavke) {
+		this.otvoreneStavke = otvoreneStavke;
+	}
+	
+	public DialogPoslateStavkeAction getDialogPoslateStavkeAction() {
+		return poslateStavke;
+	}
+
+	public void setDialogPoslateStavkeAction(DialogPoslateStavkeAction poslateStavke) {
+		this.poslateStavke = poslateStavke;
 	}
 	
 	

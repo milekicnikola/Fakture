@@ -18,7 +18,7 @@ public class OtpremnicaTableModel extends StandardTableModel {
 
 	public OtpremnicaTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_otpremnice, otpremnica.korisnicko_ime as korisnickoIme, otpremnica.sifra_magacina as magacin, naziv_magacina, datum_otpremnice, transport, poslata_otpremnica FROM otpremnica JOIN korisnik ON otpremnica.korisnicko_ime = korisnik.korisnicko_ime JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina";
+		basicQuery = "SELECT sifra_otpremnice, otpremnica.sifra_magacina as sifraMagacina, naziv_magacina, otpremnica.sifra_fakture as sifraFakture, datum_fakture, transport_fakture, poslata_otpremnica FROM otpremnica JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina JOIN faktura ON otpremnica.sifra_fakture = faktura.sifra_fakture";
 		orderBy = " ORDER BY sifra_otpremnice";
 	}
 
@@ -37,16 +37,16 @@ public class OtpremnicaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_otpremnice = "", korisnik = "", sifraM = "", magacin = "", datum = "", transport = "", poslata = "";
+		String sifra_otpremnice = "", sifraM = "", nazivM = "", sifraF = "", datum = "", transport = "", poslata = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
-			sifra_otpremnice = rset.getString("SIFRA_OTPREMNICE").trim();
-			korisnik = rset.getString("korisnickoIme").trim();
-			sifraM = rset.getString("magacin");
-			magacin = rset.getString("NAZIV_MAGACINA");
-			datum = rset.getString("DATUM_OTPREMNICE");
-			transport = rset.getString("TRANSPORT");
+			sifra_otpremnice = rset.getString("SIFRA_OTPREMNICE").trim();			
+			sifraM = rset.getString("sifraMagacina");
+			nazivM = rset.getString("NAZIV_MAGACINA");
+			sifraF = rset.getString("sifraFakture");
+			datum = rset.getString("DATUM_FAKTURE");
+			transport = rset.getString("TRANSPORT_FAKTURE");
 			poslata = rset.getString("POSLATA_OTPREMNICA");
 			postoji = true;
 		}
@@ -56,11 +56,11 @@ public class OtpremnicaTableModel extends StandardTableModel {
 			errorMsg = ERROR_RECORD_WAS_DELETED;
 		} else if ((SortUtils.getLatCyrCollator().compare(sifra_otpremnice,
 				((String) getValueAt(index, 0)).trim()) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(korisnik,
-						(String) getValueAt(index, 1)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(sifraM,
+						(String) getValueAt(index, 1)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(nazivM,
 						(String) getValueAt(index, 2)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(magacin,
+				|| (SortUtils.getLatCyrCollator().compare(sifraF,
 						(String) getValueAt(index, 3)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(datum,
 						(String) getValueAt(index, 4)) != 0)
@@ -69,10 +69,10 @@ public class OtpremnicaTableModel extends StandardTableModel {
 				|| (SortUtils.getLatCyrCollator().compare(poslata,
 						(String) getValueAt(index, 6)) != 0)) {
 
-			setValueAt(sifra_otpremnice, index, 0);
-			setValueAt(korisnik, index, 1);
-			setValueAt(sifraM, index, 2);
-			setValueAt(magacin, index, 3);
+			setValueAt(sifra_otpremnice, index, 0);			
+			setValueAt(sifraM, index, 1);
+			setValueAt(nazivM, index, 2);
+			setValueAt(sifraF, index, 3);
 			setValueAt(datum, index, 4);
 			setValueAt(transport, index, 5);
 			setValueAt(poslata, index, 6);
@@ -91,12 +91,10 @@ public class OtpremnicaTableModel extends StandardTableModel {
 
 	@Override
 	public void search(String[] params) throws SQLException {
-		whereStmt = " WHERE sifra_otpremnice LIKE '%" + params[0] + "%' AND "
-				+ "otpremnica.korisnicko_ime LIKE '%" + params[1] + "%' AND "
-				+ "otpremnica.sifra_magacina LIKE '%" + params[2] + "%' AND "
-				+ "datum_otpremnice LIKE '%" + params[3] + "%' AND "
-				+ "transport LIKE '%" + params[4] + "%' AND "
-				+ "poslata LIKE '%" + params[5] + "%'";
+		whereStmt = " WHERE sifra_otpremnice LIKE '%" + params[0] + "%' AND "				
+				+ "otpremnica.sifra_magacina LIKE '%" + params[1] + "%' AND "
+				+ "otpremnica.sifra_fakture LIKE '%" + params[2] + "%' AND "				
+				+ "poslata_otpremnica LIKE '%" + params[3] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}
@@ -107,16 +105,16 @@ public class OtpremnicaTableModel extends StandardTableModel {
 		Statement stmt = DBConnection.getConnection().createStatement();
 		ResultSet rset = stmt.executeQuery(sql);
 		while (rset.next()) {
-			String sifra_otpremnice = rset.getString("SIFRA_OTPREMNICE");
-			String korisnik = rset.getString("korisnickoIme");
-			String sifraM = rset.getString("magacin");
-			String magacin = rset.getString("NAZIV_MAGACINA");
-			String datum = rset.getString("DATUM_OTPREMNICE");
-			String transport = rset.getString("TRANSPORT");
+			String sifra_otpremnice = rset.getString("SIFRA_OTPREMNICE");			
+			String sifraM = rset.getString("sifraMagacina");
+			String nazivM = rset.getString("NAZIV_MAGACINA");
+			String sifraF = rset.getString("sifraFakture");
+			String datum = rset.getString("DATUM_FAKTURE");
+			String transport = rset.getString("TRANSPORT_FAKTURE");
 			String poslata = rset.getString("POSLATA_OTPREMNICA");
 
-			addRow(new String[] { sifra_otpremnice, korisnik, sifraM, magacin,
-					datum, transport, poslata });
+			addRow(new String[] { sifra_otpremnice, sifraM, nazivM,
+					sifraF, datum, transport, poslata });
 		}
 		rset.close();
 		stmt.close();
@@ -149,13 +147,11 @@ public class OtpremnicaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO otpremnica (sifra_otpremnice, otpremnica.korisnicko_ime, otpremnica.sifra_magacina, datum_otpremnice, transport, poslata_otpremnica) VALUES (?, ?, ?, ?, ?, ?)");
+						"INSERT INTO otpremnica (sifra_otpremnice, otpremnica.sifra_magacina, otpremnica.sifra_fakture, poslata_otpremnica) VALUES (?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
-		stmt.setString(3, params[2]);
-		stmt.setString(4, params[4]);
-		stmt.setString(5, params[5]);
-		stmt.setString(6, params[6]);
+		stmt.setString(3, params[3]);
+		stmt.setString(4, params[6]);		
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -179,21 +175,16 @@ public class OtpremnicaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE otpremnica SET korisnicko_ime = ?, sifra_magacina = ?, datum_otpremnice = ?, transport = ? WHERE sifra_otpremnice = ?");
+						"UPDATE otpremnica SET sifra_magacina = ?, sifra_fakture = ? WHERE sifra_otpremnice = ?");
 
 		stmt.setString(1, params[0]);
-		stmt.setString(2, params[1]);
-		stmt.setString(3, params[3]);
-		stmt.setString(4, params[4]);
-		stmt.setString(5, sifra_otpremnice);
+		stmt.setString(2, params[1]);		
+		stmt.setString(3, sifra_otpremnice);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
 		setValueAt(params[0], index, 1);
-		setValueAt(params[1], index, 2);
-		setValueAt(params[2], index, 3);
-		setValueAt(params[3], index, 4);
-		setValueAt(params[4], index, 5);
+		setValueAt(params[1], index, 3);		
 		fireTableDataChanged();
 	}
 

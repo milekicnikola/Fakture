@@ -60,6 +60,8 @@ public abstract class StandardDialog extends JDialog {
 	public void initGUI() {
 
 		table = new JTable();
+		
+		table.getTableHeader().setReorderingAllowed(false);
 
 		table.setModel(tableModel);
 
@@ -355,7 +357,7 @@ public abstract class StandardDialog extends JDialog {
 	public String getZoom4() {
 		return zoom4;
 	}
-	
+
 	public String getZoom5() {
 		return zoom5;
 	}

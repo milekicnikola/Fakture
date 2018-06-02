@@ -18,7 +18,7 @@ public class FakturaTableModel extends StandardTableModel {
 
 	public FakturaTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT sifra_fakture, datum_fakture, faktura.korisnicko_ime as korisnickoIme, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura FROM faktura JOIN korisnik ON faktura.korisnicko_ime = korisnik.korisnicko_ime";
+		basicQuery = "SELECT sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura FROM faktura";
 		orderBy = " ORDER BY sifra_fakture";
 	}
 
@@ -37,21 +37,15 @@ public class FakturaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_fakture = "", datum = "", ime = "", paritet = "", bruto = "", neto = "", ukupno = "", poslata = "";
+		String sifra_fakture = "", datum = "", paritet = "", tezina = "", transport = "", poslata = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
 			sifra_fakture = rset.getString("SIFRA_FAKTURE").trim();
-			datum = rset.getString("DATUM_FAKTURE").trim();
-			/*
-			 * sifraK = rset.getString("sifraKupca").trim(); nazivK =
-			 * rset.getString("NAZIV_KUPCA").trim();
-			 */
-			ime = rset.getString("korisnickoIme").trim();
+			datum = rset.getString("DATUM_FAKTURE").trim();			
 			paritet = rset.getString("PARITET_FAKTURE");
-			bruto = rset.getString("BRUTO_FAKTURE");
-			neto = rset.getString("NETO_FAKTURE");
-			ukupno = rset.getString("UKUPNO_KOMADA_ROBE");
+			tezina = rset.getString("UKUPNA_TEZINA");
+			transport = rset.getString("TRANSPORT_FAKTURE");			
 			poslata = rset.getString("POSLATA_FAKTURA");
 			postoji = true;
 		}
@@ -63,27 +57,21 @@ public class FakturaTableModel extends StandardTableModel {
 				((String) getValueAt(index, 0)).trim()) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(datum,
 						(String) getValueAt(index, 1)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(ime,
-						(String) getValueAt(index, 2)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(paritet,
+						(String) getValueAt(index, 2)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(tezina,
 						(String) getValueAt(index, 3)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(bruto,
-						(String) getValueAt(index, 4)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(neto,
-						(String) getValueAt(index, 5)) != 0)
-				|| (SortUtils.getLatCyrCollator().compare(ukupno,
-						(String) getValueAt(index, 6)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(transport,
+						(String) getValueAt(index, 4)) != 0)				
 				|| (SortUtils.getLatCyrCollator().compare(poslata,
-						(String) getValueAt(index, 7)) != 0)) {
+						(String) getValueAt(index, 5)) != 0)) {
 
 			setValueAt(sifra_fakture, index, 0);
-			setValueAt(datum, index, 1);
-			setValueAt(ime, index, 2);
-			setValueAt(paritet, index, 3);
-			setValueAt(bruto, index, 4);
-			setValueAt(neto, index, 5);
-			setValueAt(ukupno, index, 6);
-			setValueAt(poslata, index, 7);
+			setValueAt(datum, index, 1);			
+			setValueAt(paritet, index, 2);
+			setValueAt(tezina, index, 3);
+			setValueAt(transport, index, 4);			
+			setValueAt(poslata, index, 5);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -100,13 +88,11 @@ public class FakturaTableModel extends StandardTableModel {
 	@Override
 	public void search(String[] params) throws SQLException {
 		whereStmt = " WHERE sifra_fakture LIKE '%" + params[0] + "%' AND "
-				+ "datum_fakture LIKE '%" + params[1] + "%' AND "
-				+ "faktura.korisnicko_ime LIKE '%" + params[2] + "%' AND "
-				+ "paritet_fakture LIKE '%" + params[3] + "%' AND "
-				+ "bruto_fakture LIKE '%" + params[4] + "%' AND "
-				+ "neto_fakture LIKE '%" + params[5] + "%' AND "
-				+ "ukupno_komada_robe LIKE '%" + params[6] + "%' AND "
-				+ "poslata_faktura LIKE '%" + params[7] + "%'";
+				+ "datum_fakture LIKE '%" + params[1] + "%' AND "				
+				+ "paritet_fakture LIKE '%" + params[2] + "%' AND "
+				+ "ukupna_tezina LIKE '%" + params[3] + "%' AND "
+				+ "transport_fakture LIKE '%" + params[4] + "%' AND "				
+				+ "poslata_faktura LIKE '%" + params[5] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}
@@ -118,20 +104,14 @@ public class FakturaTableModel extends StandardTableModel {
 		ResultSet rset = stmt.executeQuery(sql);
 		while (rset.next()) {
 			String sifra_fakture = rset.getString("SIFRA_FAKTURE");
-			String datum = rset.getString("DATUM_FAKTURE");
-			/*
-			 * String sifraK = rset.getString("sifraKupca"); String nazivK =
-			 * rset.getString("NAZIV_KUPCA");
-			 */
-			String ime = rset.getString("korisnickoIme");
+			String datum = rset.getString("DATUM_FAKTURE");			
 			String paritet = rset.getString("PARITET_FAKTURE");
-			String bruto = rset.getString("BRUTO_FAKTURE");
-			String neto = rset.getString("NETO_FAKTURE");
-			String ukupno = rset.getString("UKUPNO_KOMADA_ROBE");
+			String tezina = rset.getString("UKUPNA_TEZINA");
+			String transport = rset.getString("TRANSPORT_FAKTURE");			
 			String poslata = rset.getString("POSLATA_FAKTURA");
 
-			addRow(new String[] { sifra_fakture, datum, ime, paritet, bruto,
-					neto, ukupno, poslata });
+			addRow(new String[] { sifra_fakture, datum, paritet,
+					tezina, transport, poslata });
 		}
 		rset.close();
 		stmt.close();
@@ -164,15 +144,13 @@ public class FakturaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO faktura (sifra_fakture, datum_fakture, faktura.korisnicko_ime, paritet_fakture, bruto_fakture, neto_fakture, ukupno_komada_robe, poslata_faktura) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+						"INSERT INTO faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) VALUES (?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
 		stmt.setString(4, params[3]);
 		stmt.setString(5, params[4]);
-		stmt.setString(6, params[5]);
-		stmt.setString(7, params[6]);
-		stmt.setString(8, params[7]);		
+		stmt.setString(6, params[5]);				
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -196,25 +174,18 @@ public class FakturaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE faktura SET datum_fakture = ?, korisnicko_ime = ?, paritet_fakture = ?, bruto_fakture = ?, neto_fakture = ?, ukupno_komada_robe = ? WHERE sifra_fakture = ?");
+						"UPDATE faktura SET datum_fakture = ?, paritet_fakture = ?, transport_fakture = ?  WHERE sifra_fakture = ?");
 
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
-		stmt.setString(3, params[2]);
-		stmt.setString(4, params[3]);
-		stmt.setString(5, params[4]);
-		stmt.setString(6, params[5]);
-		stmt.setString(7, sifra_fakture);
+		stmt.setString(3, params[2]);		
+		stmt.setString(4, sifra_fakture);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();
 		setValueAt(params[0], index, 1);
 		setValueAt(params[1], index, 2);
-		setValueAt(params[2], index, 3);
-		setValueAt(params[3], index, 4);
-		setValueAt(params[4], index, 5);
-		setValueAt(params[5], index, 6);
-		setValueAt(params[6], index, 7);
+		setValueAt(params[2], index, 4);		
 		fireTableDataChanged();
 	}
 

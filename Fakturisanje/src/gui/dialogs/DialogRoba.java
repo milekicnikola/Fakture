@@ -120,19 +120,26 @@ public class DialogRoba extends StandardDialog {
 
 			((RobaPanel) panel).getCmbJedinicaMere().addActionListener(
 					new ActionListener() {
-						public void actionPerformed(ActionEvent e) {							
-							if (!statusBar.getStatusState().getText().equals("POGLED") && !statusBar.getStatusState().getText().equals("PRETRAGA")) {
+						public void actionPerformed(ActionEvent e) {
+							if (!statusBar.getStatusState().getText()
+									.equals("POGLED")
+									&& !statusBar.getStatusState().getText()
+											.equals("PRETRAGA")) {
 								if (((RobaPanel) panel).getCmbJedinicaMere()
 										.getSelectedItem() == "komad"
 										|| ((RobaPanel) panel)
 												.getCmbJedinicaMere()
 												.getSelectedItem() == "metar") {
-									((RobaPanel) panel).getTxtKomada().setText("1");
-									((RobaPanel) panel).getTxtKomada().setEditable(false);
-								} else if (((RobaPanel) panel).getCmbJedinicaMere()
-										.getSelectedItem() == "set") {
-									((RobaPanel) panel).getTxtKomada().setEditable(true);
-									((RobaPanel) panel).getTxtKomada().setText("1");
+									((RobaPanel) panel).getTxtKomada().setText(
+											"1");
+									((RobaPanel) panel).getTxtKomada()
+											.setEditable(false);
+								} else if (((RobaPanel) panel)
+										.getCmbJedinicaMere().getSelectedItem() == "set") {
+									((RobaPanel) panel).getTxtKomada()
+											.setEditable(true);
+									((RobaPanel) panel).getTxtKomada().setText(
+											"1");
 
 								}
 							}
@@ -161,45 +168,50 @@ public class DialogRoba extends StandardDialog {
 			toolbar.getBtnDelete().setEnabled(false);
 			return;
 		}
-		String sifra = (String) tableModel.getValueAt(index, 0);
-		String interna = (String) tableModel.getValueAt(index, 1);
-		String naziv = (String) tableModel.getValueAt(index, 2);
-		String interni = (String) tableModel.getValueAt(index, 3);
-		String jedinica = (String) tableModel.getValueAt(index, 4);
-		String komada = (String) tableModel.getValueAt(index, 5);
-		String prevod = (String) tableModel.getValueAt(index, 6);
-		String tezina = (String) tableModel.getValueAt(index, 7);
-		String roni = (String) tableModel.getValueAt(index, 8);
 
-		((RobaPanel) panel).getTxtSifra().setText(sifra);
-		((RobaPanel) panel).getTxtInterna().setText(interna);
-		((RobaPanel) panel).getTxtNaziv().setText(naziv);
-		((RobaPanel) panel).getTxtInterni().setText(interni);
+		if (index <= (table.getModel().getRowCount() - 1)) {
 
-		if (jedinica.equals("komad"))
-			((RobaPanel) panel).getCmbJedinicaMere().setSelectedIndex(0);
-		else if (jedinica.equals("set"))
-			((RobaPanel) panel).getCmbJedinicaMere().setSelectedIndex(1);
-		else if (jedinica.equals("metar"))
-			((RobaPanel) panel).getCmbJedinicaMere().setSelectedIndex(2);
+			String sifra = (String) tableModel.getValueAt(index, 0);
+			String interna = (String) tableModel.getValueAt(index, 1);
+			String naziv = (String) tableModel.getValueAt(index, 2);
+			String interni = (String) tableModel.getValueAt(index, 3);
+			String jedinica = (String) tableModel.getValueAt(index, 4);
+			String komada = (String) tableModel.getValueAt(index, 5);
+			String prevod = (String) tableModel.getValueAt(index, 6);
+			String tezina = (String) tableModel.getValueAt(index, 7);
+			String roni = (String) tableModel.getValueAt(index, 8);
 
-		((RobaPanel) panel).getTxtKomada().setText(komada);
+			((RobaPanel) panel).getTxtSifra().setText(sifra);
+			((RobaPanel) panel).getTxtInterna().setText(interna);
+			((RobaPanel) panel).getTxtNaziv().setText(naziv);
+			((RobaPanel) panel).getTxtInterni().setText(interni);
 
-		if (prevod.equals("el. constructi metalice bucati"))
-			((RobaPanel) panel).getCmbPrevod().setSelectedIndex(0);
-		else if (prevod.equals("el. constructi metalice in metri"))
-			((RobaPanel) panel).getCmbPrevod().setSelectedIndex(1);
-		else if (prevod.equals("el. constructi metalice seturi"))
-			((RobaPanel) panel).getCmbPrevod().setSelectedIndex(2);
-		else if (prevod.equals("cuti carton"))
-			((RobaPanel) panel).getCmbPrevod().setSelectedIndex(3);
-		else if (prevod.equals("separator carton"))
-			((RobaPanel) panel).getCmbPrevod().setSelectedIndex(4);
-		else if (prevod.equals("coltar carton"))
-			((RobaPanel) panel).getCmbPrevod().setSelectedIndex(5);
+			if (jedinica.equals("komad"))
+				((RobaPanel) panel).getCmbJedinicaMere().setSelectedIndex(0);
+			else if (jedinica.equals("set"))
+				((RobaPanel) panel).getCmbJedinicaMere().setSelectedIndex(1);
+			else if (jedinica.equals("metar"))
+				((RobaPanel) panel).getCmbJedinicaMere().setSelectedIndex(2);
 
-		((RobaPanel) panel).getTxtTezina().setText(tezina);
-		((RobaPanel) panel).getTxtRoni().setText(roni);
+			((RobaPanel) panel).getTxtKomada().setText(komada);
+
+			if (prevod.equals("el. constructi metalice bucati"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(0);
+			else if (prevod.equals("el. constructi metalice in metri"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(1);
+			else if (prevod.equals("el. constructi metalice seturi"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(2);
+			else if (prevod.equals("cuti carton"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(3);
+			else if (prevod.equals("separator carton"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(4);
+			else if (prevod.equals("coltar carton"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(5);
+
+			((RobaPanel) panel).getTxtTezina().setText(tezina);
+			((RobaPanel) panel).getTxtRoni().setText(roni);
+
+		}
 
 	}
 
@@ -220,7 +232,7 @@ public class DialogRoba extends StandardDialog {
 		} else if (state == State.AZURIRANJE) {
 			btnEnable();
 			allEnable();
-			((RobaPanel) panel).getTxtSifra().setEditable(false);			
+			((RobaPanel) panel).getTxtSifra().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
@@ -546,11 +558,13 @@ public class DialogRoba extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o robi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o robi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

@@ -40,8 +40,7 @@ create table faktura
    sifra_fakture        varchar(20) not null,
    datum_fakture        date not null,
    paritet_fakture      varchar(25),
-   ukupna_tezina        decimal(10,2),
-   neto_fakture         decimal(10,2),
+   ukupna_tezina        decimal(10,2),   
    transport_fakture	varchar(30),
    poslata_faktura      varchar(3),
    primary key (sifra_fakture)

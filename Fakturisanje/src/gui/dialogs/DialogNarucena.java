@@ -50,7 +50,7 @@ public class DialogNarucena extends StandardDialog {
 		String whereStm = "";
 
 		if (zoom) {
-			isZoom = true;			
+			isZoom = true;
 		}
 
 		if (!isZoom) {
@@ -76,8 +76,8 @@ public class DialogNarucena extends StandardDialog {
 		initGUI();
 		initStandardActions();
 		initActions();
-		
-		if(!isZoom)
+
+		if (!isZoom)
 			addIzvestaj();
 
 	}
@@ -150,8 +150,8 @@ public class DialogNarucena extends StandardDialog {
 					updateStateAndTextFields(State.POGLED);
 
 				}
-			});			
-			
+			});
+
 			((NarucenaPanel) panel).getBtnRoba().addActionListener(
 					new ActionListener() {
 
@@ -177,7 +177,7 @@ public class DialogNarucena extends StandardDialog {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
-			toolbar.getBtnSearch().setEnabled(false);
+			//toolbar.getBtnSearch().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 				@Override
@@ -197,34 +197,37 @@ public class DialogNarucena extends StandardDialog {
 			return;
 		}
 		// toolbar.getBtnDetaljno().setEnabled(true);
+		
+		if (index <= (table.getModel().getRowCount() - 1)) {
 
-		String sifraP = (String) tableModel.getValueAt(index, 0);
-		String sifraR = (String) tableModel.getValueAt(index, 1);
-		String nazivR = (String) tableModel.getValueAt(index, 2);
-		String datum = (String) tableModel.getValueAt(index, 3);
-		String naruceno = (String) tableModel.getValueAt(index, 4);
-		String poslato = (String) tableModel.getValueAt(index, 5);
-		String ostalo = (String) tableModel.getValueAt(index, 6);
-		String ko = (String) tableModel.getValueAt(index, 7);
+			String sifraP = (String) tableModel.getValueAt(index, 0);
+			String sifraR = (String) tableModel.getValueAt(index, 1);
+			String nazivR = (String) tableModel.getValueAt(index, 2);
+			String datum = (String) tableModel.getValueAt(index, 3);
+			String naruceno = (String) tableModel.getValueAt(index, 4);
+			String poslato = (String) tableModel.getValueAt(index, 5);
+			String ostalo = (String) tableModel.getValueAt(index, 6);
+			String ko = (String) tableModel.getValueAt(index, 7);
 
-		((NarucenaPanel) panel).getTxtSifraP().setText(sifraP);
-		((NarucenaPanel) panel).getTxtSifraR().setText(sifraR);
-		((NarucenaPanel) panel).getTxtNazivR().setText(nazivR);
-		((NarucenaPanel) panel).getTxtNaruceno().setText(naruceno);
-		((NarucenaPanel) panel).getTxtPoslato().setText(poslato);
-		((NarucenaPanel) panel).getTxtOstalo().setText(ostalo);
-		((NarucenaPanel) panel).getTxtKo().setText(ko);
+			((NarucenaPanel) panel).getTxtSifraP().setText(sifraP);
+			((NarucenaPanel) panel).getTxtSifraR().setText(sifraR);
+			((NarucenaPanel) panel).getTxtNazivR().setText(nazivR);
+			((NarucenaPanel) panel).getTxtNaruceno().setText(naruceno);
+			((NarucenaPanel) panel).getTxtPoslato().setText(poslato);
+			((NarucenaPanel) panel).getTxtOstalo().setText(ostalo);
+			((NarucenaPanel) panel).getTxtKo().setText(ko);
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
-		try {
-			date = sdf.parse(datum);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = sdf.parse(datum);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			((NarucenaPanel) panel).getTxtDatum().setDate(date);
 		}
-
-		((NarucenaPanel) panel).getTxtDatum().setDate(date);
 
 	}
 
@@ -254,6 +257,13 @@ public class DialogNarucena extends StandardDialog {
 			clearAll();
 			btnEnable();
 			allEnable();
+			
+			if ((state == State.PRETRAGA) && isZoom) {
+				((NarucenaPanel) panel).getTxtSifraP().setEditable(true);
+				((NarucenaPanel) panel).getTxtSifraR().setEditable(true);
+			}
+				
+				
 			((NarucenaPanel) panel).getTxtNaruceno().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -266,6 +276,7 @@ public class DialogNarucena extends StandardDialog {
 
 		String sifraP = ((NarucenaPanel) panel).getTxtSifraP().getText().trim();
 		String sifraR = ((NarucenaPanel) panel).getTxtSifraR().getText().trim();
+		String korisnik = MainFrame.getInstance().getKorisnik();
 		String nazivR = ((NarucenaPanel) panel).getTxtNazivR().getText().trim();
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText()
 				.trim();
@@ -278,8 +289,8 @@ public class DialogNarucena extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraP, sifraR, nazivR, datum, naruceno, poslato,
-				ostalo, ko };
+		String[] params = { sifraP, sifraR, korisnik, nazivR, datum, naruceno,
+				poslato, ostalo, ko };
 
 		try {
 			NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
@@ -397,7 +408,7 @@ public class DialogNarucena extends StandardDialog {
 		if (!isZoom)
 			((NarucenaPanel) panel).getBtnRoba().setEnabled(true);
 	}
-	
+
 	public void addIzvestaj() {
 
 		JButton btnIzvestaj = new JButton("Napravi izveštaj");
@@ -441,7 +452,7 @@ public class DialogNarucena extends StandardDialog {
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		
+
 		parameters.put("sifraPorudzbine", porudzbina);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
@@ -467,12 +478,14 @@ public class DialogNarucena extends StandardDialog {
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();	
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o porudzbini je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+		exporter.exportReport();
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o porudzbini je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

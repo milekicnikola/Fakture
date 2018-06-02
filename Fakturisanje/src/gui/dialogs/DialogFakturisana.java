@@ -270,39 +270,43 @@ public class DialogFakturisana extends StandardDialog {
 		}
 		// toolbar.getBtnDetaljno().setEnabled(true);
 
-		String sifraF = (String) tableModel.getValueAt(index, 0);
-		String sifraR = (String) tableModel.getValueAt(index, 1);
-		String nazivR = (String) tableModel.getValueAt(index, 2);
-		String mera = (String) tableModel.getValueAt(index, 3);
-		String sifraP = (String) tableModel.getValueAt(index, 4);
-		String datum = (String) tableModel.getValueAt(index, 5);
-		String naruceno = (String) tableModel.getValueAt(index, 6);
-		String komada = (String) tableModel.getValueAt(index, 7);
-		String opis = (String) tableModel.getValueAt(index, 8);
-		String metri = (String) tableModel.getValueAt(index, 9);
-		String status = (String) tableModel.getValueAt(index, 10);
+		if (index <= (table.getModel().getRowCount() - 1)) {
 
-		((FakturisanaPanel) panel).getTxtSifraF().setText(sifraF);
-		((FakturisanaPanel) panel).getTxtSifraP().setText(sifraP);
-		((FakturisanaPanel) panel).getTxtSifraR().setText(sifraR);
-		((FakturisanaPanel) panel).getTxtNazivR().setText(nazivR);
-		((FakturisanaPanel) panel).getTxtMera().setText(mera);
-		((FakturisanaPanel) panel).getTxtNaruceno().setText(naruceno);
-		((FakturisanaPanel) panel).getTxtKomada().setText(komada);
-		((FakturisanaPanel) panel).getTaOpis().setText(opis);
-		((FakturisanaPanel) panel).getTxtMetri().setText(metri);
-		((FakturisanaPanel) panel).getTxtStatus().setText(status);
+			String sifraF = (String) tableModel.getValueAt(index, 0);
+			String sifraR = (String) tableModel.getValueAt(index, 1);
+			String nazivR = (String) tableModel.getValueAt(index, 2);
+			String mera = (String) tableModel.getValueAt(index, 3);
+			String sifraP = (String) tableModel.getValueAt(index, 4);
+			String datum = (String) tableModel.getValueAt(index, 5);
+			String naruceno = (String) tableModel.getValueAt(index, 6);
+			String komada = (String) tableModel.getValueAt(index, 7);
+			String opis = (String) tableModel.getValueAt(index, 8);
+			String metri = (String) tableModel.getValueAt(index, 9);
+			String status = (String) tableModel.getValueAt(index, 10);
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
-		try {
-			date = sdf.parse(datum);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			((FakturisanaPanel) panel).getTxtSifraF().setText(sifraF);
+			((FakturisanaPanel) panel).getTxtSifraP().setText(sifraP);
+			((FakturisanaPanel) panel).getTxtSifraR().setText(sifraR);
+			((FakturisanaPanel) panel).getTxtNazivR().setText(nazivR);
+			((FakturisanaPanel) panel).getTxtMera().setText(mera);
+			((FakturisanaPanel) panel).getTxtNaruceno().setText(naruceno);
+			((FakturisanaPanel) panel).getTxtKomada().setText(komada);
+			((FakturisanaPanel) panel).getTaOpis().setText(opis);
+			((FakturisanaPanel) panel).getTxtMetri().setText(metri);
+			((FakturisanaPanel) panel).getTxtStatus().setText(status);
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = sdf.parse(datum);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			((FakturisanaPanel) panel).getTxtDatum().setDate(date);
+
 		}
-
-		((FakturisanaPanel) panel).getTxtDatum().setDate(date);
 
 	}
 
@@ -695,11 +699,13 @@ public class DialogFakturisana extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
@@ -747,11 +753,13 @@ public class DialogFakturisana extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o fakturi sa prevodom je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o fakturi sa prevodom je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

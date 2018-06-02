@@ -53,8 +53,8 @@ public class DialogKurs extends StandardDialog {
 
 		initGUI();
 		initStandardActions();
-		initActions();		
-		
+		initActions();
+
 		addIzvestaj();
 	}
 
@@ -114,7 +114,7 @@ public class DialogKurs extends StandardDialog {
 					updateStateAndTextFields(State.POGLED);
 
 				}
-			});			
+			});
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
@@ -136,22 +136,26 @@ public class DialogKurs extends StandardDialog {
 			clearAll();
 			return;
 		}
-		String datum = (String) tableModel.getValueAt(index, 0);
-		String kurs = (String) tableModel.getValueAt(index, 1);		
 
-		((KursPanel) panel).getTxtKurs().setText(kurs);
-		
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;		
-		try {
-			date = sdf.parse(datum);			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (index <= (table.getModel().getRowCount() - 1)) {
+
+			String datum = (String) tableModel.getValueAt(index, 0);
+			String kurs = (String) tableModel.getValueAt(index, 1);
+
+			((KursPanel) panel).getTxtKurs().setText(kurs);
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = sdf.parse(datum);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			((KursPanel) panel).getTxtDatum().setDate(date);
+
 		}
-		
-		((KursPanel) panel).getTxtDatum().setDate(date);
 
 	}
 
@@ -195,7 +199,7 @@ public class DialogKurs extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 
 		}
-		String kurs = ((KursPanel) panel).getTxtKurs().getText().trim();		
+		String kurs = ((KursPanel) panel).getTxtKurs().getText().trim();
 
 		String[] params = { datum, kurs };
 
@@ -217,7 +221,7 @@ public class DialogKurs extends StandardDialog {
 		if (i == -1)
 			return;
 
-		String kurs = ((KursPanel) panel).getTxtKurs().getText().trim();		
+		String kurs = ((KursPanel) panel).getTxtKurs().getText().trim();
 
 		String[] params = { kurs };
 		int index = table.getSelectedRow();
@@ -241,7 +245,6 @@ public class DialogKurs extends StandardDialog {
 
 		}
 		String kurs = ((KursPanel) panel).getTxtKurs().getText().trim();
-		
 
 		String[] params = { datum, kurs };
 
@@ -267,19 +270,19 @@ public class DialogKurs extends StandardDialog {
 		((KursPanel) panel).getBtnConfirm().setEnabled(true);
 		((KursPanel) panel).getBtnCancel().setEnabled(true);
 		((KursPanel) panel).getTxtDatum().setEnabled(true);
-		((KursPanel) panel).getTxtKurs().setEditable(true);		
+		((KursPanel) panel).getTxtKurs().setEditable(true);
 	}
 
 	public void clearAll() {
 		((KursPanel) panel).getTxtDatum().setCalendar(null);
-		((KursPanel) panel).getTxtKurs().setText("");		
+		((KursPanel) panel).getTxtKurs().setText("");
 	}
 
 	public void btnEnable() {
 		((KursPanel) panel).getBtnConfirm().setEnabled(true);
 		((KursPanel) panel).getBtnCancel().setEnabled(true);
 	}
-	
+
 	public void addIzvestaj() {
 
 		JButton btnIzvestaj = new JButton("Napravi izveštaj");
@@ -347,12 +350,14 @@ public class DialogKurs extends StandardDialog {
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();		
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o kursnoj listi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+		exporter.exportReport();
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o kursnoj listi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

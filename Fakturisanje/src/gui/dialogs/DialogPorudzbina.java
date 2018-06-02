@@ -28,20 +28,21 @@ public class DialogPorudzbina extends StandardDialog {
 		setTitle("Porudzbina");
 		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
 
-		tableModel = new PorudzbinaTableModel(new String[] { "Šifra porudzbine", "Šifra magacina",
-				"Naziv magacina", "Korisnik", "PIB kupca", "Naziv kupca", "Datum" }, 0);
+		tableModel = new PorudzbinaTableModel(new String[] {
+				"Šifra porudzbine", "Šifra magacina", "Naziv magacina",
+				"PIB kupca", "Naziv kupca", "Datum" }, 0);
 
 		panel = new PorudzbinaPanel();
 
 		if (zoom)
-			isZoom = true;		
+			isZoom = true;
 
 		initGUI();
 		initStandardActions();
 		initActions();
-		
-		addDetaljno();	
-		
+
+		addDetaljno();
+
 	}
 
 	@Override
@@ -66,8 +67,8 @@ public class DialogPorudzbina extends StandardDialog {
 						}
 					} else {
 						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna porudzbina nije selektovana.", "Upozorenje",
-								JOptionPane.PLAIN_MESSAGE,
+								"Nijedna porudzbina nije selektovana.",
+								"Upozorenje", JOptionPane.PLAIN_MESSAGE,
 								JOptionPane.WARNING_MESSAGE);
 					}
 				}
@@ -82,13 +83,13 @@ public class DialogPorudzbina extends StandardDialog {
 						updateStateAndTextFields(State.AZURIRANJE);
 					} else {
 						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna porudzbina nije selektovana.", "Upozorenje",
-								JOptionPane.PLAIN_MESSAGE,
+								"Nijedna porudzbina nije selektovana.",
+								"Upozorenje", JOptionPane.PLAIN_MESSAGE,
 								JOptionPane.WARNING_MESSAGE);
 					}
 
 				}
-			});			
+			});
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 
@@ -136,7 +137,7 @@ public class DialogPorudzbina extends StandardDialog {
 											.setText(dialog.getZoom1());
 								if (!dialog.getZoom2().equals(""))
 									((PorudzbinaPanel) panel).getTxtNazivK()
-											.setText(dialog.getZoom2());								
+											.setText(dialog.getZoom2());
 							} catch (NullPointerException n) {
 							}
 						}
@@ -164,33 +165,36 @@ public class DialogPorudzbina extends StandardDialog {
 			toolbar.getBtnDetaljno().setEnabled(false);
 			return;
 		}
-		toolbar.getBtnDetaljno().setEnabled(true);
-		
-		String sifra = (String) tableModel.getValueAt(index, 0);
-		String sifraM = (String) tableModel.getValueAt(index, 1);
-		String nazivM = (String) tableModel.getValueAt(index, 2);
-		String ime = (String) tableModel.getValueAt(index, 3);
-		String sifraK = (String) tableModel.getValueAt(index, 4);
-		String nazivK = (String) tableModel.getValueAt(index, 5);
-		String datum = (String) tableModel.getValueAt(index, 6);
 
-		((PorudzbinaPanel) panel).getTxtSifra().setText(sifra);
-		((PorudzbinaPanel) panel).getTxtSifraM().setText(sifraM);
-		((PorudzbinaPanel) panel).getTxtNazivM().setText(nazivM);
-		((PorudzbinaPanel) panel).getTxtKorisnik().setText(ime);
-		((PorudzbinaPanel) panel).getTxtSifraK().setText(sifraK);
-		((PorudzbinaPanel) panel).getTxtNazivK().setText(nazivK);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;		
-		try {
-			date = sdf.parse(datum);			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (index <= (table.getModel().getRowCount() - 1)) {
+
+			toolbar.getBtnDetaljno().setEnabled(true);
+
+			String sifra = (String) tableModel.getValueAt(index, 0);
+			String sifraM = (String) tableModel.getValueAt(index, 1);
+			String nazivM = (String) tableModel.getValueAt(index, 2);
+			String sifraK = (String) tableModel.getValueAt(index, 3);
+			String nazivK = (String) tableModel.getValueAt(index, 4);
+			String datum = (String) tableModel.getValueAt(index, 5);
+
+			((PorudzbinaPanel) panel).getTxtSifra().setText(sifra);
+			((PorudzbinaPanel) panel).getTxtSifraM().setText(sifraM);
+			((PorudzbinaPanel) panel).getTxtNazivM().setText(nazivM);
+			((PorudzbinaPanel) panel).getTxtSifraK().setText(sifraK);
+			((PorudzbinaPanel) panel).getTxtNazivK().setText(nazivK);
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = sdf.parse(datum);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			((PorudzbinaPanel) panel).getTxtDatum().setDate(date);
+
 		}
-		
-		((PorudzbinaPanel) panel).getTxtDatum().setDate(date);
 
 	}
 
@@ -211,7 +215,7 @@ public class DialogPorudzbina extends StandardDialog {
 		} else if (state == State.AZURIRANJE) {
 			btnEnable();
 			allEnable();
-			((PorudzbinaPanel) panel).getTxtSifra().setEditable(false);	
+			((PorudzbinaPanel) panel).getTxtSifra().setEditable(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
@@ -219,14 +223,9 @@ public class DialogPorudzbina extends StandardDialog {
 			clearAll();
 			btnEnable();
 			allEnable();
-			
-			if (state == State.PRETRAGA)
-				((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(true);
-			else
-				((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(false);
-			
+
 			toolbar.getBtnDetaljno().setEnabled(false);
-			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();						
+			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
 		}
@@ -237,18 +236,21 @@ public class DialogPorudzbina extends StandardDialog {
 	public void addRow() {
 
 		String sifra = ((PorudzbinaPanel) panel).getTxtSifra().getText().trim();
-		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText().trim();
-		String nazivM = ((PorudzbinaPanel) panel).getTxtNazivM().getText().trim();
-		String ime = MainFrame.getInstance().getKorisnik();
-		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText().trim();		
-		String nazivK = ((PorudzbinaPanel) panel).getTxtNazivK().getText().trim();
+		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText()
+				.trim();
+		String nazivM = ((PorudzbinaPanel) panel).getTxtNazivM().getText()
+				.trim();
+		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText()
+				.trim();
+		String nazivK = ((PorudzbinaPanel) panel).getTxtNazivK().getText()
+				.trim();
 		Date datum1 = ((PorudzbinaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
-		}		
+		}
 
-		String[] params = { sifra, sifraM, nazivM, ime, sifraK, nazivK, datum };
+		String[] params = { sifra, sifraM, nazivM, sifraK, nazivK, datum };
 
 		try {
 			PorudzbinaTableModel ctm = (PorudzbinaTableModel) table.getModel();
@@ -268,18 +270,22 @@ public class DialogPorudzbina extends StandardDialog {
 		if (i == -1)
 			return;
 
-		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText().trim();
-		String nazivM = ((PorudzbinaPanel) panel).getTxtNazivM().getText().trim();
-		String ime = MainFrame.getInstance().getKorisnik();
-		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText().trim();
-		String nazivK = ((PorudzbinaPanel) panel).getTxtNazivK().getText().trim();
+		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText()
+				.trim();
+		String nazivM = ((PorudzbinaPanel) panel).getTxtNazivM().getText()
+				.trim();
+		// String ime = MainFrame.getInstance().getKorisnik();
+		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText()
+				.trim();
+		String nazivK = ((PorudzbinaPanel) panel).getTxtNazivK().getText()
+				.trim();
 		Date datum1 = ((PorudzbinaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
-		}			
+		}
 
-		String[] params = { sifraM, nazivM, ime, sifraK, nazivK, datum };
+		String[] params = { sifraM, nazivM, sifraK, nazivK, datum };
 		int index = table.getSelectedRow();
 		try {
 			PorudzbinaTableModel ctm = (PorudzbinaTableModel) table.getModel();
@@ -295,16 +301,17 @@ public class DialogPorudzbina extends StandardDialog {
 	@Override
 	public void search() {
 		String sifra = ((PorudzbinaPanel) panel).getTxtSifra().getText().trim();
-		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText().trim();		
-		String korisnik = ((PorudzbinaPanel) panel).getTxtKorisnik().getText().trim();
-		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText().trim();
+		String sifraM = ((PorudzbinaPanel) panel).getTxtSifraM().getText()
+				.trim();
+		String sifraK = ((PorudzbinaPanel) panel).getTxtSifraK().getText()
+				.trim();
 		Date datum1 = ((PorudzbinaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
-		}		
+		}
 
-		String[] params = { sifra, sifraM, korisnik, sifraK, datum };
+		String[] params = { sifra, sifraM, sifraK, datum };
 
 		try {
 			PorudzbinaTableModel ctm = (PorudzbinaTableModel) table.getModel();
@@ -325,7 +332,6 @@ public class DialogPorudzbina extends StandardDialog {
 		((PorudzbinaPanel) panel).getTxtNazivM().setEditable(false);
 		((PorudzbinaPanel) panel).getTxtSifraK().setEditable(false);
 		((PorudzbinaPanel) panel).getTxtNazivK().setEditable(false);
-		((PorudzbinaPanel) panel).getTxtKorisnik().setEditable(false);
 		((PorudzbinaPanel) panel).getTxtDatum().setEnabled(false);
 		((PorudzbinaPanel) panel).getBtnMagacin().setEnabled(false);
 		((PorudzbinaPanel) panel).getBtnKupac().setEnabled(false);
@@ -337,7 +343,7 @@ public class DialogPorudzbina extends StandardDialog {
 		((PorudzbinaPanel) panel).getBtnCancel().setEnabled(true);
 		((PorudzbinaPanel) panel).getTxtSifra().setEditable(true);
 		((PorudzbinaPanel) panel).getTxtDatum().setEnabled(true);
-		
+
 	}
 
 	public void clearAll() {
@@ -346,7 +352,6 @@ public class DialogPorudzbina extends StandardDialog {
 		((PorudzbinaPanel) panel).getTxtNazivM().setText("");
 		((PorudzbinaPanel) panel).getTxtSifraK().setText("");
 		((PorudzbinaPanel) panel).getTxtNazivK().setText("");
-		((PorudzbinaPanel) panel).getTxtKorisnik().setText("");	
 		((PorudzbinaPanel) panel).getTxtDatum().setCalendar(null);
 	}
 
@@ -356,31 +361,31 @@ public class DialogPorudzbina extends StandardDialog {
 		((PorudzbinaPanel) panel).getBtnMagacin().setEnabled(true);
 		((PorudzbinaPanel) panel).getBtnKupac().setEnabled(true);
 	}
-	
+
 	public void addDetaljno() {
-		
+
 		JButton btnDetaljno = new JButton("Detalji porudzbine");
 		btnDetaljno.setEnabled(false);
 		toolbar.dodajDetaljno(btnDetaljno);
-		
-		
+
 		toolbar.getBtnDetaljno().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (table.getSelectedRow() >= 0) {
-					String where = ((PorudzbinaPanel) panel).getTxtSifra().getText().trim();					
+					String where = ((PorudzbinaPanel) panel).getTxtSifra()
+							.getText().trim();
 					DialogNarucena dialog = new DialogNarucena(MainFrame
 							.getInstance(), false, where);
-					dialog.setVisible(true);						
+					dialog.setVisible(true);
 				} else {
 					JOptionPane.showConfirmDialog(getParent(),
-							"Nijedna porudzbina nije selektovana.", "Upozorenje",
-							JOptionPane.PLAIN_MESSAGE,
+							"Nijedna porudzbina nije selektovana.",
+							"Upozorenje", JOptionPane.PLAIN_MESSAGE,
 							JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
 	}
-	
+
 }

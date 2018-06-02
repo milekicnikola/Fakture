@@ -46,8 +46,8 @@ public class DialogFaktura extends StandardDialog {
 		setIconImage(new ImageIcon("Images/faktura.png").getImage());
 
 		tableModel = new FakturaTableModel(new String[] { "Šifra fakture",
-				"Datum fakture", "Korisnik", "Paritet", "Bruto", "Neto",
-				"Ukupno komada robe", "Poslata" }, 0);
+				"Datum fakture", "Paritet", "Ukupna težina", "Transport",
+				"Poslata" }, 0);
 
 		panel = new FakturaPanel();
 
@@ -58,10 +58,10 @@ public class DialogFaktura extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		addDetaljno();		
-		
-		if (!isZoom)
+		if (!isZoom) {
 			addIzvestaj();
+			addDetaljno();
+		}
 
 	}
 
@@ -140,8 +140,10 @@ public class DialogFaktura extends StandardDialog {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
-			toolbar.getBtnDetaljno().setEnabled(false);
-			toolbar.getBtnIzvestaj().setEnabled(false);
+			if (!isZoom) {
+				toolbar.getBtnDetaljno().setEnabled(false);
+				toolbar.getBtnIzvestaj().setEnabled(false);
+			}
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 				@Override
@@ -157,48 +159,46 @@ public class DialogFaktura extends StandardDialog {
 		int index = table.getSelectedRow();
 		if (index < 0) {
 			clearAll();
-			toolbar.getBtnDetaljno().setEnabled(false);
-			toolbar.getBtnIzvestaj().setEnabled(false);
+			if (!isZoom) {
+				toolbar.getBtnDetaljno().setEnabled(false);
+				toolbar.getBtnIzvestaj().setEnabled(false);
+			}
 			return;
 		}
-		toolbar.getBtnDetaljno().setEnabled(true);
-		toolbar.getBtnIzvestaj().setEnabled(true);
 
-		String sifra = (String) tableModel.getValueAt(index, 0);
-		String datum = (String) tableModel.getValueAt(index, 1);
-		/*
-		 * String sifraK = (String) tableModel.getValueAt(index, 2); String
-		 * nazivK = (String) tableModel.getValueAt(index, 3);
-		 */
-		String ime = (String) tableModel.getValueAt(index, 2);
-		String paritet = (String) tableModel.getValueAt(index, 3);
-		String bruto = (String) tableModel.getValueAt(index, 4);
-		String neto = (String) tableModel.getValueAt(index, 5);
-		String ukupno = (String) tableModel.getValueAt(index, 6);
-		String poslata = (String) tableModel.getValueAt(index, 7);
+		if (index <= (table.getModel().getRowCount() - 1)) {
 
-		((FakturaPanel) panel).getTxtSifra().setText(sifra);
-		/*
-		 * ((FakturaPanel) panel).getTxtSifraK().setText(sifraK);
-		 * ((FakturaPanel) panel).getTxtNazivK().setText(nazivK);
-		 */
-		((FakturaPanel) panel).getTxtKorisnik().setText(ime);
-		((FakturaPanel) panel).getTxtParitet().setText(paritet);
-		((FakturaPanel) panel).getTxtBruto().setText(bruto);
-		((FakturaPanel) panel).getTxtNeto().setText(neto);
-		((FakturaPanel) panel).getTxtUkupno().setText(ukupno);
-		((FakturaPanel) panel).getTxtPoslata().setText(poslata);
+			if (!isZoom) {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
-		try {
-			date = sdf.parse(datum);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				toolbar.getBtnDetaljno().setEnabled(true);
+				toolbar.getBtnIzvestaj().setEnabled(true);
+
+			}
+
+			String sifra = (String) tableModel.getValueAt(index, 0);
+			String datum = (String) tableModel.getValueAt(index, 1);
+			String paritet = (String) tableModel.getValueAt(index, 2);
+			String tezina = (String) tableModel.getValueAt(index, 3);
+			String transport = (String) tableModel.getValueAt(index, 4);
+			String poslata = (String) tableModel.getValueAt(index, 5);
+
+			((FakturaPanel) panel).getTxtSifra().setText(sifra);
+			((FakturaPanel) panel).getTxtParitet().setText(paritet);
+			((FakturaPanel) panel).getTxtTezina().setText(tezina);
+			((FakturaPanel) panel).getTxtTransport().setText(transport);
+			((FakturaPanel) panel).getTxtPoslata().setText(poslata);
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = null;
+			try {
+				date = sdf.parse(datum);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			((FakturaPanel) panel).getTxtDatum().setDate(date);
 		}
-
-		((FakturaPanel) panel).getTxtDatum().setDate(date);
 
 	}
 
@@ -220,8 +220,12 @@ public class DialogFaktura extends StandardDialog {
 			btnEnable();
 			allEnable();
 			((FakturaPanel) panel).getTxtSifra().setEditable(false);
-			toolbar.getBtnDetaljno().setEnabled(false);
-			toolbar.getBtnIzvestaj().setEnabled(false);
+
+			if (!isZoom) {
+				toolbar.getBtnDetaljno().setEnabled(false);
+				toolbar.getBtnIzvestaj().setEnabled(false);
+			}
+
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
@@ -231,14 +235,17 @@ public class DialogFaktura extends StandardDialog {
 
 			if (state == State.PRETRAGA) {
 				((FakturaPanel) panel).getTxtPoslata().setEditable(true);
-				((FakturaPanel) panel).getTxtKorisnik().setEditable(true);
+				((FakturaPanel) panel).getTxtTezina().setEditable(true);
 			} else {
 				((FakturaPanel) panel).getTxtPoslata().setEditable(false);
-				((FakturaPanel) panel).getTxtKorisnik().setEditable(false);
+				((FakturaPanel) panel).getTxtTezina().setEditable(false);
 			}
 
-			toolbar.getBtnDetaljno().setEnabled(false);
-			toolbar.getBtnIzvestaj().setEnabled(false);
+			if (!isZoom) {
+				toolbar.getBtnDetaljno().setEnabled(false);
+				toolbar.getBtnIzvestaj().setEnabled(false);
+			}
+			
 			((FakturaPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -255,19 +262,13 @@ public class DialogFaktura extends StandardDialog {
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
-		/*
-		 * String sifraK = ((FakturaPanel) panel).getTxtSifraK().getText()
-		 * .trim(); String nazivK = ((FakturaPanel)
-		 * panel).getTxtNazivK().getText() .trim();
-		 */
-		String ime = MainFrame.getInstance().getKorisnik();
+
 		String paritet = ((FakturaPanel) panel).getTxtParitet().getText()
 				.trim();
-		String bruto = ((FakturaPanel) panel).getTxtBruto().getText().trim();
-		String neto = ((FakturaPanel) panel).getTxtNeto().getText().trim();
-		String ukupno = ((FakturaPanel) panel).getTxtUkupno().getText().trim();
+		String transport = ((FakturaPanel) panel).getTxtTransport().getText()
+				.trim();
 
-		String[] params = { sifra, datum, ime, paritet, bruto, neto, ukupno, "ne" };
+		String[] params = { sifra, datum, paritet, "0", transport, "ne" };
 
 		try {
 			FakturaTableModel ctm = (FakturaTableModel) table.getModel();
@@ -293,20 +294,12 @@ public class DialogFaktura extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		/*
-		 * String sifraK = ((FakturaPanel) panel).getTxtSifraK().getText()
-		 * .trim(); String nazivK = ((FakturaPanel)
-		 * panel).getTxtNazivK().getText() .trim();
-		 */
-		String ime = MainFrame.getInstance().getKorisnik();
 		String paritet = ((FakturaPanel) panel).getTxtParitet().getText()
 				.trim();
-		String bruto = ((FakturaPanel) panel).getTxtBruto().getText().trim();
-		String neto = ((FakturaPanel) panel).getTxtNeto().getText().trim();
-		String ukupno = ((FakturaPanel) panel).getTxtUkupno().getText().trim();
-		String poslata = ((FakturaPanel) panel).getTxtPoslata().getText().trim();
+		String transport = ((FakturaPanel) panel).getTxtTransport().getText()
+				.trim();
 
-		String[] params = { datum, ime, paritet, bruto, neto, ukupno, poslata };
+		String[] params = { datum, paritet, transport };
 		int index = table.getSelectedRow();
 		try {
 			FakturaTableModel ctm = (FakturaTableModel) table.getModel();
@@ -322,25 +315,20 @@ public class DialogFaktura extends StandardDialog {
 	@Override
 	public void search() {
 		String sifra = ((FakturaPanel) panel).getTxtSifra().getText().trim();
-		String korisnik = ((FakturaPanel) panel).getTxtKorisnik().getText().trim();
 		Date datum1 = ((FakturaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
-		/*
-		 * String sifraK = ((FakturaPanel) panel).getTxtSifraK().getText()
-		 * .trim();
-		 */
 		String paritet = ((FakturaPanel) panel).getTxtParitet().getText()
 				.trim();
-		String bruto = ((FakturaPanel) panel).getTxtBruto().getText().trim();
-		String neto = ((FakturaPanel) panel).getTxtNeto().getText().trim();
-		String ukupno = ((FakturaPanel) panel).getTxtUkupno().getText().trim();
+		String tezina = ((FakturaPanel) panel).getTxtTezina().getText().trim();
+		String transport = ((FakturaPanel) panel).getTxtTransport().getText()
+				.trim();
 		String poslata = ((FakturaPanel) panel).getTxtPoslata().getText()
 				.trim();
 
-		String[] params = { sifra, datum, korisnik, paritet, bruto, neto, ukupno, poslata };
+		String[] params = { sifra, datum, paritet, tezina, transport, poslata };
 
 		try {
 			FakturaTableModel ctm = (FakturaTableModel) table.getModel();
@@ -358,17 +346,11 @@ public class DialogFaktura extends StandardDialog {
 		((FakturaPanel) panel).getBtnCancel().setEnabled(false);
 		((FakturaPanel) panel).getTxtSifra().setEditable(false);
 		((FakturaPanel) panel).getTxtDatum().setEnabled(false);
-		/*
-		 * ((FakturaPanel) panel).getTxtSifraK().setEditable(false);
-		 * ((FakturaPanel) panel).getTxtNazivK().setEditable(false);
-		 */
-		((FakturaPanel) panel).getTxtKorisnik().setEditable(false);
 		((FakturaPanel) panel).getTxtParitet().setEditable(false);
-		((FakturaPanel) panel).getTxtBruto().setEditable(false);
-		((FakturaPanel) panel).getTxtNeto().setEditable(false);
-		((FakturaPanel) panel).getTxtUkupno().setEditable(false);
+		((FakturaPanel) panel).getTxtTezina().setEditable(false);
+		((FakturaPanel) panel).getTxtTransport().setEditable(false);
 		((FakturaPanel) panel).getTxtPoslata().setEditable(false);
-		// ((FakturaPanel) panel).getBtnKupac().setEnabled(false);
+
 	}
 
 	public void allEnable() {
@@ -377,28 +359,21 @@ public class DialogFaktura extends StandardDialog {
 		((FakturaPanel) panel).getTxtSifra().setEditable(true);
 		((FakturaPanel) panel).getTxtDatum().setEnabled(true);
 		((FakturaPanel) panel).getTxtParitet().setEditable(true);
-		((FakturaPanel) panel).getTxtBruto().setEditable(true);
-		((FakturaPanel) panel).getTxtNeto().setEditable(true);
-		((FakturaPanel) panel).getTxtUkupno().setEditable(true);
+		((FakturaPanel) panel).getTxtTransport().setEditable(true);
 	}
 
 	public void clearAll() {
 		((FakturaPanel) panel).getTxtSifra().setText("");
 		((FakturaPanel) panel).getTxtDatum().setCalendar(null);
-		// ((FakturaPanel) panel).getTxtSifraK().setText("");
-		// ((FakturaPanel) panel).getTxtNazivK().setText("");
-		((FakturaPanel) panel).getTxtKorisnik().setText("");
 		((FakturaPanel) panel).getTxtParitet().setText("");
-		((FakturaPanel) panel).getTxtBruto().setText("");
-		((FakturaPanel) panel).getTxtNeto().setText("");
-		((FakturaPanel) panel).getTxtUkupno().setText("");
+		((FakturaPanel) panel).getTxtTezina().setText("");
+		((FakturaPanel) panel).getTxtTransport().setText("");
 		((FakturaPanel) panel).getTxtPoslata().setText("");
 	}
 
 	public void btnEnable() {
 		((FakturaPanel) panel).getBtnConfirm().setEnabled(true);
 		((FakturaPanel) panel).getBtnCancel().setEnabled(true);
-		// ((FakturaPanel) panel).getBtnKupac().setEnabled(true);
 	}
 
 	public void addDetaljno() {
@@ -412,15 +387,16 @@ public class DialogFaktura extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (table.getSelectedRow() >= 0) {
-					
-					 DialogFakturisana dialog = new DialogFakturisana(MainFrame
-					 .getInstance(), false, ((FakturaPanel) panel)
-					 .getTxtSifra().getText().trim(), ((FakturaPanel) panel)
-					 .getTxtPoslata().getText().trim() );
-					 dialog.setVisible(true);
-					 
-					 toolbar.getBtnRefresh().doClick();
-					 
+
+					DialogFakturisana dialog = new DialogFakturisana(MainFrame
+							.getInstance(), false, ((FakturaPanel) panel)
+							.getTxtSifra().getText().trim(),
+							((FakturaPanel) panel).getTxtPoslata().getText()
+									.trim());
+					dialog.setVisible(true);
+
+					toolbar.getBtnRefresh().doClick();
+
 				} else {
 					JOptionPane.showConfirmDialog(getParent(),
 							"Nijedna faktura nije selektovana.", "Upozorenje",
@@ -429,8 +405,8 @@ public class DialogFaktura extends StandardDialog {
 				}
 			}
 		});
-	}	
-	
+	}
+
 	public void addIzvestaj() {
 
 		JButton btnIzvestaj = new JButton("Prošireni izveštaj");
@@ -474,9 +450,9 @@ public class DialogFaktura extends StandardDialog {
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		
+
 		String faktura = ((FakturaPanel) panel).getTxtSifra().getText().trim();
-		
+
 		parameters.put("sifraFakture", faktura);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
@@ -495,19 +471,22 @@ public class DialogFaktura extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Prosirena Faktura " + faktura + " - " + timeStamp + ".pdf");
+				"GeneratedReports/Prosirena Faktura " + faktura + " - "
+						+ timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();		
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+		exporter.exportReport();
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

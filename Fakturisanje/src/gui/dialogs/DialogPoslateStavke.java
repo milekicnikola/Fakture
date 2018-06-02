@@ -1,6 +1,6 @@
 package gui.dialogs;
 
-import gui.model.OtvoreneStavkeTableModel;
+import gui.model.PoslateStavkeTableModel;
 import gui.panels.OtvoreneStavkePanel;
 
 import java.awt.event.ActionEvent;
@@ -32,19 +32,19 @@ import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import databaseConnection.DBConnection;
 
-public class DialogOtvoreneStavke extends StandardDialog {
+public class DialogPoslateStavke extends StandardDialog {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public DialogOtvoreneStavke(JFrame parent, Boolean zoom) {
+	public DialogPoslateStavke(JFrame parent, Boolean zoom) {
 		super(parent);
-		setTitle("Otvorene stavke");
+		setTitle("Poslate stavke");
 		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
 
-		tableModel = new OtvoreneStavkeTableModel(
+		tableModel = new PoslateStavkeTableModel(
 				new String[] { "Šifra robe", "Naziv robe", "Interni naziv robe", "Šifra porudzbine",
 						"Datum isporuke", "Korisnik", "Komada naručeno", "Komada poslato",
 						"Komada ostalo", "Ko radi" }, 0);
@@ -231,7 +231,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 				korisnik, ko };
 
 		try {
-			OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table
+			PoslateStavkeTableModel ctm = (PoslateStavkeTableModel) table
 					.getModel();
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
@@ -353,7 +353,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Otvorene stavke " + " - " + timeStamp
+				"GeneratedReports/Poslate stavke " + " - " + timeStamp
 						+ ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
@@ -366,7 +366,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		JOptionPane
 				.showConfirmDialog(
 						getParent(),
-						"Izveštaj o otvorenim stavkama je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj o poslatim stavkama je uspešno kreiran i nalazi se u folderu GeneratedReports.",
 						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
 						JOptionPane.INFORMATION_MESSAGE);
 

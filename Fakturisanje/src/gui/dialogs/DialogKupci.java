@@ -136,19 +136,24 @@ public class DialogKupci extends StandardDialog {
 			clearAll();
 			return;
 		}
-		String sifra = (String) tableModel.getValueAt(index, 0);
-		String naziv = (String) tableModel.getValueAt(index, 1);
-		String naziv2 = (String) tableModel.getValueAt(index, 2);
-		String adresa = (String) tableModel.getValueAt(index, 3);
-		String grad = (String) tableModel.getValueAt(index, 4);
-		String drzava = (String) tableModel.getValueAt(index, 5);
 
-		((KupciPanel) panel).getTxtSifra().setText(sifra);
-		((KupciPanel) panel).getTxtNaziv().setText(naziv);
-		((KupciPanel) panel).getTxtNaziv2().setText(naziv2);
-		((KupciPanel) panel).getTxtAdresa().setText(adresa);
-		((KupciPanel) panel).getTxtGrad().setText(grad);
-		((KupciPanel) panel).getTxtDrzava().setText(drzava);
+		if (index <= (table.getModel().getRowCount() - 1)) {
+
+			String sifra = (String) tableModel.getValueAt(index, 0);
+			String naziv = (String) tableModel.getValueAt(index, 1);
+			String naziv2 = (String) tableModel.getValueAt(index, 2);
+			String adresa = (String) tableModel.getValueAt(index, 3);
+			String grad = (String) tableModel.getValueAt(index, 4);
+			String drzava = (String) tableModel.getValueAt(index, 5);
+
+			((KupciPanel) panel).getTxtSifra().setText(sifra);
+			((KupciPanel) panel).getTxtNaziv().setText(naziv);
+			((KupciPanel) panel).getTxtNaziv2().setText(naziv2);
+			((KupciPanel) panel).getTxtAdresa().setText(adresa);
+			((KupciPanel) panel).getTxtGrad().setText(grad);
+			((KupciPanel) panel).getTxtDrzava().setText(drzava);
+
+		}
 
 	}
 
@@ -358,12 +363,14 @@ public class DialogKupci extends StandardDialog {
 		//
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
-		exporter.exportReport();		
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o kupcima je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+		exporter.exportReport();
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o kupcima je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

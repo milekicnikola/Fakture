@@ -35,7 +35,8 @@ public class MainFrame extends JFrame {
 	private JMenuItem faktura;	
 	private JMenuItem porudzbina;	
 	private JMenuItem otpremnica;
-	private JMenuItem stavke;
+	private JMenuItem otvoreneStavke;
+	private JMenuItem poslateStavke;
 
 	private MainFrame() {
 
@@ -64,7 +65,8 @@ public class MainFrame extends JFrame {
 		porudzbina = new JMenuItem("Porudzbina");
 		faktura = new JMenuItem("Faktura");				
 		otpremnica = new JMenuItem("Otpremnica");
-		stavke = new JMenuItem("Otvorene stavke");
+		otvoreneStavke = new JMenuItem("Otvorene stavke");
+		poslateStavke = new JMenuItem("Poslate stavke");
 
 		roba.addActionListener(ActionManager.getInstance()
 				.getDialogRobaAction());
@@ -80,8 +82,10 @@ public class MainFrame extends JFrame {
 				.getDialogFakturaAction());		
 		otpremnica.addActionListener(ActionManager.getInstance()
 				.getDialogOtpremnicaAction());
-		stavke.addActionListener(ActionManager.getInstance()
-				.getDialogOtpremnicaAction());
+		otvoreneStavke.addActionListener(ActionManager.getInstance()
+				.getDialogOtvoreneStavkeAction());
+		poslateStavke.addActionListener(ActionManager.getInstance()
+				.getDialogPoslateStavkeAction());
 		
 		menu.add(roba);
 		menu.add(kupci);
@@ -90,7 +94,8 @@ public class MainFrame extends JFrame {
 		menu.add(porudzbina);
 		menu.add(faktura);
 		menu.add(otpremnica);
-		menu.add(stavke);
+		menu.add(otvoreneStavke);
+		menu.add(poslateStavke);
 				
 
 		add(toolbar, BorderLayout.NORTH);

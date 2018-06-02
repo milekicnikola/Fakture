@@ -137,17 +137,22 @@ public class DialogMagacin extends StandardDialog {
 			clearAll();
 			return;
 		}
-		String sifra = (String) tableModel.getValueAt(index, 0);
-		String naziv = (String) tableModel.getValueAt(index, 1);
-		String adresa = (String) tableModel.getValueAt(index, 2);
-		String sef = (String) tableModel.getValueAt(index, 3);
-		String telefon = (String) tableModel.getValueAt(index, 4);
 
-		((MagacinPanel) panel).getTxtSifra().setText(sifra);
-		((MagacinPanel) panel).getTxtNaziv().setText(naziv);
-		((MagacinPanel) panel).getTxtAdresa().setText(adresa);
-		((MagacinPanel) panel).getTxtSef().setText(sef);
-		((MagacinPanel) panel).getTxtTelefon().setText(telefon);
+		if (index <= (table.getModel().getRowCount() - 1)) {
+
+			String sifra = (String) tableModel.getValueAt(index, 0);
+			String naziv = (String) tableModel.getValueAt(index, 1);
+			String adresa = (String) tableModel.getValueAt(index, 2);
+			String sef = (String) tableModel.getValueAt(index, 3);
+			String telefon = (String) tableModel.getValueAt(index, 4);
+
+			((MagacinPanel) panel).getTxtSifra().setText(sifra);
+			((MagacinPanel) panel).getTxtNaziv().setText(naziv);
+			((MagacinPanel) panel).getTxtAdresa().setText(adresa);
+			((MagacinPanel) panel).getTxtSef().setText(sef);
+			((MagacinPanel) panel).getTxtTelefon().setText(telefon);
+		
+		}
 
 	}
 
@@ -196,7 +201,7 @@ public class DialogMagacin extends StandardDialog {
 
 		try {
 			MagacinTableModel ctm = (MagacinTableModel) table.getModel();
-			int index = ctm.insertRow(params);			
+			int index = ctm.insertRow(params);
 			table.setRowSelectionInterval(index, index);
 			updateStateAndTextFields(State.DODAVANJE);
 		} catch (SQLException ex) {
@@ -355,11 +360,13 @@ public class DialogMagacin extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-		
-		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o magacinima je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
-				JOptionPane.PLAIN_MESSAGE,
-				JOptionPane.INFORMATION_MESSAGE);
+
+		JOptionPane
+				.showConfirmDialog(
+						getParent(),
+						"Izveštaj o magacinima je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
+						JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }

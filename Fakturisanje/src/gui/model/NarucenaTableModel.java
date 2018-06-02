@@ -174,14 +174,15 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) VALUES (?, ?, ?, ?, ?, ?, ?)");
+						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
-		stmt.setString(3, params[4]);
+		stmt.setString(3, params[2]);
 		stmt.setString(4, params[5]);
 		stmt.setString(5, params[6]);
-		stmt.setString(6, params[3]);
-		stmt.setString(7, params[7]);
+		stmt.setString(6, params[7]);
+		stmt.setString(7, params[4]);
+		stmt.setString(8, params[8]);
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -189,7 +190,8 @@ public class NarucenaTableModel extends StandardTableModel {
 		DBConnection.getConnection().commit();
 		if (rowsAffected > 0) {
 			// i unos u TableModel
-			retVal = sortedInsert(params);
+			String[] params1 = { params[0], params[1], params[3], params[4], params[5], params[6], params[7], params[8]};
+			retVal = sortedInsert(params1);
 			fireTableRowsInserted(retVal, retVal);
 
 		}

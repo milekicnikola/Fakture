@@ -207,27 +207,31 @@ public class DialogOtpremljena extends StandardDialog {
 		}
 		// toolbar.getBtnDetaljno().setEnabled(true);
 
-		String sifraF = (String) tableModel.getValueAt(index, 0);
-		String sifraR = (String) tableModel.getValueAt(index, 1);
-		String nazivR = (String) tableModel.getValueAt(index, 2);
-		String sifraP = (String) tableModel.getValueAt(index, 3);
-		String datum = (String) tableModel.getValueAt(index, 4);
-		String naruceno = (String) tableModel.getValueAt(index, 5);
-		String komada = (String) tableModel.getValueAt(index, 6);
-		String opis = (String) tableModel.getValueAt(index, 7);
-		String status = (String) tableModel.getValueAt(index, 8);
-		String otpremnica = (String) tableModel.getValueAt(index, 9);
+		if (index <= (table.getModel().getRowCount() - 1)) {
 
-		((OtpremljenaPanel) panel).getTxtSifraF().setText(sifraF);
-		((OtpremljenaPanel) panel).getTxtSifraP().setText(sifraP);
-		((OtpremljenaPanel) panel).getTxtSifraR().setText(sifraR);
-		((OtpremljenaPanel) panel).getTxtNazivR().setText(nazivR);
-		((OtpremljenaPanel) panel).getTxtNaruceno().setText(naruceno);
-		((OtpremljenaPanel) panel).getTxtKomada().setText(komada);
-		((OtpremljenaPanel) panel).getTaOpis().setText(opis);
-		((OtpremljenaPanel) panel).getTxtStatus().setText(status);
-		((OtpremljenaPanel) panel).getTxtOtpremnica().setText(otpremnica);
-		((OtpremljenaPanel) panel).getTxtDatum().setText(datum);
+			String sifraF = (String) tableModel.getValueAt(index, 0);
+			String sifraR = (String) tableModel.getValueAt(index, 1);
+			String nazivR = (String) tableModel.getValueAt(index, 2);
+			String sifraP = (String) tableModel.getValueAt(index, 3);
+			String datum = (String) tableModel.getValueAt(index, 4);
+			String naruceno = (String) tableModel.getValueAt(index, 5);
+			String komada = (String) tableModel.getValueAt(index, 6);
+			String opis = (String) tableModel.getValueAt(index, 7);
+			String status = (String) tableModel.getValueAt(index, 8);
+			String otpremnica = (String) tableModel.getValueAt(index, 9);
+
+			((OtpremljenaPanel) panel).getTxtSifraF().setText(sifraF);
+			((OtpremljenaPanel) panel).getTxtSifraP().setText(sifraP);
+			((OtpremljenaPanel) panel).getTxtSifraR().setText(sifraR);
+			((OtpremljenaPanel) panel).getTxtNazivR().setText(nazivR);
+			((OtpremljenaPanel) panel).getTxtNaruceno().setText(naruceno);
+			((OtpremljenaPanel) panel).getTxtKomada().setText(komada);
+			((OtpremljenaPanel) panel).getTaOpis().setText(opis);
+			((OtpremljenaPanel) panel).getTxtStatus().setText(status);
+			((OtpremljenaPanel) panel).getTxtOtpremnica().setText(otpremnica);
+			((OtpremljenaPanel) panel).getTxtDatum().setText(datum);
+
+		}
 
 	}
 

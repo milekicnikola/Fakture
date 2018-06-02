@@ -2,7 +2,6 @@ package gui.panels;
 
 import java.awt.Dimension;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -18,70 +17,74 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JLabel lblSifraP;
 	private JLabel lblSifraR;
 	private JLabel lblNazivR;	
+	private JLabel lblInterni;
 	private JLabel lblNaruceno;
 	private JLabel lblPoslato;
 	private JLabel lblOstalo;
 	private JLabel lblDatum;
 	private JLabel lblKo;
+	private JLabel lblKorisnik;
 
 	private JTextField txtSifraP;
 	private JTextField txtSifraR;
 	private JTextField txtNazivR;		
+	private JTextField txtInterni;
 	private JTextField txtNaruceno;
 	private JTextField txtPoslato;
 	private JTextField txtOstalo; 
-	private JTextField txtKo;
-	
-	private JButton btnRoba;	
+	private JTextField txtKo;	
+	private JTextField txtKorisnik;
 
 	private JDateChooser txtDatum;
 
-	private Dimension datePreferedSize;
-	
-	private JLabel lblPrazno;
+	private Dimension datePreferedSize;	
 
 	public OtvoreneStavkePanel() {
 
 		lblSifraP = new JLabel("Šifra porudzbine");
 		lblSifraR = new JLabel("Šifra robe");
 		lblNazivR = new JLabel("Naziv robe");				
+		lblInterni = new JLabel("Interni naziv robe");
 		lblNaruceno = new JLabel("Naručeno komada");
 		lblPoslato = new JLabel("Poslato komada");
 		lblOstalo = new JLabel("Ostalo komada");		
 		lblDatum = new JLabel("Datum isporuke");
 		lblKo = new JLabel("Ko radi");
-		lblPrazno = new JLabel("     ");
+		lblKorisnik = new JLabel("Korisnik");		
 
 		txtSifraP = new JTextField(15);
 		txtSifraR = new JTextField(15);
 		txtNazivR = new JTextField(20);				
+		txtInterni = new JTextField(20);
 		txtNaruceno = new JTextField(10);
 		txtPoslato = new JTextField(10);
 		txtOstalo = new JTextField(10);	
 		txtKo = new JTextField(20);
+		txtKorisnik = new JTextField(20);
 		
 		datePreferedSize = new Dimension(100, 20);
 
 		txtDatum = new JDateChooser();
 		txtDatum.setDateFormatString("yyyy-MM-dd");
-		txtDatum.setPreferredSize(datePreferedSize);
-		
-		btnRoba = new JButton("Dodaj robu");
-		btnRoba.setEnabled(false);
+		txtDatum.setPreferredSize(datePreferedSize);		
 
 		add(lblSifraR);
-		add(txtSifraR);
-		
-		add(lblSifraP);
-		add(txtSifraP);		
+		add(txtSifraR);				
 		
 		add(lblNazivR);
 		add(txtNazivR);
 		
-		add(btnRoba, "wrap");
+		add(lblInterni);
+		add(txtInterni, "wrap");
+		
+		add(lblSifraP);
+		add(txtSifraP);
 		
 		add(lblDatum);
 		add(txtDatum);
+		
+		add(lblKorisnik);
+		add(txtKorisnik, "wrap");
 
 		add(lblNaruceno);
 		add(txtNaruceno);
@@ -93,15 +96,21 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		add(txtOstalo, "wrap");		
 		
 		add(lblKo);
-		add(txtKo);
-		
-		add(lblPrazno);			
+		add(txtKo);					
 		
 		add(btnConfirm);
 		add(btnCancel);
 
 	}
-	
+
+	public JLabel getLblSifraP() {
+		return lblSifraP;
+	}
+
+	public void setLblSifraP(JLabel lblSifraP) {
+		this.lblSifraP = lblSifraP;
+	}
+
 	public JLabel getLblSifraR() {
 		return lblSifraR;
 	}
@@ -118,12 +127,12 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		this.lblNazivR = lblNazivR;
 	}
 
-	public JLabel getLblSifraP() {
-		return lblSifraP;
+	public JLabel getLblInterni() {
+		return lblInterni;
 	}
 
-	public void setLblSifraP(JLabel lblSifraP) {
-		this.lblSifraP = lblSifraP;
+	public void setLblInterni(JLabel lblInterni) {
+		this.lblInterni = lblInterni;
 	}
 
 	public JLabel getLblNaruceno() {
@@ -150,6 +159,38 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		this.lblOstalo = lblOstalo;
 	}
 
+	public JLabel getLblDatum() {
+		return lblDatum;
+	}
+
+	public void setLblDatum(JLabel lblDatum) {
+		this.lblDatum = lblDatum;
+	}
+
+	public JLabel getLblKo() {
+		return lblKo;
+	}
+
+	public void setLblKo(JLabel lblKo) {
+		this.lblKo = lblKo;
+	}
+
+	public JLabel getLblKorisnik() {
+		return lblKorisnik;
+	}
+
+	public void setLblKorisnik(JLabel lblKorisnik) {
+		this.lblKorisnik = lblKorisnik;
+	}
+
+	public JTextField getTxtSifraP() {
+		return txtSifraP;
+	}
+
+	public void setTxtSifraP(JTextField txtSifraP) {
+		this.txtSifraP = txtSifraP;
+	}
+
 	public JTextField getTxtSifraR() {
 		return txtSifraR;
 	}
@@ -166,12 +207,12 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		this.txtNazivR = txtNazivR;
 	}
 
-	public JTextField getTxtSifraP() {
-		return txtSifraP;
+	public JTextField getTxtInterni() {
+		return txtInterni;
 	}
 
-	public void setTxtSifraP(JTextField txtSifraP) {
-		this.txtSifraP = txtSifraP;
+	public void setTxtInterni(JTextField txtInterni) {
+		this.txtInterni = txtInterni;
 	}
 
 	public JTextField getTxtNaruceno() {
@@ -197,21 +238,21 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	public void setTxtOstalo(JTextField txtOstalo) {
 		this.txtOstalo = txtOstalo;
 	}
-	
-	public JButton getBtnRoba() {
-		return btnRoba;
+
+	public JTextField getTxtKo() {
+		return txtKo;
 	}
 
-	public void setBtnRoba(JButton btnRoba) {
-		this.btnRoba = btnRoba;
-	}
-	
-	public JLabel getLblDatum() {
-		return lblDatum;
+	public void setTxtKo(JTextField txtKo) {
+		this.txtKo = txtKo;
 	}
 
-	public void setLblDatum(JLabel lblDatum) {
-		this.lblDatum = lblDatum;
+	public JTextField getTxtKorisnik() {
+		return txtKorisnik;
+	}
+
+	public void setTxtKorisnik(JTextField txtKorisnik) {
+		this.txtKorisnik = txtKorisnik;
 	}
 
 	public JDateChooser getTxtDatum() {
@@ -222,20 +263,7 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		this.txtDatum = txtDatum;
 	}
 	
-	public JLabel getLblKo() {
-		return lblKo;
-	}
-
-	public void setLblKo(JLabel lblKo) {
-		this.lblKo = lblKo;
-	}
-
-	public JTextField getTxtKo() {
-		return txtKo;
-	}
-
-	public void setTxtKo(JTextField txtKo) {
-		this.txtKo = txtKo;
-	}
+	
+	
 
 }

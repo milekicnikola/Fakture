@@ -17,16 +17,14 @@ public class PorudzbinaPanel extends StandardPanel {
 
 	private JLabel lblSifra;
 	private JLabel lblSifraM;
-	private JLabel lblNazivM;
-	private JLabel lblKorisnik;
+	private JLabel lblNazivM;	
 	private JLabel lblSifraK;
 	private JLabel lblNazivK;
 	private JLabel lblDatum;
 
 	private JTextField txtSifra;
 	private JTextField txtSifraM;
-	private JTextField txtNazivM;
-	private JTextField txtKorisnik;
+	private JTextField txtNazivM;	
 	private JTextField txtSifraK;
 	private JTextField txtNazivK;
 
@@ -41,16 +39,14 @@ public class PorudzbinaPanel extends StandardPanel {
 
 		lblSifra = new JLabel("Šifra porudzbine");
 		lblSifraM = new JLabel("Šifra magacina");
-		lblNazivM = new JLabel("Naziv magacina");
-		lblKorisnik = new JLabel("Korisnik");
+		lblNazivM = new JLabel("Naziv magacina");		
 		lblSifraK = new JLabel("PIB kupca");
 		lblNazivK = new JLabel("Naziv kupca");
 		lblDatum = new JLabel("Datum porudzbine");
 
 		txtSifra = new JTextField(20);
 		txtSifraM = new JTextField(10);
-		txtNazivM = new JTextField(20);
-		txtKorisnik = new JTextField(20);
+		txtNazivM = new JTextField(20);		
 		txtSifraK = new JTextField(10);
 		txtNazivK = new JTextField(20);
 
@@ -74,19 +70,16 @@ public class PorudzbinaPanel extends StandardPanel {
 		add(lblNazivM);
 		add(txtNazivM);
 		add(btnMagacin, "wrap");
-
-		add(lblKorisnik);
-		add(txtKorisnik);
+		
+		add(lblDatum);
+		add(txtDatum);
 
 		add(lblSifraK);
 		add(txtSifraK);
 
 		add(lblNazivK);
 		add(txtNazivK);
-		add(btnKupac, "wrap");
-
-		add(lblDatum);
-		add(txtDatum);
+		add(btnKupac);		
 
 		add(btnConfirm);
 		add(btnCancel);
@@ -116,15 +109,7 @@ public class PorudzbinaPanel extends StandardPanel {
 	public void setLblNazivM(JLabel lblNazivM) {
 		this.lblNazivM = lblNazivM;
 	}
-
-	public JLabel getLblKorisnik() {
-		return lblKorisnik;
-	}
-
-	public void setLblKorisnik(JLabel lblKorisnik) {
-		this.lblKorisnik = lblKorisnik;
-	}
-
+	
 	public JLabel getLblSifraK() {
 		return lblSifraK;
 	}
@@ -172,15 +157,7 @@ public class PorudzbinaPanel extends StandardPanel {
 	public void setTxtNazivM(JTextField txtNazivM) {
 		this.txtNazivM = txtNazivM;
 	}
-
-	public JTextField getTxtKorisnik() {
-		return txtKorisnik;
-	}
-
-	public void setTxtKorisnik(JTextField txtKorisnik) {
-		this.txtKorisnik = txtKorisnik;
-	}
-
+	
 	public JTextField getTxtSifraK() {
 		return txtSifraK;
 	}
