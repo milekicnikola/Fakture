@@ -60,15 +60,15 @@ insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezin
 
 insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('225', '2016-11-4', 'cisn24kw', 11.45, 'ZR12T85/AC688ZR', "ne");
 
-insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('551', 'CRW1', '224', 'ne');
+insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('551', 'CRW1', '221', 'ne');
 
-insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('552', 'CRW1', '223', 'ne');
+insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('552', 'CRW1', '224', 'ne');
 
-insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('553', 'SPC', '222', 'ne');
+insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('553', 'SPC', '224', 'ne');
 
 insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('554', 'RAME', '222', 'ne');
 
-insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('555', 'CRW2', '221', 'ne');
+insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('555', 'CRW2', '223', 'ne');
 
 insert into prevod (redni_broj, naziv_prevoda) values (1, 'el. constructi metalice bucati');
 

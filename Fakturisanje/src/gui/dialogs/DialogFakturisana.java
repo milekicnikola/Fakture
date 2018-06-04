@@ -526,7 +526,7 @@ public class DialogFakturisana extends StandardDialog {
 
 	public void srediPodatke() {
 
-		String upit = "SELECT fakturisana_roba.sifra_robe as sifraRobe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, komada_ostalo FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture WHERE fakturisana_roba.sifra_fakture = '"
+		String upit = "SELECT fakturisana_roba.sifra_robe as sifraRobe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_fakturisano, komada_poslato, komada_ostalo FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture WHERE fakturisana_roba.sifra_fakture = '"
 				+ faktura + "'";
 
 		try {
@@ -541,20 +541,24 @@ public class DialogFakturisana extends StandardDialog {
 				String faktura = rset.getString("sifraFakture");
 				String fakturisano = rset.getString("KOMADA_FAKTURISANO");
 				String ostalo = rset.getString("KOMADA_OSTALO");
+				String poslato = rset.getString("KOMADA_POSLATO");
 
 				int komada_ostalo = Integer.parseInt(ostalo);
 				int komada_fakturisano = Integer.parseInt(fakturisano);
+				int komada_poslato = Integer.parseInt(poslato);
 
 				int komadaOstalo = komada_ostalo - komada_fakturisano;
+				int komadaPoslato = komada_poslato + komada_fakturisano;
 
 				String ko = Integer.toString(komadaOstalo);
+				String kp = Integer.toString(komadaPoslato);
 
 				PreparedStatement stmt1 = DBConnection
 						.getConnection()
 						.prepareStatement(
 								"UPDATE narucena_roba SET komada_poslato = ?, komada_ostalo = ? WHERE sifra_robe = ? and sifra_porudzbine = ? and datum_isporuke = ?");
 
-				stmt1.setString(1, fakturisano);
+				stmt1.setString(1, kp);
 				stmt1.setString(2, ko);
 				stmt1.setString(3, sifra_robe);
 				stmt1.setString(4, sifra_porudzbine);
