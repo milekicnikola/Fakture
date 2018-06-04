@@ -7,7 +7,10 @@ import gui.panels.FakturaPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,6 +37,8 @@ import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import databaseConnection.DBConnection;
 
 public class DialogFaktura extends StandardDialog {
+
+	private String faktura = "";
 
 	/**
 	 * 
@@ -245,7 +250,7 @@ public class DialogFaktura extends StandardDialog {
 				toolbar.getBtnDetaljno().setEnabled(false);
 				toolbar.getBtnIzvestaj().setEnabled(false);
 			}
-			
+
 			((FakturaPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -387,6 +392,8 @@ public class DialogFaktura extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (table.getSelectedRow() >= 0) {
+					
+					faktura = ((FakturaPanel) panel).getTxtSifra().getText().trim();
 
 					DialogFakturisana dialog = new DialogFakturisana(MainFrame
 							.getInstance(), false, ((FakturaPanel) panel)
@@ -394,6 +401,8 @@ public class DialogFaktura extends StandardDialog {
 							((FakturaPanel) panel).getTxtPoslata().getText()
 									.trim());
 					dialog.setVisible(true);
+					
+					izracunajTezinu(faktura);
 
 					toolbar.getBtnRefresh().doClick();
 
@@ -487,6 +496,53 @@ public class DialogFaktura extends StandardDialog {
 						"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
 						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
 						JOptionPane.INFORMATION_MESSAGE);
+
+	}
+
+	public void izracunajTezinu(String faktura) {
+		
+		String upit = "SELECT roba.tezina_robe*komada_fakturisano as tezina FROM fakturisana_roba JOIN roba ON fakturisana_roba.sifra_robe = roba.sifra_robe WHERE fakturisana_roba.sifra_fakture = '" + faktura +"'";
+		
+		double ukupna_tezina = 0;
+		double tezinaRobe = 0;
+		
+		
+		try {
+
+			Statement stmt = DBConnection.getConnection().createStatement();
+			ResultSet rset = stmt.executeQuery(upit);
+
+			while (rset.next()) {
+				
+				String tezina = rset.getString("tezina");								
+
+				tezinaRobe = Double.parseDouble(tezina);
+				
+				ukupna_tezina += tezinaRobe;						
+				
+			}
+
+			rset.close();
+			stmt.close();
+			
+			String tezinaR = Double.toString(ukupna_tezina);
+
+			PreparedStatement stmt3 = DBConnection
+					.getConnection()
+					.prepareStatement(
+							"UPDATE faktura SET ukupna_tezina = ? WHERE sifra_fakture = ?");
+
+			stmt3.setString(1, tezinaR);
+			stmt3.setString(2, faktura);
+			stmt3.executeUpdate();
+			stmt3.close();
+
+			DBConnection.getConnection().commit();
+			
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
+					JOptionPane.ERROR_MESSAGE);
+		}
 
 	}
 }
