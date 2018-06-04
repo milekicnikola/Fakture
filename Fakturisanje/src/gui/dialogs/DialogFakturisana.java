@@ -29,8 +29,10 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.export.ExporterInput;
 import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleDocxExporterConfiguration;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
@@ -238,7 +240,7 @@ public class DialogFakturisana extends StandardDialog {
 									((FakturisanaPanel) panel).getTxtMetri()
 											.setEditable(false);
 									((FakturisanaPanel) panel).getTxtMetri()
-											.setText("1");
+											.setText("0");
 								}
 							} catch (NullPointerException n) {
 							}
@@ -736,7 +738,9 @@ public class DialogFakturisana extends StandardDialog {
 		// outDir.mkdirs();
 
 		// PDF Exportor.
-		JRPdfExporter exporter = new JRPdfExporter();
+		//JRPdfExporter exporter = new JRPdfExporter();
+		
+		JRDocxExporter exporter = new JRDocxExporter();
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
@@ -745,12 +749,12 @@ public class DialogFakturisana extends StandardDialog {
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
 				"GeneratedReports/Prevod " + faktura + " - " + timeStamp
-						+ ".pdf");
+						+ ".docx");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
-		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+		SimpleDocxExporterConfiguration configuration = new SimpleDocxExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
 

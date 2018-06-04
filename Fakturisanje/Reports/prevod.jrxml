@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-31T01:12:05 -->
+<!-- 2018-06-03T23:26:29 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prevod" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -12,7 +12,7 @@
 	<style name="Row" mode="Transparent"/>
 	<parameter name="sifraFakture" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select *,  (roba.cena_roni/kurs.ron_evro)*0.95 as robaeur, ((roba.cena_roni/kurs.ron_evro)*0.95*fakturisana_roba.komada_fakturisano)  as ukueur, fakturisana_roba.komada_fakturisano*roba.tezina_robe as ukukg, fakturisana_roba.komada_fakturisano*roba.komada_u_setu*fakturisana_roba.komada_u_metru as ukusetkom
+		<![CDATA[select *,  (roba.cena_roni/kurs.ron_evro)*0.95 as robaeur, ((roba.cena_roni/kurs.ron_evro)*0.95*fakturisana_roba.komada_fakturisano)  as ukueur, fakturisana_roba.komada_fakturisano*roba.tezina_robe as ukukg, if(roba.jedinica_mere='3',0,fakturisana_roba.komada_fakturisano*roba.komada_u_setu)+fakturisana_roba.komada_u_metru as ukusetkom
 from fakturisana_roba
 inner join faktura on fakturisana_roba.sifra_fakture=faktura.sifra_fakture
 inner join narucena_roba on fakturisana_roba.sifra_porudzbine=narucena_roba.sifra_porudzbine and fakturisana_roba.sifra_robe = narucena_roba.sifra_robe and fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke 
@@ -32,23 +32,22 @@ order by roba.prevod]]>
 	<field name="status" class="java.lang.String"/>
 	<field name="komada_u_metru" class="java.math.BigDecimal"/>
 	<field name="COLUMN_9" class="java.lang.String"/>
-	<field name="korisnicko_ime" class="java.lang.String"/>
 	<field name="datum_fakture" class="java.sql.Date"/>
 	<field name="paritet_fakture" class="java.lang.String"/>
-	<field name="bruto_fakture" class="java.math.BigDecimal"/>
-	<field name="neto_fakture" class="java.math.BigDecimal"/>
-	<field name="ukupno_komada_robe" class="java.math.BigDecimal"/>
+	<field name="ukupna_tezina" class="java.math.BigDecimal"/>
+	<field name="transport_fakture" class="java.lang.String"/>
 	<field name="poslata_faktura" class="java.lang.String"/>
-	<field name="COLUMN_17" class="java.lang.String"/>
-	<field name="COLUMN_18" class="java.lang.String"/>
+	<field name="COLUMN_15" class="java.lang.String"/>
+	<field name="COLUMN_16" class="java.lang.String"/>
+	<field name="korisnicko_ime" class="java.lang.String"/>
 	<field name="komada_naruceno" class="java.math.BigDecimal"/>
 	<field name="komada_poslato" class="java.math.BigDecimal"/>
 	<field name="komada_ostalo" class="java.math.BigDecimal"/>
-	<field name="COLUMN_22" class="java.sql.Date"/>
+	<field name="COLUMN_21" class="java.sql.Date"/>
 	<field name="ko_radi" class="java.lang.String"/>
 	<field name="datum_kursa" class="java.sql.Date"/>
 	<field name="ron_evro" class="java.math.BigDecimal"/>
-	<field name="COLUMN_26" class="java.lang.String"/>
+	<field name="COLUMN_25" class="java.lang.String"/>
 	<field name="jedinica_mere" class="java.lang.Integer"/>
 	<field name="prevod" class="java.lang.Integer"/>
 	<field name="interna_sifra_robe" class="java.lang.String"/>
@@ -59,7 +58,7 @@ order by roba.prevod]]>
 	<field name="cena_roni" class="java.math.BigDecimal"/>
 	<field name="redni_broj" class="java.lang.Integer"/>
 	<field name="naziv_mere" class="java.lang.String"/>
-	<field name="COLUMN_37" class="java.lang.Integer"/>
+	<field name="COLUMN_36" class="java.lang.Integer"/>
 	<field name="naziv_prevoda" class="java.lang.String"/>
 	<field name="robaeur" class="java.math.BigDecimal"/>
 	<field name="ukueur" class="java.math.BigDecimal"/>
@@ -379,7 +378,7 @@ kom/pcs]]></text>
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="194">
+		<band height="190">
 			<staticText>
 				<reportElement x="385" y="0" width="64" height="20" uuid="81669d51-898a-430b-a242-51944bbe3a23">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -413,25 +412,8 @@ kom/pcs]]></text>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{paritet_fakture}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="82" y="105" width="92" height="15" uuid="a1cee180-8dbc-4b8b-9eef-874a6d0a6c4f">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{bruto_fakture}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="85" width="104" height="15" uuid="a3b57b7c-97c1-4003-9152-40f4383aa4d0">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{ZBIRKOMADA}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="0" y="166" width="375" height="28" uuid="f20ed570-4113-4289-a0a8-82a778b0dd6e"/>
+				<reportElement x="0" y="160" width="375" height="28" uuid="f20ed570-4113-4289-a0a8-82a778b0dd6e"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
@@ -455,7 +437,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<reportElement style="Column header" x="0" y="125" width="70" height="15" forecolor="#736343" uuid="5e323323-30c8-4dc7-b7f0-9ab07139c211">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
-				<text><![CDATA[NTTO KG]]></text>
+				<text><![CDATA[NETO KG]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="0" y="65" width="80" height="15" forecolor="#736343" uuid="4e6e1eac-7453-43de-86b7-5a92913d1a73">
@@ -464,7 +446,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[PLAĆANJE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="0" y="159" width="375" height="15" forecolor="#736343" uuid="06531e81-9ae5-4d22-a137-616a86614a6d"/>
+				<reportElement style="Column header" x="0" y="153" width="375" height="15" forecolor="#736343" uuid="06531e81-9ae5-4d22-a137-616a86614a6d"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
@@ -485,19 +467,30 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				</textElement>
 				<text><![CDATA[30 dana]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="0" y="85" width="70" height="15" forecolor="#736343" uuid="a1c3af1d-23f2-4a6f-a45e-351fc96a2b6b">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-				</reportElement>
-				<text><![CDATA[KOMADA:]]></text>
-			</staticText>
 			<textField isStretchWithOverflow="true">
 				<reportElement style="Detail" x="82" y="125" width="92" height="15" uuid="623aeb52-0363-435b-b7f6-79cd991491f9">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{neto_fakture}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="90" y="85" width="81" height="15" uuid="7fd5cbad-3db0-4714-b5c7-f6753d5669b8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{ZBIRKOMADA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="85" width="80" height="15" forecolor="#736343" uuid="86b533ad-b49f-43ce-9066-1b63aa31c6c0">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[KOMADA:]]></text>
+			</staticText>
 		</band>
 	</lastPageFooter>
 	<summary>
