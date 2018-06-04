@@ -59,7 +59,7 @@ public class DialogFakturisana extends StandardDialog {
 		poslata = poslata1;
 
 		String whereStm = " WHERE fakturisana_roba.sifra_fakture = '" + where
-				+ "'";
+				+ "' and fakturisana_roba.status != 'otpremljena'";
 
 		tableModel = new FakturisanaTableModel(new String[] { "Šifra fakture",
 				"Šifra robe", "Naziv robe", "Jedinica mere",

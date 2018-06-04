@@ -1,61 +1,38 @@
 package gui.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import util.SortUtils;
 import databaseConnection.DBConnection;
 
 public class OtpremljenaTableModel extends StandardTableModel {
 
 	public String basicQuery1;
-	private String otpremnica = "";
-	String poslata = "";
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public OtpremljenaTableModel(Object[] colName, int rowCount, String where,
-			String otpremnica1, String poslata1, String bQ) {
-		super(colName, rowCount);
+	public OtpremljenaTableModel(Object[] colName, int rowCount, String where) {
+		super(colName, rowCount);			
 
-		poslata = poslata1;
-
-		if (poslata.equals("ne")) {
-
-			basicQuery = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
+			basicQuery = "SELECT otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status_robe FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON otpremljena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe"
 					+ where;
-			basicQuery1 = "SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
-			orderBy = " ORDER BY fakturisana_roba.sifra_fakture";
-		} else {
-			basicQuery = where;
-			basicQuery1 = bQ;
-		}
-
-		otpremnica = otpremnica1;
+			basicQuery1 = "SELECT otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status_robe FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON otpremljena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe";
+			orderBy = " ORDER BY otpremljena_roba.sifra_robe";			
+		
 	}
 
 	// Dodate konstante za potrebe izvestavanja korisnika o greskama
 	// Dodata metoda za proveru i zakljucavanje tekuceg reda
-	@Override
+/*	@Override
 	public void checkRow(int index) throws SQLException {
-
-		String where = "";
-
-		if (poslata.equals("ne"))
-			where = " where fakturisana_roba.sifra_robe = ? and fakturisana_roba.sifra_porudzbine = ? and fakturisana_roba.datum_isporuke = ? and fakturisana_roba.sifra_fakture = ?";
-		else
-			where = " where otpremljena_roba.sifra_robe = ? and otpremljena_roba.sifra_porudzbine = ? and otpremeljena_roba.datum_isporuke = ? and otpremljena_roba.sifra_fakture = ?";
-
+		
 		DBConnection.getConnection().setTransactionIsolation(
 				Connection.TRANSACTION_REPEATABLE_READ);
 		PreparedStatement selectStmt = DBConnection.getConnection()
-				.prepareStatement(basicQuery1 + where);
+				.prepareStatement(basicQuery1 + " where otpremljena_roba.sifra_robe = ? and otpremljena_roba.sifra_porudzbine = ? and otpremljena_roba.datum_isporuke = ? and otpremljena_roba.sifra_fakture = ? and otpremljena_roba.status != 'narucena'");
 
 		String f = (String) getValueAt(index, 0);
 		String r = (String) getValueAt(index, 1);
@@ -129,7 +106,7 @@ public class OtpremljenaTableModel extends StandardTableModel {
 			DBConnection.getConnection().commit();
 			throw new SQLException(errorMsg, "", CUSTOM_ERROR_CODE);
 		}
-	}
+	}*/
 
 	/*
 	 * @Override public void search(String[] params) throws SQLException {
@@ -158,7 +135,8 @@ public class OtpremljenaTableModel extends StandardTableModel {
 			String naruceno = rset.getString("KOMADA_NARUCENO");
 			String komada = rset.getString("KOMADA_FAKTURISANO");
 			String opis = rset.getString("OPIS");
-			String status = rset.getString("STATUS");
+			String status = rset.getString("STATUS_ROBE");
+			String otpremnica = rset.getString("sifraOtpremnice");
 
 			addRow(new String[] { faktura, sifra_robe, naziv_robe,
 					sifra_porudzbine, datum, naruceno, komada, opis, status, otpremnica });

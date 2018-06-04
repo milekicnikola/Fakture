@@ -6,7 +6,10 @@ import gui.panels.OtpremnicaPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,6 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import databaseConnection.DBConnection;
 
 public class DialogOtpremnica extends StandardDialog {
 
@@ -190,7 +195,7 @@ public class DialogOtpremnica extends StandardDialog {
 
 			toolbar.getBtnDetaljno().setEnabled(true);
 
-			String sifra = (String) tableModel.getValueAt(index, 0);			
+			String sifra = (String) tableModel.getValueAt(index, 0);
 			String sifraM = (String) tableModel.getValueAt(index, 1);
 			String nazivM = (String) tableModel.getValueAt(index, 2);
 			String sifraF = (String) tableModel.getValueAt(index, 3);
@@ -198,7 +203,7 @@ public class DialogOtpremnica extends StandardDialog {
 			String transport = (String) tableModel.getValueAt(index, 5);
 			String poslata = (String) tableModel.getValueAt(index, 6);
 
-			((OtpremnicaPanel) panel).getTxtSifra().setText(sifra);			
+			((OtpremnicaPanel) panel).getTxtSifra().setText(sifra);
 			((OtpremnicaPanel) panel).getTxtSifraM().setText(sifraM);
 			((OtpremnicaPanel) panel).getTxtNazivM().setText(nazivM);
 			((OtpremnicaPanel) panel).getTxtSifraF().setText(sifraF);
@@ -246,9 +251,9 @@ public class DialogOtpremnica extends StandardDialog {
 			btnEnable();
 			allEnable();
 
-			if (state == State.PRETRAGA) {				
+			if (state == State.PRETRAGA) {
 				((OtpremnicaPanel) panel).getTxtPoslata().setEditable(true);
-			} else {				
+			} else {
 				((OtpremnicaPanel) panel).getTxtPoslata().setEditable(false);
 			}
 
@@ -263,7 +268,7 @@ public class DialogOtpremnica extends StandardDialog {
 	@Override
 	public void addRow() {
 
-		String sifra = ((OtpremnicaPanel) panel).getTxtSifra().getText().trim();		
+		String sifra = ((OtpremnicaPanel) panel).getTxtSifra().getText().trim();
 		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText()
 				.trim();
 		String nazivM = ((OtpremnicaPanel) panel).getTxtNazivM().getText()
@@ -291,6 +296,8 @@ public class DialogOtpremnica extends StandardDialog {
 					JOptionPane.ERROR_MESSAGE);
 		}
 
+		napuniOtpremnicu(sifra, sifraF, sifraM);
+
 	}
 
 	@Override
@@ -300,9 +307,9 @@ public class DialogOtpremnica extends StandardDialog {
 			return;
 
 		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText()
-				.trim();		
+				.trim();
 		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText()
-				.trim();		
+				.trim();
 
 		String[] params = { sifraM, sifraF };
 		int index = table.getSelectedRow();
@@ -323,9 +330,9 @@ public class DialogOtpremnica extends StandardDialog {
 		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText()
 				.trim();
 		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText()
-				.trim();		
+				.trim();
 		String poslata = ((OtpremnicaPanel) panel).getTxtPoslata().getText()
-				.trim();		
+				.trim();
 
 		String[] params = { sifra, sifraM, sifraF, poslata };
 
@@ -344,7 +351,7 @@ public class DialogOtpremnica extends StandardDialog {
 		((OtpremnicaPanel) panel).getBtnConfirm().setEnabled(false);
 		((OtpremnicaPanel) panel).getBtnCancel().setEnabled(false);
 		((OtpremnicaPanel) panel).getTxtSifra().setEditable(false);
-		((OtpremnicaPanel) panel).getTxtDatum().setEnabled(false);		
+		((OtpremnicaPanel) panel).getTxtDatum().setEnabled(false);
 		((OtpremnicaPanel) panel).getTxtSifraM().setEditable(false);
 		((OtpremnicaPanel) panel).getTxtNazivM().setEditable(false);
 		((OtpremnicaPanel) panel).getTxtSifraF().setEditable(false);
@@ -358,12 +365,12 @@ public class DialogOtpremnica extends StandardDialog {
 	public void allEnable() {
 		((OtpremnicaPanel) panel).getBtnConfirm().setEnabled(true);
 		((OtpremnicaPanel) panel).getBtnCancel().setEnabled(true);
-		((OtpremnicaPanel) panel).getTxtSifra().setEditable(true);		
+		((OtpremnicaPanel) panel).getTxtSifra().setEditable(true);
 	}
 
 	public void clearAll() {
 		((OtpremnicaPanel) panel).getTxtSifra().setText("");
-		((OtpremnicaPanel) panel).getTxtDatum().setCalendar(null);		
+		((OtpremnicaPanel) panel).getTxtDatum().setCalendar(null);
 		((OtpremnicaPanel) panel).getTxtSifraM().setText("");
 		((OtpremnicaPanel) panel).getTxtNazivM().setText("");
 		((OtpremnicaPanel) panel).getTxtSifraF().setText("");
@@ -407,5 +414,53 @@ public class DialogOtpremnica extends StandardDialog {
 				}
 			}
 		});
+	}
+
+	public void napuniOtpremnicu(String otpremnica, String faktura,
+			String magacin) {
+
+		String upit = "SELECT fakturisana_roba.sifra_robe as sifraRobe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.status as status FROM fakturisana_roba JOIN porudzbina ON fakturisana_roba.sifra_porudzbine = porudzbina.sifra_porudzbine WHERE fakturisana_roba.sifra_fakture = '"
+				+ faktura
+				+ "' AND sifra_magacina = '"
+				+ magacin
+				+ "' AND fakturisana_roba.status = 'fakturisana'";		
+
+		try {
+
+			Statement stmt = DBConnection.getConnection().createStatement();
+			ResultSet rset = stmt.executeQuery(upit);
+
+			while (rset.next()) {
+				String sifra_robe = rset.getString("sifraRobe");
+				String sifra_porudzbine = rset.getString("sifraPorudzbine");
+				String datum = rset.getString("datumIsporuke");
+				String status = rset.getString("status");
+
+				PreparedStatement stmt1 = DBConnection
+						.getConnection()
+						.prepareStatement(
+								"INSERT INTO otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, status_robe) values (?, ?, ?, ?, ?, ?)");
+
+				stmt1.setString(1, otpremnica);
+				stmt1.setString(2, sifra_robe);
+				stmt1.setString(3, sifra_porudzbine);
+				stmt1.setString(4, datum);
+				stmt1.setString(5, faktura);
+				stmt1.setString(6, status);
+				stmt1.executeUpdate();
+				stmt1.close();
+
+			}
+
+			rset.close();
+			stmt.close();
+
+			DBConnection.getConnection().commit();
+			
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
+					JOptionPane.ERROR_MESSAGE);
+		}
+
 	}
 }

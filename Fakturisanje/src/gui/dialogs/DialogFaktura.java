@@ -527,15 +527,15 @@ public class DialogFaktura extends StandardDialog {
 			
 			String tezinaR = Double.toString(ukupna_tezina);
 
-			PreparedStatement stmt3 = DBConnection
+			PreparedStatement stmt2 = DBConnection
 					.getConnection()
 					.prepareStatement(
 							"UPDATE faktura SET ukupna_tezina = ? WHERE sifra_fakture = ?");
 
-			stmt3.setString(1, tezinaR);
-			stmt3.setString(2, faktura);
-			stmt3.executeUpdate();
-			stmt3.close();
+			stmt2.setString(1, tezinaR);
+			stmt2.setString(2, faktura);
+			stmt2.executeUpdate();
+			stmt2.close();
 
 			DBConnection.getConnection().commit();
 			

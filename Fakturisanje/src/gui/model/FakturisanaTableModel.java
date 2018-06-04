@@ -37,7 +37,7 @@ public class FakturisanaTableModel extends StandardTableModel {
 				.getConnection()
 				.prepareStatement(
 						basicQuery1
-								+ " where fakturisana_roba.sifra_robe = ? and fakturisana_roba.sifra_porudzbine = ? and fakturisana_roba.datum_isporuke = ? and fakturisana_roba.sifra_fakture = ?");
+								+ " where fakturisana_roba.sifra_robe = ? and fakturisana_roba.sifra_porudzbine = ? and fakturisana_roba.datum_isporuke = ? and fakturisana_roba.sifra_fakture = ? and fakturisana_roba.status != 'otpremljena'");
 
 		String f = (String) getValueAt(index, 0);
 		String r = (String) getValueAt(index, 1);

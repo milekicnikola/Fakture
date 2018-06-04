@@ -35,8 +35,7 @@ import databaseConnection.DBConnection;
 
 public class DialogOtpremljena extends StandardDialog {
 
-	private String otpremnica = "";
-	private String magacin = "";
+	private String otpremnica = "";	
 
 	/**
 	 * 
@@ -49,27 +48,17 @@ public class DialogOtpremljena extends StandardDialog {
 		setTitle("Otrpemljena roba");
 		setIconImage(new ImageIcon("Images/otpremnica.png").getImage());
 
-		otpremnica = where;
-
-		magacin = magacin1;
+		otpremnica = where;		
 
 		String whereStm = "";
-		String bQ = "";
 
-		if (poslata.equals("ne")) {
-			whereStm = " WHERE fakturisana_roba.status = 'fakturisana' and porudzbina.sifra_magacina = '"
-					+ magacin + "'";
-		} else {
-			whereStm = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe WHERE otpremljena_roba.sifra_otpremnice = '"
-					+ otpremnica + "'";
-			bQ = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
-		}
+		whereStm = " WHERE otpremljena_roba.sifra_otpremnice = '" + otpremnica
+				+ "' and otpremljena_roba.status_robe != 'narucena'";
 
 		tableModel = new OtpremljenaTableModel(new String[] { "Šifra fakture",
 				"Šifra robe", "Naziv robe", "Šifra porudzbine",
 				"Datum isporuke", "Komada naručecno", "Komada fakturisano",
-				"Opis", "Status", "Otpremnica" }, 0, whereStm, otpremnica,
-				poslata, bQ);
+				"Opis", "Status", "Otpremnica" }, 0, whereStm);
 
 		panel = new OtpremljenaPanel();
 
@@ -422,9 +411,9 @@ public class DialogOtpremljena extends StandardDialog {
 
 	public void srediPodatke() {
 
-		String upit = "SELECT fakturisana_roba.sifra_robe as sifraRobe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.sifra_fakture as sifraFakture FROM fakturisana_roba JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe WHERE fakturisana_roba.status = 'fakturisana' and porudzbina.sifra_magacina = '"
-				+ magacin + "'";
-
+		String upit = "SELECT otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.datum_isporuke as datumIsporuke, otpremljena_roba.sifra_fakture as sifraFakture, komada_naruceno, komada_fakturisano, opis, status FROM otpremljena_roba JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON otpremljena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe WHERE otpremljena_roba.sifra_otpremnice = '"
+				+ otpremnica
+				+ "' and otpremljena_roba.status_robe != 'narucena'";
 		try {
 
 			Statement stmt = DBConnection.getConnection().createStatement();
@@ -435,57 +424,36 @@ public class DialogOtpremljena extends StandardDialog {
 				String sifra_porudzbine = rset.getString("sifraPorudzbine");
 				String datum = rset.getString("datumIsporuke");
 				String faktura = rset.getString("sifraFakture");
-
+				
 				PreparedStatement stmt1 = DBConnection
 						.getConnection()
 						.prepareStatement(
-								"INSERT INTO otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture) VALUES (?, ?, ?, ?, ?)");
+								"UPDATE otpremljena_roba SET status_robe = ? WHERE sifra_robe = ? and sifra_porudzbine = ? and datum_isporuke = ? and sifra_fakture = ?");
 
-				stmt1.setString(1, otpremnica);
+				stmt1.setString(1, "otpremljena");
 				stmt1.setString(2, sifra_robe);
 				stmt1.setString(3, sifra_porudzbine);
 				stmt1.setString(4, datum);
 				stmt1.setString(5, faktura);
 				stmt1.executeUpdate();
-				stmt1.close();
-
-				PreparedStatement stmt2 = DBConnection
-						.getConnection()
-						.prepareStatement(
-								"UPDATE fakturisana_roba SET status = ? WHERE sifra_robe = ? and sifra_porudzbine = ? and datum_isporuke = ? and sifra_fakture = ?");
-
-				stmt2.setString(1, "otpremljena");
-				stmt2.setString(2, sifra_robe);
-				stmt2.setString(3, sifra_porudzbine);
-				stmt2.setString(4, datum);
-				stmt2.setString(5, faktura);
-				stmt2.executeUpdate();
-				stmt2.close();
-
-				// addRow(new String[] { faktura, sifra_robe, naziv_robe,
-				// sifra_porudzbine, datum, komada, opis, otpremljena });
+				stmt1.close();				
 
 			}
 
 			rset.close();
 			stmt.close();
 
-			PreparedStatement stmt3 = DBConnection
+			PreparedStatement stmt2 = DBConnection
 					.getConnection()
 					.prepareStatement(
 							"UPDATE otpremnica SET poslata_otpremnica = ? WHERE sifra_otpremnice = ?");
 
-			stmt3.setString(1, "da");
-			stmt3.setString(2, otpremnica);
-			stmt3.executeUpdate();
-			stmt3.close();
+			stmt2.setString(1, "da");
+			stmt2.setString(2, otpremnica);
+			stmt2.executeUpdate();
+			stmt2.close();
 
-			DBConnection.getConnection().commit();
-			// fireTableDataChanged();
-
-			// } else { JOptionPane.showConfirmDialog(getParent(),
-			// "Nijedna faktura nije selektovana.", "Upozorenje",
-			// JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE); }
+			DBConnection.getConnection().commit();			
 
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
