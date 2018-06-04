@@ -48,12 +48,15 @@ public class DialogOtpremnica extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		addDetaljno();
+		addDetaljno();		
+		
+		toolbar.remove(10);
+		toolbar.remove(10);
 
 	}
 
 	@Override
-	public void initActions() {
+	public void initActions() {		
 
 		if (!isZoom) {
 
@@ -169,7 +172,7 @@ public class DialogOtpremnica extends StandardDialog {
 
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
-			toolbar.getBtnDelete().setEnabled(false);
+			toolbar.getBtnDelete().setEnabled(false);	
 			toolbar.getBtnUpdate().setEnabled(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
 
@@ -240,8 +243,8 @@ public class DialogOtpremnica extends StandardDialog {
 			statusBar.getStatusState().setText("POGLED");
 			this.state = State.POGLED;
 		} else if (state == State.AZURIRANJE) {
-			btnEnable();
-			allEnable();
+			//btnEnable();
+			//allEnable();
 			((OtpremnicaPanel) panel).getTxtSifra().setEditable(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");

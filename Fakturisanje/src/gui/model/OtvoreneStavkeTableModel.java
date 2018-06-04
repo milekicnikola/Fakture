@@ -1,12 +1,9 @@
 package gui.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import util.SortUtils;
 import databaseConnection.DBConnection;
 
 public class OtvoreneStavkeTableModel extends StandardTableModel {
@@ -26,7 +23,7 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 
 	// Dodate konstante za potrebe izvestavanja korisnika o greskama
 	// Dodata metoda za proveru i zakljucavanje tekuceg reda
-	@Override
+	/*@Override
 	public void checkRow(int index) throws SQLException {
 
 		DBConnection.getConnection().setTransactionIsolation(
@@ -109,18 +106,16 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 			DBConnection.getConnection().commit();
 			throw new SQLException(errorMsg, "", CUSTOM_ERROR_CODE);
 		}
-	}
+	}*/
 
 	@Override
 	public void search(String[] params) throws SQLException {
 		whereStmt = " WHERE narucena_roba.sifra_robe LIKE '%" + params[0]
-				+ "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%"
-				+ params[1] + "%' AND " + "komada_naruceno LIKE '%" + params[2]
-				+ "%' AND " + "komada_poslato LIKE '%" + params[3] + "%' AND "
-				+ "komada_ostalo LIKE '%" + params[4] + "%' AND "
-				+ "datum_isporuke LIKE '%" + params[5] + "%' AND "
-				+ "narucena_roba.korisnicko_ime LIKE '%" + params[6] + "%' AND "
-				+ "ko_radi LIKE '%" + params[7] + "%' AND komada_ostalo > 0";
+				+ "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%" + params[1]
+				+ "%' AND " + "narucena_roba.datum_isporuke LIKE '%" + params[2]				
+				+ "%' AND "	+ "ko_radi LIKE '%" + params[3]
+				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[4]				 
+				+ "%' AND komada_ostalo > 0";
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}

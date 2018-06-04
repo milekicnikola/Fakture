@@ -64,10 +64,10 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 		if (isZoom)
 			addIzvestaj();
-
-		toolbar.getBtnAdd().setEnabled(false);
-		toolbar.getBtnUpdate().setEnabled(false);
-		toolbar.getBtnDelete().setEnabled(false);
+		
+		toolbar.remove(9);
+		toolbar.remove(9);		
+		toolbar.remove(9);
 
 	}
 
@@ -263,13 +263,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		String sifraP = ((OtvoreneStavkePanel) panel).getTxtSifraP().getText()
 				.trim();
 		String sifraR = ((OtvoreneStavkePanel) panel).getTxtSifraR().getText()
-				.trim();
-		String naruceno = ((OtvoreneStavkePanel) panel).getTxtNaruceno()
-				.getText().trim();
-		String poslato = ((OtvoreneStavkePanel) panel).getTxtPoslato()
-				.getText().trim();
-		String ostalo = ((OtvoreneStavkePanel) panel).getTxtOstalo().getText()
-				.trim();
+				.trim();		
 		String ko = ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
 		String korisnik = ((OtvoreneStavkePanel) panel).getTxtKorisnik()
 				.getText().trim();
@@ -279,8 +273,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraR, sifraP, naruceno, poslato, ostalo, datum,
-				korisnik, ko };
+		String[] params = { sifraR, sifraP, datum, ko, korisnik };
 
 		try {
 			OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table
@@ -312,10 +305,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 	public void allEnable() {
 
 		((OtvoreneStavkePanel) panel).getBtnConfirm().setEnabled(true);
-		((OtvoreneStavkePanel) panel).getBtnCancel().setEnabled(true);
-		((OtvoreneStavkePanel) panel).getTxtNaruceno().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtPoslato().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtOstalo().setEditable(true);
+		((OtvoreneStavkePanel) panel).getBtnCancel().setEnabled(true);		
 		((OtvoreneStavkePanel) panel).getTxtDatum().setEnabled(true);
 		((OtvoreneStavkePanel) panel).getTxtKo().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtSifraR().setEditable(true);

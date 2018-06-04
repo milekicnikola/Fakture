@@ -64,6 +64,10 @@ public class DialogPoslateStavke extends StandardDialog {
 
 		if (isZoom)
 			addIzvestaj();
+		
+		toolbar.remove(9);
+		toolbar.remove(9);		
+		toolbar.remove(9);
 
 		toolbar.getBtnAdd().setEnabled(false);
 		toolbar.getBtnUpdate().setEnabled(false);
@@ -267,12 +271,10 @@ public class DialogPoslateStavke extends StandardDialog {
 		String sifraP = ((PoslateStavkePanel) panel).getTxtSifraP().getText()
 				.trim();
 		String sifraR = ((PoslateStavkePanel) panel).getTxtSifraR().getText()
+				.trim();		
+		String sifraF = ((PoslateStavkePanel) panel).getTxtFaktura().getText()
 				.trim();
-		String naruceno = ((PoslateStavkePanel) panel).getTxtNaruceno()
-				.getText().trim();
-		String poslato = ((PoslateStavkePanel) panel).getTxtPoslato()
-				.getText().trim();
-		String ostalo = ((PoslateStavkePanel) panel).getTxtOstalo().getText()
+		String sifraO = ((PoslateStavkePanel) panel).getTxtOtpremnica().getText()
 				.trim();
 		String ko = ((PoslateStavkePanel) panel).getTxtKo().getText().trim();
 		String korisnik = ((PoslateStavkePanel) panel).getTxtKorisnik()
@@ -283,7 +285,7 @@ public class DialogPoslateStavke extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraR, sifraP, naruceno, poslato, ostalo, datum,
+		String[] params = { sifraR, sifraP, sifraF, sifraO, datum,
 				korisnik, ko };
 
 		try {
@@ -318,10 +320,7 @@ public class DialogPoslateStavke extends StandardDialog {
 	public void allEnable() {
 
 		((PoslateStavkePanel) panel).getBtnConfirm().setEnabled(true);
-		((PoslateStavkePanel) panel).getBtnCancel().setEnabled(true);
-		((PoslateStavkePanel) panel).getTxtNaruceno().setEditable(true);
-		((PoslateStavkePanel) panel).getTxtPoslato().setEditable(true);
-		((PoslateStavkePanel) panel).getTxtOstalo().setEditable(true);
+		((PoslateStavkePanel) panel).getBtnCancel().setEnabled(true);		
 		((PoslateStavkePanel) panel).getTxtDatum().setEnabled(true);
 		((PoslateStavkePanel) panel).getTxtKo().setEditable(true);
 		((PoslateStavkePanel) panel).getTxtSifraR().setEditable(true);

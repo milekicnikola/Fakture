@@ -110,7 +110,10 @@ public class PoslateStavkePanel extends StandardPanel {
 		add(txtOstalo);
 
 		add(lblKo);
-		add(txtKo);
+		add(txtKo, "wrap");
+		
+		add(btnConfirm);
+		add(btnCancel);
 		
 
 	}

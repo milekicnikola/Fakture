@@ -97,6 +97,9 @@ public class OtvoreneStavkePanel extends StandardPanel {
 
 		add(lblKo);
 		add(txtKo);	
+		
+		add(btnConfirm);
+		add(btnCancel);
 
 	}
 

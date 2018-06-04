@@ -8,6 +8,7 @@ import databaseConnection.DBConnection;
 
 public class PoslateStavkeTableModel extends StandardTableModel {
 
+	private String basicQuery1 = "";
 	/**
 	 * 
 	 */
@@ -16,6 +17,7 @@ public class PoslateStavkeTableModel extends StandardTableModel {
 	public PoslateStavkeTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
 		basicQuery = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena'";
+		basicQuery1 = "SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime";
 		orderBy = " ORDER BY ko_radi, otpremljena_roba.sifra_robe";
 	}
 
@@ -83,20 +85,19 @@ public class PoslateStavkeTableModel extends StandardTableModel {
 	 * "", CUSTOM_ERROR_CODE); } }
 	 */
 
-	/*
-	 * @Override public void search(String[] params) throws SQLException {
-	 * whereStmt = " WHERE narucena_roba.sifra_robe LIKE '%" + params[0] +
-	 * "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%" + params[1] +
-	 * "%' AND " + "komada_naruceno LIKE '%" + params[2] + "%' AND " +
-	 * "komada_poslato LIKE '%" + params[3] + "%' AND " +
-	 * "komada_ostalo LIKE '%" + params[4] + "%' AND " +
-	 * "datum_isporuke LIKE '%" + params[5] + "%' AND " +
-	 * "narucena_roba.korisnicko_ime LIKE '%" + params[6] + "%' AND " +
-	 * "ko_radi LIKE '%" + params[7] + "%' AND komada_poslato > 0";
-	 * fillData(basicQuery1 + whereStmt + orderBy);
-	 * 
-	 * }
-	 */
+	@Override
+	public void search(String[] params) throws SQLException {
+		whereStmt = " WHERE otpremljena_roba.sifra_robe LIKE '%" + params[0]
+				+ "%' AND " + "otpremljena_roba.sifra_porudzbine LIKE '%" + params[1]
+				+ "%' AND " + "otpremljena_roba.sifra_fakture LIKE '%" + params[2]
+				+ "%' AND " + "otpremljena_roba.sifra_otpremnice LIKE '%" + params[3]
+				+ "%' AND " + "otpremljena_roba.datum_isporuke LIKE '%" + params[4]
+				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[5]				
+				+ "%' AND " + "ko_radi LIKE '%" + params[6]
+				+ "%' AND otpremljena_roba.status_robe = 'otpremljena'";
+		fillData(basicQuery1 + whereStmt + orderBy);
+
+	}
 
 	@Override
 	public void fillData(String sql) throws SQLException {
@@ -118,8 +119,8 @@ public class PoslateStavkeTableModel extends StandardTableModel {
 			String faktura = rset.getString("sifraFakture");
 
 			addRow(new String[] { sifra_robe, nazivR, interni,
-					sifra_porudzbine, faktura, otpremnica, datum, korisnik, naruceno, fakturisano,
-					ostalo, ko });
+					sifra_porudzbine, faktura, otpremnica, datum, korisnik,
+					naruceno, fakturisano, ostalo, ko });
 		}
 		rset.close();
 		stmt.close();
