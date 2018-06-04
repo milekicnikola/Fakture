@@ -1,7 +1,7 @@
 package gui.dialogs;
 
 import gui.model.PoslateStavkeTableModel;
-import gui.panels.OtvoreneStavkePanel;
+import gui.panels.PoslateStavkePanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +33,10 @@ import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import databaseConnection.DBConnection;
 
 public class DialogPoslateStavke extends StandardDialog {
+	
+	private JButton btnSve;
+	private JButton btnOlgica;
+	private JButton btnMilos;
 
 	/**
 	 * 
@@ -44,15 +48,15 @@ public class DialogPoslateStavke extends StandardDialog {
 		setTitle("Poslate stavke");
 		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
 
-		tableModel = new PoslateStavkeTableModel(
-				new String[] { "Šifra robe", "Naziv robe", "Interni naziv robe", "Šifra porudzbine",
-						"Datum isporuke", "Korisnik", "Komada naručeno", "Komada poslato",
-						"Komada ostalo", "Ko radi" }, 0);
+		tableModel = new PoslateStavkeTableModel(new String[] { "Šifra robe",
+				"Naziv robe", "Interni naziv robe", "Porudzbina", "Faktura",
+				"Otpremnica", "Datum isporuke", "Korisnik", "Komada naručeno",
+				"Komada poslato", "Komada ostalo", "Ko radi" }, 0);
 
 		if (zoom)
 			isZoom = true;
 
-		panel = new OtvoreneStavkePanel();
+		panel = new PoslateStavkePanel();
 
 		initGUI();
 		initStandardActions();
@@ -69,6 +73,53 @@ public class DialogPoslateStavke extends StandardDialog {
 
 	@Override
 	public void initActions() {
+		
+		btnSve = new JButton("Sve stavke");
+		btnOlgica = new JButton("Olgicine stavke");
+		btnMilos = new JButton("Miloseve stavke");
+
+		btnSve.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				try {
+					tableModel.fillData("SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena'");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		});
+		
+		btnOlgica.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				try {
+					tableModel.fillData("SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena' AND narucena_roba.korisnicko_ime = 'olgica'");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		});
+		
+		btnMilos.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				try {
+					tableModel.fillData("SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena' AND narucena_roba.korisnicko_ime = 'milos'");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		});
+		
+		toolbar.add(btnSve);
+		toolbar.addSeparator();
+		toolbar.add(btnOlgica);
+		toolbar.addSeparator();
+		toolbar.add(btnMilos);
+		toolbar.addSeparator();
 
 	}
 
@@ -85,23 +136,27 @@ public class DialogPoslateStavke extends StandardDialog {
 			String sifraR = (String) tableModel.getValueAt(index, 0);
 			String nazivR = (String) tableModel.getValueAt(index, 1);
 			String interni = (String) tableModel.getValueAt(index, 2);
-			String sifraP = (String) tableModel.getValueAt(index, 3);			
-			String datum = (String) tableModel.getValueAt(index, 4);
-			String korisnik = (String) tableModel.getValueAt(index, 5);
-			String naruceno = (String) tableModel.getValueAt(index, 6);
-			String poslato = (String) tableModel.getValueAt(index, 7);
-			String ostalo = (String) tableModel.getValueAt(index, 8);
-			String ko = (String) tableModel.getValueAt(index, 9);
+			String sifraP = (String) tableModel.getValueAt(index, 3);
+			String faktura = (String) tableModel.getValueAt(index, 4);
+			String otpremnica = (String) tableModel.getValueAt(index, 5);
+			String datum = (String) tableModel.getValueAt(index, 6);
+			String korisnik = (String) tableModel.getValueAt(index, 7);
+			String naruceno = (String) tableModel.getValueAt(index, 8);
+			String poslato = (String) tableModel.getValueAt(index, 9);
+			String ostalo = (String) tableModel.getValueAt(index, 10);
+			String ko = (String) tableModel.getValueAt(index, 11);
 
-			((OtvoreneStavkePanel) panel).getTxtSifraP().setText(sifraP);
-			((OtvoreneStavkePanel) panel).getTxtSifraR().setText(sifraR);
-			((OtvoreneStavkePanel) panel).getTxtNazivR().setText(nazivR);
-			((OtvoreneStavkePanel) panel).getTxtInterni().setText(interni);
-			((OtvoreneStavkePanel) panel).getTxtNaruceno().setText(naruceno);
-			((OtvoreneStavkePanel) panel).getTxtPoslato().setText(poslato);
-			((OtvoreneStavkePanel) panel).getTxtOstalo().setText(ostalo);
-			((OtvoreneStavkePanel) panel).getTxtKo().setText(ko);
-			((OtvoreneStavkePanel) panel).getTxtKorisnik().setText(korisnik);
+			((PoslateStavkePanel) panel).getTxtSifraP().setText(sifraP);
+			((PoslateStavkePanel) panel).getTxtSifraR().setText(sifraR);
+			((PoslateStavkePanel) panel).getTxtNazivR().setText(nazivR);
+			((PoslateStavkePanel) panel).getTxtInterni().setText(interni);
+			((PoslateStavkePanel) panel).getTxtNaruceno().setText(naruceno);
+			((PoslateStavkePanel) panel).getTxtPoslato().setText(poslato);
+			((PoslateStavkePanel) panel).getTxtOstalo().setText(ostalo);
+			((PoslateStavkePanel) panel).getTxtKo().setText(ko);
+			((PoslateStavkePanel) panel).getTxtKorisnik().setText(korisnik);
+			((PoslateStavkePanel) panel).getTxtFaktura().setText(faktura);
+			((PoslateStavkePanel) panel).getTxtOtpremnica().setText(otpremnica);
 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = null;
@@ -112,7 +167,7 @@ public class DialogPoslateStavke extends StandardDialog {
 				e.printStackTrace();
 			}
 
-			((OtvoreneStavkePanel) panel).getTxtDatum().setDate(date);
+			((PoslateStavkePanel) panel).getTxtDatum().setDate(date);
 
 		}
 
@@ -134,16 +189,16 @@ public class DialogPoslateStavke extends StandardDialog {
 			this.state = State.POGLED;
 		} else if (state == State.AZURIRANJE) {
 			// btnEnable();
-			// allEnable();			
-			((OtvoreneStavkePanel) panel).getTxtDatum().setEnabled(false);
-			((OtvoreneStavkePanel) panel).getTxtNaruceno().setEditable(false);
+			// allEnable();
+			((PoslateStavkePanel) panel).getTxtDatum().setEnabled(false);
+			((PoslateStavkePanel) panel).getTxtNaruceno().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
 			clearAll();
 			btnEnable();
 			allEnable();
-			((OtvoreneStavkePanel) panel).getTxtNaruceno().requestFocus();
+			((PoslateStavkePanel) panel).getTxtNaruceno().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
 		}
@@ -154,15 +209,15 @@ public class DialogPoslateStavke extends StandardDialog {
 	public void addRow() {
 
 		/*
-		 * String sifraP = ((OtvoreneStavkePanel)
+		 * String sifraP = ((PoslateStavkePanel)
 		 * panel).getTxtSifraP().getText().trim(); String sifraR =
-		 * ((OtvoreneStavkePanel) panel).getTxtSifraR().getText().trim(); String
-		 * nazivR = ((OtvoreneStavkePanel)
+		 * ((PoslateStavkePanel) panel).getTxtSifraR().getText().trim(); String
+		 * nazivR = ((PoslateStavkePanel)
 		 * panel).getTxtNazivR().getText().trim(); String naruceno =
-		 * ((OtvoreneStavkePanel) panel).getTxtNaruceno().getText() .trim();
+		 * ((PoslateStavkePanel) panel).getTxtNaruceno().getText() .trim();
 		 * String poslato = "0"; String ostalo = naruceno; String ko =
-		 * ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim(); Date
-		 * datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate();
+		 * ((PoslateStavkePanel) panel).getTxtKo().getText().trim(); Date
+		 * datum1 = ((PoslateStavkePanel) panel).getTxtDatum().getDate();
 		 * String datum = ""; if (datum1 != null) { datum = new
 		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
 		 * 
@@ -184,14 +239,14 @@ public class DialogPoslateStavke extends StandardDialog {
 		/*
 		 * int i = table.getSelectedRow(); if (i == -1) return;
 		 * 
-		 * // String naruceno = ((OtvoreneStavkePanel) //
+		 * // String naruceno = ((PoslateStavkePanel) //
 		 * panel).getTxtNaruceno().getText().trim(); // String poslato =
-		 * ((OtvoreneStavkePanel) // panel).getTxtPoslato().getText().trim(); //
-		 * String ostalo = ((OtvoreneStavkePanel) //
+		 * ((PoslateStavkePanel) // panel).getTxtPoslato().getText().trim(); //
+		 * String ostalo = ((PoslateStavkePanel) //
 		 * panel).getTxtOstalo().getText().trim(); String ko =
-		 * ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
+		 * ((PoslateStavkePanel) panel).getTxtKo().getText().trim();
 		 * 
-		 * Date datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate();
+		 * Date datum1 = ((PoslateStavkePanel) panel).getTxtDatum().getDate();
 		 * String datum = ""; if (datum1 != null) { datum = new
 		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
 		 * 
@@ -209,25 +264,26 @@ public class DialogPoslateStavke extends StandardDialog {
 	@Override
 	public void search() {
 
-		String sifraP = ((OtvoreneStavkePanel) panel).getTxtSifraP().getText()
+		String sifraP = ((PoslateStavkePanel) panel).getTxtSifraP().getText()
 				.trim();
-		String sifraR = ((OtvoreneStavkePanel) panel).getTxtSifraR().getText()
+		String sifraR = ((PoslateStavkePanel) panel).getTxtSifraR().getText()
 				.trim();
-		String naruceno = ((OtvoreneStavkePanel) panel).getTxtNaruceno()
+		String naruceno = ((PoslateStavkePanel) panel).getTxtNaruceno()
 				.getText().trim();
-		String poslato = ((OtvoreneStavkePanel) panel).getTxtPoslato()
+		String poslato = ((PoslateStavkePanel) panel).getTxtPoslato()
 				.getText().trim();
-		String ostalo = ((OtvoreneStavkePanel) panel).getTxtOstalo().getText()
+		String ostalo = ((PoslateStavkePanel) panel).getTxtOstalo().getText()
 				.trim();
-		String ko = ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
-		String korisnik = ((OtvoreneStavkePanel) panel).getTxtKorisnik().getText().trim();
-		Date datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate();
+		String ko = ((PoslateStavkePanel) panel).getTxtKo().getText().trim();
+		String korisnik = ((PoslateStavkePanel) panel).getTxtKorisnik()
+				.getText().trim();
+		Date datum1 = ((PoslateStavkePanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraR, sifraP, naruceno, poslato, ostalo, datum, 
+		String[] params = { sifraR, sifraP, naruceno, poslato, ostalo, datum,
 				korisnik, ko };
 
 		try {
@@ -243,52 +299,58 @@ public class DialogPoslateStavke extends StandardDialog {
 
 	@Override
 	public void allDisable() {
-		((OtvoreneStavkePanel) panel).getBtnConfirm().setEnabled(false);
-		((OtvoreneStavkePanel) panel).getBtnCancel().setEnabled(false);		
-		((OtvoreneStavkePanel) panel).getTxtSifraP().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtSifraR().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtNazivR().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtNaruceno().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtPoslato().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtOstalo().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtDatum().setEnabled(false);
-		((OtvoreneStavkePanel) panel).getTxtKo().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtInterni().setEditable(false);
-		((OtvoreneStavkePanel) panel).getTxtKorisnik().setEditable(false);
+		((PoslateStavkePanel) panel).getBtnConfirm().setEnabled(false);
+		((PoslateStavkePanel) panel).getBtnCancel().setEnabled(false);
+		((PoslateStavkePanel) panel).getTxtSifraP().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtSifraR().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtNazivR().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtNaruceno().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtPoslato().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtOstalo().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtDatum().setEnabled(false);
+		((PoslateStavkePanel) panel).getTxtKo().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtInterni().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtKorisnik().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtFaktura().setEditable(false);
+		((PoslateStavkePanel) panel).getTxtOtpremnica().setEditable(false);
 	}
 
 	public void allEnable() {
 
-		((OtvoreneStavkePanel) panel).getBtnConfirm().setEnabled(true);
-		((OtvoreneStavkePanel) panel).getBtnCancel().setEnabled(true);
-		((OtvoreneStavkePanel) panel).getTxtNaruceno().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtPoslato().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtOstalo().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtDatum().setEnabled(true);
-		((OtvoreneStavkePanel) panel).getTxtKo().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtSifraR().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtSifraP().setEditable(true);
-		((OtvoreneStavkePanel) panel).getTxtKorisnik().setEditable(true);	
+		((PoslateStavkePanel) panel).getBtnConfirm().setEnabled(true);
+		((PoslateStavkePanel) panel).getBtnCancel().setEnabled(true);
+		((PoslateStavkePanel) panel).getTxtNaruceno().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtPoslato().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtOstalo().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtDatum().setEnabled(true);
+		((PoslateStavkePanel) panel).getTxtKo().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtSifraR().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtSifraP().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtKorisnik().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtFaktura().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtOtpremnica().setEditable(true);
 
 	}
 
 	public void clearAll() {
-		((OtvoreneStavkePanel) panel).getTxtSifraR().setText("");
-		((OtvoreneStavkePanel) panel).getTxtSifraP().setText("");
-		((OtvoreneStavkePanel) panel).getTxtNazivR().setText("");
-		((OtvoreneStavkePanel) panel).getTxtNaruceno().setText("");
-		((OtvoreneStavkePanel) panel).getTxtPoslato().setText("");
-		((OtvoreneStavkePanel) panel).getTxtOstalo().setText("");
-		((OtvoreneStavkePanel) panel).getTxtKo().setText("");
-		((OtvoreneStavkePanel) panel).getTxtKorisnik().setText("");
-		((OtvoreneStavkePanel) panel).getTxtDatum().setCalendar(null);
+		((PoslateStavkePanel) panel).getTxtSifraR().setText("");
+		((PoslateStavkePanel) panel).getTxtSifraP().setText("");
+		((PoslateStavkePanel) panel).getTxtNazivR().setText("");
+		((PoslateStavkePanel) panel).getTxtNaruceno().setText("");
+		((PoslateStavkePanel) panel).getTxtPoslato().setText("");
+		((PoslateStavkePanel) panel).getTxtOstalo().setText("");
+		((PoslateStavkePanel) panel).getTxtKo().setText("");
+		((PoslateStavkePanel) panel).getTxtKorisnik().setText("");
+		((PoslateStavkePanel) panel).getTxtFaktura().setText("");
+		((PoslateStavkePanel) panel).getTxtOtpremnica().setText("");
+		((PoslateStavkePanel) panel).getTxtDatum().setCalendar(null);
 	}
 
 	public void btnEnable() {
 		/*
-		 * ((OtvoreneStavkePanel) panel).getBtnConfirm().setEnabled(true);
-		 * ((OtvoreneStavkePanel) panel).getBtnCancel().setEnabled(true); if
-		 * (!isZoom) ((OtvoreneStavkePanel)
+		 * ((PoslateStavkePanel) panel).getBtnConfirm().setEnabled(true);
+		 * ((PoslateStavkePanel) panel).getBtnCancel().setEnabled(true); if
+		 * (!isZoom) ((PoslateStavkePanel)
 		 * panel).getBtnRoba().setEnabled(true);
 		 */
 	}
@@ -353,8 +415,7 @@ public class DialogPoslateStavke extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Poslate stavke " + " - " + timeStamp
-						+ ".pdf");
+				"GeneratedReports/Poslate stavke " + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 

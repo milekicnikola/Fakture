@@ -124,5 +124,3 @@ insert into otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, da
 
 insert into otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, status_robe) values ('555', '002', '114', '2018-1-1', '223', 'otpremljena');
 
-insert into poslata_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture) values ('555', '002', '114', '2018-1-1', '223');
-

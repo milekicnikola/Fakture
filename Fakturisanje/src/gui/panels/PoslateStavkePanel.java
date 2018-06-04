@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
-public class OtvoreneStavkePanel extends StandardPanel {
+public class PoslateStavkePanel extends StandardPanel {
 
 	/**
 	 * 
@@ -24,6 +24,8 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JLabel lblDatum;
 	private JLabel lblKo;
 	private JLabel lblKorisnik;
+	private JLabel lblFaktura;
+	private JLabel lblOtpremnica;
 
 	private JTextField txtSifraP;
 	private JTextField txtSifraR;
@@ -34,14 +36,16 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JTextField txtOstalo;
 	private JTextField txtKo;
 	private JTextField txtKorisnik;
+	private JTextField txtFaktura;
+	private JTextField txtOtpremnica;
 
 	private JDateChooser txtDatum;
 
 	private Dimension datePreferedSize;
 
-	public OtvoreneStavkePanel() {
+	public PoslateStavkePanel() {
 
-		lblSifraP = new JLabel("Šifra porudzbine");
+		lblSifraP = new JLabel("Porudzbina");
 		lblSifraR = new JLabel("Šifra robe");
 		lblNazivR = new JLabel("Naziv robe");
 		lblInterni = new JLabel("Interni naziv robe");
@@ -51,6 +55,8 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		lblDatum = new JLabel("Datum isporuke");
 		lblKo = new JLabel("Ko radi");
 		lblKorisnik = new JLabel("Korisnik");
+		lblFaktura = new JLabel("Faktura");
+		lblOtpremnica = new JLabel("Otpremnica");
 
 		txtSifraP = new JTextField(15);
 		txtSifraR = new JTextField(15);
@@ -61,6 +67,8 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		txtOstalo = new JTextField(10);
 		txtKo = new JTextField(20);
 		txtKorisnik = new JTextField(20);
+		txtFaktura = new JTextField(20);
+		txtOtpremnica = new JTextField(20);
 
 		datePreferedSize = new Dimension(100, 20);
 
@@ -80,23 +88,30 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		add(lblSifraP);
 		add(txtSifraP);
 
+		add(lblFaktura);
+		add(txtFaktura);
+
+		add(lblOtpremnica);
+		add(txtOtpremnica, "wrap");
+
 		add(lblDatum);
 		add(txtDatum);
 
 		add(lblKorisnik);
-		add(txtKorisnik, "wrap");
+		add(txtKorisnik);
 
 		add(lblNaruceno);
-		add(txtNaruceno);
+		add(txtNaruceno, "wrap");
 
 		add(lblPoslato);
 		add(txtPoslato);
 
 		add(lblOstalo);
-		add(txtOstalo, "wrap");
+		add(txtOstalo);
 
 		add(lblKo);
-		add(txtKo);	
+		add(txtKo);
+		
 
 	}
 
@@ -258,6 +273,38 @@ public class OtvoreneStavkePanel extends StandardPanel {
 
 	public void setTxtDatum(JDateChooser txtDatum) {
 		this.txtDatum = txtDatum;
+	}
+
+	public JLabel getLblFaktura() {
+		return lblFaktura;
+	}
+
+	public void setLblFaktura(JLabel lblFaktura) {
+		this.lblFaktura = lblFaktura;
+	}
+
+	public JLabel getLblOtpremnica() {
+		return lblOtpremnica;
+	}
+
+	public void setLblOtpremnica(JLabel lblOtpremnica) {
+		this.lblOtpremnica = lblOtpremnica;
+	}
+
+	public JTextField getTxtFaktura() {
+		return txtFaktura;
+	}
+
+	public void setTxtFaktura(JTextField txtFaktura) {
+		this.txtFaktura = txtFaktura;
+	}
+
+	public JTextField getTxtOtpremnica() {
+		return txtOtpremnica;
+	}
+
+	public void setTxtOtpremnica(JTextField txtOtpremnica) {
+		this.txtOtpremnica = txtOtpremnica;
 	}
 
 }

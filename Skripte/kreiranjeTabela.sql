@@ -6,8 +6,6 @@
 
 drop table if exists kurs;
 
-drop table if exists poslata_roba;
-
 drop table if exists otpremljena_roba;
 
 drop table if exists fakturisana_roba;
@@ -171,19 +169,6 @@ create table porudzbina
    pib_kupca            varchar(15) not null,
    datum_porudzbine     date not null,
    primary key (sifra_porudzbine)
-);
-
-/*==============================================================*/
-/* Table: poslata_roba                                          */
-/*==============================================================*/
-create table poslata_roba
-(
-   sifra_otpremnice     varchar(20) not null,
-   sifra_robe           varchar(50) not null,
-   sifra_porudzbine     varchar(20) not null,
-   datum_isporuke       date not null,
-   sifra_fakture        varchar(20) not null,
-   primary key (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
 );
 
 /*==============================================================*/
