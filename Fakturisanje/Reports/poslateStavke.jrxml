@@ -1,50 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
 <!-- 2018-06-03T21:33:20 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="poslatestavke" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="poslateStavke" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
-	<style name="Row" mode="Transparent"/>
-	<parameter name="Sifra_robeP" class="java.lang.String"/>
-	<parameter name="korisniko_imeP" class="java.lang.String"/>
+	<style name="Row" mode="Transparent"/>	
 	<queryString>
-		<![CDATA[SELECT * from poslata_roba
-JOIN porudzbina ON poslata_roba.sifra_porudzbine = porudzbina.sifra_porudzbine 
-JOIN narucena_roba ON poslata_roba.sifra_robe = narucena_roba.sifra_robe
-JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe 
-WHERE  poslata_roba.datum_isporuke is not null and poslata_roba.sifra_robe =  $P{Sifra_robeP} and narucena_roba.korisnicko_ime =  $P{korisniko_imeP} 
-ORDER BY poslata_roba.sifra_robe, poslata_roba.datum_isporuke]]>
+		<![CDATA[SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme
+		FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice
+		JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture
+		JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke
+		JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine
+		JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe
+		JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
+		WHERE otpremljena_roba.status_robe = 'otpremljena']]>
 	</queryString>
-	<field name="sifra_otpremnice" class="java.lang.String"/>
-	<field name="sifra_robe" class="java.lang.String"/>
-	<field name="sifra_porudzbine" class="java.lang.String"/>
-	<field name="datum_isporuke" class="java.sql.Date"/>
-	<field name="sifra_fakture" class="java.lang.String"/>
-	<field name="COLUMN_6" class="java.lang.String"/>
-	<field name="sifra_magacina" class="java.lang.String"/>
-	<field name="pib_kupca" class="java.lang.String"/>
-	<field name="datum_porudzbine" class="java.sql.Date"/>
-	<field name="COLUMN_10" class="java.lang.String"/>
-	<field name="COLUMN_11" class="java.lang.String"/>
-	<field name="korisnicko_ime" class="java.lang.String"/>
+	<field name="sifraOtpremnice" class="java.lang.String"/>
+	<field name="sifraRobe" class="java.lang.String"/>
+	<field name="sifraPorudzbine" class="java.lang.String"/>
+	<field name="datumIsporuke" class="java.sql.Date"/>
+	<field name="sifraFakture" class="java.lang.String"/>		
+	<field name="korisnickoIme" class="java.lang.String"/>
 	<field name="komada_naruceno" class="java.math.BigDecimal"/>
-	<field name="komada_poslato" class="java.math.BigDecimal"/>
-	<field name="komada_ostalo" class="java.math.BigDecimal"/>
-	<field name="COLUMN_16" class="java.sql.Date"/>
-	<field name="ko_radi" class="java.lang.String"/>
-	<field name="COLUMN_18" class="java.lang.String"/>
-	<field name="jedinica_mere" class="java.lang.Integer"/>
-	<field name="prevod" class="java.lang.Integer"/>
-	<field name="interna_sifra_robe" class="java.lang.String"/>
+	<field name="komada_fakturisano" class="java.math.BigDecimal"/>
+	<field name="komada_ostalo" class="java.math.BigDecimal"/>	
+	<field name="ko_radi" class="java.lang.String"/>	
 	<field name="naziv_robe" class="java.lang.String"/>
-	<field name="interni_naziv" class="java.lang.String"/>
-	<field name="komada_u_setu" class="java.math.BigDecimal"/>
-	<field name="tezina_robe" class="java.math.BigDecimal"/>
-	<field name="cena_roni" class="java.math.BigDecimal"/>
+	<field name="interni_naziv" class="java.lang.String"/>	
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -71,14 +57,14 @@ IBAN: RS35330007010009823559]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[POSLATE STAVKE ZA TRAZENU ROBU]]></text>
+				<text><![CDATA[POSLATE STAVKE]]></text>
 			</staticText>
 			<textField>
 				<reportElement stretchType="ContainerBottom" x="461" y="20" width="100" height="15" uuid="1b8f11ef-5d0f-406b-a655-8c8e3eee3d05">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$P{korisniko_imeP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{korisnickoIme}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -158,7 +144,7 @@ IBAN: RS35330007010009823559]]></text>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="570" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="-11" y="0" width="68" height="15" uuid="9bd34da8-deea-4335-866e-b996ccdb13dd"/>
-					<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{sifraRobe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="136" y="0" width="104" height="15" uuid="37ca1e3c-dac3-4a37-b76b-2b94077a7e4b"/>
@@ -177,7 +163,7 @@ IBAN: RS35330007010009823559]]></text>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{komada_poslato}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{komada_fakturisano}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="313" y="0" width="25" height="15" uuid="09de46a1-c771-477d-8532-d12269c06a50">
@@ -189,12 +175,12 @@ IBAN: RS35330007010009823559]]></text>
 				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
 					<reportElement style="Detail" x="346" y="0" width="63" height="15" uuid="b54562f4-8e4d-4034-8de0-028c45c80e0d"/>
 					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{datum_isporuke}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{datumIsporuke}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="450" y="0" width="47" height="15" uuid="c9518b83-4b20-47ff-bebd-3fd907972928"/>
 					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{sifra_porudzbine}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{sifraPorudzbine}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="504" y="0" width="66" height="15" uuid="60384512-d790-43fe-bc32-21a75e67b538"/>
@@ -214,7 +200,7 @@ IBAN: RS35330007010009823559]]></text>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{sifra_otpremnice}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{sifraOtpremnice}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

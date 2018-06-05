@@ -104,15 +104,15 @@ insert into narucena_roba (sifra_robe, sifra_porudzbine, korisnicko_ime, komada_
 
 insert into narucena_roba (sifra_robe, sifra_porudzbine, korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) values ('002', '111', 'milos', 12, 8, 4, '2018-6-20', 'Radnik 5');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('001', '112', '2018-8-6', '222', 2, '', 'narucena', '1');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('001', '112', '2018-8-6', '222', 2, '', 'narucena', '0');
 
 insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('003', '113', '2018-11-7', '222', 5, 'Ovde ide neki tamo opis.', 'narucena', '5');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('002', '114', '2018-1-1', '221', 3, '', 'narucena', '1');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('002', '114', '2018-1-1', '221', 3, '', 'narucena', '0');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('001', '112', '2017-11-12', '224', 1, '', 'fakturisana', '1');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('001', '112', '2017-11-12', '224', 1, '', 'fakturisana', '0');
 
-insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('002', '114', '2018-1-1', '223', 4, '', 'narucena', '1');
+insert into fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, status, komada_u_metru) values ('002', '114', '2018-1-1', '223', 4, '', 'narucena', '0');
 
 insert into otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, status_robe) values ('554', '003', '113', '2018-11-7', '222', 'fakturisana');
 

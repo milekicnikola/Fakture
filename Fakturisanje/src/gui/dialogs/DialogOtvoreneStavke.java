@@ -366,7 +366,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
 			SQLException {
 
-		String reportSrcFile = "Reports/ios.jrxml";
+		String reportSrcFile = "Reports/otvoreneStavke.jrxml";
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(Calendar.getInstance().getTime());

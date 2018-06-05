@@ -15,7 +15,7 @@
 		<![CDATA[select *, (narucena_roba.komada_naruceno*roba.cena_roni)+0.00 as ukupno
 from narucena_roba
 inner join roba on narucena_roba.sifra_robe = roba.sifra_robe 
-inner join porudzbina on narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine
+inner join porudzbina on narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine 
 inner join magacin on porudzbina.sifra_magacina=magacin.sifra_magacina 
 join jedinica_mere on roba.jedinica_mere = jedinica_mere.redni_broj
 inner join kupci on porudzbina.pib_kupca=kupci.pib

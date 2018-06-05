@@ -446,7 +446,7 @@ public class DialogFaktura extends StandardDialog {
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
 			SQLException {
 
-		String reportSrcFile = "Reports/fakturapros.jrxml";
+		String reportSrcFile = "Reports/prosirenaFaktura.jrxml";
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(Calendar.getInstance().getTime());
