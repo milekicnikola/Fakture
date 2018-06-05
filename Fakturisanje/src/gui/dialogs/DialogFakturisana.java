@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,6 +37,7 @@ import net.sf.jasperreports.export.SimpleDocxExporterConfiguration;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.Roba;
 import databaseConnection.DBConnection;
 
 public class DialogFakturisana extends StandardDialog {
@@ -76,9 +78,10 @@ public class DialogFakturisana extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		if (poslata.equals("ne"))
+		if (poslata.equals("ne")) {
+			addCelaPorudzbina();
 			addPosalji();
-		else {
+		} else {
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
 			toolbar.getBtnAdd().setEnabled(false);
@@ -742,8 +745,8 @@ public class DialogFakturisana extends StandardDialog {
 		// outDir.mkdirs();
 
 		// PDF Exportor.
-		//JRPdfExporter exporter = new JRPdfExporter();
-		
+		// JRPdfExporter exporter = new JRPdfExporter();
+
 		JRDocxExporter exporter = new JRDocxExporter();
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
@@ -768,6 +771,126 @@ public class DialogFakturisana extends StandardDialog {
 						"Izveštaj o fakturi sa prevodom je uspešno kreiran i nalazi se u folderu GeneratedReports.",
 						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
 						JOptionPane.INFORMATION_MESSAGE);
+
+	}
+
+	public void addCelaPorudzbina() {
+
+		JButton btnPorudzbina = new JButton("Dodaj celu porudzbinu");
+		btnPorudzbina.setEnabled(true);
+		toolbar.dodajCeluPorudzbinu(btnPorudzbina);
+
+		toolbar.getBtnPorudzbina().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+
+				String porudzbina = "";
+
+				DialogPorudzbina dialog = new DialogPorudzbina(MainFrame
+						.getInstance(), true);
+				dialog.setVisible(true);
+				try {
+					if (!dialog.getZoom1().equals(""))
+						porudzbina = dialog.getZoom1();
+				} catch (NullPointerException n) {
+				}
+
+				celaPorudzbina(porudzbina);
+				toolbar.getBtnRefresh().doClick();
+			}
+		});
+	}
+
+	public void celaPorudzbina(String sifraPorudzbine) {
+
+		String porudzbina = sifraPorudzbine;
+
+		String upitFakturisana = "SELECT fakturisana_roba.sifra_robe as sifraRobe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke FROM fakturisana_roba WHERE fakturisana_roba.sifra_fakture = '"
+				+ faktura + "'";
+
+		String upitPorudzbina = "SELECT narucena_roba.sifra_robe as sifraRobe, narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.datum_isporuke as datumIsporuke, komada_ostalo FROM narucena_roba WHERE narucena_roba.komada_ostalo > 0 AND narucena_roba.sifra_porudzbine = '"
+				+ porudzbina + "'";
+
+		ArrayList<Roba> mapaRobe = new ArrayList<Roba>();
+		ArrayList<Roba> novaMapa = new ArrayList<Roba>();
+		Roba roba = new Roba("", "", "", "");
+		mapaRobe.add(roba);
+
+		try {
+
+			Statement stmt = DBConnection.getConnection().createStatement();
+			ResultSet rset = stmt.executeQuery(upitFakturisana);
+
+			while (rset.next()) {
+				String sifra_robe = rset.getString("sifraRobe");
+				String sifra_porudzbine = rset.getString("sifraPorudzbine");
+				String datum = rset.getString("datumIsporuke");
+
+				Roba r = new Roba(sifra_robe, sifra_porudzbine, datum, "0");
+
+				mapaRobe.add(r);
+			}
+
+			rset.close();
+			stmt.close();
+
+			Statement stmt1 = DBConnection.getConnection().createStatement();
+			ResultSet rset1 = stmt1.executeQuery(upitPorudzbina);
+
+			while (rset1.next()) {
+
+				String sifra_robe = rset1.getString("sifraRobe");
+				String sifra_porudzbine = rset1.getString("sifraPorudzbine");
+				String datum = rset1.getString("datumIsporuke");
+				String komada = rset1.getString("KOMADA_OSTALO");
+
+				boolean postoji = false;
+
+				for (Roba r : mapaRobe) {
+
+					if (sifra_robe.equals(r.getSifra())
+							&& sifra_porudzbine.equals(r.getPorudzbina())
+							&& datum.equals(r.getDatum())) {
+						postoji = true;
+					}
+				}
+
+				if (!postoji) {
+					Roba nova = new Roba(sifra_robe, sifra_porudzbine, datum,
+							komada);
+					novaMapa.add(nova);
+				}
+			}
+
+			rset1.close();
+			stmt1.close();
+
+			for (Roba r : novaMapa) {
+
+				PreparedStatement stmt3 = DBConnection
+						.getConnection()
+						.prepareStatement(
+								"INSERT INTO fakturisana_roba (sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, komada_fakturisano, opis, komada_u_metru, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+				stmt3.setString(1, r.getSifra());
+				stmt3.setString(2, r.getPorudzbina());
+				stmt3.setString(3, r.getDatum());
+				stmt3.setString(4, faktura);
+				stmt3.setString(5, r.getKomada());
+				stmt3.setString(6, "");
+				stmt3.setString(7, "0");
+				stmt3.setString(8, "narucena");
+
+				stmt3.executeUpdate();
+				stmt3.close();
+
+			}
+
+			DBConnection.getConnection().commit();
+		} catch (SQLException ex) {
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
+					JOptionPane.ERROR_MESSAGE);
+		}
 
 	}
 

@@ -41,8 +41,8 @@ public class DialogPorudzbina extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		addDetaljno();
-
+		if (!isZoom)
+			addDetaljno();
 	}
 
 	@Override
@@ -146,7 +146,6 @@ public class DialogPorudzbina extends StandardDialog {
 			toolbar.getBtnAdd().setEnabled(false);
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
-			toolbar.getBtnDetaljno().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
 				@Override
@@ -162,13 +161,15 @@ public class DialogPorudzbina extends StandardDialog {
 		int index = table.getSelectedRow();
 		if (index < 0) {
 			clearAll();
-			toolbar.getBtnDetaljno().setEnabled(false);
+			if (!isZoom)
+				toolbar.getBtnDetaljno().setEnabled(false);
 			return;
 		}
 
 		if (index <= (table.getModel().getRowCount() - 1)) {
 
-			toolbar.getBtnDetaljno().setEnabled(true);
+			if (!isZoom)
+				toolbar.getBtnDetaljno().setEnabled(true);
 
 			String sifra = (String) tableModel.getValueAt(index, 0);
 			String sifraM = (String) tableModel.getValueAt(index, 1);
@@ -216,7 +217,8 @@ public class DialogPorudzbina extends StandardDialog {
 			btnEnable();
 			allEnable();
 			((PorudzbinaPanel) panel).getTxtSifra().setEditable(false);
-			toolbar.getBtnDetaljno().setEnabled(false);
+			if (!isZoom)
+				toolbar.getBtnDetaljno().setEnabled(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
 			this.state = state;
 		} else {
@@ -224,7 +226,8 @@ public class DialogPorudzbina extends StandardDialog {
 			btnEnable();
 			allEnable();
 
-			toolbar.getBtnDetaljno().setEnabled(false);
+			if (!isZoom)
+				toolbar.getBtnDetaljno().setEnabled(false);
 			((PorudzbinaPanel) panel).getTxtSifra().requestFocus();
 			statusBar.getStatusState().setText(state.toString());
 			this.state = state;
@@ -358,8 +361,11 @@ public class DialogPorudzbina extends StandardDialog {
 	public void btnEnable() {
 		((PorudzbinaPanel) panel).getBtnConfirm().setEnabled(true);
 		((PorudzbinaPanel) panel).getBtnCancel().setEnabled(true);
-		((PorudzbinaPanel) panel).getBtnMagacin().setEnabled(true);
-		((PorudzbinaPanel) panel).getBtnKupac().setEnabled(true);
+		if (!isZoom) {
+			((PorudzbinaPanel) panel).getBtnMagacin().setEnabled(true);
+			((PorudzbinaPanel) panel).getBtnKupac().setEnabled(true);
+		}
+
 	}
 
 	public void addDetaljno() {

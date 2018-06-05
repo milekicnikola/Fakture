@@ -32,6 +32,7 @@ public class DialogToolBar extends JToolBar {
 	
 	JButton btnIzvestaj;	
 	JButton btnIzvestaj2;	
+	JButton btnPorudzbina;
 
 	public DialogToolBar() {
 		super();
@@ -206,4 +207,21 @@ public class DialogToolBar extends JToolBar {
 		this.addSeparator();
 		this.add(btnIzvestaj2);		
 	}
+	
+	public void dodajCeluPorudzbinu(JButton porudzbina) {
+		this.btnPorudzbina = porudzbina;
+		this.addSeparator();
+		this.add(btnPorudzbina);
+		
+	}
+
+	public JButton getBtnPorudzbina() {
+		return btnPorudzbina;
+	}
+
+	public void setBtnPorudzbina(JButton btnPorudzbina) {
+		this.btnPorudzbina = btnPorudzbina;
+	}
+	
+	
 }

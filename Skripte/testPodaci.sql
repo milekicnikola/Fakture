@@ -74,15 +74,15 @@ insert into porudzbina (sifra_porudzbine, sifra_magacina, pib_kupca, datum_porud
 
 insert into porudzbina (sifra_porudzbine, sifra_magacina, pib_kupca, datum_porudzbine) values ('115', 'SPC', '0000000001', '2018-9-18');
 
-insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('221', '2018-10-6', 'd4n63573f', 20.75, 'ZR075CI/BD772ZR', "ne");
+insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('221', '2018-10-6', 'Paritet 1', 0.00, 'ZR075CI/BD772ZR', "ne");
 
-insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('222', '2017-11-8', 'q22pgc8a', 34.85, 'ZR075CI/BD772ZR', "ne");
+insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('222', '2017-11-8', 'Paritet 2', 0.00, 'ZR075CI/BD772ZR', "ne");
 
-insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('223', '2018-12-30', 'c7dogsyy55', 54.69, 'BG075CI/AC688BG', "ne");
+insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('223', '2018-12-30', 'Paritet 3', 0.00, 'BG075CI/AC688BG', "ne");
 
-insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('224', '2018-1-1', 't7orsx49j', 35, 'ZR075CI/AC688ZR', "ne");
+insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('224', '2018-1-1', 'Paritet 4', 0.00, 'ZR075CI/AC688ZR', "ne");
 
-insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('225', '2016-11-4', 'cisn24kw', 11.45, 'ZR12T85/AC688ZR', "ne");
+insert into faktura (sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura) values ('225', '2016-11-4', 'Paritet 5', 0.00, 'ZR12T85/AC688ZR', "ne");
 
 insert into otpremnica (sifra_otpremnice, sifra_magacina, sifra_fakture, poslata_otpremnica) values ('551', 'CRW1', '221', 'ne');
 
