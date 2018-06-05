@@ -231,9 +231,6 @@ alter table porudzbina add constraint fk_porudzbina_iz_magacina foreign key (sif
 alter table porudzbina add constraint fk_porudzbina_kupca foreign key (pib_kupca)
       references kupci (pib) on delete restrict on update restrict;
 
-alter table poslata_roba add constraint fk_poslata_roba foreign key (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture)
-      references otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture) on delete restrict on update restrict;
-
 alter table roba add constraint fk_jedinica_mere_robe foreign key (jedinica_mere)
       references jedinica_mere (redni_broj) on delete restrict on update restrict;
 

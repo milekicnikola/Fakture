@@ -521,6 +521,7 @@ public class DialogFakturisana extends StandardDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				srediPodatke();
 				toolbar.getBtnPosalji().setEnabled(false);
+				toolbar.getBtnPorudzbina().setEnabled(false);
 				toolbar.getBtnRefresh().doClick();
 			}
 		});
