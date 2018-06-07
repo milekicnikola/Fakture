@@ -401,9 +401,17 @@ public class DialogOtpremljena extends StandardDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				srediPodatke();
-				toolbar.getBtnPosalji().setEnabled(false);
-				toolbar.getBtnRefresh().doClick();
+				
+				int dialogResult = JOptionPane.showConfirmDialog(getParent(),
+						"Da li ste sigurni da želite da pošaljete ovu otpremnicu?",
+						"Slanje otpremnice", JOptionPane.YES_NO_OPTION,
+						JOptionPane.INFORMATION_MESSAGE);
+				if (dialogResult == JOptionPane.YES_OPTION) {
+					srediPodatke();
+					toolbar.getBtnPosalji().setEnabled(false);
+					toolbar.getBtnRefresh().doClick();
+				}
+				
 			}
 		});
 
