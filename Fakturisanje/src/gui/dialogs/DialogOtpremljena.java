@@ -436,7 +436,20 @@ public class DialogOtpremljena extends StandardDialog {
 				stmt1.setString(4, datum);
 				stmt1.setString(5, faktura);
 				stmt1.executeUpdate();
-				stmt1.close();				
+				stmt1.close();	
+				
+				PreparedStatement stmt2 = DBConnection
+						.getConnection()
+						.prepareStatement(
+								"UPDATE fakturisana_roba SET status = ? WHERE sifra_robe = ? and sifra_porudzbine = ? and datum_isporuke = ? and sifra_fakture = ?");
+
+				stmt2.setString(1, "otpremljena");
+				stmt2.setString(2, sifra_robe);
+				stmt2.setString(3, sifra_porudzbine);
+				stmt2.setString(4, datum);
+				stmt2.setString(5, faktura);
+				stmt2.executeUpdate();
+				stmt2.close();
 
 			}
 
