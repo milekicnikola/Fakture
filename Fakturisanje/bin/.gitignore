@@ -1,3 +1,5 @@
-/gui
-/actions
-/util
+/actions/
+/application/
+/databaseConnection/
+/gui/
+/util/

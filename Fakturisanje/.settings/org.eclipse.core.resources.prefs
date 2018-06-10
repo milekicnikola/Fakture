@@ -1,11 +1,13 @@
 eclipse.preferences.version=1
 encoding//src/gui/dialogs/DialogFakturisana.java=UTF-8
+encoding//src/gui/dialogs/DialogFakturisaneStavke.java=UTF-8
 encoding//src/gui/dialogs/DialogNarucena.java=UTF-8
 encoding//src/gui/dialogs/DialogOtpremljena.java=UTF-8
 encoding//src/gui/dialogs/DialogOtvoreneStavke.java=UTF-8
 encoding//src/gui/dialogs/DialogPoslateStavke.java=UTF-8
 encoding//src/gui/dialogs/LoginDialog.java=UTF-8
 encoding//src/gui/panels/FakturisanaPanel.java=UTF-8
+encoding//src/gui/panels/FakturisaneStavkePanel.java=UTF-8
 encoding//src/gui/panels/NarucenaPanel.java=UTF-8
 encoding//src/gui/panels/OtpremljenaPanel.java=UTF-8
 encoding//src/gui/panels/OtvoreneStavkePanel.java=UTF-8

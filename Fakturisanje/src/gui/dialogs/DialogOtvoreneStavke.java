@@ -46,7 +46,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 	public DialogOtvoreneStavke(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Otvorene stavke");
-		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
+		setIconImage(new ImageIcon("Images/otvoreneStavke.png").getImage());
 
 		tableModel = new OtvoreneStavkeTableModel(new String[] { "Šifra robe",
 				"Naziv robe", "Interni naziv robe", "Šifra porudzbine",

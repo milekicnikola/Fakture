@@ -46,7 +46,7 @@ public class DialogPoslateStavke extends StandardDialog {
 	public DialogPoslateStavke(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Poslate stavke");
-		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
+		setIconImage(new ImageIcon("Images/poslateStavke.png").getImage());
 
 		tableModel = new PoslateStavkeTableModel(new String[] { "Šifra robe",
 				"Naziv robe", "Interni naziv robe", "Porudzbina", "Faktura",
@@ -335,6 +335,7 @@ public class DialogPoslateStavke extends StandardDialog {
 		((PoslateStavkePanel) panel).getTxtSifraR().setText("");
 		((PoslateStavkePanel) panel).getTxtSifraP().setText("");
 		((PoslateStavkePanel) panel).getTxtNazivR().setText("");
+		((PoslateStavkePanel) panel).getTxtInterni().setText("");
 		((PoslateStavkePanel) panel).getTxtNaruceno().setText("");
 		((PoslateStavkePanel) panel).getTxtPoslato().setText("");
 		((PoslateStavkePanel) panel).getTxtOstalo().setText("");
