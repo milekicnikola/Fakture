@@ -39,6 +39,8 @@ import databaseConnection.DBConnection;
 public class DialogFaktura extends StandardDialog {
 
 	private String faktura = "";
+	private JButton btnAktivno;
+	private JButton btnSve;
 
 	/**
 	 * 
@@ -72,6 +74,34 @@ public class DialogFaktura extends StandardDialog {
 
 	@Override
 	public void initActions() {
+		
+		btnSve = new JButton("Sve fakture");
+		btnAktivno = new JButton("Aktivne fakture");
+		
+		btnSve.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				toolbar.getBtnRefresh().doClick();			
+			}
+		});
+		
+		btnAktivno.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				try {
+					tableModel.fillData("SELECT sifra_fakture, datum_fakture, paritet_fakture, ukupna_tezina, transport_fakture, poslata_faktura FROM faktura WHERE poslata_faktura = 'ne'");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		});
+		
+		toolbar.add(btnSve);
+		toolbar.addSeparator();
+		toolbar.add(btnAktivno);
+		toolbar.addSeparator();
 
 		if (!isZoom) {
 
@@ -386,6 +416,7 @@ public class DialogFaktura extends StandardDialog {
 		JButton btnDetaljno = new JButton("Detalji fakture");
 		btnDetaljno.setEnabled(false);
 		toolbar.dodajDetaljno(btnDetaljno);
+		toolbar.addSeparator();
 
 		toolbar.getBtnDetaljno().addActionListener(new ActionListener() {
 
@@ -421,6 +452,7 @@ public class DialogFaktura extends StandardDialog {
 		JButton btnIzvestaj = new JButton("Prošireni izveštaj");
 		btnIzvestaj.setEnabled(false);
 		toolbar.dodajIzvestaj(btnIzvestaj);
+		toolbar.addSeparator();
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 

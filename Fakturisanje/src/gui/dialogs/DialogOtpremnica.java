@@ -24,6 +24,8 @@ import databaseConnection.DBConnection;
 public class DialogOtpremnica extends StandardDialog {
 
 	private String preuzetDatum = "";
+	private JButton btnAktivno;
+	private JButton btnSve;
 
 	/**
 	 * 
@@ -50,13 +52,41 @@ public class DialogOtpremnica extends StandardDialog {
 
 		addDetaljno();		
 		
-		toolbar.remove(10);
-		toolbar.remove(10);
+		toolbar.remove(11);
+		//toolbar.remove(10);
 
 	}
 
 	@Override
 	public void initActions() {		
+		
+		btnSve = new JButton("Sve otpremnice");
+		btnAktivno = new JButton("Aktivne otpremnice");
+		
+		btnSve.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				toolbar.getBtnRefresh().doClick();			
+			}
+		});
+		
+		btnAktivno.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				try {
+					tableModel.fillData("SELECT sifra_otpremnice, otpremnica.sifra_magacina as sifraMagacina, naziv_magacina, otpremnica.sifra_fakture as sifraFakture, datum_fakture, transport_fakture, poslata_otpremnica FROM otpremnica JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina JOIN faktura ON otpremnica.sifra_fakture = faktura.sifra_fakture WHERE poslata_otpremnica = 'ne'");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		});
+		
+		toolbar.add(btnSve);
+		toolbar.addSeparator();
+		toolbar.add(btnAktivno);
+		toolbar.addSeparator();
 
 		if (!isZoom) {
 
@@ -68,7 +98,7 @@ public class DialogOtpremnica extends StandardDialog {
 						int dialogResult = JOptionPane
 								.showConfirmDialog(
 										getParent(),
-										"Da li ste sigurni da želite da obrišete ovu otpremnicu?",
+										"Da li ste sigurni da želite da obrišete ovu otpremnicu i sve stavke koje se na njoj nalaze?",
 										"Brisanje sloga",
 										JOptionPane.YES_NO_OPTION,
 										JOptionPane.INFORMATION_MESSAGE);

@@ -82,11 +82,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {				
-				try {
-					tableModel.fillData("SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE komada_ostalo > 0");
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+				toolbar.getBtnRefresh().doClick();			
 			}
 		});
 		

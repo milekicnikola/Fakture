@@ -17,6 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class DialogPorudzbina extends StandardDialog {
+	
+	private JButton btnAktivno;
+	private JButton btnSve;
 
 	/**
 	 * 
@@ -47,6 +50,34 @@ public class DialogPorudzbina extends StandardDialog {
 
 	@Override
 	public void initActions() {
+		
+		btnSve = new JButton("Sve porudzbine");
+		btnAktivno = new JButton("Aktivne porudzbine");
+		
+		btnSve.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				toolbar.getBtnRefresh().doClick();			
+			}
+		});
+		
+		btnAktivno.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {				
+				try {
+					tableModel.fillData("SELECT porudzbina.sifra_porudzbine, porudzbina.sifra_magacina as sifraMagacina, naziv_magacina, porudzbina.pib_kupca as sifraKupca, naziv_kupca, datum_porudzbine FROM porudzbina JOIN magacin ON porudzbina.sifra_magacina = magacin.sifra_magacina JOIN kupci ON porudzbina.pib_kupca = kupci.pib JOIN narucena_roba ON porudzbina.sifra_porudzbine = narucena_roba.sifra_porudzbine WHERE narucena_roba.komada_ostalo > 0 GROUP BY porudzbina.sifra_porudzbine");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		});
+		
+		toolbar.add(btnSve);
+		toolbar.addSeparator();
+		toolbar.add(btnAktivno);
+		toolbar.addSeparator();
 
 		if (!isZoom) {
 
