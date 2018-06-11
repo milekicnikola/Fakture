@@ -31,7 +31,8 @@ public class DialogToolBar extends JToolBar {
 	JButton btnPosalji;	
 	
 	JButton btnIzvestaj;	
-	JButton btnIzvestaj2;	
+	JButton btnPrevod;	
+	JButton btnProsireniIzvestaj;
 	JButton btnPorudzbina;
 
 	public DialogToolBar() {
@@ -188,12 +189,20 @@ public class DialogToolBar extends JToolBar {
 		this.btnIzvestaj = btnIzvestaj;
 	}
 	
-	public JButton getBtnIzvestaj2() {
-		return btnIzvestaj2;
+	public JButton getBtnPrevod() {
+		return btnPrevod;
 	}
 
-	public void setBtnIzvestaj2(JButton btnIzvestaj2) {
-		this.btnIzvestaj2 = btnIzvestaj2;
+	public void setBtnPrevod(JButton btnPrevod) {
+		this.btnPrevod = btnPrevod;
+	}
+	
+	public JButton getBtnProsireniIzvestaj() {
+		return btnProsireniIzvestaj;
+	}
+
+	public void setBtnProsireniIzvestaj(JButton btnProsireniIzvestaj) {
+		this.btnProsireniIzvestaj = btnProsireniIzvestaj;
 	}
 	
 	public void dodajIzvestaj(JButton izvestaj) {
@@ -202,10 +211,16 @@ public class DialogToolBar extends JToolBar {
 		this.add(btnIzvestaj);		
 	}
 	
-	public void dodajIzvestaj2(JButton izvestaj) {
-		this.btnIzvestaj2 = izvestaj;
+	public void dodajPrevod(JButton prevod) {
+		this.btnPrevod = prevod;
 		this.addSeparator();
-		this.add(btnIzvestaj2);		
+		this.add(btnPrevod);		
+	}
+	
+	public void dodajProsireniIzvestaj(JButton prosireniIzvestaj) {
+		this.btnProsireniIzvestaj = prosireniIzvestaj;
+		this.addSeparator();
+		this.add(btnProsireniIzvestaj);		
 	}
 	
 	public void dodajCeluPorudzbinu(JButton porudzbina) {

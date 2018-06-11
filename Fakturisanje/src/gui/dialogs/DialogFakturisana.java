@@ -1,9 +1,5 @@
 package gui.dialogs;
 
-import gui.MainFrame;
-import gui.model.FakturisanaTableModel;
-import gui.panels.FakturisanaPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -24,6 +20,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import databaseConnection.DBConnection;
+import gui.MainFrame;
+import gui.model.FakturisanaTableModel;
+import gui.panels.FakturisanaPanel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -38,7 +38,6 @@ import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import util.Roba;
-import databaseConnection.DBConnection;
 
 public class DialogFakturisana extends StandardDialog {
 
@@ -316,7 +315,7 @@ public class DialogFakturisana extends StandardDialog {
 			} else {
 				((FakturisanaPanel) panel).getTxtStatus().setEditable(false);
 				((FakturisanaPanel) panel).getTxtSifraP().setEditable(false);
-				((FakturisanaPanel) panel).getTxtNaruceno().setEditable(false);								
+				((FakturisanaPanel) panel).getTxtNaruceno().setEditable(false);
 			}
 		}
 		((FakturisanaPanel) panel).getTxtKomada().requestFocus();
@@ -465,15 +464,23 @@ public class DialogFakturisana extends StandardDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int dialogResult = JOptionPane.showConfirmDialog(getParent(),
-						"Da li ste sigurni da želite da pošaljete ovu fakturu?", "Slanje fakture",
-						JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-				if (dialogResult == JOptionPane.YES_OPTION) {
-					srediPodatke();
-					toolbar.getBtnPosalji().setEnabled(false);
-					toolbar.getBtnPorudzbina().setEnabled(false);
-					toolbar.getBtnRefresh().doClick();
-				}
+				
+				FakturisanaTableModel ctm = (FakturisanaTableModel) table.getModel();
+				if (ctm.getRowCount() > 0) {
+					
+					int dialogResult = JOptionPane.showConfirmDialog(getParent(),
+							"Da li ste sigurni da želite da pošaljete ovu fakturu?", "Slanje fakture",
+							JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+					if (dialogResult == JOptionPane.YES_OPTION) {
+						srediPodatke();
+						toolbar.getBtnPosalji().setEnabled(false);
+						toolbar.getBtnPorudzbina().setEnabled(false);
+						toolbar.getBtnRefresh().doClick();
+					}					
+				} else {
+					JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+							JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+				}	
 
 			}
 		});
@@ -563,19 +570,28 @@ public class DialogFakturisana extends StandardDialog {
 
 	public void addIzvestaj() {
 
-		JButton btnIzvestaj = new JButton("Napravi izveštaj");
-		JButton btnPrevod = new JButton("Napravi prevod");
+		JButton btnIzvestaj = new JButton("Izveštaj");
+		JButton btnPrevod = new JButton("Prevod");
+		JButton btnProsireniIzvestaj = new JButton("Prošireni izveštaj");
 		btnIzvestaj.setEnabled(true);
+		btnProsireniIzvestaj.setEnabled(true);
 		btnPrevod.setEnabled(true);
-		toolbar.dodajIzvestaj(btnIzvestaj);
-		toolbar.dodajIzvestaj2(btnPrevod);
+		toolbar.dodajIzvestaj(btnIzvestaj);		
+		toolbar.dodajPrevod(btnPrevod);		
+		toolbar.dodajProsireniIzvestaj(btnProsireniIzvestaj);				
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviIzvestaj();
+					FakturisanaTableModel ctm = (FakturisanaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();
@@ -589,12 +605,43 @@ public class DialogFakturisana extends StandardDialog {
 
 		});
 
-		toolbar.getBtnIzvestaj2().addActionListener(new ActionListener() {
+		toolbar.getBtnPrevod().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviPrevod();
+					FakturisanaTableModel ctm = (FakturisanaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviPrevod();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+		
+		toolbar.getBtnProsireniIzvestaj().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					FakturisanaTableModel ctm = (FakturisanaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviProsireniIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();
@@ -609,6 +656,7 @@ public class DialogFakturisana extends StandardDialog {
 		});
 
 	}
+
 
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException, SQLException {
 
@@ -704,11 +752,58 @@ public class DialogFakturisana extends StandardDialog {
 
 	}
 
+	public void napraviProsireniIzvestaj() throws JRException, ClassNotFoundException, SQLException {
+
+		String reportSrcFile = "Reports/prosirenaFaktura.jrxml";
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
+		// First, compile jrxml file.
+		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
+
+		Connection conn = DBConnection.getConnection();
+
+		// Parameters for report
+		Map<String, Object> parameters = new HashMap<String, Object>();		
+
+		parameters.put("sifraFakture", faktura);
+
+		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
+
+		// Make sure the output directory exists.
+		// File outDir = new File("C:/jasperoutput");
+		// outDir.mkdirs();
+
+		// PDF Exportor.
+		JRPdfExporter exporter = new JRPdfExporter();
+
+		ExporterInput exporterInput = new SimpleExporterInput(print);
+		// ExporterInput
+		exporter.setExporterInput(exporterInput);
+
+		// ExporterOutput
+		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+				"GeneratedReports/Prosirena Faktura " + faktura + " - " + timeStamp + ".pdf");
+		// Output
+		exporter.setExporterOutput(exporterOutput);
+
+		//
+		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+		exporter.setConfiguration(configuration);
+		exporter.exportReport();
+
+		JOptionPane.showConfirmDialog(getParent(),
+				"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
+
+	}
+
 	public void addCelaPorudzbina() {
 
 		JButton btnPorudzbina = new JButton("Dodaj celu porudzbinu");
 		btnPorudzbina.setEnabled(true);
 		toolbar.dodajCeluPorudzbinu(btnPorudzbina);
+		toolbar.addSeparator();
 
 		toolbar.getBtnPorudzbina().addActionListener(new ActionListener() {
 

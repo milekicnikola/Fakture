@@ -1,8 +1,5 @@
 package gui.dialogs;
 
-import gui.model.MagacinTableModel;
-import gui.panels.MagacinPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -17,6 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import databaseConnection.DBConnection;
+import gui.model.MagacinTableModel;
+import gui.panels.MagacinPanel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -28,7 +28,6 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
-import databaseConnection.DBConnection;
 
 public class DialogMagacin extends StandardDialog {
 
@@ -303,7 +302,13 @@ public class DialogMagacin extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviIzvestaj();
+					MagacinTableModel ctm = (MagacinTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();

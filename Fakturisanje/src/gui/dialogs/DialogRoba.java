@@ -1,8 +1,5 @@
 package gui.dialogs;
 
-import gui.model.RobaTableModel;
-import gui.panels.RobaPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -17,6 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import databaseConnection.DBConnection;
+import gui.model.RobaTableModel;
+import gui.panels.RobaPanel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -28,7 +28,6 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
-import databaseConnection.DBConnection;
 
 public class DialogRoba extends StandardDialog {
 
@@ -42,9 +41,8 @@ public class DialogRoba extends StandardDialog {
 		setTitle("Roba");
 		setIconImage(new ImageIcon("Images/roba.png").getImage());
 
-		tableModel = new RobaTableModel(new String[] { "Šifra",
-				"Interna šifra", "Naziv", "Interni naziv", "Jedinica mere",
-				"Komada u setu", "Prevod", "Težina", "Cena u ronima" }, 0);
+		tableModel = new RobaTableModel(new String[] { "Šifra", "Interna šifra", "Naziv", "Interni naziv",
+				"Jedinica mere", "Komada u setu", "Prevod", "Težina", "Cena u ronima" }, 0);
 
 		panel = new RobaPanel();
 
@@ -70,21 +68,15 @@ public class DialogRoba extends StandardDialog {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					if (table.getSelectedRow() >= 0) {
-						int dialogResult = JOptionPane
-								.showConfirmDialog(
-										getParent(),
-										"Da li ste sigurni da želite da obrišete ovu robu?",
-										"Brisanje sloga",
-										JOptionPane.YES_NO_OPTION,
-										JOptionPane.INFORMATION_MESSAGE);
+						int dialogResult = JOptionPane.showConfirmDialog(getParent(),
+								"Da li ste sigurni da želite da obrišete ovu robu?", "Brisanje sloga",
+								JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						if (dialogResult == JOptionPane.YES_OPTION) {
 							removeRow();
 						}
 					} else {
-						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna roba nije selektovana.", "Upozorenje",
-								JOptionPane.PLAIN_MESSAGE,
-								JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showConfirmDialog(getParent(), "Nijedna roba nije selektovana.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			});
@@ -97,10 +89,8 @@ public class DialogRoba extends StandardDialog {
 					if (table.getSelectedRow() >= 0) {
 						updateStateAndTextFields(State.AZURIRANJE);
 					} else {
-						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna roba nije selektovana.", "Upozorenje",
-								JOptionPane.PLAIN_MESSAGE,
-								JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showConfirmDialog(getParent(), "Nijedna roba nije selektovana.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
 					}
 
 				}
@@ -118,33 +108,22 @@ public class DialogRoba extends StandardDialog {
 				}
 			});
 
-			((RobaPanel) panel).getCmbJedinicaMere().addActionListener(
-					new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-							if (!statusBar.getStatusState().getText()
-									.equals("POGLED")
-									&& !statusBar.getStatusState().getText()
-											.equals("PRETRAGA")) {
-								if (((RobaPanel) panel).getCmbJedinicaMere()
-										.getSelectedItem() == "komad"
-										|| ((RobaPanel) panel)
-												.getCmbJedinicaMere()
-												.getSelectedItem() == "metar") {
-									((RobaPanel) panel).getTxtKomada().setText(
-											"1");
-									((RobaPanel) panel).getTxtKomada()
-											.setEditable(false);
-								} else if (((RobaPanel) panel)
-										.getCmbJedinicaMere().getSelectedItem() == "set") {
-									((RobaPanel) panel).getTxtKomada()
-											.setEditable(true);
-									((RobaPanel) panel).getTxtKomada().setText(
-											"1");
+			((RobaPanel) panel).getCmbJedinicaMere().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (!statusBar.getStatusState().getText().equals("POGLED")
+							&& !statusBar.getStatusState().getText().equals("PRETRAGA")) {
+						if (((RobaPanel) panel).getCmbJedinicaMere().getSelectedItem() == "komad"
+								|| ((RobaPanel) panel).getCmbJedinicaMere().getSelectedItem() == "metar") {
+							((RobaPanel) panel).getTxtKomada().setText("1");
+							((RobaPanel) panel).getTxtKomada().setEditable(false);
+						} else if (((RobaPanel) panel).getCmbJedinicaMere().getSelectedItem() == "set") {
+							((RobaPanel) panel).getTxtKomada().setEditable(true);
+							((RobaPanel) panel).getTxtKomada().setText("1");
 
-								}
-							}
 						}
-					});
+					}
+				}
+			});
 
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
@@ -271,11 +250,9 @@ public class DialogRoba extends StandardDialog {
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
 		String interni = ((RobaPanel) panel).getTxtInterni().getText().trim();
-		String jedinica = ((RobaPanel) panel).getCmbJedinicaMere()
-				.getSelectedItem().toString();
+		String jedinica = ((RobaPanel) panel).getCmbJedinicaMere().getSelectedItem().toString();
 		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
-		String naziv_prevoda = ((RobaPanel) panel).getCmbPrevod()
-				.getSelectedItem().toString();
+		String naziv_prevoda = ((RobaPanel) panel).getCmbPrevod().getSelectedItem().toString();
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
@@ -306,13 +283,12 @@ public class DialogRoba extends StandardDialog {
 		/*
 		 * String roni = "0"; double roniD;
 		 * 
-		 * if (evri != null && !evri.equals("")) { roniD =
-		 * Double.parseDouble(evri) * trenutniKurs; roni =
-		 * String.valueOf(roniD); }
+		 * if (evri != null && !evri.equals("")) { roniD = Double.parseDouble(evri) *
+		 * trenutniKurs; roni = String.valueOf(roniD); }
 		 */
 
-		String[] params = { sifra, mera, prevod, interna, naziv, interni,
-				jedinica, komada, naziv_prevoda, tezina, roni };
+		String[] params = { sifra, mera, prevod, interna, naziv, interni, jedinica, komada, naziv_prevoda, tezina,
+				roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
@@ -320,8 +296,7 @@ public class DialogRoba extends StandardDialog {
 			table.setRowSelectionInterval(index, index);
 			updateStateAndTextFields(State.DODAVANJE);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
@@ -344,11 +319,9 @@ public class DialogRoba extends StandardDialog {
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
 		String interni = ((RobaPanel) panel).getTxtInterni().getText().trim();
-		String jedinica = ((RobaPanel) panel).getCmbJedinicaMere()
-				.getSelectedItem().toString();
+		String jedinica = ((RobaPanel) panel).getCmbJedinicaMere().getSelectedItem().toString();
 		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
-		String naziv_prevoda = ((RobaPanel) panel).getCmbPrevod()
-				.getSelectedItem().toString();
+		String naziv_prevoda = ((RobaPanel) panel).getCmbPrevod().getSelectedItem().toString();
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
@@ -379,21 +352,18 @@ public class DialogRoba extends StandardDialog {
 		/*
 		 * String roni = "0"; double roniD;
 		 * 
-		 * if (evri != null && !evri.equals("")) { roniD =
-		 * Double.parseDouble(evri) * trenutniKurs; roni =
-		 * String.valueOf(roniD); }
+		 * if (evri != null && !evri.equals("")) { roniD = Double.parseDouble(evri) *
+		 * trenutniKurs; roni = String.valueOf(roniD); }
 		 */
 
-		String[] params = { mera, prevod, interna, naziv, interni, jedinica,
-				komada, naziv_prevoda, tezina, roni };
+		String[] params = { mera, prevod, interna, naziv, interni, jedinica, komada, naziv_prevoda, tezina, roni };
 		int index = table.getSelectedRow();
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
 			ctm.updateRow(index, params);
 			updateStateAndTextFields(State.AZURIRANJE);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 		table.setRowSelectionInterval(index, index);
 	}
@@ -408,16 +378,14 @@ public class DialogRoba extends StandardDialog {
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
-		String[] params = { sifra, interna, naziv, interni, komada, tezina,
-				roni };
+		String[] params = { sifra, interna, naziv, interni, komada, tezina, roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -501,7 +469,13 @@ public class DialogRoba extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviIzvestaj();
+					RobaTableModel ctm = (RobaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();
@@ -517,25 +491,21 @@ public class DialogRoba extends StandardDialog {
 
 	}
 
-	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
-			SQLException {
+	public void napraviIzvestaj() throws JRException, ClassNotFoundException, SQLException {
 
 		String reportSrcFile = "Reports/roba.jrxml";
 
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-				.format(Calendar.getInstance().getTime());
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
 		// First, compile jrxml file.
-		JasperReport jasperReport = JasperCompileManager
-				.compileReport(reportSrcFile);
+		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
 
 		Connection conn = DBConnection.getConnection();
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
-		JasperPrint print = JasperFillManager.fillReport(jasperReport,
-				parameters, conn);
+		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
 		// Make sure the output directory exists.
 		// File outDir = new File("C:/jasperoutput");
@@ -559,12 +529,27 @@ public class DialogRoba extends StandardDialog {
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
 
-		JOptionPane
-				.showConfirmDialog(
-						getParent(),
-						"Izveštaj o robi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
-						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
-						JOptionPane.INFORMATION_MESSAGE);
+		/*
+		 * JMenuBar mb = new JMenuBar(); MenuBar mb1 = new MenuBar(); JMenu c = new
+		 * JMenu("OVDE");
+		 * 
+		 * JasperViewer jv = new JasperViewer(print); jv.setAlwaysOnTop(true);
+		 * jv.setJMenuBar(mb); jv.setMenuBar(mb1);
+		 * System.out.println(jv.getRootPane().getComponent(0));
+		 * System.out.println(jv.getLayeredPane().getComponent(0));
+		 * jv.getLayeredPane().getComponent(0).setEnabled(false);
+		 * System.out.println(jv.getLayeredPane().getComponent(1).getClass());
+		 * jv.getJMenuBar().add(c);
+		 * System.out.println(jv.getRootPane().getContentPane().getComponent(0).getClass
+		 * ());
+		 * 
+		 * jv.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
+		 * //jv.setAutoRequestFocus(true); jv.setVisible(true);
+		 */
+
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj o robi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
 
 	}
 

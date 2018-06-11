@@ -347,7 +347,13 @@ public class DialogFakturisaneStavke extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviIzvestaj();
+					FakturisaneStavkeTableModel ctm = (FakturisaneStavkeTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}					
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();

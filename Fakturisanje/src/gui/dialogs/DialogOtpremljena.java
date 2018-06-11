@@ -1,8 +1,5 @@
 package gui.dialogs;
 
-import gui.model.OtpremljenaTableModel;
-import gui.panels.OtpremljenaPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -20,6 +17,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import databaseConnection.DBConnection;
+import gui.model.OtpremljenaTableModel;
+import gui.panels.OtpremljenaPanel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -31,7 +31,6 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
-import databaseConnection.DBConnection;
 
 public class DialogOtpremljena extends StandardDialog {
 
@@ -61,8 +60,9 @@ public class DialogOtpremljena extends StandardDialog {
 
 		panel = new OtpremljenaPanel();
 
-		/*if (zoom)
-			isZoom = true;*/
+		/*
+		 * if (zoom) isZoom = true;
+		 */
 
 		initGUI();
 		initStandardActions();
@@ -72,10 +72,10 @@ public class DialogOtpremljena extends StandardDialog {
 			addPosalji();
 
 		addIzvestaj();
-		
+
 		toolbar.remove(9);
-		toolbar.remove(9);		
-		toolbar.remove(9);		
+		toolbar.remove(9);
+		toolbar.remove(9);
 		toolbar.remove(1);
 
 	}
@@ -168,10 +168,12 @@ public class DialogOtpremljena extends StandardDialog {
 			toolbar.getBtnUpdate().setEnabled(false);
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
+
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 				}
+
 			});
 		}
 	}
@@ -367,7 +369,7 @@ public class DialogOtpremljena extends StandardDialog {
 
 	public void btnEnable() {
 		((OtpremljenaPanel) panel).getBtnConfirm().setEnabled(true);
-		((OtpremljenaPanel) panel).getBtnCancel().setEnabled(true);		
+		((OtpremljenaPanel) panel).getBtnCancel().setEnabled(true);
 	}
 
 	public void addPosalji() {
@@ -381,15 +383,21 @@ public class DialogOtpremljena extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 
-				int dialogResult = JOptionPane.showConfirmDialog(getParent(),
-						"Da li ste sigurni da želite da pošaljete ovu otpremnicu?", "Slanje otpremnice",
-						JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-				if (dialogResult == JOptionPane.YES_OPTION) {
-					srediPodatke();
-					toolbar.getBtnPosalji().setEnabled(false);
-					toolbar.getBtnRefresh().doClick();
-				}
+				OtpremljenaTableModel ctm = (OtpremljenaTableModel) table.getModel();
+				if (ctm.getRowCount() > 0) {
 
+					int dialogResult = JOptionPane.showConfirmDialog(getParent(),
+							"Da li ste sigurni da želite da pošaljete ovu otpremnicu?", "Slanje otpremnice",
+							JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+					if (dialogResult == JOptionPane.YES_OPTION) {
+						srediPodatke();
+						toolbar.getBtnPosalji().setEnabled(false);
+						toolbar.getBtnRefresh().doClick();
+					}
+				} else {
+					JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+							JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+				}
 			}
 		});
 
@@ -460,14 +468,20 @@ public class DialogOtpremljena extends StandardDialog {
 		btnIzvestajC.setEnabled(true);
 
 		toolbar.dodajIzvestaj(btnIzvestaj);
-		toolbar.dodajIzvestaj2(btnIzvestajC);
+		toolbar.dodajProsireniIzvestaj(btnIzvestajC);
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviIzvestaj();
+					OtpremljenaTableModel ctm = (OtpremljenaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();
@@ -481,12 +495,18 @@ public class DialogOtpremljena extends StandardDialog {
 
 		});
 
-		toolbar.getBtnIzvestaj2().addActionListener(new ActionListener() {
+		toolbar.getBtnProsireniIzvestaj().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					napraviIzvestaj2();
+					OtpremljenaTableModel ctm = (OtpremljenaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj2();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
 				} catch (JRException e) {
 					System.out.println("Jasper error");
 					e.printStackTrace();

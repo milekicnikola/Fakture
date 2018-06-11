@@ -1,40 +1,24 @@
 package gui.dialogs;
 
-import gui.MainFrame;
-import gui.model.FakturaTableModel;
-import gui.panels.FakturaPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.export.ExporterInput;
-import net.sf.jasperreports.export.OutputStreamExporterOutput;
-import net.sf.jasperreports.export.SimpleExporterInput;
-import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
-import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import databaseConnection.DBConnection;
+import gui.MainFrame;
+import gui.model.FakturaTableModel;
+import gui.panels.FakturaPanel;
 
 public class DialogFaktura extends StandardDialog {
 
@@ -65,8 +49,7 @@ public class DialogFaktura extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		if (!isZoom) {
-			addIzvestaj();
+		if (!isZoom) {			
 			addDetaljno();
 		}
 
@@ -176,8 +159,7 @@ public class DialogFaktura extends StandardDialog {
 			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
 			if (!isZoom) {
-				toolbar.getBtnDetaljno().setEnabled(false);
-				toolbar.getBtnIzvestaj().setEnabled(false);
+				toolbar.getBtnDetaljno().setEnabled(false);				
 			}
 
 			panel.getBtnCancel().addActionListener(new ActionListener() {
@@ -195,8 +177,7 @@ public class DialogFaktura extends StandardDialog {
 		if (index < 0) {
 			clearAll();
 			if (!isZoom) {
-				toolbar.getBtnDetaljno().setEnabled(false);
-				toolbar.getBtnIzvestaj().setEnabled(false);
+				toolbar.getBtnDetaljno().setEnabled(false);				
 			}
 			return;
 		}
@@ -204,9 +185,7 @@ public class DialogFaktura extends StandardDialog {
 		if (index <= (table.getModel().getRowCount() - 1)) {
 
 			if (!isZoom) {
-
-				toolbar.getBtnDetaljno().setEnabled(true);
-				toolbar.getBtnIzvestaj().setEnabled(true);
+				toolbar.getBtnDetaljno().setEnabled(true);				
 
 			}
 
@@ -257,8 +236,7 @@ public class DialogFaktura extends StandardDialog {
 			((FakturaPanel) panel).getTxtSifra().setEditable(false);
 
 			if (!isZoom) {
-				toolbar.getBtnDetaljno().setEnabled(false);
-				toolbar.getBtnIzvestaj().setEnabled(false);
+				toolbar.getBtnDetaljno().setEnabled(false);				
 			}
 
 			statusBar.getStatusState().setText("AŽURIRANJE");
@@ -277,8 +255,7 @@ public class DialogFaktura extends StandardDialog {
 			}
 
 			if (!isZoom) {
-				toolbar.getBtnDetaljno().setEnabled(false);
-				toolbar.getBtnIzvestaj().setEnabled(false);
+				toolbar.getBtnDetaljno().setEnabled(false);				
 			}
 
 			((FakturaPanel) panel).getTxtSifra().requestFocus();
@@ -445,91 +422,7 @@ public class DialogFaktura extends StandardDialog {
 				}
 			}
 		});
-	}
-
-	public void addIzvestaj() {
-
-		JButton btnIzvestaj = new JButton("Prošireni izveštaj");
-		btnIzvestaj.setEnabled(false);
-		toolbar.dodajIzvestaj(btnIzvestaj);
-		toolbar.addSeparator();
-
-		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					napraviIzvestaj();
-				} catch (JRException e) {
-					System.out.println("Jasper error");
-					e.printStackTrace();
-				} catch (ClassNotFoundException e1) {
-					System.out.println("Nema klase");
-				} catch (SQLException e2) {
-					System.out.println("SQL error");
-				}
-
-			}
-
-		});
-
-	}
-
-	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
-			SQLException {
-
-		String reportSrcFile = "Reports/prosirenaFaktura.jrxml";
-
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-				.format(Calendar.getInstance().getTime());
-
-		// First, compile jrxml file.
-		JasperReport jasperReport = JasperCompileManager
-				.compileReport(reportSrcFile);
-
-		Connection conn = DBConnection.getConnection();
-
-		// Parameters for report
-		Map<String, Object> parameters = new HashMap<String, Object>();
-
-		String faktura = ((FakturaPanel) panel).getTxtSifra().getText().trim();
-
-		parameters.put("sifraFakture", faktura);
-
-		JasperPrint print = JasperFillManager.fillReport(jasperReport,
-				parameters, conn);
-
-		// Make sure the output directory exists.
-		// File outDir = new File("C:/jasperoutput");
-		// outDir.mkdirs();
-
-		// PDF Exportor.
-		JRPdfExporter exporter = new JRPdfExporter();
-
-		ExporterInput exporterInput = new SimpleExporterInput(print);
-		// ExporterInput
-		exporter.setExporterInput(exporterInput);
-
-		// ExporterOutput
-		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Prosirena Faktura " + faktura + " - "
-						+ timeStamp + ".pdf");
-		// Output
-		exporter.setExporterOutput(exporterOutput);
-
-		//
-		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
-		exporter.setConfiguration(configuration);
-		exporter.exportReport();
-
-		JOptionPane
-				.showConfirmDialog(
-						getParent(),
-						"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.",
-						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
-						JOptionPane.INFORMATION_MESSAGE);
-
-	}
+	}	
 
 	public void izracunajTezinu(String faktura) {
 		

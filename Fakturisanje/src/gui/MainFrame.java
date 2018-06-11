@@ -92,16 +92,15 @@ public class MainFrame extends JFrame {
 				.getDialogFakturisaneStavkeAction());
 		
 		menu.add(roba);
-		menu.add(kupci);
 		menu.add(magacin);
+		menu.add(kupci);		
 		menu.add(kurs);
 		menu.add(porudzbina);
 		menu.add(faktura);
 		menu.add(otpremnica);
 		menu.add(otvoreneStavke);
-		menu.add(poslateStavke);
 		menu.add(fakturisaneStavke);
-				
+		menu.add(poslateStavke);				
 
 		add(toolbar, BorderLayout.NORTH);
 		add(statusBar, BorderLayout.SOUTH);

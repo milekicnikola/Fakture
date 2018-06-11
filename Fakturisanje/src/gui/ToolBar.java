@@ -21,8 +21,9 @@ public class ToolBar extends JToolBar {
 		add(ActionManager.getInstance().getDialogFakturaAction());
 		add(ActionManager.getInstance().getDialogOtpremnicaAction());
 		add(ActionManager.getInstance().getDialogOtvoreneStavkeAction());
-		add(ActionManager.getInstance().getDialogPoslateStavkeAction());
 		add(ActionManager.getInstance().getDialogFakturisaneStavkeAction());
+		add(ActionManager.getInstance().getDialogPoslateStavkeAction());
+		
 	}
 
 }
