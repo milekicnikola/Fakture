@@ -2,6 +2,7 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -677,8 +680,11 @@ public class DialogFakturisana extends StandardDialog {
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
 		// Make sure the output directory exists.
-		// File outDir = new File("C:/jasperoutput");
-		// outDir.mkdirs();
+		ResourceBundle bundle = PropertyResourceBundle
+				.getBundle("util/Report");
+		String path = bundle.getString("path");
+		File outDir = new File(path);
+		outDir.mkdirs();
 
 		// PDF Exportor.
 		JRPdfExporter exporter = new JRPdfExporter();
@@ -689,7 +695,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Faktura " + faktura + " - " + timeStamp + ".pdf");
+				path + "/Faktura " + faktura + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -699,7 +705,7 @@ public class DialogFakturisana extends StandardDialog {
 		exporter.exportReport();
 
 		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				"Izveštaj o fakturi je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
 
 	}
@@ -723,8 +729,11 @@ public class DialogFakturisana extends StandardDialog {
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
 		// Make sure the output directory exists.
-		// File outDir = new File("C:/jasperoutput");
-		// outDir.mkdirs();
+		ResourceBundle bundle = PropertyResourceBundle
+				.getBundle("util/Report");
+		String path = bundle.getString("path");
+		File outDir = new File(path);
+		outDir.mkdirs();
 
 		// PDF Exportor.
 		// JRPdfExporter exporter = new JRPdfExporter();
@@ -737,7 +746,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Prevod " + faktura + " - " + timeStamp + ".docx");
+				path + "/Prevod " + faktura + " - " + timeStamp + ".docx");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -747,7 +756,7 @@ public class DialogFakturisana extends StandardDialog {
 		exporter.exportReport();
 
 		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj o fakturi sa prevodom je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				"Izveštaj o fakturi sa prevodom je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
 
 	}
@@ -771,8 +780,11 @@ public class DialogFakturisana extends StandardDialog {
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
 		// Make sure the output directory exists.
-		// File outDir = new File("C:/jasperoutput");
-		// outDir.mkdirs();
+		ResourceBundle bundle = PropertyResourceBundle
+				.getBundle("util/Report");
+		String path = bundle.getString("path");
+		File outDir = new File(path);
+		outDir.mkdirs();
 
 		// PDF Exportor.
 		JRPdfExporter exporter = new JRPdfExporter();
@@ -783,7 +795,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Prosirena Faktura " + faktura + " - " + timeStamp + ".pdf");
+				path + "/Prosirena Faktura " + faktura + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -793,7 +805,7 @@ public class DialogFakturisana extends StandardDialog {
 		exporter.exportReport();
 
 		JOptionPane.showConfirmDialog(getParent(),
-				"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu GeneratedReports.", "Izveštaj",
+				"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
 
 	}

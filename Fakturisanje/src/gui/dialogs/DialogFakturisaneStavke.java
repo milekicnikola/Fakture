@@ -2,6 +2,7 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -10,6 +11,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -98,6 +101,7 @@ public class DialogFakturisaneStavke extends StandardDialog {
 			public void actionPerformed(ActionEvent arg0) {				
 				try {
 					tableModel.fillData("SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.sifra_fakture as sifraFakture, fakturisana_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, narucena_roba.korisnicko_ime as korisnickoIme FROM fakturisana_roba JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON fakturisana_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE fakturisana_roba.status = 'fakturisana' AND narucena_roba.korisnicko_ime = 'olgica'");
+					((FakturisaneStavkeTableModel) tableModel).izvestaj = "olgica";
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}				
@@ -110,6 +114,7 @@ public class DialogFakturisaneStavke extends StandardDialog {
 			public void actionPerformed(ActionEvent arg0) {				
 				try {
 					tableModel.fillData("SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.sifra_fakture as sifraFakture, fakturisana_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, narucena_roba.korisnicko_ime as korisnickoIme FROM fakturisana_roba JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON fakturisana_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE fakturisana_roba.status = 'fakturisana' AND narucena_roba.korisnicko_ime = 'milos'");
+					((FakturisaneStavkeTableModel) tableModel).izvestaj = "milos";
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}				
@@ -385,13 +390,20 @@ public class DialogFakturisaneStavke extends StandardDialog {
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		String izvestaj = ((FakturisaneStavkeTableModel) tableModel).izvestaj;
+
+		parameters.put("korisnik", izvestaj);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
 
 		// Make sure the output directory exists.
-		// File outDir = new File("C:/jasperoutput");
-		// outDir.mkdirs();
+		ResourceBundle bundle = PropertyResourceBundle
+				.getBundle("util/Report");
+		String path = bundle.getString("path");
+		File outDir = new File(path);
+		outDir.mkdirs();
 
 		// PDF Exportor.
 		JRPdfExporter exporter = new JRPdfExporter();
@@ -399,10 +411,19 @@ public class DialogFakturisaneStavke extends StandardDialog {
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
 		exporter.setExporterInput(exporterInput);
+		
+		String naziv = "";
+
+		if (izvestaj.equals("olgica"))
+			naziv = "Olgica";
+		if (izvestaj.equals("milos"))
+			naziv = "Milos";
+		if (izvestaj.equals("%"))
+			naziv = "Sve";
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Poslate stavke " + " - " + timeStamp + ".pdf");
+				path + "/Poslate stavke " + naziv + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -414,7 +435,7 @@ public class DialogFakturisaneStavke extends StandardDialog {
 		JOptionPane
 				.showConfirmDialog(
 						getParent(),
-						"Izveštaj o poslatim stavkama je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj o poslatim stavkama je uspešno kreiran i nalazi se u folderu " + path + ".",
 						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
 						JOptionPane.INFORMATION_MESSAGE);
 

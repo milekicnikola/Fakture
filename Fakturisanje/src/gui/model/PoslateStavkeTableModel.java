@@ -9,6 +9,7 @@ import databaseConnection.DBConnection;
 public class PoslateStavkeTableModel extends StandardTableModel {
 
 	private String basicQuery1 = "";
+	public String izvestaj;
 	/**
 	 * 
 	 */
@@ -125,6 +126,7 @@ public class PoslateStavkeTableModel extends StandardTableModel {
 		rset.close();
 		stmt.close();
 		fireTableDataChanged();
+		izvestaj = "%";
 	}
 
 	@Override

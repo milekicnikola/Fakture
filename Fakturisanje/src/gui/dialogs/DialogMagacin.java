@@ -2,12 +2,15 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -345,8 +348,11 @@ public class DialogMagacin extends StandardDialog {
 				parameters, conn);
 
 		// Make sure the output directory exists.
-		// File outDir = new File("C:/jasperoutput");
-		// outDir.mkdirs();
+		ResourceBundle bundle = PropertyResourceBundle
+				.getBundle("util/Report");
+		String path = bundle.getString("path");
+		File outDir = new File(path);
+		outDir.mkdirs();
 
 		// PDF Exportor.
 		JRPdfExporter exporter = new JRPdfExporter();
@@ -357,7 +363,7 @@ public class DialogMagacin extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				"GeneratedReports/Magacin" + " - " + timeStamp + ".pdf");
+				path + "/Magacin" + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -369,7 +375,7 @@ public class DialogMagacin extends StandardDialog {
 		JOptionPane
 				.showConfirmDialog(
 						getParent(),
-						"Izveštaj o magacinima je uspešno kreiran i nalazi se u folderu GeneratedReports.",
+						"Izveštaj o magacinima je uspešno kreiran i nalazi se u folderu " + path + ".",
 						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
 						JOptionPane.INFORMATION_MESSAGE);
 

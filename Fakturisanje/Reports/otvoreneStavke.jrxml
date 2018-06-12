@@ -9,12 +9,14 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>
+	<parameter name="korisnik" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi 
+		<![CDATA[SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, narucena_roba.korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, ko_radi 
 FROM narucena_roba 
 JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine 
 JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe 
-WHERE komada_ostalo > 0 
+JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
+WHERE komada_ostalo > 0 AND narucena_roba.korisnicko_ime LIKE $P{korisnik}
 ORDER BY ko_radi, roba.interni_naziv]]>
 	</queryString>
 	<field name="sifraRobe" class="java.lang.String"/>

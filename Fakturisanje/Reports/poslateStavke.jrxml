@@ -9,6 +9,7 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>	
+	<parameter name="korisnik" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme
 		FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice
@@ -17,7 +18,7 @@
 		JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine
 		JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe
 		JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
-		WHERE otpremljena_roba.status_robe = 'otpremljena']]>
+		WHERE otpremljena_roba.status_robe = 'otpremljena' AND narucena_roba.korisnicko_ime LIKE $P{korisnik} ]]>
 	</queryString>
 	<field name="sifraOtpremnice" class="java.lang.String"/>
 	<field name="sifraRobe" class="java.lang.String"/>
@@ -58,14 +59,7 @@ IBAN: RS35330007010009823559]]></text>
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[POSLATE STAVKE]]></text>
-			</staticText>
-			<textField>
-				<reportElement stretchType="ContainerBottom" x="461" y="20" width="100" height="15" uuid="1b8f11ef-5d0f-406b-a655-8c8e3eee3d05">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{korisnickoIme}]]></textFieldExpression>
-			</textField>
+			</staticText>		
 		</band>
 	</title>
 	<pageHeader>

@@ -9,6 +9,7 @@ import databaseConnection.DBConnection;
 public class OtvoreneStavkeTableModel extends StandardTableModel {
 
 	private String basicQuery1;
+	public String izvestaj;
 	/**
 	 * 
 	 */
@@ -143,6 +144,7 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 		rset.close();
 		stmt.close();
 		fireTableDataChanged();
+		izvestaj = "%";
 	}
 
 	@Override
