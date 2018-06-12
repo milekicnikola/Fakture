@@ -37,7 +37,7 @@ public class LoginDialog extends JFrame{
 		setSize(264, 150);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(new ImageIcon("Images/fakturisanje.png").getImage());
+		setIconImage(new ImageIcon("Images/gs.png").getImage());
 		getContentPane().setLayout(null);
 		setTitle("Fakturisanje");
 		JLabel lblUsername = new JLabel("Korisničko ime : ");

@@ -47,7 +47,7 @@ public class MainFrame extends JFrame {
 		setLayout(new BorderLayout());
 		setTitle("Fakturisanje");		
 
-		setIconImage(new ImageIcon("Images/fakturisanje.png").getImage());
+		setIconImage(new ImageIcon("Images/gs.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
 		setSize((int) (screenSize.getWidth() * 3 / 4),
