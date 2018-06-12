@@ -2,6 +2,7 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,6 +20,7 @@ import databaseConnection.DBConnection;
 import gui.MainFrame;
 import gui.model.FakturaTableModel;
 import gui.panels.FakturaPanel;
+import util.ResourceLoader;
 
 public class DialogFaktura extends StandardDialog {
 
@@ -34,7 +36,13 @@ public class DialogFaktura extends StandardDialog {
 	public DialogFaktura(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Faktura");
-		setIconImage(new ImageIcon("Images/faktura.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/faktura.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		tableModel = new FakturaTableModel(new String[] { "Šifra fakture",
 				"Datum fakture", "Paritet", "Ukupna težina", "Transport",

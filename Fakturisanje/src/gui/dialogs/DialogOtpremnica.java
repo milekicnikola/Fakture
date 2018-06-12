@@ -1,11 +1,8 @@
 package gui.dialogs;
 
-import gui.MainFrame;
-import gui.model.OtpremnicaTableModel;
-import gui.panels.OtpremnicaPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,12 +11,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import databaseConnection.DBConnection;
+import gui.MainFrame;
+import gui.model.OtpremnicaTableModel;
+import gui.panels.OtpremnicaPanel;
+import util.ResourceLoader;
 
 public class DialogOtpremnica extends StandardDialog {
 
@@ -35,7 +36,13 @@ public class DialogOtpremnica extends StandardDialog {
 	public DialogOtpremnica(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Otpremnica");
-		setIconImage(new ImageIcon("Images/otpremnica.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/otpremnica.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		tableModel = new OtpremnicaTableModel(new String[] {
 				"Šifra otpremnice", "Šifra magacina", "Naziv magacina",

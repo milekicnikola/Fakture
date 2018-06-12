@@ -1,16 +1,15 @@
 package gui.dialogs;
 
-import gui.MainFrame;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 import databaseConnection.DBConnection;
+import gui.MainFrame;
+import util.ResourceLoader;
 
 public class LoginDialog extends JFrame{
 	
@@ -37,7 +38,15 @@ public class LoginDialog extends JFrame{
 		setSize(264, 150);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(new ImageIcon("Images/gs.png").getImage());
+		
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/gs.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
+		
 		getContentPane().setLayout(null);
 		setTitle("Fakturisanje");
 		JLabel lblUsername = new JLabel("Korisničko ime : ");

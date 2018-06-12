@@ -2,7 +2,9 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -14,7 +16,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -34,6 +36,7 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.ResourceLoader;
 
 public class DialogNarucena extends StandardDialog {
 
@@ -47,7 +50,13 @@ public class DialogNarucena extends StandardDialog {
 	public DialogNarucena(JFrame parent, Boolean zoom, String where) {
 		super(parent);
 		setTitle("Naručena roba");
-		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/porudzbina.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		String whereStm = "";
 
@@ -447,7 +456,11 @@ public class DialogNarucena extends StandardDialog {
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
 			SQLException {
 
-		String reportSrcFile = "Reports/porudzbina.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/porudzbina.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(Calendar.getInstance().getTime());

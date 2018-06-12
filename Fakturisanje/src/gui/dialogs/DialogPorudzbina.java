@@ -1,20 +1,22 @@
 package gui.dialogs;
 
-import gui.MainFrame;
-import gui.model.PorudzbinaTableModel;
-import gui.panels.PorudzbinaPanel;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import gui.MainFrame;
+import gui.model.PorudzbinaTableModel;
+import gui.panels.PorudzbinaPanel;
+import util.ResourceLoader;
 
 public class DialogPorudzbina extends StandardDialog {
 	
@@ -29,7 +31,13 @@ public class DialogPorudzbina extends StandardDialog {
 	public DialogPorudzbina(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Porudzbina");
-		setIconImage(new ImageIcon("Images/porudzbina.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/porudzbina.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		tableModel = new PorudzbinaTableModel(new String[] {
 				"Šifra porudzbine", "Šifra magacina", "Naziv magacina",

@@ -2,7 +2,9 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -12,7 +14,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -31,6 +33,7 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.ResourceLoader;
 
 public class DialogMagacin extends StandardDialog {
 
@@ -42,7 +45,13 @@ public class DialogMagacin extends StandardDialog {
 	public DialogMagacin(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Magacin");
-		setIconImage(new ImageIcon("Images/magacin.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/magacin.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		tableModel = new MagacinTableModel(new String[] { "Šifra", "Naziv",
 				"Adresa", "Šef", "Telefon" }, 0);
@@ -330,7 +339,11 @@ public class DialogMagacin extends StandardDialog {
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
 			SQLException {
 
-		String reportSrcFile = "Reports/magacin.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/magacin.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(Calendar.getInstance().getTime());

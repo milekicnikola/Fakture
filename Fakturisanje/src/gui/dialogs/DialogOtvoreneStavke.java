@@ -2,7 +2,9 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -14,7 +16,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,6 +35,7 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.ResourceLoader;
 
 public class DialogOtvoreneStavke extends StandardDialog {
 
@@ -48,7 +51,13 @@ public class DialogOtvoreneStavke extends StandardDialog {
 	public DialogOtvoreneStavke(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Otvorene stavke");
-		setIconImage(new ImageIcon("Images/otvoreneStavke.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/otvoreneStavke.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		tableModel = new OtvoreneStavkeTableModel(
 				new String[] { "Šifra robe", "Naziv robe", "Interni naziv robe", "Šifra porudzbine", "Datum isporuke",
@@ -363,7 +372,11 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException, SQLException {
 
-		String reportSrcFile = "Reports/otvoreneStavke.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/otvoreneStavke.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 

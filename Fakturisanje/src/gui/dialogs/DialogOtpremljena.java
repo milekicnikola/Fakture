@@ -2,7 +2,9 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +17,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -34,6 +36,7 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.ResourceLoader;
 
 public class DialogOtpremljena extends StandardDialog {
 
@@ -47,7 +50,13 @@ public class DialogOtpremljena extends StandardDialog {
 	public DialogOtpremljena(JFrame parent, Boolean zoom, String where, String magacin1, String poslata) {
 		super(parent);
 		setTitle("Otrpemljena roba");
-		setIconImage(new ImageIcon("Images/otpremnica.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/otpremnica.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		otpremnica = where;
 
@@ -527,7 +536,11 @@ public class DialogOtpremljena extends StandardDialog {
 
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException, SQLException {
 
-		String reportSrcFile = "Reports/otpremnica.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/otpremnica.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
@@ -576,7 +589,11 @@ public class DialogOtpremljena extends StandardDialog {
 
 	public void napraviIzvestaj2() throws JRException, ClassNotFoundException, SQLException {
 
-		String reportSrcFile = "Reports/otpremnicaCprofil.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/otpremnicaCprofil.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 

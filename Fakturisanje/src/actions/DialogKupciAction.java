@@ -2,10 +2,13 @@ package actions;
 
 import gui.MainFrame;
 import gui.dialogs.DialogKupci;
+import util.ResourceLoader;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
@@ -19,7 +22,14 @@ public class DialogKupciAction extends AbstractAction{
 
 	public DialogKupciAction() {
 		putValue(NAME, "Kupci");
-		putValue(SMALL_ICON, new ImageIcon("Images/kupci.png"));
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/kupci.png"));			
+		} catch (Exception e) {			
+
+		}				
+		
+		putValue(SMALL_ICON, new ImageIcon(image));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_K);
 		putValue(ACCELERATOR_KEY,
 				KeyStroke.getKeyStroke(KeyEvent.VK_K, ActionEvent.ALT_MASK));

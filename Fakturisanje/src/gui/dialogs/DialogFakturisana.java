@@ -2,7 +2,9 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +20,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -40,6 +42,7 @@ import net.sf.jasperreports.export.SimpleDocxExporterConfiguration;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.ResourceLoader;
 import util.Roba;
 
 public class DialogFakturisana extends StandardDialog {
@@ -56,7 +59,14 @@ public class DialogFakturisana extends StandardDialog {
 	public DialogFakturisana(JFrame parent, Boolean zoom, String where, String poslata1) {
 		super(parent);
 		setTitle("Fakturisana roba");
-		setIconImage(new ImageIcon("Images/faktura.png").getImage());
+		
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/faktura.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);		
 
 		faktura = where;
 		poslata = poslata1;
@@ -663,7 +673,11 @@ public class DialogFakturisana extends StandardDialog {
 
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException, SQLException {
 
-		String reportSrcFile = "Reports/faktura.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/faktura.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
@@ -712,7 +726,11 @@ public class DialogFakturisana extends StandardDialog {
 
 	public void napraviPrevod() throws JRException, ClassNotFoundException, SQLException {
 
-		String reportSrcFile = "Reports/prevod.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/prevod.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
@@ -763,7 +781,11 @@ public class DialogFakturisana extends StandardDialog {
 
 	public void napraviProsireniIzvestaj() throws JRException, ClassNotFoundException, SQLException {
 
-		String reportSrcFile = "Reports/prosirenaFaktura.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/prosirenaFaktura.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 

@@ -2,7 +2,9 @@ package gui.dialogs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -14,7 +16,7 @@ import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,6 +35,7 @@ import net.sf.jasperreports.export.OutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import util.ResourceLoader;
 
 public class DialogKurs extends StandardDialog {
 
@@ -44,7 +47,13 @@ public class DialogKurs extends StandardDialog {
 	public DialogKurs(JFrame parent, Boolean zoom) {
 		super(parent);
 		setTitle("Kurs");
-		setIconImage(new ImageIcon("Images/kurs.png").getImage());
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(ResourceLoader.load("Images/kurs.png"));			
+		} catch (Exception e) {			
+
+		}
+		setIconImage(image);
 
 		tableModel = new KursTableModel(new String[] { "Datum", "Kurs" }, 0);
 
@@ -310,10 +319,8 @@ public class DialogKurs extends StandardDialog {
 					System.out.println("Nema klase");
 				} catch (SQLException e2) {
 					System.out.println("SQL error");
-				}
-
+				} 
 			}
-
 		});
 
 	}
@@ -321,7 +328,11 @@ public class DialogKurs extends StandardDialog {
 	public void napraviIzvestaj() throws JRException, ClassNotFoundException,
 			SQLException {
 
-		String reportSrcFile = "Reports/kurs.jrxml";
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/kurs.jrxml");
+		} catch (Exception e) {			
+		}
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
 				.format(Calendar.getInstance().getTime());
