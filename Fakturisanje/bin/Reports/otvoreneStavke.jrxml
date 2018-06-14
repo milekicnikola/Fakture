@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2018-06-03T20:32:50 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ios" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent"/>
+	<parameter name="korisnik" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, narucena_roba.korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, ko_radi 
+FROM narucena_roba 
+JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine 
+JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe 
+JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
+WHERE komada_ostalo > 0 AND narucena_roba.korisnicko_ime LIKE $P{korisnik}
+ORDER BY ko_radi, roba.interni_naziv]]>
+	</queryString>
+	<field name="sifraRobe" class="java.lang.String"/>
+	<field name="naziv_robe" class="java.lang.String"/>
+	<field name="interni_naziv" class="java.lang.String"/>
+	<field name="sifraPorudzbine" class="java.lang.String"/>
+	<field name="datum_isporuke" class="java.sql.Date"/>
+	<field name="komada_naruceno" class="java.math.BigDecimal"/>
+	<field name="komada_poslato" class="java.math.BigDecimal"/>
+	<field name="komada_ostalo" class="java.math.BigDecimal"/>
+	<field name="ko_radi" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="125" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="10" width="250" height="28" uuid="89ac9c08-5218-44e4-aed3-2e08c5ec0a3e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GENERAL SOLUTIONS SLN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="38" width="250" height="56" uuid="0574a347-1701-4679-bfa2-24d43c5d42ce"/>
+				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
+Mob: 06520 10 373;  mail: generalsolutions@gmail.com
+PIB 107648029
+Banka: CREDIT AGRICOLAE BANK AD
+IBAN: RS35330007010009823559]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="92" width="250" height="28" uuid="8f2349a6-145a-4f16-bf4c-5479bf3ae7b3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OTVORENE STAVKE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="69" height="15" forecolor="#736343" uuid="f49a5cba-5a35-4e7d-9d32-f0d63d0867fa"/>
+				<text><![CDATA[Šifra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="140" y="0" width="69" height="15" forecolor="#736343" uuid="2a5e9332-eaf9-480e-87ea-aa26ae7fe296"/>
+				<text><![CDATA[Interni]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="209" y="0" width="60" height="15" forecolor="#736343" uuid="1c8020a4-8358-4368-8762-dfdfb4e53c83">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Naruceno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="269" y="0" width="45" height="15" forecolor="#736343" uuid="34aecde2-baa5-46ca-b92b-bbc0ffe5f81c">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Poslato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="328" y="0" width="45" height="15" forecolor="#736343" uuid="310fa2a8-2da8-4a8f-a378-c39b054c7be5">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Ostalo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="360" y="0" width="70" height="15" forecolor="#736343" uuid="a77ac5b2-7f15-4c28-8c4a-175a6a4cdd94"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Isporuka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="435" y="0" width="77" height="15" forecolor="#736343" uuid="da770d79-1549-41bf-922c-755bbce0b7ef"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Porudzbina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="512" y="0" width="48" height="15" forecolor="#736343" uuid="ad7cb8e1-1dc5-47bc-8b4f-3b186333e337"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Ko radi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="71" y="0" width="69" height="15" forecolor="#736343" uuid="3fcad344-aa09-48f2-9754-501652eccbd3"/>
+				<text><![CDATA[Naziv]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="570" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="69" height="15" uuid="9bd34da8-deea-4335-866e-b996ccdb13dd"/>
+					<textFieldExpression><![CDATA[$F{sifraRobe}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="140" y="0" width="69" height="15" uuid="37ca1e3c-dac3-4a37-b76b-2b94077a7e4b"/>
+					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="220" y="0" width="37" height="15" uuid="c36bf88c-e090-4c25-96cb-fc13fc48affa"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{komada_naruceno}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="269" y="0" width="37" height="15" uuid="0831c2ce-2c27-4a42-9e5c-72099e2b78ea"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{komada_poslato}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="316" y="0" width="37" height="15" uuid="09de46a1-c771-477d-8532-d12269c06a50"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{komada_ostalo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+					<reportElement style="Detail" x="360" y="0" width="70" height="15" uuid="b54562f4-8e4d-4034-8de0-028c45c80e0d"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{datum_isporuke}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="435" y="0" width="51" height="15" uuid="c9518b83-4b20-47ff-bebd-3fd907972928"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{sifraPorudzbine}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="500" y="0" width="66" height="15" uuid="60384512-d790-43fe-bc32-21a75e67b538"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{ko_radi}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="74" y="0" width="56" height="15" uuid="375b6fd5-34f0-4c18-8a73-d94395a349d5">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
