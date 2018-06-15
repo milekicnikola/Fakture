@@ -388,7 +388,7 @@ public class DialogFakturisaneStavke extends StandardDialog {
 
 		InputStream reportSrcFile = null;
 		try {
-			reportSrcFile = ResourceLoader.load("Reports/poslateStavke.jrxml");
+			reportSrcFile = ResourceLoader.load("Reports/fakturisaneStavke.jrxml");
 		} catch (Exception e) {			
 		}
 
@@ -436,7 +436,7 @@ public class DialogFakturisaneStavke extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				path + "/Poslate stavke " + naziv + " - " + timeStamp + ".pdf");
+				path + "/Fakturisane stavke " + naziv + " - " + timeStamp + ".pdf");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
@@ -448,7 +448,7 @@ public class DialogFakturisaneStavke extends StandardDialog {
 		JOptionPane
 				.showConfirmDialog(
 						getParent(),
-						"Izveštaj o poslatim stavkama je uspešno kreiran i nalazi se u folderu " + path + ".",
+						"Izveštaj o fakturisanim stavkama koje nisu još uvek otpremljene je uspešno kreiran i nalazi se u folderu " + path + ".",
 						"Izveštaj", JOptionPane.PLAIN_MESSAGE,
 						JOptionPane.INFORMATION_MESSAGE);
 

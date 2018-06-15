@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-03T23:26:29 -->
+<!-- 2018-06-14T20:55:50 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prevod" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -103,21 +103,23 @@ order by roba.prevod]]>
 					<textFieldExpression><![CDATA[$F{naziv_prevoda}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="568" y="0" width="56" height="20" uuid="04a950b1-98bf-4718-8e2b-346b5318fe09"/>
+					<reportElement x="626" y="0" width="53" height="20" uuid="04a950b1-98bf-4718-8e2b-346b5318fe09">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{prevodkomada}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="633" y="0" width="57" height="20" uuid="ca1386f5-54ec-4a93-9c21-4f3fd898f4a2"/>
+					<reportElement x="686" y="0" width="40" height="20" uuid="ca1386f5-54ec-4a93-9c21-4f3fd898f4a2"/>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{prevodkg}]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="704" y="0" width="71" height="20" uuid="51ab68d3-55ea-4934-b99b-46206a5e6762">
+					<reportElement x="740" y="0" width="35" height="20" uuid="51ab68d3-55ea-4934-b99b-46206a5e6762">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
@@ -231,62 +233,69 @@ RO21108359]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="39" y="0" width="111" height="15" forecolor="#736343" uuid="5b83655d-ffaf-4516-8b78-6d123e97f413"/>
+				<reportElement style="Column header" x="27" y="0" width="111" height="15" forecolor="#736343" uuid="5b83655d-ffaf-4516-8b78-6d123e97f413"/>
 				<textElement textAlignment="Left"/>
 				<text><![CDATA[Code]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="197" y="0" width="154" height="15" forecolor="#736343" uuid="40662b58-c424-4006-8195-3a6c56f82434"/>
+				<reportElement style="Column header" x="197" y="0" width="174" height="15" forecolor="#736343" uuid="40662b58-c424-4006-8195-3a6c56f82434"/>
 				<text><![CDATA[Naziv / Description]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="358" y="0" width="44" height="15" forecolor="#736343" uuid="8f0d7a42-91ca-4fdf-8d4c-48963f6f3ddc"/>
+				<reportElement style="Column header" x="371" y="0" width="44" height="15" forecolor="#736343" uuid="8f0d7a42-91ca-4fdf-8d4c-48963f6f3ddc"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Komada]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="440" y="0" width="44" height="15" forecolor="#736343" uuid="850f9077-c9a0-4e16-aa98-eabd0d2c3246"/>
+				<reportElement style="Column header" x="455" y="0" width="44" height="15" forecolor="#736343" uuid="850f9077-c9a0-4e16-aa98-eabd0d2c3246"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[JM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="0" y="0" width="30" height="15" forecolor="#736343" uuid="d02bdddb-f0a6-44df-84a7-b35ae3415850"/>
+				<reportElement style="Column header" x="0" y="0" width="19" height="15" forecolor="#736343" uuid="d02bdddb-f0a6-44df-84a7-b35ae3415850"/>
+				<textElement textAlignment="Right"/>
 				<text><![CDATA[Ln]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="412" y="0" width="24" height="15" forecolor="#736343" uuid="2f5fbb89-7aa4-4bb4-9ca1-35db01bb5ba4">
+				<reportElement style="Column header" x="423" y="0" width="24" height="15" forecolor="#736343" uuid="2f5fbb89-7aa4-4bb4-9ca1-35db01bb5ba4">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[SET]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="704" y="0" width="71" height="15" forecolor="#736343" uuid="9560787c-ba43-45bd-895b-81960a6d3140"/>
-				<textElement textAlignment="Right"/>
+				<reportElement style="Column header" x="740" y="0" width="35" height="15" forecolor="#000000" uuid="9560787c-ba43-45bd-895b-81960a6d3140"/>
+				<textElement textAlignment="Right" markup="styled">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[EUR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="580" y="0" width="54" height="40" forecolor="#736343" uuid="9f15a868-b32a-4b5c-b6e3-75a2fe3c633d"/>
-				<textElement textAlignment="Center"/>
+				<reportElement style="Column header" x="626" y="0" width="54" height="40" forecolor="#000000" uuid="9f15a868-b32a-4b5c-b6e3-75a2fe3c633d"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Komada
 buc]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="637" y="0" width="57" height="15" forecolor="#736343" uuid="6d56a2f2-25ed-4c34-8e4e-fa7f42a8573b">
+				<reportElement style="Column header" x="690" y="0" width="40" height="15" forecolor="#000000" uuid="6d56a2f2-25ed-4c34-8e4e-fa7f42a8573b">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right" markup="styled">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[kg]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="521" y="0" width="48" height="50" forecolor="#736343" uuid="3e5dcc36-545b-4d09-8ef0-8e82a75d7933"/>
+				<reportElement style="Column header" x="566" y="0" width="48" height="50" forecolor="#736343" uuid="3e5dcc36-545b-4d09-8ef0-8e82a75d7933"/>
 				<textElement textAlignment="Right" verticalAlignment="Top"/>
 				<text><![CDATA[Ukupno
 Total
 EUR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="468" y="0" width="51" height="50" forecolor="#736343" uuid="674e85c8-76dd-46db-adbb-b7fcb7971ca0">
+				<reportElement style="Column header" x="507" y="0" width="51" height="50" forecolor="#736343" uuid="674e85c8-76dd-46db-adbb-b7fcb7971ca0">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Top">
@@ -304,7 +313,9 @@ kom/pcs]]></text>
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="770" height="15" uuid="fa7cec56-4ec1-48e6-a26e-7266a995d174"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="39" y="0" width="111" height="15" uuid="37dfe184-8041-46c2-aaed-89d9b9b857ce"/>
+					<reportElement style="Detail" x="27" y="0" width="120" height="15" uuid="37dfe184-8041-46c2-aaed-89d9b9b857ce">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
 					<textElement>
 						<font fontName="Arial" size="10"/>
 					</textElement>
@@ -318,49 +329,51 @@ kom/pcs]]></text>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="197" y="0" width="154" height="15" uuid="cdbde202-558e-410e-bc43-4a06927461df"/>
+					<reportElement style="Detail" x="197" y="0" width="174" height="15" uuid="cdbde202-558e-410e-bc43-4a06927461df"/>
 					<textElement>
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="358" y="0" width="44" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
+					<reportElement style="Detail" x="371" y="0" width="44" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_fakturisano}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="440" y="0" width="44" height="15" uuid="8f22a0f9-f43a-41e3-9580-ecf853e8434e"/>
+					<reportElement style="Detail" x="455" y="0" width="44" height="15" uuid="8f22a0f9-f43a-41e3-9580-ecf853e8434e"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.0#;(#,##0.0#-)">
-					<reportElement style="Detail" x="485" y="0" width="36" height="15" uuid="bb592ab0-4ee5-4ee2-b70c-021199c514a5"/>
+					<reportElement style="Detail" x="524" y="0" width="36" height="15" uuid="bb592ab0-4ee5-4ee2-b70c-021199c514a5"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{robaeur}]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.0#;(#,##0.0#-)">
-					<reportElement x="523" y="0" width="48" height="15" uuid="a9f8651b-743e-4a09-9c9f-a3a414388771"/>
+					<reportElement x="568" y="0" width="48" height="15" uuid="a9f8651b-743e-4a09-9c9f-a3a414388771"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{ukueur}]]></textFieldExpression>
 				</textField>
 				<textField pattern="###">
-					<reportElement x="4" y="0" width="19" height="15" uuid="0895cabd-6b04-4b11-93ed-8a26a1ad3823"/>
+					<reportElement x="0" y="0" width="19" height="15" uuid="0895cabd-6b04-4b11-93ed-8a26a1ad3823">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="411" y="0" width="24" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
+					<reportElement x="422" y="0" width="24" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
 				</textField>
@@ -380,7 +393,7 @@ kom/pcs]]></text>
 	<lastPageFooter>
 		<band height="190">
 			<staticText>
-				<reportElement x="385" y="0" width="64" height="20" uuid="81669d51-898a-430b-a242-51944bbe3a23">
+				<reportElement x="440" y="0" width="64" height="20" uuid="81669d51-898a-430b-a242-51944bbe3a23">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
@@ -390,7 +403,7 @@ kom/pcs]]></text>
 				<text><![CDATA[TOTAL:]]></text>
 			</staticText>
 			<textField evaluationTime="Report" pattern="#,##0.0#;(#,##0.0#-)">
-				<reportElement x="469" y="0" width="100" height="20" uuid="c6266e24-12ee-4c24-b0cf-a5f7a42f46eb">
+				<reportElement x="514" y="0" width="100" height="20" uuid="c6266e24-12ee-4c24-b0cf-a5f7a42f46eb">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -399,7 +412,7 @@ kom/pcs]]></text>
 				<textFieldExpression><![CDATA[$V{Zbirukupno}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00#;(#,##0.00#-)">
-				<reportElement stretchType="ContainerBottom" x="594" y="0" width="100" height="20" uuid="1edcf2e9-a4fa-48ce-999b-31bf59d6a87c"/>
+				<reportElement stretchType="ContainerBottom" x="690" y="0" width="35" height="20" uuid="1edcf2e9-a4fa-48ce-999b-31bf59d6a87c"/>
 				<textElement textAlignment="Right">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -491,6 +504,14 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				</reportElement>
 				<text><![CDATA[KOMADA:]]></text>
 			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="82" y="105" width="92" height="15" uuid="a8720aaa-c28a-4681-afb2-1a043b895fb7">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
+			</textField>
 		</band>
 	</lastPageFooter>
 	<summary>
