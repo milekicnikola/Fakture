@@ -1,0 +1,1 @@
+ForFiles /p "C:\Backup" /s /d -1 /c "cmd /c del @file"
