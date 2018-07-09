@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-14T21:49:08 -->
+<!-- 2018-07-09T18:56:27 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="otpremnicaCprofil" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -137,6 +137,13 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					<reportElement style="Column header" x="541" y="37" width="30" height="15" forecolor="#736343" uuid="5be564be-f336-4f90-8b5c-57d48365ba9a"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle"/>
 					<text><![CDATA[Fakt.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="120" y="38" width="20" height="15" forecolor="#736343" uuid="f9bf37ea-70d8-47f6-a60e-c02d74dd712a">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<text><![CDATA[IS]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
@@ -323,7 +330,7 @@ Parc Industiral DJ68]]></text>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="119" y="0" width="22" height="15" uuid="772eb9f6-6ae5-4a32-b19f-1ee730b9490f"/>
-					<textElement textAlignment="Left"/>
+					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
@@ -361,7 +368,9 @@ Parc Industiral DJ68]]></text>
 				</textField>
 				<textField>
 					<reportElement x="442" y="0" width="36" height="15" uuid="ecc11a2a-cade-4e77-91fb-d5d8ba6c32bd"/>
-					<textElement textAlignment="Right"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_u_metru}]]></textFieldExpression>
 				</textField>
 				<textField>
@@ -370,7 +379,9 @@ Parc Industiral DJ68]]></text>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Right"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraFakture}]]></textFieldExpression>
 				</textField>
 			</frame>

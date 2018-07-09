@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-14T20:46:02 -->
+<!-- 2018-07-09T18:26:15 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="roba" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -78,49 +78,49 @@ IBAN: RS35330007010009823559]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="0" y="0" width="120" height="15" forecolor="#736343" uuid="4995cd5b-93fe-47a1-9eeb-d9a1acb6baa9"/>
+				<reportElement style="Column header" x="-14" y="0" width="120" height="15" forecolor="#736343" uuid="4995cd5b-93fe-47a1-9eeb-d9a1acb6baa9"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Šifra robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="128" y="0" width="40" height="15" forecolor="#736343" uuid="8041df12-5967-4b20-9f76-e949b9b86266"/>
+				<reportElement style="Column header" x="114" y="0" width="40" height="15" forecolor="#736343" uuid="8041df12-5967-4b20-9f76-e949b9b86266"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Interna]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="178" y="0" width="182" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
+				<reportElement style="Column header" x="162" y="0" width="182" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Naziv robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="364" y="0" width="120" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
+				<reportElement style="Column header" x="348" y="0" width="162" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Interni naziv]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="607" y="0" width="40" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
+				<reportElement style="Column header" x="629" y="0" width="40" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[JM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="656" y="-23" width="39" height="35" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<reportElement style="Column header" x="676" y="0" width="20" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Kom.
-u setu]]></text>
+				<text><![CDATA[KS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="704" y="0" width="42" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
@@ -140,7 +140,7 @@ u setu]]></text>
 u RON]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="493" y="0" width="107" height="15" uuid="225ec64f-8279-4cbc-bc3b-d6aec12f797c">
+				<reportElement x="515" y="0" width="107" height="15" uuid="225ec64f-8279-4cbc-bc3b-d6aec12f797c">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -154,7 +154,7 @@ u RON]]></text>
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="800" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="0" y="0" width="120" height="15" uuid="69f847b2-aaf3-46d1-8fa7-28da7601f6a9">
+					<reportElement style="Detail" x="-14" y="0" width="120" height="15" uuid="69f847b2-aaf3-46d1-8fa7-28da7601f6a9">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement>
@@ -163,35 +163,37 @@ u RON]]></text>
 					<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="130" y="0" width="40" height="15" uuid="898328ed-6763-4f41-8983-b859f2da09f9"/>
+					<reportElement style="Detail" x="116" y="0" width="40" height="15" uuid="898328ed-6763-4f41-8983-b859f2da09f9"/>
 					<textElement textAlignment="Left">
 						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="178" y="0" width="182" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
+					<reportElement style="Detail" x="162" y="0" width="182" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
 					<textElement textAlignment="Left">
 						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="364" y="0" width="120" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
+					<reportElement style="Detail" x="348" y="0" width="162" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
 					<textElement textAlignment="Left">
 						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="607" y="0" width="40" height="15" uuid="e5633045-4a3b-4bd6-b9bd-596ef9f071d8"/>
+					<reportElement style="Detail" x="629" y="0" width="40" height="15" uuid="e5633045-4a3b-4bd6-b9bd-596ef9f071d8"/>
 					<textElement textAlignment="Center">
 						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="667" y="0" width="28" height="15" uuid="1b55b863-abd2-4e66-a287-51a9eb183f28"/>
+					<reportElement style="Detail" x="676" y="0" width="20" height="15" uuid="1b55b863-abd2-4e66-a287-51a9eb183f28">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font size="11"/>
 					</textElement>
@@ -214,7 +216,7 @@ u RON]]></text>
 					<textFieldExpression><![CDATA[$F{cena_roni}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement positionType="FixRelativeToBottom" x="493" y="0" width="107" height="15" uuid="d37fe1fc-a7fd-49af-bdb6-ac0ee2d9268e">
+					<reportElement positionType="FixRelativeToBottom" x="515" y="0" width="107" height="15" uuid="d37fe1fc-a7fd-49af-bdb6-ac0ee2d9268e">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>

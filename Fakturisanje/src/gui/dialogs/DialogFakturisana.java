@@ -35,13 +35,13 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.export.ExporterInput;
 import net.sf.jasperreports.export.OutputStreamExporterOutput;
-import net.sf.jasperreports.export.SimpleDocxExporterConfiguration;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.export.SimpleXlsxExporterConfiguration;
 import util.ResourceLoader;
 import util.Roba;
 
@@ -756,7 +756,9 @@ public class DialogFakturisana extends StandardDialog {
 		// PDF Exportor.
 		// JRPdfExporter exporter = new JRPdfExporter();
 
-		JRDocxExporter exporter = new JRDocxExporter();
+		//JRDocxExporter exporter = new JRDocxExporter();
+		
+		JRXlsxExporter exporter = new JRXlsxExporter();		
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
@@ -764,12 +766,12 @@ public class DialogFakturisana extends StandardDialog {
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
-				path + "/Prevod " + faktura + " - " + timeStamp + ".docx");
+				path + "/Prevod " + faktura + " - " + timeStamp + ".xlsx");
 		// Output
 		exporter.setExporterOutput(exporterOutput);
 
 		//
-		SimpleDocxExporterConfiguration configuration = new SimpleDocxExporterConfiguration();
+		SimpleXlsxExporterConfiguration configuration = new SimpleXlsxExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
 

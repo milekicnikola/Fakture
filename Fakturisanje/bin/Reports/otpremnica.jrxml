@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-14T21:49:08 -->
+<!-- 2018-07-09T18:48:06 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="otpremnica" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -121,6 +121,13 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					</reportElement>
 					<textElement textAlignment="Right"/>
 					<text><![CDATA[Faktura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="158" y="38" width="32" height="15" forecolor="#736343" uuid="ccfacb81-3b06-4ad6-aed7-ff7e6eebcccc">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left"/>
+					<text><![CDATA[I.S.]]></text>
 				</staticText>
 			</band>
 		</groupHeader>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-03T23:11:06 -->
+<!-- 2018-07-09T18:11:19 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fakturapros" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -402,7 +402,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<reportElement style="Column header" x="0" y="105" width="70" height="15" forecolor="#736343" uuid="5e323323-30c8-4dc7-b7f0-9ab07139c211">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
-				<text><![CDATA[NETO KG]]></text>
+				<text><![CDATA[BRUTO KG]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="0" y="65" width="80" height="15" forecolor="#736343" uuid="4e6e1eac-7453-43de-86b7-5a92913d1a73">
@@ -455,6 +455,19 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{ZBIRKOMADA}]]></textFieldExpression>
 			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="85" y="122" width="92" height="15" uuid="a9ec7277-f2dd-40e1-ace1-96ea52df5286">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="3" y="122" width="70" height="15" forecolor="#736343" uuid="9ba21a83-f428-4d6f-8d2b-f22b1e4df8bf">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[NETO KG]]></text>
+			</staticText>
 		</band>
 	</lastPageFooter>
 	<summary>
