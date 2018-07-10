@@ -12,7 +12,7 @@
 	<style name="Row" mode="Transparent"/>
 	<parameter name="sifraFakture" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select *, roba.tezina_robe*komada_fakturisano  as robakguku, (roba.cena_roni/kurs.ron_evro)*0.95 as robaeur, ((roba.cena_roni/kurs.ron_evro)*0.95*fakturisana_roba.komada_fakturisano)  as ukueur, fakturisana_roba.komada_fakturisano*roba.tezina_robe as ukukg, fakturisana_roba.komada_fakturisano*roba.komada_u_setu+fakturisana_roba.komada_u_metru as ukusetkom
+		<![CDATA[select *, roba.tezina_robe*komada_fakturisano  as robakguku, (roba.cena_roni/kurs.ron_evro)*0.95 as robaeur, (ROUND((roba.cena_roni/kurs.ron_evro)*0.95, 2)*fakturisana_roba.komada_fakturisano) as ukueur, fakturisana_roba.komada_fakturisano*roba.tezina_robe as ukukg, fakturisana_roba.komada_fakturisano*roba.komada_u_setu+fakturisana_roba.komada_u_metru as ukusetkom
 from fakturisana_roba
 inner join faktura on fakturisana_roba.sifra_fakture=faktura.sifra_fakture
 inner join narucena_roba on fakturisana_roba.sifra_porudzbine=narucena_roba.sifra_porudzbine and fakturisana_roba.sifra_robe = narucena_roba.sifra_robe and fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke 
@@ -415,7 +415,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textElement>
 					<font size="9"/>
 				</textElement>
-				<text><![CDATA[Oslobođeno plaćanja PDV-a po čl. 24 stav 1 tačka 2 (SL.GL.RS 84/2004) zakona o PDV-u.]]></text>
+				<text><![CDATA[Oslobodjeno placanja PDVa po cl. 24 stav 1 tacka 2 (SL.GL.RS 84/2004) zakona o PDVu.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="0" y="45" width="60" height="15" forecolor="#736343" uuid="0ffcb08e-dbe4-4e47-a487-387ff2d18dd2">
