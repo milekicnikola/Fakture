@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-14T20:55:50 -->
+<!-- 2018-07-12T02:10:09 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prevod" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -200,8 +200,9 @@ JIMBOLIA ROMANIA
 RO21108359]]></text>
 			</staticText>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="5" y="180" width="770" height="1" uuid="abca3609-7558-4e90-8c08-eee7f8e3292a">
+				<reportElement positionType="FixRelativeToBottom" x="0" y="180" width="770" height="1" uuid="abca3609-7558-4e90-8c08-eee7f8e3292a">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
@@ -222,10 +223,9 @@ RO21108359]]></text>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="51" splitType="Stretch">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		<band height="55" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="45" width="770" height="1" uuid="e9d2002a-c8ee-4649-a258-640dad29110c">
+				<reportElement positionType="FixRelativeToBottom" x="0" y="50" width="770" height="1" uuid="e9d2002a-c8ee-4649-a258-640dad29110c">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<graphicElement>
@@ -317,21 +317,21 @@ kom/pcs]]></text>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement>
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="158" y="0" width="32" height="15" uuid="298fa07b-d4c7-46b2-900f-cdef8f96f5e3"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="197" y="0" width="174" height="15" uuid="cdbde202-558e-410e-bc43-4a06927461df"/>
 					<textElement>
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
@@ -368,7 +368,7 @@ kom/pcs]]></text>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 				</textField>
@@ -422,7 +422,9 @@ kom/pcs]]></text>
 				<reportElement style="Detail" x="80" y="45" width="94" height="15" uuid="9cba988b-665e-4caa-bbaf-93425e3ad691">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{paritet_fakture}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -456,19 +458,18 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<reportElement style="Column header" x="0" y="65" width="80" height="15" forecolor="#736343" uuid="4e6e1eac-7453-43de-86b7-5a92913d1a73">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
-				<text><![CDATA[PLACANJE:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="0" y="153" width="375" height="15" forecolor="#736343" uuid="06531e81-9ae5-4d22-a137-616a86614a6d"/>
 				<textElement>
-					<font size="9"/>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
-				<text><![CDATA[Oslobodjeno placanja PDVa po cl. 24 stav 1 tacka 2 (SL.GL.RS 84/2004) zakona o PDVu.]]></text>
+				<text><![CDATA[PLACANJE:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="0" y="45" width="60" height="15" forecolor="#736343" uuid="0ffcb08e-dbe4-4e47-a487-387ff2d18dd2">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[PARITET:]]></text>
 			</staticText>
 			<staticText>
@@ -476,7 +477,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font isBold="false"/>
+					<font isBold="false" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[30 dana]]></text>
 			</staticText>
@@ -512,6 +513,13 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="145" width="375" height="15" forecolor="#736343" uuid="cb042e9b-f192-48d8-8a42-24ec167cb9b9"/>
+				<textElement>
+					<font size="9" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Oslobođeno plaćanja PDVa po čl. 24 stav 1 tačka 2 (SL.GL.RS 84/2004) zakona o PDVu]]></text>
+			</staticText>
 		</band>
 	</lastPageFooter>
 	<summary>

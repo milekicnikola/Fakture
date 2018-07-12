@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-09T18:56:27 -->
+<!-- 2018-07-12T01:55:42 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="otpremnicaCprofil" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -69,7 +69,7 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial" size="14" isBold="true"/>
+						<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<text><![CDATA[MAGACIN]]></text>
 				</staticText>
@@ -79,7 +79,7 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="Arial" size="14" isBold="true"/>
+						<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifra_magacina}]]></textFieldExpression>
 				</textField>
@@ -87,50 +87,66 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					<reportElement style="Column header" x="19" y="37" width="90" height="15" forecolor="#736343" uuid="c07c426d-3105-4d17-9932-6f06097008ea">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[Cod]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="400" y="37" width="38" height="15" forecolor="#736343" uuid="92cc9270-26c9-4842-90a4-cbd2c9da7a4e">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[U.M.]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="485" y="37" width="56" height="15" forecolor="#736343" uuid="7a610d14-53c2-4f7f-8686-dff8eeb97a2a"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[Comanda]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="147" y="37" width="103" height="15" forecolor="#736343" uuid="853c87bc-1d8a-4049-96d0-3310d82e8f1e"/>
-					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[Denumirea]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="352" y="37" width="42" height="15" forecolor="#736343" uuid="abcac920-8e3a-4a9f-9a45-9e0fac127682"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[Cantitatea]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="-13" y="37" width="32" height="15" forecolor="#736343" uuid="6b4921ca-b773-475f-8122-40ab2fd6cb47">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[No]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="257" y="37" width="93" height="15" forecolor="#736343" uuid="95837ee9-4d0e-4398-829a-bba953ca02a0">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[Opis]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" x="442" y="37" width="36" height="15" forecolor="#736343" uuid="18f53cea-557d-4c2e-85ae-0189d239910e">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[Kom]]></text>
 				</staticText>
 				<staticText>
@@ -142,9 +158,29 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					<reportElement style="Column header" x="120" y="38" width="20" height="15" forecolor="#736343" uuid="f9bf37ea-70d8-47f6-a60e-c02d74dd712a">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<text><![CDATA[IS]]></text>
 				</staticText>
+				<line>
+					<reportElement key="" style="Detail" x="-12" y="54" width="585" height="1" uuid="750bcceb-f096-49e9-8407-50d856f4142c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement key="" style="Detail" x="-12" y="30" width="585" height="1" uuid="4532954f-864e-4317-bb50-26c4b7f1a1f4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineStyle="Double"/>
+					</graphicElement>
+				</line>
 			</band>
 		</groupHeader>
 	</group>
@@ -156,52 +192,71 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 			<staticText>
 				<reportElement x="80" y="135" width="290" height="30" uuid="06fa12c2-df26-439d-98da-ef42b281b48b"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="19" isBold="true"/>
+					<font size="19" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[AVIZ DE INSOTIRE MARFA nr.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="372" y="135" width="100" height="30" uuid="c18dad46-8bca-41cf-b40a-936a961cd03e"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="20" isBold="true"/>
+					<font size="20" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sifraOtpremnice}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="5" width="90" height="15" uuid="d4b7f69e-9d62-4804-8715-600b75ffcbdd">
+				<reportElement x="0" y="10" width="90" height="15" uuid="d4b7f69e-9d62-4804-8715-600b75ffcbdd">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Furnizor.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="25" width="90" height="15" uuid="578458f6-04d1-4b14-9781-3ce1ef1e83c2"/>
+				<reportElement x="0" y="30" width="90" height="15" uuid="578458f6-04d1-4b14-9781-3ce1ef1e83c2"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Nr.ord.reg.com./an.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="45" width="90" height="15" uuid="b8e7c0e6-d727-4139-81fe-b194754f871c">
+				<reportElement x="0" y="50" width="90" height="15" uuid="b8e7c0e6-d727-4139-81fe-b194754f871c">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[C.I.F.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="65" width="90" height="15" uuid="52e02027-6471-45e5-921a-c01ffee88924">
+				<reportElement x="0" y="70" width="90" height="15" uuid="52e02027-6471-45e5-921a-c01ffee88924">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Sediul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="85" width="90" height="15" uuid="ae24da93-b1cb-4f7c-b8d3-1262d2d217ff">
+				<reportElement x="0" y="90" width="90" height="15" uuid="ae24da93-b1cb-4f7c-b8d3-1262d2d217ff">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Judetul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="97" y="28" width="170" height="15" uuid="66f8374e-5591-4798-9e57-dc3952444028">
+				<reportElement x="97" y="33" width="155" height="15" uuid="66f8374e-5591-4798-9e57-dc3952444028">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[J35/688/2007]]></text>
 			</staticText>
 			<staticText>
@@ -210,6 +265,9 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[C.I.F.]]></text>
 			</staticText>
 			<staticText>
@@ -217,22 +275,34 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Cumparator.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="331" y="25" width="90" height="15" uuid="25b7fdb4-9bac-4856-a540-ca580ffb73ad"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Nr.ord.reg.com./an.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="331" y="105" width="90" height="15" uuid="3e6b4568-8d7b-4e80-959f-d9ca4fc31f5f">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Judetul.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="331" y="65" width="90" height="15" uuid="bf039d32-f644-4118-9c1b-598c74596327">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Sediul.]]></text>
 			</staticText>
 			<staticText>
@@ -269,37 +339,43 @@ Parc Industiral DJ68]]></text>
 				<text><![CDATA[17857020]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="94" y="2" width="140" height="28" uuid="4415f105-cf70-4960-962d-2533a3df7677"/>
+				<reportElement x="99" y="5" width="140" height="28" uuid="4415f105-cf70-4960-962d-2533a3df7677"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
+					<font size="16" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[SC TEREX SRL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="97" y="85" width="140" height="15" uuid="11082470-9dc4-46b6-bd32-bdf7e113299b">
+				<reportElement x="97" y="90" width="140" height="15" uuid="11082470-9dc4-46b6-bd32-bdf7e113299b">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[JIMBOLIA
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="65" width="140" height="15" uuid="b06e261f-6235-4c21-98fa-538d3b2e0fd6">
+				<reportElement x="100" y="70" width="140" height="15" uuid="b06e261f-6235-4c21-98fa-538d3b2e0fd6">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Republici 6a]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="45" width="140" height="15" uuid="485e587a-54c7-4c72-8978-d3fa914dd86f">
+				<reportElement x="100" y="50" width="140" height="15" uuid="485e587a-54c7-4c72-8978-d3fa914dd86f">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[RO21108359]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="296" y="0" width="270" height="130" uuid="fe7b50d5-52fe-40ec-9744-5ee50c8782d3">
+				<reportElement mode="Transparent" x="302" y="0" width="270" height="130" uuid="fe7b50d5-52fe-40ec-9744-5ee50c8782d3">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -325,38 +401,50 @@ Parc Industiral DJ68]]></text>
 				</reportElement>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="19" y="0" width="90" height="15" uuid="c7a9fa38-8bf8-4771-9024-1578672a926f"/>
-					<textElement textAlignment="Left"/>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraRobe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="119" y="0" width="22" height="15" uuid="772eb9f6-6ae5-4a32-b19f-1ee730b9490f"/>
-					<textElement textAlignment="Right"/>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="149" y="0" width="101" height="15" uuid="eb0fe2a2-cdb3-4758-b06d-1fa150b3aabc"/>
-					<textElement textAlignment="Left"/>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.00#;(#,##0.00#-)">
 					<reportElement style="Detail" x="365" y="0" width="29" height="15" uuid="2e1e42af-a788-4085-a38a-573b5a730ca8"/>
-					<textElement textAlignment="Right"/>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_fakturisano}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="400" y="0" width="38" height="15" uuid="4becd553-0cdc-4199-9df6-783909b8f89a"/>
-					<textElement textAlignment="Right"/>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="485" y="0" width="56" height="15" uuid="ebc4e6c7-fdeb-4f56-a9c3-5c7e22948691"/>
-					<textElement textAlignment="Right"/>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraPorudzbine}]]></textFieldExpression>
 				</textField>
 				<textField pattern="###">
 					<reportElement x="-14" y="0" width="19" height="15" uuid="781a80b4-5ef1-49a8-a5aa-2029ace8cf54"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial"/>
+						<font fontName="Arial" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 				</textField>
@@ -364,12 +452,15 @@ Parc Industiral DJ68]]></text>
 					<reportElement x="253" y="0" width="110" height="80" uuid="ec690047-5f3e-4e5f-bd47-aa6a88290361">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					</reportElement>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{opis}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="442" y="0" width="36" height="15" uuid="ecc11a2a-cade-4e77-91fb-d5d8ba6c32bd"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="12"/>
+						<font fontName="Arial" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_u_metru}]]></textFieldExpression>
 				</textField>
@@ -395,21 +486,21 @@ Parc Industiral DJ68]]></text>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[SC TEREX SRL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="398" y="0" width="162" height="30" uuid="dbd27eb7-5203-4a82-9ebc-f21b5de2656b"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Semnatura de primire]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="182" y="0" width="58" height="50" uuid="624ac919-37c7-445a-a0a2-b0b68f6803c9"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Delegat:
 Transport:
@@ -419,6 +510,9 @@ Ora:]]></text>
 				<reportElement x="244" y="15" width="136" height="15" uuid="52003744-a0db-474c-b9cf-e6a6751fe882">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{transport_fakture}]]></textFieldExpression>
 			</textField>
 		</band>

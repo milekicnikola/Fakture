@@ -1,7 +1,3 @@
-/Images/
 /Reports/
-/actions/
-/application/
-/databaseConnection/
 /gui/
-/util/
+/databaseConnection/

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-09T18:33:59 -->
+<!-- 2018-07-12T02:14:37 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="porudzbina" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -94,7 +94,7 @@ order by narucena_roba.sifra_porudzbine, ko_radi, datum_isporuke, narucena_roba.
 			<staticText>
 				<reportElement x="197" y="5" width="180" height="30" uuid="0022a14d-c389-4f84-8f87-9976cf3e0193"/>
 				<textElement textAlignment="Center">
-					<font size="19" isBold="true"/>
+					<font size="19" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[PORUDŽBENICA]]></text>
 			</staticText>
@@ -203,7 +203,7 @@ ROMANIA]]></text>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement>
-					<font isBold="true"/>
+					<font isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{naziv_magacina}]]></textFieldExpression>
 			</textField>
@@ -231,7 +231,7 @@ ROMANIA]]></text>
 				<text><![CDATA[Kom]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="128" y="0" width="112" height="15" forecolor="#736343" uuid="20ed0de4-abed-4085-adf4-847f042a5a15"/>
+				<reportElement style="Column header" x="128" y="0" width="102" height="15" forecolor="#736343" uuid="20ed0de4-abed-4085-adf4-847f042a5a15"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
@@ -290,6 +290,26 @@ ROMANIA]]></text>
 				</textElement>
 				<text><![CDATA[Interni naziv]]></text>
 			</staticText>
+			<line>
+				<reportElement key="" style="Detail" x="-16" y="-1" width="585" height="1" uuid="ad9a88cd-7068-495f-91ed-3c5cf7658d18">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement key="" style="Detail" x="-16" y="17" width="585" height="1" uuid="fa44c3a3-57c0-4d45-beb3-03a677ba9d3a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -306,6 +326,9 @@ ROMANIA]]></text>
 					</reportElement>
 					<textField isStretchWithOverflow="true">
 						<reportElement style="Detail" x="-233" y="0" width="114" height="15" uuid="d6915f97-76c5-437d-8c06-e23ff2776d2e"/>
+						<textElement>
+							<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+						</textElement>
 						<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
 					</textField>
 					<textField isStretchWithOverflow="true" pattern="#,###.00#;(#,###.00#-)">
@@ -320,6 +343,9 @@ ROMANIA]]></text>
 						<reportElement style="Detail" x="-112" y="0" width="112" height="15" uuid="1c9ffaf5-c095-4e56-ab43-5cb5c17a1178">
 							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						</reportElement>
+						<textElement>
+							<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+						</textElement>
 						<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 					</textField>
 					<textField isStretchWithOverflow="true">
@@ -356,6 +382,9 @@ ROMANIA]]></text>
 						<reportElement x="3" y="0" width="88" height="15" uuid="9ad08b08-f375-4a64-817c-0c8828803323">
 							<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						</reportElement>
+						<textElement>
+							<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+						</textElement>
 						<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
 					</textField>
 				</frame>

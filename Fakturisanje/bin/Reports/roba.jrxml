@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-09T18:26:15 -->
+<!-- 2018-07-12T02:27:34 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="roba" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -70,50 +70,45 @@ IBAN: RS35330007010009823559]]></text>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="34" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="800" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement style="Column header" x="-14" y="0" width="120" height="15" forecolor="#736343" uuid="4995cd5b-93fe-47a1-9eeb-d9a1acb6baa9"/>
+				<reportElement style="Column header" x="-14" y="25" width="120" height="15" forecolor="#736343" uuid="4995cd5b-93fe-47a1-9eeb-d9a1acb6baa9"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Šifra robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="114" y="0" width="40" height="15" forecolor="#736343" uuid="8041df12-5967-4b20-9f76-e949b9b86266"/>
+				<reportElement style="Column header" x="114" y="25" width="40" height="15" forecolor="#736343" uuid="8041df12-5967-4b20-9f76-e949b9b86266"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Interna]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="162" y="0" width="182" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
+				<reportElement style="Column header" x="162" y="25" width="182" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Naziv robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="348" y="0" width="162" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
+				<reportElement style="Column header" x="348" y="25" width="162" height="15" forecolor="#736343" uuid="c17b60b2-e803-4dbd-a034-b764c02e32c1"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Interni naziv]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="629" y="0" width="40" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
+				<reportElement style="Column header" x="629" y="25" width="40" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[JM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="676" y="0" width="20" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc">
+				<reportElement style="Column header" x="676" y="25" width="20" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
@@ -123,7 +118,7 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[KS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="704" y="0" width="42" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
+				<reportElement style="Column header" x="704" y="25" width="42" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -132,21 +127,36 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Težina]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="755" y="-20" width="40" height="35" forecolor="#736343" uuid="9c7afc84-caee-464f-b97b-9661750022d3"/>
-				<textElement textAlignment="Right">
+				<reportElement style="Column header" x="755" y="8" width="40" height="32" forecolor="#736343" uuid="9c7afc84-caee-464f-b97b-9661750022d3"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cena
 u RON]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="515" y="0" width="107" height="15" uuid="225ec64f-8279-4cbc-bc3b-d6aec12f797c">
+				<reportElement x="515" y="25" width="107" height="15" uuid="225ec64f-8279-4cbc-bc3b-d6aec12f797c">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<text><![CDATA[Prevod]]></text>
 			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-12" y="7" width="810" height="1" uuid="1d70b6a1-eeaa-4656-aa75-00d7e61c5aef"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-12" y="45" width="810" height="1" uuid="3ceded47-9724-41a1-8f37-8d67b43f03cf">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -158,28 +168,28 @@ u RON]]></text>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement>
-						<font size="11"/>
+						<font size="11" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="116" y="0" width="40" height="15" uuid="898328ed-6763-4f41-8983-b859f2da09f9"/>
 					<textElement textAlignment="Left">
-						<font size="11"/>
+						<font size="11" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="162" y="0" width="182" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
 					<textElement textAlignment="Left">
-						<font size="11"/>
+						<font size="11" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="348" y="0" width="162" height="15" uuid="4999ce28-b6ee-4683-a8da-8782b5c3ab79"/>
 					<textElement textAlignment="Left">
-						<font size="11"/>
+						<font size="11" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
 				</textField>
@@ -221,7 +231,7 @@ u RON]]></text>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
 					<textElement>
-						<font size="11"/>
+						<font size="11" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_prevoda}]]></textFieldExpression>
 				</textField>

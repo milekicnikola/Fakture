@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-06-03T19:39:34 -->
+<!-- 2018-07-12T02:34:08 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="magacin" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -51,6 +51,9 @@
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="38" width="250" height="56" uuid="afad209c-6e5c-4208-b7e4-71027e13a2d3"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
 Mob: 06520 10 373;  mail: generalsolutions@gmail.com
 PIB 107648029
@@ -122,20 +125,32 @@ IBAN: RS35330007010009823559]]></text>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="cb6f8616-efbb-49b2-b55c-02224bb4ab49"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{sifra_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="63c1a2a7-b1b9-4441-a5fa-53a876d9828a"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="222" y="0" width="138" height="15" uuid="63a9f503-d5cf-4489-af51-86b77a34a90f">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{adresa_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="368" y="0" width="91" height="15" uuid="5a9b7ccc-763c-47f6-a7ee-4c3e0db3cc42"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{sef_magacina}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">

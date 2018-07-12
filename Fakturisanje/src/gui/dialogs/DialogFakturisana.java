@@ -678,19 +678,19 @@ public class DialogFakturisana extends StandardDialog {
 		try {
 			reportSrcFile = ResourceLoader.load("Reports/faktura.jrxml");
 		} catch (Exception e) {
-		}
+		}		
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
 		// First, compile jrxml file.
-		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
+		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);		
 
 		Connection conn = DBConnection.getConnection();
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
-		parameters.put("sifraFakture", faktura);
+		parameters.put("sifraFakture", faktura);		
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
@@ -703,7 +703,7 @@ public class DialogFakturisana extends StandardDialog {
 		// PDF Exportor.
 		JRPdfExporter exporterP = new JRPdfExporter();
 		JRDocxExporter exporterD = new JRDocxExporter();
-		JRXlsxExporter exporterE = new JRXlsxExporter();
+		JRXlsxExporter exporterE = new JRXlsxExporter();	
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
@@ -719,7 +719,8 @@ public class DialogFakturisana extends StandardDialog {
 				path + "/Faktura " + faktura + " - " + timeStamp + ".docx");
 
 		OutputStreamExporterOutput exporterOutputE = new SimpleOutputStreamExporterOutput(
-				path + "/Faktura " + faktura + " - " + timeStamp + ".xlsx");
+				path + "/Faktura " + faktura + " - " + timeStamp + ".xlsx");		
+		
 		// Output
 		exporterP.setExporterOutput(exporterOutputP);
 		exporterD.setExporterOutput(exporterOutputD);
@@ -728,11 +729,11 @@ public class DialogFakturisana extends StandardDialog {
 		//
 		SimplePdfExporterConfiguration configurationP = new SimplePdfExporterConfiguration();
 		SimpleDocxExporterConfiguration configurationD = new SimpleDocxExporterConfiguration();
-		SimpleXlsxExporterConfiguration configurationE = new SimpleXlsxExporterConfiguration();
+		SimpleXlsxExporterConfiguration configurationE = new SimpleXlsxExporterConfiguration();		
 
 		exporterP.setConfiguration(configurationP);
 		exporterD.setConfiguration(configurationD);
-		exporterE.setConfiguration(configurationE);
+		exporterE.setConfiguration(configurationE);	
 
 		exporterP.exportReport();
 		exporterD.exportReport();
@@ -843,42 +844,24 @@ public class DialogFakturisana extends StandardDialog {
 		File outDir = new File(path);
 		outDir.mkdirs();
 
-		JRPdfExporter exporterP = new JRPdfExporter();
-		JRDocxExporter exporterD = new JRDocxExporter();
-		JRXlsxExporter exporterE = new JRXlsxExporter();
+		JRPdfExporter exporterP = new JRPdfExporter();		
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
-		exporterP.setExporterInput(exporterInput);
-		exporterD.setExporterInput(exporterInput);
-		exporterE.setExporterInput(exporterInput);
+		exporterP.setExporterInput(exporterInput);		
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutputP = new SimpleOutputStreamExporterOutput(
 				path + "/Prosirena Faktura " + faktura + " - " + timeStamp + ".pdf");
 
-		OutputStreamExporterOutput exporterOutputD = new SimpleOutputStreamExporterOutput(
-				path + "/Prosirena Faktura " + faktura + " - " + timeStamp + ".docx");
-
-		OutputStreamExporterOutput exporterOutputE = new SimpleOutputStreamExporterOutput(
-				path + "/Prosirena Faktura " + faktura + " - " + timeStamp + ".xlsx");
 		// Output
 		exporterP.setExporterOutput(exporterOutputP);
-		exporterD.setExporterOutput(exporterOutputD);
-		exporterE.setExporterOutput(exporterOutputE);
-
-		//
+		
 		SimplePdfExporterConfiguration configurationP = new SimplePdfExporterConfiguration();
-		SimpleDocxExporterConfiguration configurationD = new SimpleDocxExporterConfiguration();
-		SimpleXlsxExporterConfiguration configurationE = new SimpleXlsxExporterConfiguration();
-
+		
 		exporterP.setConfiguration(configurationP);
-		exporterD.setConfiguration(configurationD);
-		exporterE.setConfiguration(configurationE);
 
 		exporterP.exportReport();
-		exporterD.exportReport();
-		exporterE.exportReport();
 
 		JOptionPane.showConfirmDialog(getParent(),
 				"Prošireni izveštaj o fakturi je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",

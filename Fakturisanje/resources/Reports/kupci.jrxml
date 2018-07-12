@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-05-31T00:36:23 -->
+<!-- 2018-07-12T02:34:58 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Kupci" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -53,6 +53,9 @@
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="38" width="250" height="56" uuid="335d5fbf-214a-49ab-a40a-76ea04c842ac"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
 Mob: 06520 10 373;  mail: generalsolutions@gmail.com
 PIB 107648029
@@ -83,7 +86,9 @@ IBAN: RS35330007010009823559]]></text>
 			</line>
 			<staticText>
 				<reportElement style="Column header" x="0" y="0" width="111" height="15" forecolor="#736343" uuid="a7cf9466-54fe-48bb-88cf-3d97c702bda5"/>
-				<textElement textAlignment="Left"/>
+				<textElement textAlignment="Left">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Šifra kupca]]></text>
 			</staticText>
 			<staticText>
@@ -100,6 +105,9 @@ IBAN: RS35330007010009823559]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="444" y="0" width="111" height="15" forecolor="#736343" uuid="b46a3ecb-11f6-40cb-9c0b-b592f716a9ad"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Država]]></text>
 			</staticText>
 		</band>
@@ -115,18 +123,30 @@ IBAN: RS35330007010009823559]]></text>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="ae3014a1-2102-40f4-9bad-fa088c6fe7f2"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_kupca}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="0fe4a617-f7b4-42b3-b9db-40849a9944fb"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_kupca2}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="d73f2bfe-be77-4ed3-8b14-66aa8a97017a"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{adresa_kupca}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="4c7d5a7e-e5bb-40bb-aa86-406b985593f4"/>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{drzava_kupca}]]></textFieldExpression>
 				</textField>
 			</frame>

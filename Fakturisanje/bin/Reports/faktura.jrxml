@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-09T18:10:22 -->
+<!-- 2018-07-12T01:39:54 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faktura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -163,11 +163,11 @@ RO21108359]]></text>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="56" splitType="Stretch">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		<band height="65" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<line>
-				<reportElement key="" style="Detail" x="0" y="50" width="570" height="1" uuid="c170769e-96e9-4626-9d28-7beb75bd3816">
+				<reportElement key="" style="Detail" x="0" y="57" width="570" height="1" uuid="c170769e-96e9-4626-9d28-7beb75bd3816">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -177,29 +177,29 @@ RO21108359]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="39" y="20" width="111" height="15" forecolor="#736343" uuid="5b83655d-ffaf-4516-8b78-6d123e97f413"/>
+				<reportElement style="Column header" x="39" y="23" width="111" height="15" forecolor="#736343" uuid="5b83655d-ffaf-4516-8b78-6d123e97f413"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Code]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="187" y="20" width="154" height="15" forecolor="#736343" uuid="40662b58-c424-4006-8195-3a6c56f82434"/>
+				<reportElement style="Column header" x="183" y="23" width="154" height="15" forecolor="#736343" uuid="40662b58-c424-4006-8195-3a6c56f82434"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Naziv / Description]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="346" y="20" width="44" height="15" forecolor="#736343" uuid="8f0d7a42-91ca-4fdf-8d4c-48963f6f3ddc"/>
+				<reportElement style="Column header" x="342" y="23" width="44" height="15" forecolor="#736343" uuid="8f0d7a42-91ca-4fdf-8d4c-48963f6f3ddc"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Unit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="391" y="20" width="40" height="15" forecolor="#736343" uuid="850f9077-c9a0-4e16-aa98-eabd0d2c3246">
+				<reportElement style="Column header" x="387" y="23" width="40" height="15" forecolor="#736343" uuid="850f9077-c9a0-4e16-aa98-eabd0d2c3246">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[JM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="468" y="0" width="51" height="50" forecolor="#736343" uuid="43b3bcc6-62c0-4b19-baa5-bed634542afa">
+				<reportElement style="Column header" x="468" y="3" width="51" height="50" forecolor="#736343" uuid="43b3bcc6-62c0-4b19-baa5-bed634542afa">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -210,19 +210,19 @@ Price
 kom/pcs]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="0" y="20" width="30" height="15" forecolor="#736343" uuid="d02bdddb-f0a6-44df-84a7-b35ae3415850"/>
+				<reportElement style="Column header" x="0" y="23" width="30" height="15" forecolor="#736343" uuid="d02bdddb-f0a6-44df-84a7-b35ae3415850"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Ln]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="521" y="0" width="48" height="50" forecolor="#736343" uuid="cd0cf8bb-1450-42a1-8a39-70e0657e2f53"/>
+				<reportElement style="Column header" x="521" y="3" width="48" height="50" forecolor="#736343" uuid="cd0cf8bb-1450-42a1-8a39-70e0657e2f53"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Ukupno
 Total
 EUR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="431" y="20" width="30" height="15" forecolor="#736343" uuid="2f5fbb89-7aa4-4bb4-9ca1-35db01bb5ba4">
+				<reportElement style="Column header" x="427" y="23" width="30" height="15" forecolor="#736343" uuid="2f5fbb89-7aa4-4bb4-9ca1-35db01bb5ba4">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -250,62 +250,64 @@ EUR]]></text>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="39" y="0" width="111" height="15" uuid="37dfe184-8041-46c2-aaed-89d9b9b857ce"/>
 					<textElement>
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="162" y="0" width="18" height="15" uuid="298fa07b-d4c7-46b2-900f-cdef8f96f5e3"/>
+					<reportElement style="Detail" x="158" y="0" width="18" height="15" uuid="298fa07b-d4c7-46b2-900f-cdef8f96f5e3"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="187" y="0" width="154" height="15" uuid="cdbde202-558e-410e-bc43-4a06927461df"/>
+					<reportElement style="Detail" x="183" y="0" width="154" height="15" uuid="cdbde202-558e-410e-bc43-4a06927461df"/>
 					<textElement>
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="346" y="0" width="44" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
+					<reportElement style="Detail" x="342" y="0" width="44" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_fakturisano}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="390" y="0" width="40" height="15" uuid="8f22a0f9-f43a-41e3-9580-ecf853e8434e"/>
+					<reportElement style="Detail" x="386" y="0" width="40" height="15" uuid="8f22a0f9-f43a-41e3-9580-ecf853e8434e"/>
 					<textElement textAlignment="Center">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.0#;(#,##0.0#)">
 					<reportElement style="Detail" x="468" y="0" width="51" height="15" uuid="bb592ab0-4ee5-4ee2-b70c-021199c514a5"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{robaeur}]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.0#;(#,##0.0#-)">
 					<reportElement x="521" y="0" width="48" height="15" uuid="a9f8651b-743e-4a09-9c9f-a3a414388771"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{ukueur}]]></textFieldExpression>
 				</textField>
 				<textField pattern="###">
 					<reportElement x="4" y="0" width="19" height="15" uuid="0895cabd-6b04-4b11-93ed-8a26a1ad3823"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial" size="10"/>
+						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="430" y="0" width="35" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
-					<textElement textAlignment="Right"/>
+					<reportElement x="426" y="0" width="35" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -359,11 +361,11 @@ EUR]]></text>
 Produsele sunt: Fabricate in Serbia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="0" y="155" width="375" height="15" forecolor="#736343" uuid="d7a8ca59-05bc-4eac-9986-ac5608820532"/>
+				<reportElement style="Column header" x="0" y="154" width="375" height="15" forecolor="#736343" uuid="d7a8ca59-05bc-4eac-9986-ac5608820532"/>
 				<textElement>
-					<font size="9"/>
+					<font size="9" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
-				<text><![CDATA[Oslobodjeno placanja PDVa po cl. 24 stav 1 tacka 2 (SL.GL.RS 84/2004) zakona o PDVu]]></text>
+				<text><![CDATA[Oslobođeno plaćanja PDVa po čl. 24 stav 1 tačka 2 (SL.GL.RS 84/2004) zakona o PDVu]]></text>
 			</staticText>
 			<textField evaluationTime="Report" pattern="#,##0.0#;(#,##0.0#-)">
 				<reportElement x="470" y="0" width="100" height="20" uuid="97b4ab57-e22e-4b31-940c-21adb3b91503">
@@ -388,7 +390,10 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<reportElement style="Column header" x="0" y="65" width="80" height="15" forecolor="#736343" uuid="334bc423-2b7d-4d80-9494-bfb05ef75735">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
-				<text><![CDATA[PLACANJE:]]></text>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[PLAĆANJE:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="90" y="65" width="82" height="15" forecolor="#000000" uuid="b6e15394-dc11-4409-9142-ca87532c150d">
@@ -400,7 +405,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[30 dana]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="162" width="375" height="28" uuid="8b6d1f6a-bdd0-449c-ba77-682335959474"/>
+				<reportElement x="0" y="170" width="375" height="20" uuid="8b6d1f6a-bdd0-449c-ba77-682335959474"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>

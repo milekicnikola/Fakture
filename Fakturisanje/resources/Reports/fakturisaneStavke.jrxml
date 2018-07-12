@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-09T18:45:26 -->
+<!-- 2018-07-12T02:42:17 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fakturisaneStavke" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -34,14 +34,17 @@ WHERE fakturisana_roba.status = 'fakturisana' AND narucena_roba.korisnicko_ime L
 		<band height="125" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement x="0" y="10" width="250" height="28" uuid="89ac9c08-5218-44e4-aed3-2e08c5ec0a3e"/>
+				<reportElement x="0" y="3" width="250" height="28" uuid="89ac9c08-5218-44e4-aed3-2e08c5ec0a3e"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[GENERAL SOLUTIONS SLN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="38" width="250" height="56" uuid="0574a347-1701-4679-bfa2-24d43c5d42ce"/>
+				<reportElement x="0" y="36" width="250" height="56" uuid="0574a347-1701-4679-bfa2-24d43c5d42ce"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
 Mob: 06520 10 373;  mail: generalsolutions@gmail.com
 PIB 107648029
@@ -64,7 +67,10 @@ IBAN: RS35330007010009823559]]></text>
 		<band height="20" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93"/>
+				<reportElement positionType="FixRelativeToBottom" x="-14" y="15" width="580" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -85,7 +91,7 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Naru]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="375" y="0" width="50" height="15" forecolor="#736343" uuid="34aecde2-baa5-46ca-b92b-bbc0ffe5f81c">
+				<reportElement style="Column header" x="375" y="0" width="48" height="15" forecolor="#736343" uuid="34aecde2-baa5-46ca-b92b-bbc0ffe5f81c">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
@@ -97,7 +103,9 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Ispor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="489" y="0" width="34" height="15" forecolor="#736343" uuid="da770d79-1549-41bf-922c-755bbce0b7ef"/>
+				<reportElement style="Column header" x="489" y="0" width="35" height="15" forecolor="#736343" uuid="da770d79-1549-41bf-922c-755bbce0b7ef">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Por]]></text>
 			</staticText>
@@ -110,6 +118,15 @@ IBAN: RS35330007010009823559]]></text>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Fakt.]]></text>
 			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-14" y="-4" width="580" height="1" uuid="21e53935-bd9e-4bde-84d8-2ea2e2890012">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -121,35 +138,37 @@ IBAN: RS35330007010009823559]]></text>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement>
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraRobe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="190" y="0" width="130" height="15" uuid="37ca1e3c-dac3-4a37-b76b-2b94077a7e4b"/>
 					<textElement>
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="329" y="0" width="37" height="15" uuid="c36bf88c-e090-4c25-96cb-fc13fc48affa"/>
+					<reportElement style="Detail" x="329" y="0" width="39" height="15" uuid="c36bf88c-e090-4c25-96cb-fc13fc48affa">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_naruceno}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="375" y="0" width="48" height="15" uuid="0831c2ce-2c27-4a42-9e5c-72099e2b78ea"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_fakturisano}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
 					<reportElement style="Detail" x="425" y="0" width="57" height="15" uuid="b54562f4-8e4d-4034-8de0-028c45c80e0d"/>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{datumIsporuke}]]></textFieldExpression>
 				</textField>
@@ -158,7 +177,7 @@ IBAN: RS35330007010009823559]]></text>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraPorudzbine}]]></textFieldExpression>
 				</textField>
@@ -169,7 +188,7 @@ IBAN: RS35330007010009823559]]></text>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 					<textElement>
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
@@ -180,7 +199,7 @@ IBAN: RS35330007010009823559]]></text>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="Arial" size="11"/>
+						<font fontName="Arial" size="11" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraFakture}]]></textFieldExpression>
 				</textField>
@@ -188,14 +207,7 @@ IBAN: RS35330007010009823559]]></text>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
+		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-09T18:48:06 -->
+<!-- 2018-07-12T02:00:31 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="otpremnica" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -129,6 +129,24 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 					<textElement textAlignment="Left"/>
 					<text><![CDATA[I.S.]]></text>
 				</staticText>
+				<line>
+					<reportElement key="" style="Detail" x="-12" y="30" width="585" height="1" uuid="fe693ee3-a5d5-4c32-b4b0-59a85ef338a0">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement key="" style="Detail" x="-12" y="53" width="585" height="1" uuid="9510a3e6-94ca-457a-9b63-bd055939a9bb">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineStyle="Double"/>
+					</graphicElement>
+				</line>
 			</band>
 		</groupHeader>
 	</group>
@@ -152,75 +170,109 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 				<textFieldExpression><![CDATA[$F{sifraOtpremnice}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="5" width="90" height="15" uuid="d4b7f69e-9d62-4804-8715-600b75ffcbdd">
+				<reportElement x="0" y="10" width="90" height="15" uuid="bda0a1b5-9b03-4af9-bd8d-9dcc827b90af">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Furnizor.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="25" width="90" height="15" uuid="578458f6-04d1-4b14-9781-3ce1ef1e83c2"/>
+				<reportElement x="0" y="30" width="90" height="15" uuid="8ef1055d-9e7f-489f-a5d7-7f1623ee52bd"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Nr.ord.reg.com./an.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="45" width="90" height="15" uuid="b8e7c0e6-d727-4139-81fe-b194754f871c">
+				<reportElement x="0" y="50" width="90" height="15" uuid="c2a71f6d-85f3-4f6e-ac06-3f589a48d751">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[C.I.F.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="65" width="90" height="15" uuid="52e02027-6471-45e5-921a-c01ffee88924">
+				<reportElement x="0" y="70" width="90" height="15" uuid="2be03e94-ad56-4925-89b8-a43301ae2849">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Sediul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="85" width="90" height="15" uuid="ae24da93-b1cb-4f7c-b8d3-1262d2d217ff">
+				<reportElement x="0" y="90" width="90" height="15" uuid="257b8663-22ec-4833-9be5-c38692782627">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Judetul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="97" y="28" width="170" height="15" uuid="66f8374e-5591-4798-9e57-dc3952444028">
+				<reportElement x="97" y="33" width="155" height="15" uuid="d1d8e88a-9723-4764-9427-285950252a77">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[J35/688/2007]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="331" y="45" width="90" height="15" uuid="2745398d-cca9-4722-b2e9-a8b814a6a075">
+				<reportElement x="331" y="45" width="90" height="15" uuid="bc04cbc6-5a15-4f8d-b609-06e82febb97b">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[C.I.F.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="331" y="5" width="90" height="15" uuid="c8a7f77c-a87d-40cb-bbaf-c8e1acbab64e">
+				<reportElement x="331" y="5" width="90" height="15" uuid="3667d4f9-1e93-4ae3-b06d-a25317f2623f">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Cumparator.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="331" y="25" width="90" height="15" uuid="25b7fdb4-9bac-4856-a540-ca580ffb73ad"/>
+				<reportElement x="331" y="25" width="90" height="15" uuid="0da38023-586d-4ff8-a757-b0d9b41f0f17"/>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Nr.ord.reg.com./an.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="331" y="105" width="90" height="15" uuid="3e6b4568-8d7b-4e80-959f-d9ca4fc31f5f">
+				<reportElement x="331" y="105" width="90" height="15" uuid="d78356b3-59b6-47ff-9e33-4af05c003e9c">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Judetul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="331" y="65" width="90" height="15" uuid="bf039d32-f644-4118-9c1b-598c74596327">
+				<reportElement x="331" y="65" width="90" height="15" uuid="1fe228a1-03bf-4743-992a-69bf65ba942f">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
+				<textElement>
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Sediul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="429" y="5" width="141" height="15" uuid="2cf29a32-3161-45bc-9720-949c809eabd5">
+				<reportElement x="429" y="5" width="141" height="15" uuid="571fe9a9-0484-4de1-bd01-97470030b6a6">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
@@ -230,22 +282,22 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 				<text><![CDATA[ASSA ABLOY ENTRANCE SYSTEM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="429" y="65" width="141" height="35" uuid="f65fea76-1ce0-4c4a-b915-d3ea475b0418">
+				<reportElement x="429" y="65" width="141" height="35" uuid="6e145d95-e759-4b75-9d96-f42b18814bd3">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<text><![CDATA[Pestisul Mare 363 C,
 Parc Industiral DJ68]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="429" y="105" width="141" height="15" uuid="a464508b-be8a-4257-a3be-182a798874c1"/>
+				<reportElement x="429" y="105" width="141" height="15" uuid="6866a10f-7045-466b-9d78-dc3b9d1a1e8d"/>
 				<text><![CDATA[Judetul.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="429" y="25" width="141" height="15" uuid="56416727-d124-4546-bfe6-7f64e48c11ed"/>
+				<reportElement x="429" y="25" width="141" height="15" uuid="aa7d6894-5299-4fa9-9ed6-6c0ab4d705ba"/>
 				<text><![CDATA[720/1295/2005]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="429" y="45" width="141" height="15" uuid="3a4bd4b9-c7f4-48cb-95f5-d2167f4b40ab">
+				<reportElement x="429" y="45" width="141" height="15" uuid="51b311e1-87d1-43d1-a0a0-065fc884223c">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -253,44 +305,50 @@ Parc Industiral DJ68]]></text>
 				<text><![CDATA[17857020]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="94" y="2" width="140" height="28" uuid="4415f105-cf70-4960-962d-2533a3df7677"/>
+				<reportElement x="99" y="5" width="140" height="28" uuid="b2234936-dc05-4787-b0dd-a4078205424c"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="16" isBold="true"/>
+					<font size="16" isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[SC TEREX SRL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="97" y="85" width="140" height="15" uuid="11082470-9dc4-46b6-bd32-bdf7e113299b">
+				<reportElement x="97" y="90" width="140" height="15" uuid="c3ae662e-a827-4964-bb65-86a59eaee6f4">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[JIMBOLIA
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="65" width="140" height="15" uuid="b06e261f-6235-4c21-98fa-538d3b2e0fd6">
+				<reportElement x="100" y="70" width="140" height="15" uuid="99cfa8c8-467d-4ffc-b9c5-a9081265573b">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[Republici 6a]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="45" width="140" height="15" uuid="485e587a-54c7-4c72-8978-d3fa914dd86f">
+				<reportElement x="100" y="50" width="140" height="15" uuid="73e46e96-f402-4680-9265-dec859485fa7">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+				</textElement>
 				<text><![CDATA[RO21108359]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="296" y="0" width="270" height="130" uuid="fe7b50d5-52fe-40ec-9744-5ee50c8782d3">
+				<reportElement mode="Transparent" x="302" y="0" width="270" height="130" uuid="99b2bd75-30da-4812-b582-06eb05f3a9d1">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 			</rectangle>
 			<rectangle>
-				<reportElement mode="Transparent" x="-15" y="0" width="275" height="130" uuid="504a6fcb-125e-440c-948d-23b98d839c26">
+				<reportElement mode="Transparent" x="-15" y="0" width="275" height="130" uuid="9d4f98dd-c510-49b4-9393-f54acc2cafdf">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
@@ -308,17 +366,23 @@ Parc Industiral DJ68]]></text>
 					<reportElement style="Detail" x="32" y="0" width="120" height="15" uuid="c7a9fa38-8bf8-4771-9024-1578672a926f">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
-					<textElement textAlignment="Left"/>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{sifraRobe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="160" y="0" width="41" height="15" uuid="772eb9f6-6ae5-4a32-b19f-1ee730b9490f"/>
-					<textElement textAlignment="Left"/>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{interna_sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="202" y="0" width="161" height="15" uuid="eb0fe2a2-cdb3-4758-b06d-1fa150b3aabc"/>
-					<textElement textAlignment="Left"/>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.00#;(#,##0.00#-)">
