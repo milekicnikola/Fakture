@@ -30,11 +30,15 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.export.ExporterInput;
 import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleDocxExporterConfiguration;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.export.SimpleXlsxExporterConfiguration;
 import util.ResourceLoader;
 
 public class DialogOtvoreneStavke extends StandardDialog {
@@ -402,11 +406,15 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		outDir.mkdirs();
 
 		// PDF Exportor.
-		JRPdfExporter exporter = new JRPdfExporter();
+		JRPdfExporter exporterP = new JRPdfExporter();
+		JRXlsxExporter exporterE = new JRXlsxExporter();
+		JRDocxExporter exporterD = new JRDocxExporter();
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
-		exporter.setExporterInput(exporterInput);
+		exporterP.setExporterInput(exporterInput);
+		exporterD.setExporterInput(exporterInput);
+		exporterE.setExporterInput(exporterInput);
 
 		String naziv = "";
 
@@ -418,15 +426,27 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			naziv = "Sve";
 
 		// ExporterOutput
-		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(
+		OutputStreamExporterOutput exporterOutputP = new SimpleOutputStreamExporterOutput(
 				path + "/Otvorene stavke " + naziv + " - " + timeStamp + ".pdf");
+		OutputStreamExporterOutput exporterOutputD = new SimpleOutputStreamExporterOutput(
+				path + "/Otvorene stavke " + naziv + " - " + timeStamp + ".docx");
+		OutputStreamExporterOutput exporterOutputE = new SimpleOutputStreamExporterOutput(
+				path + "/Otvorene stavke " + naziv + " - " + timeStamp + ".xlsx");
 		// Output
-		exporter.setExporterOutput(exporterOutput);
+		exporterP.setExporterOutput(exporterOutputP);
+		exporterE.setExporterOutput(exporterOutputE);
+		exporterD.setExporterOutput(exporterOutputD);
 
 		//
-		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
-		exporter.setConfiguration(configuration);
-		exporter.exportReport();
+		SimplePdfExporterConfiguration configurationP = new SimplePdfExporterConfiguration();
+		SimpleXlsxExporterConfiguration configurationE = new SimpleXlsxExporterConfiguration();
+		SimpleDocxExporterConfiguration configurationD = new SimpleDocxExporterConfiguration();
+		exporterP.setConfiguration(configurationP);
+		exporterD.setConfiguration(configurationD);
+		exporterE.setConfiguration(configurationE);
+		exporterP.exportReport();
+		exporterD.exportReport();
+		exporterE.exportReport();
 
 		JOptionPane.showConfirmDialog(getParent(),
 				"Izveštaj o otvorenim stavkama je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
