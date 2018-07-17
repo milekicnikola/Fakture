@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-12T02:10:09 -->
+<!-- 2018-07-16T23:26:35 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prevod" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -84,6 +84,10 @@ order by roba.prevod]]>
 	</variable>
 	<variable name="prevodeur" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
 		<variableExpression><![CDATA[$F{ukueur}]]></variableExpression>
+	</variable>
+	<variable name="rbr" class="java.math.BigDecimal" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{sifra_fakture}]]></groupExpression>
@@ -363,19 +367,19 @@ kom/pcs]]></text>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{ukueur}]]></textFieldExpression>
 				</textField>
-				<textField pattern="###">
-					<reportElement x="0" y="0" width="19" height="15" uuid="0895cabd-6b04-4b11-93ed-8a26a1ad3823">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
-				</textField>
 				<textField>
 					<reportElement x="422" y="0" width="24" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="-2" y="0" width="25" height="15" uuid="c210759c-8f8b-407d-b408-16001c98633d">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{rbr}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

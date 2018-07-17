@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-12T01:39:54 -->
+<!-- 2018-07-16T23:29:57 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faktura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -80,6 +80,10 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 	</variable>
 	<variable name="Zbirukupno" class="java.math.BigDecimal" calculation="Sum">
 		<variableExpression><![CDATA[$F{ukueur}]]></variableExpression>
+	</variable>
+	<variable name="rbr" class="java.math.BigDecimal" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{sifra_fakture}]]></groupExpression>
@@ -296,19 +300,23 @@ EUR]]></text>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{ukueur}]]></textFieldExpression>
 				</textField>
-				<textField pattern="###">
-					<reportElement x="4" y="0" width="19" height="15" uuid="0895cabd-6b04-4b11-93ed-8a26a1ad3823"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
-				</textField>
 				<textField>
 					<reportElement x="426" y="0" width="35" height="15" uuid="80ab8f73-a527-447b-8d49-742b6ae5c77a"/>
 					<textElement textAlignment="Right">
 						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="5" y="0" width="25" height="15" uuid="5c9405bb-336b-45bd-8a0a-2efb61c6e1d2">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{rbr}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
