@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-12T02:27:34 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="roba" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+<!-- 2018-07-20T20:29:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="roba" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="834" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -73,14 +65,18 @@ IBAN: RS35330007010009823559]]></text>
 		<band height="50" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement style="Column header" x="-14" y="25" width="120" height="15" forecolor="#736343" uuid="4995cd5b-93fe-47a1-9eeb-d9a1acb6baa9"/>
+				<reportElement style="Column header" x="0" y="25" width="120" height="15" forecolor="#736343" uuid="4995cd5b-93fe-47a1-9eeb-d9a1acb6baa9">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Šifra robe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="114" y="25" width="40" height="15" forecolor="#736343" uuid="8041df12-5967-4b20-9f76-e949b9b86266"/>
+				<reportElement style="Column header" x="120" y="25" width="40" height="15" forecolor="#736343" uuid="8041df12-5967-4b20-9f76-e949b9b86266">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
@@ -101,16 +97,17 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Interni naziv]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="629" y="25" width="40" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
+				<reportElement style="Column header" x="629" y="25" width="45" height="15" forecolor="#736343" uuid="186f9e20-b1fd-4616-9dbe-2fa6e6d96e10"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[JM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="676" y="25" width="20" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc">
+				<reportElement style="Column header" x="679" y="25" width="25" height="15" forecolor="#736343" uuid="d904ee51-e912-4910-a255-e94cbdacc7dc">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font isBold="true"/>
@@ -118,7 +115,7 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[KS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="704" y="25" width="42" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
+				<reportElement style="Column header" x="709" y="25" width="45" height="15" forecolor="#736343" uuid="9660e6f7-5b44-4f3b-9992-e156af6a9ad7">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -127,7 +124,7 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Težina]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="755" y="8" width="40" height="32" forecolor="#736343" uuid="9c7afc84-caee-464f-b97b-9661750022d3"/>
+				<reportElement style="Column header" x="760" y="8" width="65" height="32" forecolor="#736343" uuid="9c7afc84-caee-464f-b97b-9661750022d3"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
@@ -143,16 +140,15 @@ u RON]]></text>
 				<text><![CDATA[Prevod]]></text>
 			</staticText>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-12" y="7" width="810" height="1" uuid="1d70b6a1-eeaa-4656-aa75-00d7e61c5aef"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="7" width="830" height="1" uuid="1d70b6a1-eeaa-4656-aa75-00d7e61c5aef">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-12" y="45" width="810" height="1" uuid="3ceded47-9724-41a1-8f37-8d67b43f03cf">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="45" width="830" height="1" uuid="3ceded47-9724-41a1-8f37-8d67b43f03cf"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -162,9 +158,9 @@ u RON]]></text>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="800" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="830" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="-14" y="0" width="120" height="15" uuid="69f847b2-aaf3-46d1-8fa7-28da7601f6a9">
+					<reportElement style="Detail" x="0" y="0" width="120" height="15" uuid="69f847b2-aaf3-46d1-8fa7-28da7601f6a9">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement>
@@ -173,7 +169,7 @@ u RON]]></text>
 					<textFieldExpression><![CDATA[$F{sifra_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="116" y="0" width="40" height="15" uuid="898328ed-6763-4f41-8983-b859f2da09f9"/>
+					<reportElement style="Detail" x="120" y="0" width="40" height="15" uuid="898328ed-6763-4f41-8983-b859f2da09f9"/>
 					<textElement textAlignment="Left">
 						<font size="11" isPdfEmbedded="true"/>
 					</textElement>
@@ -194,14 +190,16 @@ u RON]]></text>
 					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="629" y="0" width="40" height="15" uuid="e5633045-4a3b-4bd6-b9bd-596ef9f071d8"/>
+					<reportElement style="Detail" x="629" y="0" width="45" height="15" uuid="e5633045-4a3b-4bd6-b9bd-596ef9f071d8">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Center">
 						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_mere}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="676" y="0" width="20" height="15" uuid="1b55b863-abd2-4e66-a287-51a9eb183f28">
+					<reportElement style="Detail" x="679" y="0" width="25" height="15" uuid="1b55b863-abd2-4e66-a287-51a9eb183f28">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -210,14 +208,18 @@ u RON]]></text>
 					<textFieldExpression><![CDATA[$F{komada_u_setu}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="704" y="0" width="42" height="15" uuid="f5e5b55e-b466-4ee8-80f3-e79405951845"/>
+					<reportElement style="Detail" x="709" y="0" width="45" height="15" uuid="f5e5b55e-b466-4ee8-80f3-e79405951845">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font size="11"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{tezina_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.00">
-					<reportElement style="Detail" x="755" y="0" width="40" height="15" uuid="2801a65b-c41d-41eb-81db-2dc762254fab">
+					<reportElement style="Detail" x="760" y="0" width="65" height="15" uuid="2801a65b-c41d-41eb-81db-2dc762254fab">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right">
@@ -241,7 +243,7 @@ u RON]]></text>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="-21" y="1" width="821" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<reportElement mode="Opaque" x="-21" y="1" width="851" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
 				<textField evaluationTime="Report">
 					<reportElement style="Column header" x="762" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
 					<textElement verticalAlignment="Middle">
