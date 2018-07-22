@@ -524,7 +524,7 @@ public class DialogRoba extends StandardDialog {
 
 		// Make sure the output directory exists.
 		ResourceBundle bundle = PropertyResourceBundle.getBundle("util/Report");
-		String path = bundle.getString("path");
+		String path = bundle.getString("path") + "/Roba";
 		File outDir = new File(path);
 		outDir.mkdirs();
 
