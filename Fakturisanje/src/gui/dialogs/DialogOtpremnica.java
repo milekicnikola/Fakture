@@ -38,14 +38,13 @@ public class DialogOtpremnica extends StandardDialog {
 		setTitle("Otpremnica");
 		BufferedImage image = null;
 		try {
-			image = ImageIO.read(ResourceLoader.load("Images/otpremnica.png"));			
-		} catch (Exception e) {			
+			image = ImageIO.read(ResourceLoader.load("Images/otpremnica.png"));
+		} catch (Exception e) {
 
 		}
 		setIconImage(image);
 
-		tableModel = new OtpremnicaTableModel(new String[] {
-				"Šifra otpremnice", "Šifra magacina", "Naziv magacina",
+		tableModel = new OtpremnicaTableModel(new String[] { "Šifra otpremnice", "Šifra magacina", "Naziv magacina",
 				"Šifra fakture", "Datum", "Transport", "Poslata" }, 0);
 
 		panel = new OtpremnicaPanel();
@@ -57,39 +56,40 @@ public class DialogOtpremnica extends StandardDialog {
 		initStandardActions();
 		initActions();
 
-		addDetaljno();		
-		
+		addDetaljno();
+
 		toolbar.remove(11);
-		//toolbar.remove(10);
+		// toolbar.remove(10);
 
 	}
 
 	@Override
-	public void initActions() {		
-		
+	public void initActions() {
+
 		btnSve = new JButton("Sve otpremnice");
 		btnAktivno = new JButton("Aktivne otpremnice");
-		
+
 		btnSve.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {				
-				toolbar.getBtnRefresh().doClick();			
+			public void actionPerformed(ActionEvent arg0) {
+				toolbar.getBtnRefresh().doClick();
 			}
 		});
-		
+
 		btnAktivno.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {				
+			public void actionPerformed(ActionEvent arg0) {
 				try {
-					tableModel.fillData("SELECT sifra_otpremnice, otpremnica.sifra_magacina as sifraMagacina, naziv_magacina, otpremnica.sifra_fakture as sifraFakture, datum_fakture, transport_fakture, poslata_otpremnica FROM otpremnica JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina JOIN faktura ON otpremnica.sifra_fakture = faktura.sifra_fakture WHERE poslata_otpremnica = 'ne'");
+					tableModel.fillData(
+							"SELECT sifra_otpremnice, otpremnica.sifra_magacina as sifraMagacina, naziv_magacina, otpremnica.sifra_fakture as sifraFakture, datum_fakture, transport_fakture, poslata_otpremnica FROM otpremnica JOIN magacin ON otpremnica.sifra_magacina = magacin.sifra_magacina JOIN faktura ON otpremnica.sifra_fakture = faktura.sifra_fakture WHERE poslata_otpremnica = 'ne'");
 				} catch (SQLException e) {
 					e.printStackTrace();
-				}				
+				}
 			}
 		});
-		
+
 		toolbar.add(btnSve);
 		toolbar.addSeparator();
 		toolbar.add(btnAktivno);
@@ -102,21 +102,15 @@ public class DialogOtpremnica extends StandardDialog {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					if (table.getSelectedRow() >= 0) {
-						int dialogResult = JOptionPane
-								.showConfirmDialog(
-										getParent(),
-										"Da li ste sigurni da želite da obrišete ovu otpremnicu i sve stavke koje se na njoj nalaze?",
-										"Brisanje sloga",
-										JOptionPane.YES_NO_OPTION,
-										JOptionPane.INFORMATION_MESSAGE);
+						int dialogResult = JOptionPane.showConfirmDialog(getParent(),
+								"Da li ste sigurni da želite da obrišete ovu otpremnicu i sve stavke koje se na njoj nalaze?",
+								"Brisanje sloga", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						if (dialogResult == JOptionPane.YES_OPTION) {
 							removeRow();
 						}
 					} else {
-						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna otpremnica nije selektovana.",
-								"Upozorenje", JOptionPane.PLAIN_MESSAGE,
-								JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showConfirmDialog(getParent(), "Nijedna otpremnica nije selektovana.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			});
@@ -129,10 +123,8 @@ public class DialogOtpremnica extends StandardDialog {
 					if (table.getSelectedRow() >= 0) {
 						updateStateAndTextFields(State.AZURIRANJE);
 					} else {
-						JOptionPane.showConfirmDialog(getParent(),
-								"Nijedna otpremnica nije selektovana.",
-								"Upozorenje", JOptionPane.PLAIN_MESSAGE,
-								JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showConfirmDialog(getParent(), "Nijedna otpremnica nije selektovana.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
 					}
 
 				}
@@ -150,66 +142,56 @@ public class DialogOtpremnica extends StandardDialog {
 				}
 			});
 
-			((OtpremnicaPanel) panel).getBtnMagacin().addActionListener(
-					new ActionListener() {
+			((OtpremnicaPanel) panel).getBtnMagacin().addActionListener(new ActionListener() {
 
-						@Override
-						public void actionPerformed(ActionEvent arg0) {
-							// TODO Auto-generated method stub
-							DialogMagacin dialog = new DialogMagacin(MainFrame
-									.getInstance(), true);
-							dialog.setVisible(true);
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					// TODO Auto-generated method stub
+					DialogMagacin dialog = new DialogMagacin(MainFrame.getInstance(), true);
+					dialog.setVisible(true);
+					try {
+						if (!dialog.getZoom1().equals(""))
+							((OtpremnicaPanel) panel).getTxtSifraM().setText(dialog.getZoom1());
+						if (!dialog.getZoom2().equals(""))
+							((OtpremnicaPanel) panel).getTxtNazivM().setText(dialog.getZoom2());
+					} catch (NullPointerException n) {
+					}
+				}
+			});
+
+			((OtpremnicaPanel) panel).getBtnFaktura().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					// TODO Auto-generated method stub
+					DialogFaktura dialog = new DialogFaktura(MainFrame.getInstance(), true);
+					dialog.setVisible(true);
+					try {
+						if (!dialog.getZoom1().equals(""))
+							((OtpremnicaPanel) panel).getTxtSifraF().setText(dialog.getZoom1());
+						if (!dialog.getZoom5().equals(""))
+							((OtpremnicaPanel) panel).getTxtTransport().setText(dialog.getZoom5());
+						if (!dialog.getZoom2().equals("")) {
+							preuzetDatum = dialog.getZoom2();
+							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+							Date date = null;
 							try {
-								if (!dialog.getZoom1().equals(""))
-									((OtpremnicaPanel) panel).getTxtSifraM()
-											.setText(dialog.getZoom1());
-								if (!dialog.getZoom2().equals(""))
-									((OtpremnicaPanel) panel).getTxtNazivM()
-											.setText(dialog.getZoom2());
-							} catch (NullPointerException n) {
+								date = sdf.parse(preuzetDatum);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
+
+							((OtpremnicaPanel) panel).getTxtDatum().setDate(date);
 						}
-					});
-
-			((OtpremnicaPanel) panel).getBtnFaktura().addActionListener(
-					new ActionListener() {
-
-						@Override
-						public void actionPerformed(ActionEvent arg0) {
-							// TODO Auto-generated method stub
-							DialogFaktura dialog = new DialogFaktura(MainFrame
-									.getInstance(), true);
-							dialog.setVisible(true);
-							try {
-								if (!dialog.getZoom1().equals(""))
-									((OtpremnicaPanel) panel).getTxtSifraF()
-											.setText(dialog.getZoom1());
-								if (!dialog.getZoom5().equals(""))
-									((OtpremnicaPanel) panel).getTxtTransport()
-											.setText(dialog.getZoom5());
-								if (!dialog.getZoom2().equals("")) {
-									preuzetDatum = dialog.getZoom2();
-									SimpleDateFormat sdf = new SimpleDateFormat(
-											"yyyy-MM-dd");
-									Date date = null;
-									try {
-										date = sdf.parse(preuzetDatum);
-									} catch (ParseException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-
-									((OtpremnicaPanel) panel).getTxtDatum()
-											.setDate(date);
-								}
-							} catch (NullPointerException n) {
-							}
-						}
-					});
+					} catch (NullPointerException n) {
+					}
+				}
+			});
 
 		} else {
 			toolbar.getBtnAdd().setEnabled(false);
-			toolbar.getBtnDelete().setEnabled(false);	
+			toolbar.getBtnDelete().setEnabled(false);
 			toolbar.getBtnUpdate().setEnabled(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
 
@@ -280,8 +262,8 @@ public class DialogOtpremnica extends StandardDialog {
 			statusBar.getStatusState().setText("POGLED");
 			this.state = State.POGLED;
 		} else if (state == State.AZURIRANJE) {
-			//btnEnable();
-			//allEnable();
+			// btnEnable();
+			// allEnable();
 			((OtpremnicaPanel) panel).getTxtSifra().setEditable(false);
 			toolbar.getBtnDetaljno().setEnabled(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
@@ -309,22 +291,17 @@ public class DialogOtpremnica extends StandardDialog {
 	public void addRow() {
 
 		String sifra = ((OtpremnicaPanel) panel).getTxtSifra().getText().trim();
-		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText()
-				.trim();
-		String nazivM = ((OtpremnicaPanel) panel).getTxtNazivM().getText()
-				.trim();
-		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText()
-				.trim();
-		String transport = ((OtpremnicaPanel) panel).getTxtTransport()
-				.getText().trim();
+		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText().trim();
+		String nazivM = ((OtpremnicaPanel) panel).getTxtNazivM().getText().trim();
+		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText().trim();
+		String transport = ((OtpremnicaPanel) panel).getTxtTransport().getText().trim();
 		Date datum1 = ((OtpremnicaPanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifra, sifraM, nazivM, sifraF, datum, transport,
-				"ne" };
+		String[] params = { sifra, sifraM, nazivM, sifraF, datum, transport, "ne" };
 
 		try {
 			OtpremnicaTableModel ctm = (OtpremnicaTableModel) table.getModel();
@@ -332,8 +309,7 @@ public class DialogOtpremnica extends StandardDialog {
 			table.setRowSelectionInterval(index, index);
 			updateStateAndTextFields(State.DODAVANJE);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 
 		napuniOtpremnicu(sifra, sifraF, sifraM);
@@ -346,10 +322,8 @@ public class DialogOtpremnica extends StandardDialog {
 		if (i == -1)
 			return;
 
-		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText()
-				.trim();
-		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText()
-				.trim();
+		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText().trim();
+		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText().trim();
 
 		String[] params = { sifraM, sifraF };
 		int index = table.getSelectedRow();
@@ -358,8 +332,7 @@ public class DialogOtpremnica extends StandardDialog {
 			ctm.updateRow(index, params);
 			updateStateAndTextFields(State.AZURIRANJE);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 		table.setRowSelectionInterval(index, index);
 	}
@@ -367,12 +340,9 @@ public class DialogOtpremnica extends StandardDialog {
 	@Override
 	public void search() {
 		String sifra = ((OtpremnicaPanel) panel).getTxtSifra().getText().trim();
-		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText()
-				.trim();
-		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText()
-				.trim();
-		String poslata = ((OtpremnicaPanel) panel).getTxtPoslata().getText()
-				.trim();
+		String sifraM = ((OtpremnicaPanel) panel).getTxtSifraM().getText().trim();
+		String sifraF = ((OtpremnicaPanel) panel).getTxtSifraF().getText().trim();
+		String poslata = ((OtpremnicaPanel) panel).getTxtPoslata().getText().trim();
 
 		String[] params = { sifra, sifraM, sifraF, poslata };
 
@@ -381,8 +351,7 @@ public class DialogOtpremnica extends StandardDialog {
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -436,34 +405,27 @@ public class DialogOtpremnica extends StandardDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if (table.getSelectedRow() >= 0) {
-					DialogOtpremljena dialog = new DialogOtpremljena(MainFrame
-							.getInstance(), true, ((OtpremnicaPanel) panel)
-							.getTxtSifra().getText().trim(),
-							((OtpremnicaPanel) panel).getTxtSifraM().getText()
-									.trim(), ((OtpremnicaPanel) panel)
-									.getTxtPoslata().getText().trim());
+					DialogOtpremljena dialog = new DialogOtpremljena(MainFrame.getInstance(), true,
+							((OtpremnicaPanel) panel).getTxtSifra().getText().trim(),
+							((OtpremnicaPanel) panel).getTxtSifraM().getText().trim(),
+							((OtpremnicaPanel) panel).getTxtSifraF().getText().trim(),
+							((OtpremnicaPanel) panel).getTxtPoslata().getText().trim());
 					dialog.setVisible(true);
 
 					toolbar.getBtnRefresh().doClick();
 
 				} else {
-					JOptionPane.showConfirmDialog(getParent(),
-							"Nijedna otpremnica nije selektovana.",
-							"Upozorenje", JOptionPane.PLAIN_MESSAGE,
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showConfirmDialog(getParent(), "Nijedna otpremnica nije selektovana.", "Upozorenje",
+							JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
 	}
 
-	public void napuniOtpremnicu(String otpremnica, String faktura,
-			String magacin) {
+	public void napuniOtpremnicu(String otpremnica, String faktura, String magacin) {
 
 		String upit = "SELECT fakturisana_roba.sifra_robe as sifraRobe, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.datum_isporuke as datumIsporuke, fakturisana_roba.status as status FROM fakturisana_roba JOIN porudzbina ON fakturisana_roba.sifra_porudzbine = porudzbina.sifra_porudzbine WHERE fakturisana_roba.sifra_fakture = '"
-				+ faktura
-				+ "' AND sifra_magacina = '"
-				+ magacin
-				+ "' AND fakturisana_roba.status = 'fakturisana'";		
+				+ faktura + "' AND sifra_magacina = '" + magacin + "' AND fakturisana_roba.status = 'fakturisana'";
 
 		try {
 
@@ -476,10 +438,8 @@ public class DialogOtpremnica extends StandardDialog {
 				String datum = rset.getString("datumIsporuke");
 				String status = rset.getString("status");
 
-				PreparedStatement stmt1 = DBConnection
-						.getConnection()
-						.prepareStatement(
-								"INSERT INTO otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, status_robe) values (?, ?, ?, ?, ?, ?)");
+				PreparedStatement stmt1 = DBConnection.getConnection().prepareStatement(
+						"INSERT INTO otpremljena_roba (sifra_otpremnice, sifra_robe, sifra_porudzbine, datum_isporuke, sifra_fakture, status_robe) values (?, ?, ?, ?, ?, ?)");
 
 				stmt1.setString(1, otpremnica);
 				stmt1.setString(2, sifra_robe);
@@ -496,10 +456,9 @@ public class DialogOtpremnica extends StandardDialog {
 			stmt.close();
 
 			DBConnection.getConnection().commit();
-			
+
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}

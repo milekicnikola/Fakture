@@ -41,13 +41,14 @@ import util.ResourceLoader;
 public class DialogOtpremljena extends StandardDialog {
 
 	private String otpremnica = "";
+	private String faktura = "";
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public DialogOtpremljena(JFrame parent, Boolean zoom, String where, String magacin1, String poslata) {
+	public DialogOtpremljena(JFrame parent, Boolean zoom, String where, String magacin1, String sifraFakture, String poslata) {
 		super(parent);
 		setTitle("Otrpemljena roba");
 		BufferedImage image = null;
@@ -59,6 +60,8 @@ public class DialogOtpremljena extends StandardDialog {
 		setIconImage(image);
 
 		otpremnica = where;
+		
+		faktura = sifraFakture;
 
 		String whereStm = "";
 
@@ -559,7 +562,7 @@ public class DialogOtpremljena extends StandardDialog {
 		// Make sure the output directory exists.
 		ResourceBundle bundle = PropertyResourceBundle
 				.getBundle("util/Report");
-		String path = bundle.getString("path");
+		String path = bundle.getString("path") + "/" + "Izvoz " + faktura;
 		File outDir = new File(path);
 		outDir.mkdirs();
 
@@ -612,7 +615,7 @@ public class DialogOtpremljena extends StandardDialog {
 		// Make sure the output directory exists.
 		ResourceBundle bundle = PropertyResourceBundle
 				.getBundle("util/Report");
-		String path = bundle.getString("path");
+		String path = bundle.getString("path") + "/" + "Izvoz " + faktura;
 		File outDir = new File(path);
 		outDir.mkdirs();
 

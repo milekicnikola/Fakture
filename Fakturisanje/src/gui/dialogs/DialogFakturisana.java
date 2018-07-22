@@ -696,7 +696,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		// Make sure the output directory exists.
 		ResourceBundle bundle = PropertyResourceBundle.getBundle("util/Report");
-		String path = bundle.getString("path");
+		String path = bundle.getString("path") + "/" + "Izvoz " + faktura;
 		File outDir = new File(path);
 		outDir.mkdirs();
 
@@ -769,7 +769,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		// Make sure the output directory exists.
 		ResourceBundle bundle = PropertyResourceBundle.getBundle("util/Report");
-		String path = bundle.getString("path");
+		String path = bundle.getString("path") + "/" + "Izvoz " + faktura;
 		File outDir = new File(path);
 		outDir.mkdirs();
 
@@ -840,7 +840,7 @@ public class DialogFakturisana extends StandardDialog {
 
 		// Make sure the output directory exists.
 		ResourceBundle bundle = PropertyResourceBundle.getBundle("util/Report");
-		String path = bundle.getString("path");
+		String path = bundle.getString("path") + "/" + "Izvoz " + faktura;
 		File outDir = new File(path);
 		outDir.mkdirs();
 
