@@ -208,7 +208,7 @@ public class DialogRoba extends StandardDialog {
 
 	@Override
 	public void updateStateAndTextFields(State state) {
-		if (this.state == State.PRETRAGA && state != State.PRETRAGA) {
+		if (this.state == State.PRETRAGA && state != State.PRETRAGA && state != State.POGLED) {
 			try {
 				tableModel.open();
 			} catch (SQLException e) {
@@ -219,13 +219,13 @@ public class DialogRoba extends StandardDialog {
 		if (state == State.POGLED) {
 			allDisable();
 			statusBar.getStatusState().setText("POGLED");
-			this.state = State.POGLED;
+			this.state = State.POGLED;			
 		} else if (state == State.AZURIRANJE) {
 			btnEnable();
 			allEnable();
 			((RobaPanel) panel).getTxtSifra().setEditable(false);
 			statusBar.getStatusState().setText("AŽURIRANJE");
-			this.state = state;
+			this.state = state;			
 		} else {
 			clearAll();
 			btnEnable();
@@ -385,12 +385,11 @@ public class DialogRoba extends StandardDialog {
 		String sifra = ((RobaPanel) panel).getTxtSifra().getText().trim();
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
 		String naziv = ((RobaPanel) panel).getTxtNaziv().getText().trim();
-		String interni = ((RobaPanel) panel).getTxtInterni().getText().trim();
-		String komada = ((RobaPanel) panel).getTxtKomada().getText().trim();
+		String interni = ((RobaPanel) panel).getTxtInterni().getText().trim();		
 		String tezina = ((RobaPanel) panel).getTxtTezina().getText().trim();
 		String roni = ((RobaPanel) panel).getTxtRoni().getText().trim();
 
-		String[] params = { sifra, interna, naziv, interni, komada, tezina, roni };
+		String[] params = { sifra, interna, naziv, interni, tezina, roni };
 
 		try {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();

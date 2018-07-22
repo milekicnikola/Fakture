@@ -249,7 +249,7 @@ public class DialogOtpremnica extends StandardDialog {
 
 	@Override
 	public void updateStateAndTextFields(State state) {
-		if (this.state == State.PRETRAGA && state != State.PRETRAGA) {
+		if (this.state == State.PRETRAGA && state != State.PRETRAGA && state != State.POGLED) {
 			try {
 				tableModel.open();
 			} catch (SQLException e) {

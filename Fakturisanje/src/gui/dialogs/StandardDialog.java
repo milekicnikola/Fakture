@@ -160,9 +160,9 @@ public abstract class StandardDialog extends JDialog {
 						allDisable();
 						if (isZoom) {
 							btnEnable();
-							state = State.POGLED;
+							state = State.POGLED;							
 						}
-						statusBar.getStatusState().setText("POGLED");
+						//statusBar.getStatusState().setText("POGLED");						
 						if (e.getValueIsAdjusting())
 							return;
 						int rowCount = table.getModel().getRowCount();
@@ -175,6 +175,7 @@ public abstract class StandardDialog extends JDialog {
 							} else {
 								toolbar.getBtnDelete().setEnabled(true);
 								toolbar.getBtnUpdate().setEnabled(true);
+								updateStateAndTextFields(State.POGLED);
 							}
 						}
 						sync();

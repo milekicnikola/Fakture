@@ -102,10 +102,9 @@ public class RobaTableModel extends StandardTableModel {
 		whereStmt = " WHERE sifra_robe LIKE '%" + params[0] + "%' AND "
 				+ "interna_sifra_robe LIKE '%" + params[1] + "%' AND "
 				+ "naziv_robe LIKE '%" + params[2] + "%' AND "
-				+ "interni_naziv LIKE '%" + params[3] + "%' AND "
-				+ "komada_u_setu LIKE '%" + params[4] + "%' AND "
-				+ "tezina_robe LIKE '%" + params[5] + "%' AND "
-				+ "cena_roni LIKE '%" + params[6] + "%'";
+				+ "interni_naziv LIKE '%" + params[3] + "%' AND "				
+				+ "tezina_robe LIKE '%" + params[4] + "%' AND "
+				+ "cena_roni LIKE '%" + params[5] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}
