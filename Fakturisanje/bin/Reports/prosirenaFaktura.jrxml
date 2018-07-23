@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-20T19:41:14 -->
+<!-- 2018-07-23T19:46:27 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fakturapros" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="834" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -144,7 +144,7 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 					<font fontName="SansSerif" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
-Mob: 06520 10 373;  mail: generalsolutions@gmail.com
+Mob: 06520 10 373;  mail: office@generalsolutions.rs
 PIB 107648029
 Banka: CREDIT AGRICOLAE BANK AD
 IBAN: RS35330007010009823559]]></text>
@@ -403,7 +403,10 @@ kom/pcs]]></text>
 				<textFieldExpression><![CDATA[$V{ZBIRUKUKG}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="77" y="45" width="94" height="15" uuid="9cba988b-665e-4caa-bbaf-93425e3ad691"/>
+				<reportElement style="Detail" x="100" y="45" width="120" height="15" uuid="9cba988b-665e-4caa-bbaf-93425e3ad691">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
@@ -452,7 +455,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[PARITET:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="90" y="65" width="82" height="15" forecolor="#000000" uuid="8e3879dc-55c0-4bee-a42b-7841b17a3a3d">
+				<reportElement style="Column header" x="100" y="65" width="120" height="15" forecolor="#000000" uuid="8e3879dc-55c0-4bee-a42b-7841b17a3a3d">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -470,7 +473,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[KOMADA:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="#,###,##0.0#;(#,###,##0.0#-)">
-				<reportElement style="Detail" x="82" y="105" width="92" height="15" uuid="623aeb52-0363-435b-b7f6-79cd991491f9">
+				<reportElement style="Detail" x="100" y="105" width="120" height="15" uuid="623aeb52-0363-435b-b7f6-79cd991491f9">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -479,7 +482,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,###,##0.0#;(#,###,##0.0#-)">
-				<reportElement x="90" y="85" width="81" height="15" uuid="48422953-d197-44a6-a69c-55711c7df4b6">
+				<reportElement x="100" y="85" width="120" height="15" uuid="48422953-d197-44a6-a69c-55711c7df4b6">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
@@ -489,7 +492,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textFieldExpression><![CDATA[$V{ZBIRKOMADA}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,###,##0.0#;(#,###,##0.0#-)">
-				<reportElement style="Detail" x="82" y="122" width="92" height="15" uuid="a9ec7277-f2dd-40e1-ace1-96ea52df5286">
+				<reportElement style="Detail" x="100" y="122" width="120" height="15" uuid="a9ec7277-f2dd-40e1-ace1-96ea52df5286">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">

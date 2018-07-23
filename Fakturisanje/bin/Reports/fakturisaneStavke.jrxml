@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-20T18:57:58 -->
+<!-- 2018-07-23T19:39:58 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fakturisaneStavke" pageWidth="595" pageHeight="842" columnWidth="587" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -55,7 +55,7 @@ WHERE fakturisana_roba.status = 'fakturisana' AND narucena_roba.korisnicko_ime L
 					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
-Mob: 06520 10 373;  mail: generalsolutions@gmail.com
+Mob: 06520 10 373;  mail: office@generalsolutions.rs
 PIB 107648029
 Banka: CREDIT AGRICOLAE BANK AD
 IBAN: RS35330007010009823559]]></text>
@@ -219,12 +219,16 @@ IBAN: RS35330007010009823559]]></text>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="5" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<reportElement mode="Opaque" x="0" y="1" width="585" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
 				<textField evaluationTime="Report">
 					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
 					<textElement verticalAlignment="Middle">

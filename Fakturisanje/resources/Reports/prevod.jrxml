@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-20T18:37:32 -->
+<!-- 2018-07-23T21:09:21 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prevod" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="834" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -15,7 +15,7 @@
 		<![CDATA[select *,  ROUND((roba.cena_roni/kurs.ron_evro)*0.95,2) as robaeur,
                 (ROUND((roba.cena_roni/kurs.ron_evro)*0.95, 2)*fakturisana_roba.komada_fakturisano) as ukueur,
   fakturisana_roba.komada_fakturisano*roba.tezina_robe as ukukg, 
-  if(roba.jedinica_mere ="3",0,fakturisana_roba.komada_fakturisano*roba.komada_u_setu)+fakturisana_roba.komada_u_metru as ukusetkom
+  if((roba.jedinica_mere ="3"),fakturisana_roba.komada_u_metru,fakturisana_roba.komada_fakturisano*roba.komada_u_setu) as ukusetkom
 from fakturisana_roba
 inner join faktura on fakturisana_roba.sifra_fakture=faktura.sifra_fakture
 inner join narucena_roba on fakturisana_roba.sifra_porudzbine=narucena_roba.sifra_porudzbine and fakturisana_roba.sifra_robe = narucena_roba.sifra_robe and fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke 
@@ -81,6 +81,7 @@ order by roba.prevod]]>
 	</variable>
 	<variable name="prevodkomada" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
 		<variableExpression><![CDATA[$F{ukusetkom}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="prevodkg" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
 		<variableExpression><![CDATA[$F{ukukg}]]></variableExpression>
@@ -92,6 +93,10 @@ order by roba.prevod]]>
 		<variableExpression><![CDATA[1]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
+	<variable name="komada_fakturisano" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{komada_fakturisano}]]></variableExpression>
+		<initialValueExpression><![CDATA[0	]]></initialValueExpression>
+	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{sifra_fakture}]]></groupExpression>
 		<groupFooter>
@@ -101,10 +106,13 @@ order by roba.prevod]]>
 	<group name="Group2">
 		<groupExpression><![CDATA[$F{prevod}]]></groupExpression>
 		<groupFooter>
-			<band height="25">
+			<band height="48">
 				<textField>
-					<reportElement x="375" y="0" width="170" height="20" uuid="4c19a5f2-d150-46da-8d3b-8b62939b4baa"/>
-					<textElement>
+					<reportElement x="158" y="0" width="210" height="15" uuid="4c19a5f2-d150-46da-8d3b-8b62939b4baa">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_prevoda}]]></textFieldExpression>
@@ -138,6 +146,17 @@ order by roba.prevod]]>
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{prevodeur}]]></textFieldExpression>
+				</textField>
+				<textField pattern="###,##0.00;(###,##0.00-)">
+					<reportElement x="372" y="0" width="52" height="15" uuid="5be47e9e-aab3-4ce7-8d26-84516c258267">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{komada_fakturisano}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
@@ -196,7 +215,7 @@ order by roba.prevod]]>
 					<font fontName="SansSerif" size="12"/>
 				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
-Mob: 06520 10 373;  mail: generalsolutions@gmail.com
+Mob: 06520 10 373;  mail: office@generalsolutions.rs
 PIB 107648029
 Banka: CREDIT AGRICOLAE BANK AD
 IBAN: RS35330007010009823559]]></text>
@@ -250,7 +269,10 @@ RO21108359]]></text>
 				<text><![CDATA[Naziv / Description]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="377" y="0" width="44" height="15" forecolor="#736343" uuid="8f0d7a42-91ca-4fdf-8d4c-48963f6f3ddc"/>
+				<reportElement style="Column header" x="371" y="0" width="48" height="15" forecolor="#736343" uuid="8f0d7a42-91ca-4fdf-8d4c-48963f6f3ddc">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Komada]]></text>
 			</staticText>
@@ -280,7 +302,7 @@ RO21108359]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="640" y="0" width="50" height="40" forecolor="#000000" uuid="9f15a868-b32a-4b5c-b6e3-75a2fe3c633d"/>
-				<textElement textAlignment="Center" markup="styled">
+				<textElement textAlignment="Right" markup="styled">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Kom
@@ -346,8 +368,8 @@ kom/pcs]]></text>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="377" y="0" width="44" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
+				<textField isStretchWithOverflow="true" pattern="##,##0.00;(##,##0.00-)">
+					<reportElement style="Detail" x="372" y="0" width="52" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
@@ -392,6 +414,13 @@ kom/pcs]]></text>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$V{rbr}]]></textFieldExpression>
 				</textField>
+				<textField>
+					<reportElement x="662" y="0" width="100" height="15" uuid="7954e2c9-b341-46db-96b3-e7b24eea67bb">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{ukusetkom}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</detail>
@@ -434,8 +463,9 @@ kom/pcs]]></text>
 				<textFieldExpression><![CDATA[$V{ZBIRUKUKG}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="80" y="45" width="94" height="15" uuid="9cba988b-665e-4caa-bbaf-93425e3ad691">
+				<reportElement style="Detail" x="100" y="45" width="120" height="15" uuid="9cba988b-665e-4caa-bbaf-93425e3ad691">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
 					<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
@@ -488,7 +518,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[PARITET:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="90" y="65" width="82" height="15" forecolor="#000000" uuid="8e3879dc-55c0-4bee-a42b-7841b17a3a3d">
+				<reportElement style="Column header" x="100" y="65" width="120" height="15" forecolor="#000000" uuid="8e3879dc-55c0-4bee-a42b-7841b17a3a3d">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -497,14 +527,14 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[30 dana]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="###,##0.00;(###,##0.00-)">
-				<reportElement style="Detail" x="82" y="125" width="92" height="15" uuid="623aeb52-0363-435b-b7f6-79cd991491f9">
+				<reportElement style="Detail" x="100" y="125" width="120" height="15" uuid="623aeb52-0363-435b-b7f6-79cd991491f9">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###,##0.00;(###,##0.00-)">
-				<reportElement x="90" y="85" width="81" height="15" uuid="7fd5cbad-3db0-4714-b5c7-f6753d5669b8">
+				<reportElement x="100" y="85" width="120" height="15" uuid="7fd5cbad-3db0-4714-b5c7-f6753d5669b8">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
@@ -521,7 +551,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[KOMADA:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="###,##0.00;(###,##0.00-)">
-				<reportElement style="Detail" x="82" y="105" width="92" height="15" uuid="a8720aaa-c28a-4681-afb2-1a043b895fb7">
+				<reportElement style="Detail" x="100" y="105" width="120" height="15" uuid="a8720aaa-c28a-4681-afb2-1a043b895fb7">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -529,7 +559,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="0" y="145" width="375" height="15" forecolor="#736343" uuid="cb042e9b-f192-48d8-8a42-24ec167cb9b9"/>
+				<reportElement style="Column header" x="0" y="144" width="375" height="15" forecolor="#736343" uuid="cb042e9b-f192-48d8-8a42-24ec167cb9b9"/>
 				<textElement>
 					<font size="9" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>

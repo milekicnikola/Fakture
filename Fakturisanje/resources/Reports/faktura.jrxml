@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-20T18:49:15 -->
+<!-- 2018-07-23T19:37:48 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faktura" pageWidth="595" pageHeight="842" columnWidth="587" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -106,7 +106,7 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 					<font fontName="SansSerif" size="12"/>
 				</textElement>
 				<text><![CDATA[Temišvarski drum bb, Zrenjanin, Srbija
-Mob: 06520 10 373;  mail: generalsolutions@gmail.com
+Mob: 06520 10 373;  mail: office@generalsolutions.rs
 PIB 107648029
 Banka: CREDIT AGRICOLAE BANK AD
 IBAN: RS35330007010009823559]]></text>
@@ -342,7 +342,7 @@ EUR]]></text>
 				<text><![CDATA[PARITET:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="78" y="40" width="94" height="15" uuid="1700306c-2e32-4a9c-b4fe-1cd66f7569ce">
+				<reportElement style="Detail" x="100" y="40" width="120" height="15" uuid="1700306c-2e32-4a9c-b4fe-1cd66f7569ce">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -350,7 +350,7 @@ EUR]]></text>
 				<textFieldExpression><![CDATA[$F{paritet_fakture}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="##,###,##0.00;(##,###,##0.00-)">
-				<reportElement style="Detail" x="82" y="120" width="92" height="15" uuid="2ec7a437-b111-4f5c-bb0d-d03d32c1a64c"/>
+				<reportElement style="Detail" x="100" y="120" width="120" height="15" uuid="2ec7a437-b111-4f5c-bb0d-d03d32c1a64c"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{ukupna_tezina}]]></textFieldExpression>
 			</textField>
@@ -398,8 +398,10 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[PLAĆANJE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="90" y="65" width="82" height="15" forecolor="#000000" uuid="b6e15394-dc11-4409-9142-ca87532c150d">
+				<reportElement style="Column header" x="100" y="65" width="120" height="15" forecolor="#000000" uuid="b6e15394-dc11-4409-9142-ca87532c150d">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right">
 					<font isBold="false"/>
@@ -421,7 +423,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<text><![CDATA[KOMADA:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="90" y="85" width="81" height="15" uuid="5ae690ef-c72f-42ba-a3b8-b98ca93874fa">
+				<reportElement x="100" y="85" width="120" height="15" uuid="5ae690ef-c72f-42ba-a3b8-b98ca93874fa">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
@@ -431,7 +433,7 @@ Produsele sunt: Fabricate in Serbia]]></text>
 				<textFieldExpression><![CDATA[$V{ZBIRKOMADA}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="##,###,##0.00;(##,###,##0.00-)">
-				<reportElement style="Detail" x="80" y="100" width="92" height="15" uuid="0534c490-09f0-4eea-9a16-7f26315e5959">
+				<reportElement style="Detail" x="100" y="100" width="120" height="15" uuid="0534c490-09f0-4eea-9a16-7f26315e5959">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
