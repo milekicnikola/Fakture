@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-23T21:09:21 -->
+<!-- 2018-07-25T20:34:36 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prevod" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="834" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" whenResourceMissingType="Key" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -95,7 +95,7 @@ order by roba.prevod]]>
 	</variable>
 	<variable name="komada_fakturisano" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
 		<variableExpression><![CDATA[$F{komada_fakturisano}]]></variableExpression>
-		<initialValueExpression><![CDATA[0	]]></initialValueExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{sifra_fakture}]]></groupExpression>
@@ -117,7 +117,7 @@ order by roba.prevod]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_prevoda}]]></textFieldExpression>
 				</textField>
-				<textField pattern="##,##0.00;(##,##0.00-)">
+				<textField pattern="#,###,##0;(#,###,##0-)">
 					<reportElement x="640" y="0" width="50" height="20" uuid="04a950b1-98bf-4718-8e2b-346b5318fe09">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -147,7 +147,7 @@ order by roba.prevod]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{prevodeur}]]></textFieldExpression>
 				</textField>
-				<textField pattern="###,##0.00;(###,##0.00-)">
+				<textField pattern="#,###,##0;(#,###,##0-)">
 					<reportElement x="372" y="0" width="52" height="15" uuid="5be47e9e-aab3-4ce7-8d26-84516c258267">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -368,7 +368,7 @@ kom/pcs]]></text>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
-				<textField isStretchWithOverflow="true" pattern="##,##0.00;(##,##0.00-)">
+				<textField isStretchWithOverflow="true" pattern="###,##0;(###,##0-)">
 					<reportElement style="Detail" x="372" y="0" width="52" height="15" uuid="55021843-d0fa-4fd2-8859-4949c8938805"/>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="10" isBold="true"/>
@@ -413,13 +413,6 @@ kom/pcs]]></text>
 					</reportElement>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$V{rbr}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="662" y="0" width="100" height="15" uuid="7954e2c9-b341-46db-96b3-e7b24eea67bb">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{ukusetkom}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
