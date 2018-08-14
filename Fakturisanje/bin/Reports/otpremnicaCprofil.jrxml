@@ -55,7 +55,7 @@ order by otpremljena_roba.sifra_otpremnice, otpremnica.sifra_magacina]]>
 	<field name="komada_u_metru" class="java.math.BigDecimal"/>
 	<variable name="rbr" class="java.math.BigDecimal" calculation="Count">
 		<variableExpression><![CDATA[1]]></variableExpression>
-		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{sifraOtpremnice}]]></groupExpression>

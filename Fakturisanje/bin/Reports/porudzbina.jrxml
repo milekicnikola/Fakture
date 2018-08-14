@@ -65,7 +65,7 @@ order by narucena_roba.sifra_porudzbine, ko_radi, datum_isporuke, narucena_roba.
 	</variable>
 	<variable name="rbr" class="java.math.BigDecimal" calculation="Count">
 		<variableExpression><![CDATA[1]]></variableExpression>
-		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
 	<group name="Group1" minHeightToStartNewPage="30">
 		<groupExpression><![CDATA[$F{sifra_porudzbine}]]></groupExpression>

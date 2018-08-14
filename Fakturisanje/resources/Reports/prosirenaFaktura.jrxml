@@ -79,7 +79,7 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 	</variable>
 	<variable name="rbr" class="java.math.BigDecimal" calculation="Count">
 		<variableExpression><![CDATA[1]]></variableExpression>
-		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{sifra_fakture}]]></groupExpression>
