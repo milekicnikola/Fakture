@@ -112,10 +112,12 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 	@Override
 	public void search(String[] params) throws SQLException {
 		whereStmt = " WHERE narucena_roba.sifra_robe LIKE '%" + params[0]
-				+ "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%" + params[1]
-				+ "%' AND " + "narucena_roba.datum_isporuke LIKE '%" + params[2]				
-				+ "%' AND "	+ "ko_radi LIKE '%" + params[3]
-				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[4]				 
+				+ "%' AND " + "naziv_robe LIKE '%" + params[1]
+				+ "%' AND " + "interni_naziv LIKE '%" + params[2]
+				+ "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%" + params[3]
+				+ "%' AND " + "narucena_roba.datum_isporuke LIKE '%" + params[4]				
+				+ "%' AND "	+ "ko_radi LIKE '%" + params[5]
+				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[6]				 
 				+ "%' AND komada_ostalo > 0";
 		fillData(basicQuery1 + whereStmt + orderBy);
 

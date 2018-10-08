@@ -243,36 +243,14 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 	}
 
-	@Override
-	public void updateRow() {
-		/*
-		 * int i = table.getSelectedRow(); if (i == -1) return;
-		 * 
-		 * // String naruceno = ((OtvoreneStavkePanel) //
-		 * panel).getTxtNaruceno().getText().trim(); // String poslato =
-		 * ((OtvoreneStavkePanel) // panel).getTxtPoslato().getText().trim(); // String
-		 * ostalo = ((OtvoreneStavkePanel) // panel).getTxtOstalo().getText().trim();
-		 * String ko = ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
-		 * 
-		 * Date datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate(); String
-		 * datum = ""; if (datum1 != null) { datum = new
-		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
-		 * 
-		 * 
-		 * String[] params = { ko }; int index = table.getSelectedRow(); try {
-		 * NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
-		 * ctm.updateRow(index, params); updateStateAndTextFields(State.AZURIRANJE); }
-		 * catch (SQLException ex) { JOptionPane.showMessageDialog(this,
-		 * ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE); }
-		 * table.setRowSelectionInterval(index, index);
-		 */
-	}
 
 	@Override
 	public void search() {
 
 		String sifraP = ((OtvoreneStavkePanel) panel).getTxtSifraP().getText().trim();
 		String sifraR = ((OtvoreneStavkePanel) panel).getTxtSifraR().getText().trim();
+		String nazivR = ((OtvoreneStavkePanel) panel).getTxtNazivR().getText().trim();
+		String interni = ((OtvoreneStavkePanel) panel).getTxtInterni().getText().trim();
 		String ko = ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
 		String korisnik = ((OtvoreneStavkePanel) panel).getTxtKorisnik().getText().trim();
 		Date datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate();
@@ -281,7 +259,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraR, sifraP, datum, ko, korisnik };
+		String[] params = { sifraR, nazivR, interni, sifraP, datum, ko, korisnik };
 
 		try {
 			OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table.getModel();
@@ -315,6 +293,8 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		((OtvoreneStavkePanel) panel).getTxtDatum().setEnabled(true);
 		((OtvoreneStavkePanel) panel).getTxtKo().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtSifraR().setEditable(true);
+		((OtvoreneStavkePanel) panel).getTxtNazivR().setEditable(true);
+		((OtvoreneStavkePanel) panel).getTxtInterni().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtSifraP().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtKorisnik().setEditable(true);
 
@@ -333,12 +313,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		((OtvoreneStavkePanel) panel).getTxtDatum().setCalendar(null);
 	}
 
-	public void btnEnable() {
-		/*
-		 * ((OtvoreneStavkePanel) panel).getBtnConfirm().setEnabled(true);
-		 * ((OtvoreneStavkePanel) panel).getBtnCancel().setEnabled(true); if (!isZoom)
-		 * ((OtvoreneStavkePanel) panel).getBtnRoba().setEnabled(true);
-		 */
+	public void btnEnable() {		
 	}
 
 	public void addIzvestaj() {
