@@ -109,11 +109,12 @@ public class NarucenaTableModel extends StandardTableModel {
 	public void search(String[] params) throws SQLException {
 		whereStmt = " WHERE narucena_roba.sifra_porudzbine LIKE '%" + params[0]
 				+ "%' AND " + "narucena_roba.sifra_robe LIKE '%" + params[1]
-				+ "%' AND " + "komada_naruceno LIKE '%" + params[2] + "%' AND "
-				+ "komada_poslato LIKE '%" + params[3] + "%' AND "
-				+ "komada_ostalo LIKE '%" + params[4] + "%' AND "
-				+ "datum_isporuke LIKE '%" + params[5] + "%' AND "
-				+ "ko_radi LIKE '%" + params[6] + "%'";
+				+ "%' AND " + "naziv_robe LIKE '%" + params[2]
+				+ "%' AND " + "komada_naruceno LIKE '%" + params[3]
+				+ "%' AND "	+ "komada_poslato LIKE '%" + params[4]
+				+ "%' AND "	+ "komada_ostalo LIKE '%" + params[5]
+				+ "%' AND "	+ "datum_isporuke LIKE '%" + params[6]
+				+ "%' AND "	+ "ko_radi LIKE '%" + params[7] + "%'";
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}

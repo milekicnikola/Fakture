@@ -243,6 +243,30 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 	}
 
+	@Override
+	public void updateRow() {
+		/*
+		 * int i = table.getSelectedRow(); if (i == -1) return;
+		 * 
+		 * // String naruceno = ((OtvoreneStavkePanel) //
+		 * panel).getTxtNaruceno().getText().trim(); // String poslato =
+		 * ((OtvoreneStavkePanel) // panel).getTxtPoslato().getText().trim(); // String
+		 * ostalo = ((OtvoreneStavkePanel) // panel).getTxtOstalo().getText().trim();
+		 * String ko = ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
+		 * 
+		 * Date datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate(); String
+		 * datum = ""; if (datum1 != null) { datum = new
+		 * SimpleDateFormat("yyyy-MM-dd").format(datum1); }
+		 * 
+		 * 
+		 * String[] params = { ko }; int index = table.getSelectedRow(); try {
+		 * NarucenaTableModel ctm = (NarucenaTableModel) table.getModel();
+		 * ctm.updateRow(index, params); updateStateAndTextFields(State.AZURIRANJE); }
+		 * catch (SQLException ex) { JOptionPane.showMessageDialog(this,
+		 * ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE); }
+		 * table.setRowSelectionInterval(index, index);
+		 */
+	}
 
 	@Override
 	public void search() {

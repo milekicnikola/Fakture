@@ -272,6 +272,7 @@ public class DialogNarucena extends StandardDialog {
 			if ((state == State.PRETRAGA) && isZoom) {
 				((NarucenaPanel) panel).getTxtSifraP().setEditable(true);
 				((NarucenaPanel) panel).getTxtSifraR().setEditable(true);
+				((NarucenaPanel) panel).getTxtNazivR().setEditable(true);
 			}
 				
 				
@@ -352,6 +353,7 @@ public class DialogNarucena extends StandardDialog {
 
 		String sifraP = ((NarucenaPanel) panel).getTxtSifraP().getText().trim();
 		String sifraR = ((NarucenaPanel) panel).getTxtSifraR().getText().trim();
+		String nazivR = ((NarucenaPanel) panel).getTxtNazivR().getText().trim();
 		String naruceno = ((NarucenaPanel) panel).getTxtNaruceno().getText()
 				.trim();
 		String poslato = ((NarucenaPanel) panel).getTxtPoslato().getText()
@@ -364,7 +366,7 @@ public class DialogNarucena extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraP, sifraR, naruceno, poslato, ostalo, datum,
+		String[] params = { sifraP, sifraR, nazivR, naruceno, poslato, ostalo, datum,
 				ko };
 
 		try {
