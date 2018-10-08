@@ -392,8 +392,13 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
 		String izvestaj = ((OtvoreneStavkeTableModel) tableModel).izvestaj;
+		
+		String ko = "%";		
+		ko += ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
+		ko += "%";		
 
 		parameters.put("korisnik", izvestaj);
+		parameters.put("koRadi", ko);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 
