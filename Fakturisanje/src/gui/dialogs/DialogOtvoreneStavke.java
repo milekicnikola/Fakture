@@ -393,8 +393,9 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 		String izvestaj = ((OtvoreneStavkeTableModel) tableModel).izvestaj;
 		
-		String ko = "%";		
-		ko += ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
+		String ko = "%";
+		if (((OtvoreneStavkePanel) panel).getTxtKo().isEditable()) 
+			ko += ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();		
 		ko += "%";		
 
 		parameters.put("korisnik", izvestaj);
