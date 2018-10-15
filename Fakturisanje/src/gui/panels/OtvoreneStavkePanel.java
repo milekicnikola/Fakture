@@ -24,6 +24,9 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JLabel lblDatum;
 	private JLabel lblKo;
 	private JLabel lblKorisnik;
+	
+	private JLabel lblOd;
+	private JLabel lblDo;
 
 	private JTextField txtSifraP;
 	private JTextField txtSifraR;
@@ -36,6 +39,9 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JTextField txtKorisnik;
 
 	private JDateChooser txtDatum;
+	
+	private JDateChooser txtOd;
+	private JDateChooser txtDo;
 
 	private Dimension datePreferedSize;
 
@@ -51,6 +57,9 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		lblDatum = new JLabel("Datum isporuke");
 		lblKo = new JLabel("Ko radi");
 		lblKorisnik = new JLabel("Korisnik");
+		
+		lblOd = new JLabel("Od");
+		lblDo = new JLabel("Do");
 
 		txtSifraP = new JTextField(15);
 		txtSifraR = new JTextField(15);
@@ -67,6 +76,14 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		txtDatum = new JDateChooser();
 		txtDatum.setDateFormatString("yyyy-MM-dd");
 		txtDatum.setPreferredSize(datePreferedSize);
+		
+		txtOd = new JDateChooser();
+		txtOd.setDateFormatString("yyyy-MM-dd");
+		txtOd.setPreferredSize(datePreferedSize);
+		
+		txtDo = new JDateChooser();
+		txtDo.setDateFormatString("yyyy-MM-dd");
+		txtDo.setPreferredSize(datePreferedSize);
 
 		add(lblSifraR);
 		add(txtSifraR);
@@ -99,7 +116,13 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		add(txtKo);	
 		
 		add(btnConfirm);
-		add(btnCancel);
+		add(btnCancel, "wrap");
+		
+		add(lblOd);
+		add(txtOd);
+		
+		add(lblDo);
+		add(txtDo);
 
 	}
 
@@ -261,6 +284,38 @@ public class OtvoreneStavkePanel extends StandardPanel {
 
 	public void setTxtDatum(JDateChooser txtDatum) {
 		this.txtDatum = txtDatum;
+	}
+
+	public JLabel getLblOd() {
+		return lblOd;
+	}
+
+	public void setLblOd(JLabel lblOd) {
+		this.lblOd = lblOd;
+	}
+
+	public JLabel getLblDo() {
+		return lblDo;
+	}
+
+	public void setLblDo(JLabel lblDo) {
+		this.lblDo = lblDo;
+	}
+
+	public JDateChooser getTxtOd() {
+		return txtOd;
+	}
+
+	public void setTxtOd(JDateChooser txtOd) {
+		this.txtOd = txtOd;
+	}
+
+	public JDateChooser getTxtDo() {
+		return txtDo;
+	}
+
+	public void setTxtDo(JDateChooser txtDo) {
+		this.txtDo = txtDo;
 	}
 
 }

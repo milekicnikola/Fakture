@@ -18,16 +18,23 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>
+	<parameter name="sifraR" class="java.lang.String"/>
+	<parameter name="nazivR" class="java.lang.String"/>
+	<parameter name="interni" class="java.lang.String"/>
+	<parameter name="sifraP" class="java.lang.String"/>
+	<parameter name="datum" class="java.lang.String"/>	
 	<parameter name="korisnik" class="java.lang.String"/>
 	<parameter name="koRadi" class="java.lang.String"/>
+	<parameter name="datumOd" class="java.lang.String"/>
+	<parameter name="datumDo" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, narucena_roba.korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, ko_radi 
 FROM narucena_roba 
 JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine 
 JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe 
 JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
-WHERE komada_ostalo > 0 AND narucena_roba.korisnicko_ime LIKE $P{korisnik} AND ko_radi LIKE $P{koRadi}
-ORDER BY ko_radi, roba.interni_naziv]]>
+WHERE komada_ostalo > 0 AND narucena_roba.sifra_robe LIKE $P{sifraR} AND naziv_robe LIKE $P{nazivR} AND interni_naziv LIKE $P{interni} AND narucena_roba.sifra_porudzbine LIKE $P{sifraP} AND datum_isporuke LIKE $P{datum} AND narucena_roba.korisnicko_ime LIKE $P{korisnik} AND ko_radi LIKE $P{koRadi} AND datum_isporuke BETWEEN $P{datumOd} AND $P{datumDo}
+ORDER BY ko_radi, datum_isporuke, roba.interni_naziv]]>
 	</queryString>
 	<field name="sifraRobe" class="java.lang.String"/>
 	<field name="naziv_robe" class="java.lang.String"/>

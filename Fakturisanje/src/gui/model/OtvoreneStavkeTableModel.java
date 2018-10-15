@@ -8,8 +8,7 @@ import databaseConnection.DBConnection;
 
 public class OtvoreneStavkeTableModel extends StandardTableModel {
 
-	private String basicQuery1;
-	public String izvestaj;
+	private String basicQuery1;	
 	/**
 	 * 
 	 */
@@ -19,7 +18,7 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 		super(colName, rowCount);
 		basicQuery = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE komada_ostalo > 0";
 		basicQuery1 = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime";
-		orderBy = " ORDER BY ko_radi, narucena_roba.sifra_robe";
+		orderBy = " ORDER BY ko_radi, narucena_roba.datum_isporuke, narucena_roba.sifra_robe";
 	}
 
 	// Dodate konstante za potrebe izvestavanja korisnika o greskama
@@ -117,8 +116,8 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 				+ "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%" + params[3]
 				+ "%' AND " + "narucena_roba.datum_isporuke LIKE '%" + params[4]				
 				+ "%' AND "	+ "ko_radi LIKE '%" + params[5]
-				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[6]				 
-				+ "%' AND komada_ostalo > 0";
+				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[6]							
+				+ "%' AND komada_ostalo > 0" + params[7];
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}
@@ -145,8 +144,7 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 		}
 		rset.close();
 		stmt.close();
-		fireTableDataChanged();
-		izvestaj = "%";
+		fireTableDataChanged();		
 	}
 
 	@Override
