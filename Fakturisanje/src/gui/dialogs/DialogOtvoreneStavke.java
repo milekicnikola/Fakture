@@ -384,6 +384,10 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		JButton btnIzvestaj = new JButton("Napravi izveštaj");
 		btnIzvestaj.setEnabled(true);
 		toolbar.dodajIzvestaj(btnIzvestaj);
+		
+		JButton btnIzvestaj2 = new JButton("Napravi izveštaj za Lumi");
+		btnIzvestaj2.setEnabled(true);
+		toolbar.dodajProsireniIzvestaj(btnIzvestaj2);
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 
@@ -392,7 +396,32 @@ public class DialogOtvoreneStavke extends StandardDialog {
 				try {
 					OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table.getModel();
 					if (ctm.getRowCount() > 0) {
-						napraviIzvestaj();
+						napraviIzvestaj(false);
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+		
+		toolbar.getBtnProsireniIzvestaj().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestaj(true);
 					} else {
 						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
 								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
@@ -412,11 +441,15 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 	}
 
-	public void napraviIzvestaj() throws JRException, ClassNotFoundException, SQLException {
+	public void napraviIzvestaj(Boolean prosireni) throws JRException, ClassNotFoundException, SQLException {
 
 		InputStream reportSrcFile = null;
 		try {
-			reportSrcFile = ResourceLoader.load("Reports/otvoreneStavke.jrxml");
+			if (prosireni) {
+				reportSrcFile = ResourceLoader.load("Reports/otvoreneStavke2.jrxml");
+			} else {
+				reportSrcFile = ResourceLoader.load("Reports/otvoreneStavke.jrxml");
+			}
 		} catch (Exception e) {			
 		}
 
@@ -493,14 +526,22 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		else {
 			naziv = "Sve";
 		}
+		
+		String otvoreneStavke = "";
+		
+		if (prosireni) {
+			otvoreneStavke = "/Otvorene tavke za Lumi ";
+		} else {
+			otvoreneStavke = "/Otvorene stavke ";
+		}
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutputP = new SimpleOutputStreamExporterOutput(
-				path + "/Otvorene stavke " + naziv + " - " + timeStamp + ".pdf");
+				path + otvoreneStavke + naziv + " - " + timeStamp + ".pdf");
 		OutputStreamExporterOutput exporterOutputD = new SimpleOutputStreamExporterOutput(
-				path + "/Otvorene stavke " + naziv + " - " + timeStamp + ".docx");
+				path + otvoreneStavke + naziv + " - " + timeStamp + ".docx");
 		OutputStreamExporterOutput exporterOutputE = new SimpleOutputStreamExporterOutput(
-				path + "/Otvorene stavke " + naziv + " - " + timeStamp + ".xlsx");
+				path + otvoreneStavke + naziv + " - " + timeStamp + ".xlsx");
 		// Output
 		exporterP.setExporterOutput(exporterOutputP);
 		exporterE.setExporterOutput(exporterOutputE);
