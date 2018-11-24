@@ -20,9 +20,9 @@ public class NarucenaTableModel extends StandardTableModel {
 
 	public NarucenaTableModel(Object[] colName, int rowCount, String where) {
 		super(colName, rowCount);
-		basicQuery = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
+		basicQuery = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi, napomena FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe"
 				+ where;
-		basicQuery1 = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
+		basicQuery1 = "SELECT narucena_roba.sifra_porudzbine as sifraPorudzbine, narucena_roba.sifra_robe as sifraRobe, naziv_robe, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi, napomena FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe";
 		orderBy = " ORDER BY narucena_roba.sifra_porudzbine";
 	}
 
@@ -49,7 +49,7 @@ public class NarucenaTableModel extends StandardTableModel {
 
 		ResultSet rset = selectStmt.executeQuery();
 
-		String sifra_porudzbine = "", sifra_robe = "", nazivR = "", naruceno = "", poslato = "", ostalo = "", datum_isporuke = "", ko = "";
+		String sifra_porudzbine = "", sifra_robe = "", nazivR = "", naruceno = "", poslato = "", ostalo = "", datum_isporuke = "", ko = "", napomena = "";
 		Boolean postoji = false;
 		String errorMsg = "";
 		while (rset.next()) {
@@ -61,6 +61,7 @@ public class NarucenaTableModel extends StandardTableModel {
 			ostalo = rset.getString("KOMADA_OSTALO");
 			datum_isporuke = rset.getString("DATUM_ISPORUKE");
 			ko = rset.getString("KO_RADI");
+			napomena = rset.getString("NAPOMENA");
 			postoji = true;
 		}
 		if (!postoji) {
@@ -82,7 +83,9 @@ public class NarucenaTableModel extends StandardTableModel {
 				|| (SortUtils.getLatCyrCollator().compare(ostalo,
 						(String) getValueAt(index, 6)) != 0)
 				|| (SortUtils.getLatCyrCollator().compare(ko,
-						(String) getValueAt(index, 7)) != 0)) {
+						(String) getValueAt(index, 7)) != 0)
+				|| (SortUtils.getLatCyrCollator().compare(napomena,
+						(String) getValueAt(index, 8)) != 0)) {
 
 			setValueAt(sifra_porudzbine, index, 0);
 			setValueAt(sifra_robe, index, 1);
@@ -92,6 +95,7 @@ public class NarucenaTableModel extends StandardTableModel {
 			setValueAt(poslato, index, 5);
 			setValueAt(ostalo, index, 6);			
 			setValueAt(ko, index, 7);
+			setValueAt(napomena, index, 8);
 			fireTableDataChanged();
 			errorMsg = ERROR_RECORD_WAS_CHANGED;
 		}
@@ -114,7 +118,8 @@ public class NarucenaTableModel extends StandardTableModel {
 				+ "%' AND "	+ "komada_poslato LIKE '%" + params[4]
 				+ "%' AND "	+ "komada_ostalo LIKE '%" + params[5]
 				+ "%' AND "	+ "datum_isporuke LIKE '%" + params[6]
-				+ "%' AND "	+ "ko_radi LIKE '%" + params[7] + "%'";
+				+ "%' AND "	+ "ko_radi LIKE '%" + params[7]
+				+ "%' AND "	+ "napomena LIKE '%" + params[8] + "%'";
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}
@@ -133,9 +138,10 @@ public class NarucenaTableModel extends StandardTableModel {
 			String ostalo = rset.getString("KOMADA_OSTALO");
 			String datum = rset.getString("DATUM_ISPORUKE");
 			String ko = rset.getString("KO_RADI");
+			String napomena = rset.getString("NAPOMENA");
 
 			addRow(new String[] { sifra_porudzbine, sifra_robe, nazivR, datum,
-					naruceno, poslato, ostalo, ko });
+					naruceno, poslato, ostalo, ko, napomena });
 		}
 		rset.close();
 		stmt.close();
@@ -175,7 +181,7 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+						"INSERT INTO narucena_roba (sifra_porudzbine, sifra_robe, korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, datum_isporuke, ko_radi, napomena) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		stmt.setString(1, params[0]);
 		stmt.setString(2, params[1]);
 		stmt.setString(3, params[2]);
@@ -184,6 +190,7 @@ public class NarucenaTableModel extends StandardTableModel {
 		stmt.setString(6, params[7]);
 		stmt.setString(7, params[4]);
 		stmt.setString(8, params[8]);
+		stmt.setString(9, params[9]);
 
 		int rowsAffected = stmt.executeUpdate();
 		stmt.close();
@@ -191,7 +198,7 @@ public class NarucenaTableModel extends StandardTableModel {
 		DBConnection.getConnection().commit();
 		if (rowsAffected > 0) {
 			// i unos u TableModel
-			String[] params1 = { params[0], params[1], params[3], params[4], params[5], params[6], params[7], params[8]};
+			String[] params1 = { params[0], params[1], params[3], params[4], params[5], params[6], params[7], params[8], params[9] };
 			retVal = sortedInsert(params1);
 			fireTableRowsInserted(retVal, retVal);
 
@@ -211,16 +218,18 @@ public class NarucenaTableModel extends StandardTableModel {
 		PreparedStatement stmt = DBConnection
 				.getConnection()
 				.prepareStatement(
-						"UPDATE narucena_roba SET ko_radi = ? WHERE sifra_porudzbine = ? and sifra_robe = ? and datum_isporuke = ?");
+						"UPDATE narucena_roba SET ko_radi = ?, napomena = ? WHERE sifra_porudzbine = ? and sifra_robe = ? and datum_isporuke = ?");
 
-		stmt.setString(1, params[0]);				
-		stmt.setString(2, sifra_porudzbine);
-		stmt.setString(3, sifra_robe);
-		stmt.setString(4, datum);
+		stmt.setString(1, params[0]);
+		stmt.setString(2, params[1]);
+		stmt.setString(3, sifra_porudzbine);
+		stmt.setString(4, sifra_robe);
+		stmt.setString(5, datum);
 		stmt.executeUpdate();
 		stmt.close();
 		DBConnection.getConnection().commit();				
 		setValueAt(params[0], index, 7);
+		setValueAt(params[1], index, 8);
 		fireTableDataChanged();
 	}
 

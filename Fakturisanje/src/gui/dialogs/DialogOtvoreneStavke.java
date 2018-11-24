@@ -55,6 +55,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 	private String Datum = "";
 	private String Korisnik = "";
 	private String KoRadi = "";
+	private String Napomena = "";
 	private String DatumOd = "";	
 	private String DatumDo = "";
 
@@ -71,7 +72,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 
 		tableModel = new OtvoreneStavkeTableModel(
 				new String[] { "Šifra robe", "Naziv robe", "Interni naziv robe", "Šifra porudzbine", "Datum isporuke",
-						"Korisnik", "Komada naručeno", "Komada poslato", "Komada ostalo", "Ko radi" },
+						"Korisnik", "Komada naručeno", "Komada poslato", "Komada ostalo", "Ko radi", "Napomena" },
 				0);
 
 		if (zoom)
@@ -141,6 +142,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			String poslato = (String) tableModel.getValueAt(index, 7);
 			String ostalo = (String) tableModel.getValueAt(index, 8);
 			String ko = (String) tableModel.getValueAt(index, 9);
+			String napomena = (String) tableModel.getValueAt(index, 10);
 
 			((OtvoreneStavkePanel) panel).getTxtSifraP().setText(sifraP);
 			((OtvoreneStavkePanel) panel).getTxtSifraR().setText(sifraR);
@@ -151,6 +153,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			((OtvoreneStavkePanel) panel).getTxtOstalo().setText(ostalo);
 			((OtvoreneStavkePanel) panel).getTxtKo().setText(ko);
 			((OtvoreneStavkePanel) panel).getTxtKorisnik().setText(korisnik);
+			((OtvoreneStavkePanel) panel).getTxtNapomena().setText(napomena);
 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = null;
@@ -261,6 +264,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		String interni = ((OtvoreneStavkePanel) panel).getTxtInterni().getText().trim();
 		String ko = ((OtvoreneStavkePanel) panel).getTxtKo().getText().trim();
 		String korisnik = ((OtvoreneStavkePanel) panel).getTxtKorisnik().getText().trim();
+		String napomena = ((OtvoreneStavkePanel) panel).getTxtNapomena().getText().trim();
 		Date datum1 = ((OtvoreneStavkePanel) panel).getTxtDatum().getDate();
 		String datum = "";
 		if (datum1 != null) {
@@ -298,7 +302,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			}
 		}		
 
-		String[] params = { sifraR, nazivR, interni, sifraP, datum, ko, korisnik, datumPretrage };
+		String[] params = { sifraR, nazivR, interni, sifraP, datum, ko, korisnik, napomena, datumPretrage };
 
 		try {
 			OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table.getModel();
@@ -311,6 +315,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			Datum = datum;
 			KoRadi = ko;
 			Korisnik = korisnik;
+			Napomena = napomena;
 			DatumOd = izvestajOd;
 			DatumDo = izvestajDo;
 		} catch (SQLException ex) {
@@ -332,6 +337,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		((OtvoreneStavkePanel) panel).getTxtKo().setEditable(false);
 		((OtvoreneStavkePanel) panel).getTxtInterni().setEditable(false);
 		((OtvoreneStavkePanel) panel).getTxtKorisnik().setEditable(false);
+		((OtvoreneStavkePanel) panel).getTxtNapomena().setEditable(false);
 		((OtvoreneStavkePanel) panel).getTxtOd().setEnabled(false);
 		((OtvoreneStavkePanel) panel).getTxtDo().setEnabled(false);
 	}
@@ -347,6 +353,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		((OtvoreneStavkePanel) panel).getTxtInterni().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtSifraP().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtKorisnik().setEditable(true);
+		((OtvoreneStavkePanel) panel).getTxtNapomena().setEditable(true);
 		((OtvoreneStavkePanel) panel).getTxtOd().setEnabled(true);
 		((OtvoreneStavkePanel) panel).getTxtDo().setEnabled(true);
 
@@ -362,6 +369,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		((OtvoreneStavkePanel) panel).getTxtKo().setText("");
 		((OtvoreneStavkePanel) panel).getTxtKorisnik().setText("");
 		((OtvoreneStavkePanel) panel).getTxtInterni().setText("");
+		((OtvoreneStavkePanel) panel).getTxtNapomena().setText("");
 		((OtvoreneStavkePanel) panel).getTxtDatum().setCalendar(null);
 		((OtvoreneStavkePanel) panel).getTxtOd().setCalendar(null);
 		((OtvoreneStavkePanel) panel).getTxtDo().setCalendar(null);
@@ -372,6 +380,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		Datum = "";
 		KoRadi = "";
 		Korisnik = "";
+		Napomena = "";
 		DatumOd = "";
 		DatumDo = "";
 	}
@@ -470,6 +479,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		String datum = "%" + Datum + "%";
 		String korisnik = "%" + Korisnik + "%";
 		String koRadi = "%" + KoRadi + "%";
+		String napomena = "%" + Napomena + "%";
 		String datumOd = "";
 		String datumDo = "";
 		
@@ -492,6 +502,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		parameters.put("datum", datum);
 		parameters.put("korisnik", korisnik);
 		parameters.put("koRadi", koRadi);
+		parameters.put("napomena", napomena);
 		parameters.put("datumOd", datumOd);
 		parameters.put("datumDo", datumDo);
 
@@ -530,7 +541,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		String otvoreneStavke = "";
 		
 		if (prosireni) {
-			otvoreneStavke = "/Otvorene tavke za Lumi ";
+			otvoreneStavke = "/Otvorene stavke za Lumi ";
 		} else {
 			otvoreneStavke = "/Otvorene stavke ";
 		}

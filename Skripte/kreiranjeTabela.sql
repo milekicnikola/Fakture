@@ -130,6 +130,7 @@ create table narucena_roba
    komada_ostalo        numeric(10,0),
    datum_isporuke       date not null,
    ko_radi              varchar(30),
+   napomena				varchar(1000),
    primary key (sifra_robe, sifra_porudzbine, datum_isporuke)
 );
 

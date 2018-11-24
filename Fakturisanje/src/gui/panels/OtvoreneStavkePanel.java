@@ -24,6 +24,7 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JLabel lblDatum;
 	private JLabel lblKo;
 	private JLabel lblKorisnik;
+	private JLabel lblNapomena;
 	
 	private JLabel lblOd;
 	private JLabel lblDo;
@@ -37,6 +38,7 @@ public class OtvoreneStavkePanel extends StandardPanel {
 	private JTextField txtOstalo;
 	private JTextField txtKo;
 	private JTextField txtKorisnik;
+	private JTextField txtNapomena;
 
 	private JDateChooser txtDatum;
 	
@@ -57,6 +59,7 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		lblDatum = new JLabel("Datum isporuke");
 		lblKo = new JLabel("Ko radi");
 		lblKorisnik = new JLabel("Korisnik");
+		lblNapomena = new JLabel("Napomena");
 		
 		lblOd = new JLabel("Od");
 		lblDo = new JLabel("Do");
@@ -70,6 +73,7 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		txtOstalo = new JTextField(10);
 		txtKo = new JTextField(20);
 		txtKorisnik = new JTextField(20);
+		txtNapomena = new JTextField(20);
 
 		datePreferedSize = new Dimension(100, 20);
 
@@ -113,7 +117,10 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		add(txtOstalo, "wrap");
 
 		add(lblKo);
-		add(txtKo);	
+		add(txtKo);
+		
+		add(lblNapomena);
+		add(txtNapomena);
 		
 		add(btnConfirm);
 		add(btnCancel, "wrap");
@@ -318,4 +325,19 @@ public class OtvoreneStavkePanel extends StandardPanel {
 		this.txtDo = txtDo;
 	}
 
+	public JLabel getLblNapomena() {
+		return lblNapomena;
+	}
+
+	public void setLblNapomena(JLabel lblNapomena) {
+		this.lblNapomena = lblNapomena;
+	}
+
+	public JTextField getTxtNapomena() {
+		return txtNapomena;
+	}
+
+	public void setTxtNapomena(JTextField txtNapomena) {
+		this.txtNapomena = txtNapomena;
+	}
 }

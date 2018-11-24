@@ -23,6 +23,7 @@ public class NarucenaPanel extends StandardPanel {
 	private JLabel lblOstalo;
 	private JLabel lblDatum;
 	private JLabel lblKo;
+	private JLabel lblNapomena;
 
 	private JTextField txtSifraP;
 	private JTextField txtSifraR;
@@ -31,6 +32,7 @@ public class NarucenaPanel extends StandardPanel {
 	private JTextField txtPoslato;
 	private JTextField txtOstalo; 
 	private JTextField txtKo;
+	private JTextField txtNapomena;
 	
 	private JButton btnRoba;	
 
@@ -50,6 +52,7 @@ public class NarucenaPanel extends StandardPanel {
 		lblOstalo = new JLabel("Ostalo komada");		
 		lblDatum = new JLabel("Datum isporuke");
 		lblKo = new JLabel("Ko radi");
+		lblNapomena = new JLabel("Napomena");
 		lblPrazno = new JLabel("     ");
 
 		txtSifraP = new JTextField(15);
@@ -59,6 +62,7 @@ public class NarucenaPanel extends StandardPanel {
 		txtPoslato = new JTextField(10);
 		txtOstalo = new JTextField(10);	
 		txtKo = new JTextField(20);
+		txtNapomena = new JTextField(20);
 		
 		datePreferedSize = new Dimension(100, 20);
 
@@ -94,6 +98,9 @@ public class NarucenaPanel extends StandardPanel {
 		
 		add(lblKo);
 		add(txtKo);
+		
+		add(lblNapomena);
+		add(txtNapomena);
 		
 		add(lblPrazno);			
 		
@@ -238,4 +245,19 @@ public class NarucenaPanel extends StandardPanel {
 		this.txtKo = txtKo;
 	}
 
+	public JLabel getLblNapomena() {
+		return lblNapomena;
+	}
+
+	public void setLblNapomena(JLabel lblNapomena) {
+		this.lblNapomena = lblNapomena;
+	}
+
+	public JTextField getTxtNapomena() {
+		return txtNapomena;
+	}
+
+	public void setTxtNapomena(JTextField txtNapomena) {
+		this.txtNapomena = txtNapomena;
+	}
 }

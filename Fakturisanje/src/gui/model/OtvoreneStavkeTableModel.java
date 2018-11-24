@@ -16,8 +16,8 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 
 	public OtvoreneStavkeTableModel(Object[] colName, int rowCount) {
 		super(colName, rowCount);
-		basicQuery = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE komada_ostalo > 0";
-		basicQuery1 = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime";
+		basicQuery = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme, napomena FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE komada_ostalo > 0";
+		basicQuery1 = "SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme, napomena FROM narucena_roba JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime";
 		orderBy = " ORDER BY ko_radi, narucena_roba.datum_isporuke, narucena_roba.sifra_robe";
 	}
 
@@ -116,8 +116,9 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 				+ "%' AND " + "narucena_roba.sifra_porudzbine LIKE '%" + params[3]
 				+ "%' AND " + "narucena_roba.datum_isporuke LIKE '%" + params[4]				
 				+ "%' AND "	+ "ko_radi LIKE '%" + params[5]
-				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[6]							
-				+ "%' AND komada_ostalo > 0" + params[7];
+				+ "%' AND "	+ "narucena_roba.korisnicko_ime LIKE '%" + params[6]
+				+ "%' AND "	+ "narucena_roba.napomena LIKE '%" + params[7]
+				+ "%' AND komada_ostalo > 0" + params[8];
 		fillData(basicQuery1 + whereStmt + orderBy);
 
 	}
@@ -138,9 +139,10 @@ public class OtvoreneStavkeTableModel extends StandardTableModel {
 			String ostalo = rset.getString("KOMADA_OSTALO");			
 			String ko = rset.getString("KO_RADI");
 			String korisnik = rset.getString("korisnickoIme");
+			String napomena = rset.getString("napomena");
 
 			addRow(new String[] { sifra_robe, nazivR, interni, sifra_porudzbine, datum,
-					korisnik, naruceno, poslato, ostalo, ko });
+					korisnik, naruceno, poslato, ostalo, ko, napomena });
 		}
 		rset.close();
 		stmt.close();
