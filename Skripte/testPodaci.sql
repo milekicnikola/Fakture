@@ -32,6 +32,8 @@ insert into prevod (redni_broj, naziv_prevoda) values (5, 'separator carton');
 
 insert into prevod (redni_broj, naziv_prevoda) values (6, 'coltar carton');
 
+insert into prevod (redni_broj, naziv_prevoda) values (7, 'pakovanje');
+
 insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('CRW1', 'Glavni magacin', 'Zrenjanin', 'Sef 1', '023555666');
 
 insert into magacin (sifra_magacina, naziv_magacina, adresa_magacina, sef_magacina, telefon_magacina) values ('CRW2', 'Drugi magacin', 'Beograd', 'Sef 2', '011555666');

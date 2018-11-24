@@ -198,6 +198,8 @@ public class DialogRoba extends StandardDialog {
 				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(4);
 			else if (prevod.equals("coltar carton"))
 				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(5);
+			else if (prevod.equals("pakovanje"))
+				((RobaPanel) panel).getCmbPrevod().setSelectedIndex(6);
 
 			((RobaPanel) panel).getTxtTezina().setText(tezina);
 			((RobaPanel) panel).getTxtRoni().setText(roni);
@@ -247,16 +249,7 @@ public class DialogRoba extends StandardDialog {
 	}
 
 	@Override
-	public void addRow() {
-
-		/*
-		 * double trenutniKurs = 1;
-		 * 
-		 * try { trenutniKurs = trenutniKurs(); } catch (SQLException ex) {
-		 * JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-		 * JOptionPane.ERROR_MESSAGE); } catch (NumberFormatException ex1) {
-		 * trenutniKurs = 1; }
-		 */
+	public void addRow() {		
 
 		String sifra = ((RobaPanel) panel).getTxtSifra().getText().trim();
 		String interna = ((RobaPanel) panel).getTxtInterna().getText().trim();
@@ -289,15 +282,10 @@ public class DialogRoba extends StandardDialog {
 			prevod = "5";
 		else if (naziv_prevoda.equals("coltar carton"))
 			prevod = "6";
+		else if (naziv_prevoda.equals("pakovanje"))
+			prevod = "7";
 		else
-			prevod = "1";
-
-		/*
-		 * String roni = "0"; double roniD;
-		 * 
-		 * if (evri != null && !evri.equals("")) { roniD = Double.parseDouble(evri) *
-		 * trenutniKurs; roni = String.valueOf(roniD); }
-		 */
+			prevod = "1";		
 
 		String[] params = { sifra, mera, prevod, interna, naziv, interni, jedinica, komada, naziv_prevoda, tezina,
 				roni };
@@ -314,16 +302,7 @@ public class DialogRoba extends StandardDialog {
 	}
 
 	@Override
-	public void updateRow() {
-
-		/*
-		 * double trenutniKurs = 1;
-		 * 
-		 * try { trenutniKurs = trenutniKurs(); } catch (SQLException ex) {
-		 * JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
-		 * JOptionPane.ERROR_MESSAGE); } catch (NumberFormatException ex1) {
-		 * trenutniKurs = 1; }
-		 */
+	public void updateRow() {		
 
 		int i = table.getSelectedRow();
 		if (i == -1)
@@ -358,15 +337,10 @@ public class DialogRoba extends StandardDialog {
 			prevod = "5";
 		else if (naziv_prevoda.equals("coltar carton"))
 			prevod = "6";
+		else if (naziv_prevoda.equals("pakovanje"))
+			prevod = "7";
 		else
-			prevod = "1";
-
-		/*
-		 * String roni = "0"; double roniD;
-		 * 
-		 * if (evri != null && !evri.equals("")) { roniD = Double.parseDouble(evri) *
-		 * trenutniKurs; roni = String.valueOf(roniD); }
-		 */
+			prevod = "1";		
 
 		String[] params = { mera, prevod, interna, naziv, interni, jedinica, komada, naziv_prevoda, tezina, roni };
 		int index = table.getSelectedRow();
@@ -443,31 +417,7 @@ public class DialogRoba extends StandardDialog {
 	public void btnEnable() {
 		((RobaPanel) panel).getBtnConfirm().setEnabled(true);
 		((RobaPanel) panel).getBtnCancel().setEnabled(true);
-	}
-
-	/*
-	 * public double trenutniKurs() throws SQLException, NumberFormatException {
-	 * 
-	 * DBConnection.getConnection().setTransactionIsolation(
-	 * Connection.TRANSACTION_REPEATABLE_READ); PreparedStatement selectStmt =
-	 * DBConnection .getConnection() .prepareStatement(
-	 * "SELECT ron_evro FROM kurs WHERE kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs)"
-	 * );
-	 * 
-	 * ResultSet rset = selectStmt.executeQuery();
-	 * 
-	 * String kurs = "";
-	 * 
-	 * while (rset.next()) { kurs = rset.getString("RON_EVRO").trim(); }
-	 * 
-	 * rset.close(); selectStmt.close();
-	 * DBConnection.getConnection().setTransactionIsolation(
-	 * Connection.TRANSACTION_READ_COMMITTED);
-	 * 
-	 * return Double.parseDouble(kurs);
-	 * 
-	 * }
-	 */
+	}	
 
 	public void addIzvestaj() {
 
@@ -545,24 +495,6 @@ public class DialogRoba extends StandardDialog {
 		SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
 		exporter.setConfiguration(configuration);
 		exporter.exportReport();
-
-		/*
-		 * JMenuBar mb = new JMenuBar(); MenuBar mb1 = new MenuBar(); JMenu c = new
-		 * JMenu("OVDE");
-		 * 
-		 * JasperViewer jv = new JasperViewer(print); jv.setAlwaysOnTop(true);
-		 * jv.setJMenuBar(mb); jv.setMenuBar(mb1);
-		 * System.out.println(jv.getRootPane().getComponent(0));
-		 * System.out.println(jv.getLayeredPane().getComponent(0));
-		 * jv.getLayeredPane().getComponent(0).setEnabled(false);
-		 * System.out.println(jv.getLayeredPane().getComponent(1).getClass());
-		 * jv.getJMenuBar().add(c);
-		 * System.out.println(jv.getRootPane().getContentPane().getComponent(0).getClass
-		 * ());
-		 * 
-		 * jv.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
-		 * //jv.setAutoRequestFocus(true); jv.setVisible(true);
-		 */
 
 		JOptionPane.showConfirmDialog(getParent(),
 				"Izveštaj o robi je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",

@@ -61,6 +61,7 @@ public class RobaPanel extends StandardPanel {
 		cmbPrevod.addItem("cuti carton");
 		cmbPrevod.addItem("separator carton");
 		cmbPrevod.addItem("coltar carton");
+		cmbPrevod.addItem("pakovanje");
 		cmbPrevod.setEditable(false);		
 
 		add(lblSifra);
