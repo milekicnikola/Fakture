@@ -60,8 +60,7 @@ order by roba.prevod, roba.sifra_robe]]>
 	<field name="tezina_robe" class="java.math.BigDecimal"/>
 	<field name="cena_roni" class="java.math.BigDecimal"/>
 	<field name="redni_broj" class="java.lang.Integer"/>
-	<field name="naziv_mere" class="java.lang.String"/>
-	<field name="COLUMN_36" class="java.lang.Integer"/>
+	<field name="naziv_mere" class="java.lang.String"/>	
 	<field name="naziv_prevoda" class="java.lang.String"/>
 	<field name="robaeur" class="java.math.BigDecimal"/>
 	<field name="ukueur" class="java.math.BigDecimal"/>

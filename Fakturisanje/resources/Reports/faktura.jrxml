@@ -21,7 +21,7 @@ inner join roba on narucena_roba.sifra_robe = roba.sifra_robe
 inner join jedinica_mere on roba.jedinica_mere = jedinica_mere.redni_broj 
 inner join prevod on roba.prevod = prevod.redni_broj
 where fakturisana_roba.sifra_fakture = $P{sifraFakture}  and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs) 
-order by roba.prevod, roba.sifra_robe]]>
+order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 	</queryString>
 	<field name="sifra_robe" class="java.lang.String"/>
 	<field name="sifra_porudzbine" class="java.lang.String"/>
@@ -57,8 +57,7 @@ order by roba.prevod, roba.sifra_robe]]>
 	<field name="tezina_robe" class="java.math.BigDecimal"/>
 	<field name="cena_roni" class="java.math.BigDecimal"/>
 	<field name="redni_broj" class="java.lang.Integer"/>
-	<field name="naziv_mere" class="java.lang.String"/>
-	<field name="COLUMN_36" class="java.lang.Integer"/>
+	<field name="naziv_mere" class="java.lang.String"/>	
 	<field name="naziv_prevoda" class="java.lang.String"/>
 	<field name="robakg" class="java.math.BigDecimal"/>
 	<field name="robaeur" class="java.math.BigDecimal"/>
