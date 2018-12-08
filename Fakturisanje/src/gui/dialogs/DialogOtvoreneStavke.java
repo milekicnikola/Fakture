@@ -308,6 +308,7 @@ public class DialogOtvoreneStavke extends StandardDialog {
 			OtvoreneStavkeTableModel ctm = (OtvoreneStavkeTableModel) table.getModel();
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
+			
 			SifraR = sifraR;
 			NazivR = nazivR;
 			Interni = interni;
@@ -533,6 +534,9 @@ public class DialogOtvoreneStavke extends StandardDialog {
 		}			
 		else if (Korisnik.toLowerCase().equals("milos") || Korisnik.toLowerCase().contains("m")) {
 			naziv = "Milos";
+		}
+		else if (Korisnik.toLowerCase().equals("nedeljko") || Korisnik.toLowerCase().contains("n")) {
+			naziv = "Nedeljko";
 		}
 		else {
 			naziv = "Sve";

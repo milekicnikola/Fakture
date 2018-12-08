@@ -37,16 +37,18 @@ import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import util.ResourceLoader;
 
-public class DialogFakturisaneStavke extends StandardDialog {
-	
-	private JButton btnSve;
-	private JButton btnOlgica;
-	private JButton btnMilos;
+public class DialogFakturisaneStavke extends StandardDialog {	
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String SifraR = "";
+	private String SifraP = "";
+	private String SifraF = "";
+	private String Datum = "";
+	private String Korisnik = "";
 
 	public DialogFakturisaneStavke(JFrame parent, Boolean zoom) {
 		super(parent);
@@ -77,66 +79,37 @@ public class DialogFakturisaneStavke extends StandardDialog {
 		
 		toolbar.remove(9);
 		toolbar.remove(9);		
-		toolbar.remove(9);
-
-		toolbar.getBtnAdd().setEnabled(false);
-		toolbar.getBtnUpdate().setEnabled(false);
-		toolbar.getBtnDelete().setEnabled(false);
+		toolbar.remove(9);		
 
 	}
 
 	@Override
 	public void initActions() {
 		
-		btnSve = new JButton("Sve stavke");
-		btnOlgica = new JButton("Olgicine stavke");
-		btnMilos = new JButton("Miloseve stavke");
-
-		btnSve.addActionListener(new ActionListener() {
+		toolbar.getBtnRefresh().addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {				
+			public void actionPerformed(ActionEvent e) {
 				try {
-					tableModel.fillData("SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.sifra_fakture as sifraFakture, fakturisana_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, narucena_roba.korisnicko_ime as korisnickoIme FROM fakturisana_roba JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON fakturisana_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE fakturisana_roba.status = 'fakturisana'");
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+					tableModel.open();
+					clearAll();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				if (isZoom)
+					allDisable();
 			}
 		});
 		
-		btnOlgica.addActionListener(new ActionListener() {
+		toolbar.getBtnSearch().addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {				
-				try {
-					tableModel.fillData("SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.sifra_fakture as sifraFakture, fakturisana_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, narucena_roba.korisnicko_ime as korisnickoIme FROM fakturisana_roba JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON fakturisana_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE fakturisana_roba.status = 'fakturisana' AND narucena_roba.korisnicko_ime = 'olgica'");
-					((FakturisaneStavkeTableModel) tableModel).izvestaj = "olgica";
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+			public void actionPerformed(ActionEvent e) {
+				updateStateAndTextFields(State.PRETRAGA);
+				clearAll();
 			}
-		});
+		});		
 		
-		btnMilos.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {				
-				try {
-					tableModel.fillData("SELECT fakturisana_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, fakturisana_roba.sifra_porudzbine as sifraPorudzbine, fakturisana_roba.sifra_fakture as sifraFakture, fakturisana_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, narucena_roba.korisnicko_ime as korisnickoIme FROM fakturisana_roba JOIN faktura ON fakturisana_roba.sifra_fakture = faktura.sifra_fakture JOIN narucena_roba ON fakturisana_roba.sifra_robe = narucena_roba.sifra_robe AND fakturisana_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON fakturisana_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE fakturisana_roba.status = 'fakturisana' AND narucena_roba.korisnicko_ime = 'milos'");
-					((FakturisaneStavkeTableModel) tableModel).izvestaj = "milos";
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
-			}
-		});
-		
-		toolbar.add(btnSve);
-		toolbar.addSeparator();
-		toolbar.add(btnOlgica);
-		toolbar.addSeparator();
-		toolbar.add(btnMilos);
-		toolbar.addSeparator();
-
 	}
 
 	@Override
@@ -296,6 +269,13 @@ public class DialogFakturisaneStavke extends StandardDialog {
 					.getModel();
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
+			
+			SifraR = sifraR;
+			SifraP = sifraP;
+			SifraF = sifraF;
+			Datum = datum;
+			Korisnik = korisnik;
+			
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
 					JOptionPane.ERROR_MESSAGE);
@@ -404,9 +384,17 @@ public class DialogFakturisaneStavke extends StandardDialog {
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		String izvestaj = ((FakturisaneStavkeTableModel) tableModel).izvestaj;
+		String sifraR = "%" + SifraR + "%";
+		String sifraP = "%" + SifraP + "%";
+		String sifraF = "%" + SifraF + "%";
+		String datum = "%" + Datum + "%";
+		String korisnik = "%" + Korisnik + "%";
 
-		parameters.put("korisnik", izvestaj);
+		parameters.put("sifraR", sifraR);
+		parameters.put("sifraP", sifraP);
+		parameters.put("sifraF", sifraF);
+		parameters.put("datum", datum);
+		parameters.put("korisnik", korisnik);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
@@ -427,12 +415,18 @@ public class DialogFakturisaneStavke extends StandardDialog {
 		
 		String naziv = "";
 
-		if (izvestaj.equals("olgica"))
-			naziv = "Olgica";
-		if (izvestaj.equals("milos"))
+		if (Korisnik.toLowerCase().equals("olgica") || Korisnik.toLowerCase().contains("g") || Korisnik.toLowerCase().contains("ol") || Korisnik.toLowerCase().contains("olg")) {
+			naziv = "Olgica";			
+		}			
+		else if (Korisnik.toLowerCase().equals("milos") || Korisnik.toLowerCase().contains("m")) {
 			naziv = "Milos";
-		if (izvestaj.equals("%"))
+		}
+		else if (Korisnik.toLowerCase().equals("nedeljko") || Korisnik.toLowerCase().contains("ne")) {
+			naziv = "Nedeljko";
+		}
+		else {
 			naziv = "Sve";
+		}
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(

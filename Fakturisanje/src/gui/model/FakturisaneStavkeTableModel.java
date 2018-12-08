@@ -8,8 +8,7 @@ import databaseConnection.DBConnection;
 
 public class FakturisaneStavkeTableModel extends StandardTableModel {
 
-	private String basicQuery1 = "";
-	public String izvestaj;
+	private String basicQuery1 = "";	
 	/**
 	 * 
 	 */
@@ -115,8 +114,7 @@ public class FakturisaneStavkeTableModel extends StandardTableModel {
 		}
 		rset.close();
 		stmt.close();
-		fireTableDataChanged();
-		izvestaj = "%";
+		fireTableDataChanged();		
 	}
 
 	@Override

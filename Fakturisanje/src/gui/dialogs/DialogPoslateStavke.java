@@ -38,15 +38,19 @@ import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import util.ResourceLoader;
 
 public class DialogPoslateStavke extends StandardDialog {
-	
-	private JButton btnSve;
-	private JButton btnOlgica;
-	private JButton btnMilos;
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String SifraR = "";
+	private String SifraP = "";
+	private String SifraF = "";
+	private String SifraO = "";
+	private String Datum = "";
+	private String Korisnik = "";
+	private String KoRadi = "";	
 
 	public DialogPoslateStavke(JFrame parent, Boolean zoom) {
 		super(parent);
@@ -78,66 +82,36 @@ public class DialogPoslateStavke extends StandardDialog {
 		
 		toolbar.remove(9);
 		toolbar.remove(9);		
-		toolbar.remove(9);
-
-		toolbar.getBtnAdd().setEnabled(false);
-		toolbar.getBtnUpdate().setEnabled(false);
-		toolbar.getBtnDelete().setEnabled(false);
+		toolbar.remove(9);		
 
 	}
 
 	@Override
 	public void initActions() {
 		
-		btnSve = new JButton("Sve stavke");
-		btnOlgica = new JButton("Olgicine stavke");
-		btnMilos = new JButton("Miloseve stavke");
-
-		btnSve.addActionListener(new ActionListener() {
+		toolbar.getBtnRefresh().addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {				
+			public void actionPerformed(ActionEvent e) {
 				try {
-					tableModel.fillData("SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena'");
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+					tableModel.open();
+					clearAll();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				if (isZoom)
+					allDisable();
 			}
 		});
 		
-		btnOlgica.addActionListener(new ActionListener() {
+		toolbar.getBtnSearch().addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {				
-				try {
-					tableModel.fillData("SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena' AND narucena_roba.korisnicko_ime = 'olgica'");
-					((PoslateStavkeTableModel) tableModel).izvestaj = "olgica";
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+			public void actionPerformed(ActionEvent e) {
+				updateStateAndTextFields(State.PRETRAGA);
+				clearAll();
 			}
-		});
-		
-		btnMilos.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {				
-				try {
-					tableModel.fillData("SELECT otpremljena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, otpremljena_roba.sifra_otpremnice as sifraOtpremnice, otpremljena_roba.sifra_porudzbine as sifraPorudzbine, otpremljena_roba.sifra_fakture as sifraFakture, otpremljena_roba.datum_isporuke as datumIsporuke, komada_naruceno, komada_fakturisano, komada_ostalo, ko_radi, narucena_roba.korisnicko_ime as korisnickoIme FROM otpremljena_roba JOIN otpremnica ON otpremljena_roba.sifra_otpremnice = otpremnica.sifra_otpremnice JOIN fakturisana_roba ON otpremljena_roba.sifra_robe = fakturisana_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = fakturisana_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = fakturisana_roba.datum_isporuke AND otpremljena_roba.sifra_fakture = fakturisana_roba.sifra_fakture JOIN narucena_roba ON otpremljena_roba.sifra_robe = narucena_roba.sifra_robe AND otpremljena_roba.sifra_porudzbine = narucena_roba.sifra_porudzbine AND otpremljena_roba.datum_isporuke = narucena_roba.datum_isporuke JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime WHERE otpremljena_roba.status_robe = 'otpremljena' AND narucena_roba.korisnicko_ime = 'milos'");
-					((PoslateStavkeTableModel) tableModel).izvestaj = "milos";
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
-			}
-		});
-		
-		toolbar.add(btnSve);
-		toolbar.addSeparator();
-		toolbar.add(btnOlgica);
-		toolbar.addSeparator();
-		toolbar.add(btnMilos);
-		toolbar.addSeparator();
-
+		});		
 	}
 
 	@Override
@@ -306,6 +280,15 @@ public class DialogPoslateStavke extends StandardDialog {
 					.getModel();
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
+			
+			SifraR = sifraR;
+			SifraP = sifraP;
+			SifraF = sifraF;
+			SifraO = sifraO;
+			Datum = datum;
+			Korisnik = korisnik;
+			KoRadi = ko;
+			
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška",
 					JOptionPane.ERROR_MESSAGE);
@@ -422,9 +405,21 @@ public class DialogPoslateStavke extends StandardDialog {
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
-		String izvestaj = ((PoslateStavkeTableModel) tableModel).izvestaj;
+		String sifraR = "%" + SifraR + "%";
+		String sifraP = "%" + SifraP + "%";
+		String sifraF = "%" + SifraF + "%";
+		String sifraO = "%" + SifraO + "%";
+		String datum = "%" + Datum + "%";
+		String korisnik = "%" + Korisnik + "%";
+		String koRadi = "%" + KoRadi + "%";
 
-		parameters.put("korisnik", izvestaj);
+		parameters.put("sifraR", sifraR);
+		parameters.put("sifraP", sifraP);
+		parameters.put("sifraF", sifraF);
+		parameters.put("sifraO", sifraO);
+		parameters.put("datum", datum);
+		parameters.put("korisnik", korisnik);
+		parameters.put("koRadi", koRadi);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport,
 				parameters, conn);
@@ -445,12 +440,18 @@ public class DialogPoslateStavke extends StandardDialog {
 		
 		String naziv = "";
 
-		if (izvestaj.equals("olgica"))
-			naziv = "Olgica";
-		if (izvestaj.equals("milos"))
+		if (Korisnik.toLowerCase().equals("olgica") || Korisnik.toLowerCase().contains("g") || Korisnik.toLowerCase().contains("ol") || Korisnik.toLowerCase().contains("olg")) {
+			naziv = "Olgica";			
+		}			
+		else if (Korisnik.toLowerCase().equals("milos") || Korisnik.toLowerCase().contains("m")) {
 			naziv = "Milos";
-		if (izvestaj.equals("%"))
+		}
+		else if (Korisnik.toLowerCase().equals("nedeljko") || Korisnik.toLowerCase().contains("ne")) {
+			naziv = "Nedeljko";
+		}
+		else {
 			naziv = "Sve";
+		}
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(

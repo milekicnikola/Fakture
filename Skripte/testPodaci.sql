@@ -4,6 +4,8 @@ insert into korisnik (korisnicko_ime, lozinka) values ('milos', 'milos');
 
 insert into korisnik (korisnicko_ime, lozinka) values ('admin', 'admin');
 
+insert into korisnik (korisnicko_ime, lozinka) values ('nedeljko', 'nedeljko');
+
 insert into jedinica_mere (redni_broj, naziv_mere) values (1, 'komad');
 
 insert into jedinica_mere (redni_broj, naziv_mere) values (2, 'set');
