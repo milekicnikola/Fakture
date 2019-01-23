@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-11-26T21:08:49 -->
+<!-- 2019-01-23T19:16:31 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="otvoreneStavke" pageWidth="595" pageHeight="842" columnWidth="591" leftMargin="2" rightMargin="2" topMargin="2" bottomMargin="2" uuid="ced95029-b569-4027-895c-af2843a4e088">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
@@ -157,14 +157,14 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Naziv]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="0" y="1" width="591" height="15" uuid="4acabfec-ac4d-47ee-9cfe-ee1a5d0a4a37"/>
+				<reportElement style="Detail" x="480" y="1" width="106" height="15" uuid="4acabfec-ac4d-47ee-9cfe-ee1a5d0a4a37"/>
 				<textElement textAlignment="Right">
 					<font isBold="true" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ko_radi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="440" y="1" width="70" height="15" forecolor="#736343" uuid="2fb838ab-dd1d-47bc-ae45-6af283f7ab61">
+				<reportElement style="Column header" x="402" y="0" width="70" height="15" forecolor="#736343" uuid="2fb838ab-dd1d-47bc-ae45-6af283f7ab61">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right"/>
@@ -216,22 +216,28 @@ IBAN: RS35330007010009823559]]></text>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
 				</textField>
-				<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)">
-					<reportElement style="Detail" x="436" y="0" width="35" height="15" uuid="09de46a1-c771-477d-8532-d12269c06a50"/>
+				<textField isStretchWithOverflow="true" pattern="#,##0.###;-#,##0.###">
+					<reportElement style="Detail" x="436" y="0" width="35" height="32" uuid="09de46a1-c771-477d-8532-d12269c06a50">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{komada_ostalo}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
-					<reportElement style="Detail" x="473" y="0" width="70" height="15" uuid="b54562f4-8e4d-4034-8de0-028c45c80e0d"/>
+					<reportElement style="Detail" x="473" y="0" width="70" height="32" uuid="b54562f4-8e4d-4034-8de0-028c45c80e0d">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{datum_isporuke}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="545" y="0" width="45" height="15" uuid="c9518b83-4b20-47ff-bebd-3fd907972928"/>
+					<reportElement style="Detail" x="545" y="0" width="45" height="32" uuid="c9518b83-4b20-47ff-bebd-3fd907972928">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
@@ -245,7 +251,7 @@ IBAN: RS35330007010009823559]]></text>
 					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="392" y="0" width="45" height="32" uuid="26762de2-9ef8-489d-a3ae-cb100b76cfa7">
+					<reportElement style="Detail" x="392" y="0" width="38" height="32" uuid="26762de2-9ef8-489d-a3ae-cb100b76cfa7">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
