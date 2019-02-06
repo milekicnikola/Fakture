@@ -41,6 +41,13 @@ public class DialogRoba extends StandardDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String Sifra = "";
+	private String Interna = "";
+	private String Naziv = "";
+	private String Interni = "";
+	private String Tezina = "";
+	private String Roni = "";
 
 	public DialogRoba(JFrame parent, Boolean zoom) {
 		super(parent);
@@ -369,6 +376,13 @@ public class DialogRoba extends StandardDialog {
 			RobaTableModel ctm = (RobaTableModel) table.getModel();
 			ctm.search(params);
 			updateStateAndTextFields(State.PRETRAGA);
+			
+			Sifra = sifra;
+			Interna = interna;
+			Naziv = naziv;
+			Interni = interni;
+			Tezina = tezina;
+			Roni = roni;
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(this, ex.getMessage(), "Greška", JOptionPane.ERROR_MESSAGE);
 		}
@@ -412,6 +426,12 @@ public class DialogRoba extends StandardDialog {
 		// ((RobaPanel) panel).getTxtKomada().setText("");
 		((RobaPanel) panel).getTxtTezina().setText("");
 		((RobaPanel) panel).getTxtRoni().setText("");
+		Sifra = "";
+		Interna = "";
+		Naziv = "";
+		Interni = "";
+		Tezina = "";
+		Roni = "";
 	}
 
 	public void btnEnable() {
@@ -469,6 +489,20 @@ public class DialogRoba extends StandardDialog {
 
 		// Parameters for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		
+		String sifra = "%" + Sifra + "%";
+		String interna = "%" + Interna + "%";
+		String naziv = "%" + Naziv + "%";
+		String interni = "%" + Interni + "%";
+		String tezina = "%" + Tezina + "%";
+		String roni = "%" + Roni + "%";
+		
+		parameters.put("sifra", sifra);
+		parameters.put("interna", interna);
+		parameters.put("naziv", naziv);
+		parameters.put("interni", interni);
+		parameters.put("tezina", tezina);
+		parameters.put("roni", roni);
 
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
 

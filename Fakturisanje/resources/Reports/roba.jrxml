@@ -10,10 +10,18 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>
+	<parameter name="sifra" class="java.lang.String"/>
+	<parameter name="interna" class="java.lang.String"/>
+	<parameter name="naziv" class="java.lang.String"/>
+	<parameter name="interni" class="java.lang.String"/>
+	<parameter name="tezina" class="java.lang.String"/>
+	<parameter name="roni" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT sifra_robe, roba.jedinica_mere as jedinicaMere, roba.prevod as prevod, interna_sifra_robe, naziv_robe, interni_naziv, naziv_mere, komada_u_setu, naziv_prevoda, tezina_robe, cena_roni
 		FROM roba JOIN jedinica_mere ON roba.jedinica_mere = jedinica_mere.redni_broj
-		JOIN prevod ON prevod = prevod.redni_broj order by sifra_robe]]>
+		JOIN prevod ON prevod = prevod.redni_broj
+		WHERE sifra_robe LIKE $P{sifra} AND interna_sifra_robe LIKE $P{interna} AND naziv_robe LIKE $P{naziv} AND interni_naziv LIKE $P{interni} AND tezina_robe LIKE $P{tezina} AND cena_roni LIKE $P{roni}		
+		ORDER BY sifra_robe]]>
 	</queryString>
 	<field name="sifra_robe" class="java.lang.String"/>
 	<field name="jedinicaMere" class="java.lang.Integer"/>
