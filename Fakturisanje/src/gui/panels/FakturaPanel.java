@@ -20,12 +20,14 @@ public class FakturaPanel extends StandardPanel {
 	private JLabel lblTezina;
 	private JLabel lblTransport;
 	private JLabel lblPoslata;
+	private JLabel lblGodinaMesec;
 
 	private JTextField txtSifra;
 	private JTextField txtParitet;
 	private JTextField txtTezina;
 	private JTextField txtTransport;
 	private JTextField txtPoslata;
+	private JTextField txtGodinaMesec;
 
 	private JDateChooser txtDatum;
 
@@ -39,12 +41,14 @@ public class FakturaPanel extends StandardPanel {
 		lblTezina = new JLabel("Ukupna tezina");
 		lblTransport = new JLabel("Transport");
 		lblPoslata = new JLabel("Poslata");
+		lblGodinaMesec = new JLabel("Pretraga po godinama i mesecima");
 
 		txtSifra = new JTextField(20);
 		txtParitet = new JTextField(20);
 		txtTezina = new JTextField(10);
 		txtTransport = new JTextField(20);
 		txtPoslata = new JTextField(3);
+		txtGodinaMesec = new JTextField(7);
 
 		datePreferedSize = new Dimension(100, 20);
 
@@ -68,7 +72,10 @@ public class FakturaPanel extends StandardPanel {
 		add(txtTransport);
 
 		add(lblPoslata);
-		add(txtPoslata);
+		add(txtPoslata, "wrap");
+		
+		add(lblGodinaMesec);
+		add(txtGodinaMesec);
 
 		add(btnConfirm);
 		add(btnCancel);
@@ -171,4 +178,19 @@ public class FakturaPanel extends StandardPanel {
 		this.txtDatum = txtDatum;
 	}
 
+	public JLabel getLblGodinaMesec() {
+		return lblGodinaMesec;
+	}
+
+	public void setLblGodinaMesec(JLabel lblGodinaMesec) {
+		this.lblGodinaMesec = lblGodinaMesec;
+	}
+
+	public JTextField getTxtGodinaMesec() {
+		return txtGodinaMesec;
+	}
+
+	public void setTxtGodinaMesec(JTextField txtGodinaMesec) {
+		this.txtGodinaMesec = txtGodinaMesec;
+	}
 }

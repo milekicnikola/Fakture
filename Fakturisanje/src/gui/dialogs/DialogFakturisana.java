@@ -588,12 +588,15 @@ public class DialogFakturisana extends StandardDialog {
 		JButton btnIzvestaj = new JButton("Izveštaj");
 		JButton btnPrevod = new JButton("Prevod");
 		JButton btnProsireniIzvestaj = new JButton("Prošireni izveštaj");
+		JButton btnIzvestajMeli = new JButton("Izveštaj za Meli");
 		btnIzvestaj.setEnabled(true);
 		btnProsireniIzvestaj.setEnabled(true);
 		btnPrevod.setEnabled(true);
+		btnIzvestajMeli.setEnabled(true);
 		toolbar.dodajIzvestaj(btnIzvestaj);
 		toolbar.dodajPrevod(btnPrevod);
 		toolbar.dodajProsireniIzvestaj(btnProsireniIzvestaj);
+		toolbar.dodajIzvestajMeli(btnIzvestajMeli);
 
 		toolbar.getBtnIzvestaj().addActionListener(new ActionListener() {
 
@@ -653,6 +656,31 @@ public class DialogFakturisana extends StandardDialog {
 					FakturisanaTableModel ctm = (FakturisanaTableModel) table.getModel();
 					if (ctm.getRowCount() > 0) {
 						napraviProsireniIzvestaj();
+					} else {
+						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
+								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
+					}
+				} catch (JRException e) {
+					System.out.println("Jasper error");
+					e.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					System.out.println("Nema klase");
+				} catch (SQLException e2) {
+					System.out.println("SQL error");
+				}
+
+			}
+
+		});
+		
+		toolbar.getBtnIzvestajMeli().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					FakturisanaTableModel ctm = (FakturisanaTableModel) table.getModel();
+					if (ctm.getRowCount() > 0) {
+						napraviIzvestajMeli();
 					} else {
 						JOptionPane.showConfirmDialog(getParent(), "Ne postoji nijedna stavka.", "Upozorenje",
 								JOptionPane.PLAIN_MESSAGE, JOptionPane.WARNING_MESSAGE);
@@ -868,6 +896,60 @@ public class DialogFakturisana extends StandardDialog {
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
 
 	}
+	
+	public void napraviIzvestajMeli() throws JRException, ClassNotFoundException, SQLException {
+
+		InputStream reportSrcFile = null;
+		try {
+			reportSrcFile = ResourceLoader.load("Reports/kurs.jrxml");
+		} catch (Exception e) {
+		}
+
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
+		// First, compile jrxml file.
+		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
+
+		Connection conn = DBConnection.getConnection();
+
+		// Parameters for report
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		parameters.put("sifraFakture", faktura);
+
+		JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
+
+		// Make sure the output directory exists.
+		ResourceBundle bundle = PropertyResourceBundle.getBundle("util/Report");
+		String path = bundle.getString("path") + "/" + "Izvoz " + faktura;
+		File outDir = new File(path);
+		outDir.mkdirs();
+
+		JRPdfExporter exporterP = new JRPdfExporter();		
+
+		ExporterInput exporterInput = new SimpleExporterInput(print);
+		// ExporterInput
+		exporterP.setExporterInput(exporterInput);		
+
+		// ExporterOutput
+		OutputStreamExporterOutput exporterOutputP = new SimpleOutputStreamExporterOutput(
+				path + "/Meli Faktura " + faktura + " - " + timeStamp + ".pdf");
+
+		// Output
+		exporterP.setExporterOutput(exporterOutputP);
+		
+		SimplePdfExporterConfiguration configurationP = new SimplePdfExporterConfiguration();
+		
+		exporterP.setConfiguration(configurationP);
+
+		exporterP.exportReport();
+
+		JOptionPane.showConfirmDialog(getParent(),
+				"Izveštaj za Meli o fakturi je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
+
+	}
+
 
 	public void addCelaPorudzbina() {
 

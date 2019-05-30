@@ -38,7 +38,7 @@ public class DialogFaktura extends StandardDialog {
 		setTitle("Faktura");
 		BufferedImage image = null;
 		try {
-			image = ImageIO.read(ResourceLoader.load("Images/faktura.png"));			
+			image = ImageIO.read(ResourceLoader.load("Images/faktura.png"));
 		} catch (Exception e) {			
 
 		}
@@ -257,6 +257,7 @@ public class DialogFaktura extends StandardDialog {
 			if (state == State.PRETRAGA) {
 				((FakturaPanel) panel).getTxtPoslata().setEditable(true);
 				((FakturaPanel) panel).getTxtTezina().setEditable(true);
+				((FakturaPanel) panel).getTxtGodinaMesec().setEditable(true);
 			} else {
 				((FakturaPanel) panel).getTxtPoslata().setEditable(false);
 				((FakturaPanel) panel).getTxtTezina().setEditable(false);
@@ -347,8 +348,11 @@ public class DialogFaktura extends StandardDialog {
 				.trim();
 		String poslata = ((FakturaPanel) panel).getTxtPoslata().getText()
 				.trim();
+		
+		String godinaMesec = ((FakturaPanel) panel).getTxtGodinaMesec().getText()
+				.trim();
 
-		String[] params = { sifra, datum, paritet, tezina, transport, poslata };
+		String[] params = { sifra, datum, paritet, tezina, transport, poslata, godinaMesec };
 
 		try {
 			FakturaTableModel ctm = (FakturaTableModel) table.getModel();
@@ -370,6 +374,7 @@ public class DialogFaktura extends StandardDialog {
 		((FakturaPanel) panel).getTxtTezina().setEditable(false);
 		((FakturaPanel) panel).getTxtTransport().setEditable(false);
 		((FakturaPanel) panel).getTxtPoslata().setEditable(false);
+		((FakturaPanel) panel).getTxtGodinaMesec().setEditable(false);
 
 	}
 
@@ -379,7 +384,7 @@ public class DialogFaktura extends StandardDialog {
 		((FakturaPanel) panel).getTxtSifra().setEditable(true);
 		((FakturaPanel) panel).getTxtDatum().setEnabled(true);
 		((FakturaPanel) panel).getTxtParitet().setEditable(true);
-		((FakturaPanel) panel).getTxtTransport().setEditable(true);
+		((FakturaPanel) panel).getTxtTransport().setEditable(true);		
 	}
 
 	public void clearAll() {
@@ -389,6 +394,7 @@ public class DialogFaktura extends StandardDialog {
 		((FakturaPanel) panel).getTxtTezina().setText("");
 		((FakturaPanel) panel).getTxtTransport().setText("");
 		((FakturaPanel) panel).getTxtPoslata().setText("");
+		((FakturaPanel) panel).getTxtGodinaMesec().setText("");
 	}
 
 	public void btnEnable() {

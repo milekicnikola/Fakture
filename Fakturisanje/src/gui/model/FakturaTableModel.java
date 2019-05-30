@@ -92,7 +92,8 @@ public class FakturaTableModel extends StandardTableModel {
 				+ "paritet_fakture LIKE '%" + params[2] + "%' AND "
 				+ "ukupna_tezina LIKE '%" + params[3] + "%' AND "
 				+ "transport_fakture LIKE '%" + params[4] + "%' AND "				
-				+ "poslata_faktura LIKE '%" + params[5] + "%'";
+				+ "poslata_faktura LIKE '%" + params[5] + "%' AND "
+				+ "datum_fakture LIKE '%" + params[6] + "%'";
 		fillData(basicQuery + whereStmt + orderBy);
 
 	}

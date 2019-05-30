@@ -35,6 +35,7 @@ public class DialogToolBar extends JToolBar {
 	JButton btnIzvestaj;
 	JButton btnPrevod;
 	JButton btnProsireniIzvestaj;
+	JButton btnIzvestajMeli;	
 	JButton btnPorudzbina;
 
 	public DialogToolBar() {
@@ -241,6 +242,14 @@ public class DialogToolBar extends JToolBar {
 	public void setBtnProsireniIzvestaj(JButton btnProsireniIzvestaj) {
 		this.btnProsireniIzvestaj = btnProsireniIzvestaj;
 	}
+	
+	public JButton getBtnIzvestajMeli() {
+		return btnIzvestajMeli;
+	}
+
+	public void setBtnIzvestajMeli(JButton btnIzvestajMeli) {
+		this.btnIzvestajMeli = btnIzvestajMeli;
+	}
 
 	public void dodajIzvestaj(JButton izvestaj) {
 		this.btnIzvestaj = izvestaj;
@@ -258,6 +267,12 @@ public class DialogToolBar extends JToolBar {
 		this.btnProsireniIzvestaj = prosireniIzvestaj;
 		this.addSeparator();
 		this.add(btnProsireniIzvestaj);
+	}
+	
+	public void dodajIzvestajMeli(JButton izvestajMeli) {
+		this.btnIzvestajMeli = izvestajMeli;
+		this.addSeparator();
+		this.add(btnIzvestajMeli);
 	}
 
 	public void dodajCeluPorudzbinu(JButton porudzbina) {
