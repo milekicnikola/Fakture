@@ -45,6 +45,8 @@ public class DialogPoslateStavke extends StandardDialog {
 	private static final long serialVersionUID = 1L;
 	
 	private String SifraR = "";
+	private String NazivR = "";
+	private String Interni = "";
 	private String SifraP = "";
 	private String SifraF = "";
 	private String SifraO = "";
@@ -259,6 +261,10 @@ public class DialogPoslateStavke extends StandardDialog {
 				.trim();
 		String sifraR = ((PoslateStavkePanel) panel).getTxtSifraR().getText()
 				.trim();		
+		String nazivR = ((PoslateStavkePanel) panel).getTxtNazivR().getText()
+				.trim();
+		String interni = ((PoslateStavkePanel) panel).getTxtInterni().getText()
+				.trim();
 		String sifraF = ((PoslateStavkePanel) panel).getTxtFaktura().getText()
 				.trim();
 		String sifraO = ((PoslateStavkePanel) panel).getTxtOtpremnica().getText()
@@ -272,7 +278,7 @@ public class DialogPoslateStavke extends StandardDialog {
 			datum = new SimpleDateFormat("yyyy-MM-dd").format(datum1);
 		}
 
-		String[] params = { sifraR, sifraP, sifraF, sifraO, datum,
+		String[] params = { sifraR, nazivR, interni, sifraP, sifraF, sifraO, datum,
 				korisnik, ko };
 
 		try {
@@ -282,6 +288,8 @@ public class DialogPoslateStavke extends StandardDialog {
 			updateStateAndTextFields(State.PRETRAGA);
 			
 			SifraR = sifraR;
+			NazivR = nazivR;
+			Interni = interni;
 			SifraP = sifraP;
 			SifraF = sifraF;
 			SifraO = sifraO;
@@ -324,6 +332,8 @@ public class DialogPoslateStavke extends StandardDialog {
 		((PoslateStavkePanel) panel).getTxtKorisnik().setEditable(true);
 		((PoslateStavkePanel) panel).getTxtFaktura().setEditable(true);
 		((PoslateStavkePanel) panel).getTxtOtpremnica().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtNazivR().setEditable(true);
+		((PoslateStavkePanel) panel).getTxtInterni().setEditable(true);
 
 	}
 
@@ -406,6 +416,8 @@ public class DialogPoslateStavke extends StandardDialog {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		
 		String sifraR = "%" + SifraR + "%";
+		String nazivR = "%" + NazivR + "%";
+		String interni = "%" + Interni + "%";
 		String sifraP = "%" + SifraP + "%";
 		String sifraF = "%" + SifraF + "%";
 		String sifraO = "%" + SifraO + "%";
@@ -414,6 +426,8 @@ public class DialogPoslateStavke extends StandardDialog {
 		String koRadi = "%" + KoRadi + "%";
 
 		parameters.put("sifraR", sifraR);
+		parameters.put("nazivR", nazivR);
+		parameters.put("interni", interni);
 		parameters.put("sifraP", sifraP);
 		parameters.put("sifraF", sifraF);
 		parameters.put("sifraO", sifraO);

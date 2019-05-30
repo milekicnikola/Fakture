@@ -19,6 +19,8 @@
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<style name="Row" mode="Transparent"/>
 	<parameter name="sifraR" class="java.lang.String"/>
+	<parameter name="nazivR" class="java.lang.String"/>
+	<parameter name="interni" class="java.lang.String"/>
 	<parameter name="sifraP" class="java.lang.String"/>
 	<parameter name="sifraF" class="java.lang.String"/>
 	<parameter name="sifraO" class="java.lang.String"/>
@@ -33,7 +35,7 @@
 		JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine
 		JOIN roba ON otpremljena_roba.sifra_robe = roba.sifra_robe
 		JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
-		WHERE otpremljena_roba.status_robe = 'otpremljena' AND otpremljena_roba.sifra_robe LIKE $P{sifraR} AND otpremljena_roba.sifra_porudzbine LIKE $P{sifraP} AND otpremljena_roba.sifra_fakture LIKE $P{sifraF} AND otpremljena_roba.sifra_otpremnice LIKE $P{sifraO} AND otpremljena_roba.datum_isporuke LIKE $P{datum} AND narucena_roba.korisnicko_ime LIKE $P{korisnik} AND ko_radi LIKE $P{koRadi} ]]>
+		WHERE otpremljena_roba.status_robe = 'otpremljena' AND otpremljena_roba.sifra_robe LIKE $P{sifraR} AND naziv_robe LIKE $P{nazivR} AND interni_naziv LIKE $P{interni} AND otpremljena_roba.sifra_porudzbine LIKE $P{sifraP} AND otpremljena_roba.sifra_fakture LIKE $P{sifraF} AND otpremljena_roba.sifra_otpremnice LIKE $P{sifraO} AND otpremljena_roba.datum_isporuke LIKE $P{datum} AND narucena_roba.korisnicko_ime LIKE $P{korisnik} AND ko_radi LIKE $P{koRadi} ]]>
 	</queryString>
 	<field name="sifraRobe" class="java.lang.String"/>
 	<field name="naziv_robe" class="java.lang.String"/>
