@@ -901,14 +901,14 @@ public class DialogFakturisana extends StandardDialog {
 
 		InputStream reportSrcFile = null;
 		try {
-			reportSrcFile = ResourceLoader.load("Reports/kurs.jrxml");
+			reportSrcFile = ResourceLoader.load("Reports/fakturaMeli.jrxml");
 		} catch (Exception e) {
-		}
+		}		
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
 		// First, compile jrxml file.
-		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
+		JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);		
 
 		Connection conn = DBConnection.getConnection();
 
@@ -925,27 +925,47 @@ public class DialogFakturisana extends StandardDialog {
 		File outDir = new File(path);
 		outDir.mkdirs();
 
-		JRPdfExporter exporterP = new JRPdfExporter();		
+		// PDF Exportor.
+		JRPdfExporter exporterP = new JRPdfExporter();
+		JRDocxExporter exporterD = new JRDocxExporter();
+		JRXlsxExporter exporterE = new JRXlsxExporter();	
 
 		ExporterInput exporterInput = new SimpleExporterInput(print);
 		// ExporterInput
-		exporterP.setExporterInput(exporterInput);		
+		exporterP.setExporterInput(exporterInput);
+		exporterD.setExporterInput(exporterInput);
+		exporterE.setExporterInput(exporterInput);
 
 		// ExporterOutput
 		OutputStreamExporterOutput exporterOutputP = new SimpleOutputStreamExporterOutput(
 				path + "/Meli Faktura " + faktura + " - " + timeStamp + ".pdf");
 
+		OutputStreamExporterOutput exporterOutputD = new SimpleOutputStreamExporterOutput(
+				path + "/Meli Faktura " + faktura + " - " + timeStamp + ".docx");
+
+		OutputStreamExporterOutput exporterOutputE = new SimpleOutputStreamExporterOutput(
+				path + "/Meli Faktura " + faktura + " - " + timeStamp + ".xlsx");		
+		
 		// Output
 		exporterP.setExporterOutput(exporterOutputP);
-		
+		exporterD.setExporterOutput(exporterOutputD);
+		exporterE.setExporterOutput(exporterOutputE);
+
+		//
 		SimplePdfExporterConfiguration configurationP = new SimplePdfExporterConfiguration();
-		
+		SimpleDocxExporterConfiguration configurationD = new SimpleDocxExporterConfiguration();
+		SimpleXlsxExporterConfiguration configurationE = new SimpleXlsxExporterConfiguration();		
+
 		exporterP.setConfiguration(configurationP);
+		exporterD.setConfiguration(configurationD);
+		exporterE.setConfiguration(configurationE);	
 
 		exporterP.exportReport();
+		exporterD.exportReport();
+		exporterE.exportReport();
 
 		JOptionPane.showConfirmDialog(getParent(),
-				"Izveštaj za Meli o fakturi je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
+				"Izveštaj za Meli je uspešno kreiran i nalazi se u folderu " + path + ".", "Izveštaj",
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE);
 
 	}
