@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
-<!-- 2018-07-23T19:37:48 -->
+<!-- 2019-06-03T21:52:44 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faktura" pageWidth="595" pageHeight="842" columnWidth="587" leftMargin="4" rightMargin="4" topMargin="4" bottomMargin="4" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Fakturisanje Adapter "/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
@@ -12,7 +12,7 @@
 	<style name="Row" mode="Transparent"/>
 	<parameter name="sifraFakture" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select *, roba.tezina_robe*komada_fakturisano  as robakg, (roba.cena_roni/kurs.ron_evro)*0.9 as robaeur, (ROUND((roba.cena_roni/kurs.ron_evro)*0.9, 2)*fakturisana_roba.komada_fakturisano) as ukueur, if(roba.jedinica_mere="3", 0, fakturisana_roba.komada_fakturisano*roba.komada_u_setu)+fakturisana_roba.komada_u_metru as komset
+		<![CDATA[select *, sum(fakturisana_roba.komada_fakturisano) as ukufakkom, roba.tezina_robe*sum(fakturisana_roba.komada_fakturisano) as robakg, (roba.cena_roni/kurs.ron_evro)*0.95 as robaeur, (ROUND((roba.cena_roni/kurs.ron_evro)*0.95, 2)*sum(fakturisana_roba.komada_fakturisano)) as ukueur, if(roba.jedinica_mere="3", 0, sum(fakturisana_roba.komada_fakturisano)*roba.komada_u_setu)+fakturisana_roba.komada_u_metru as komset
 from fakturisana_roba
 inner join faktura on fakturisana_roba.sifra_fakture=faktura.sifra_fakture
 inner join narucena_roba on fakturisana_roba.sifra_porudzbine=narucena_roba.sifra_porudzbine and fakturisana_roba.sifra_robe = narucena_roba.sifra_robe and fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke 
@@ -20,8 +20,13 @@ inner join kurs
 inner join roba on narucena_roba.sifra_robe = roba.sifra_robe
 inner join jedinica_mere on roba.jedinica_mere = jedinica_mere.redni_broj 
 inner join prevod on roba.prevod = prevod.redni_broj
-where fakturisana_roba.sifra_fakture = $P{sifraFakture}  and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs) 
-order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
+where fakturisana_roba.sifra_fakture = $P{sifraFakture} and kurs.datum_kursa = (SELECT max(datum_kursa) FROM kurs) 
+group by fakturisana_roba.sifra_robe
+order by fakturisana_roba.sifra_robe, roba.prevod
+
+
+
+]]>
 	</queryString>
 	<field name="sifra_robe" class="java.lang.String"/>
 	<field name="sifra_porudzbine" class="java.lang.String"/>
@@ -45,9 +50,10 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 	<field name="komada_ostalo" class="java.math.BigDecimal"/>
 	<field name="COLUMN_21" class="java.sql.Date"/>
 	<field name="ko_radi" class="java.lang.String"/>
+	<field name="napomena" class="java.lang.String"/>
 	<field name="datum_kursa" class="java.sql.Date"/>
 	<field name="ron_evro" class="java.math.BigDecimal"/>
-	<field name="COLUMN_25" class="java.lang.String"/>
+	<field name="COLUMN_26" class="java.lang.String"/>
 	<field name="jedinica_mere" class="java.lang.Integer"/>
 	<field name="prevod" class="java.lang.Integer"/>
 	<field name="interna_sifra_robe" class="java.lang.String"/>
@@ -57,8 +63,10 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 	<field name="tezina_robe" class="java.math.BigDecimal"/>
 	<field name="cena_roni" class="java.math.BigDecimal"/>
 	<field name="redni_broj" class="java.lang.Integer"/>
-	<field name="naziv_mere" class="java.lang.String"/>	
+	<field name="naziv_mere" class="java.lang.String"/>
+	<field name="COLUMN_37" class="java.lang.Integer"/>
 	<field name="naziv_prevoda" class="java.lang.String"/>
+	<field name="ukufakkom" class="java.math.BigDecimal"/>
 	<field name="robakg" class="java.math.BigDecimal"/>
 	<field name="robaeur" class="java.math.BigDecimal"/>
 	<field name="ukueur" class="java.math.BigDecimal"/>
@@ -89,7 +97,7 @@ order by fakturisana_roba.sifra_fakture,  roba.prevod]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="180" splitType="Stretch">
+		<band height="181" splitType="Stretch">
 			<staticText>
 				<reportElement x="1" y="150" width="74" height="30" uuid="df166b24-e905-4f83-8e76-4f3c32b5429f">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -151,6 +159,15 @@ IBAN: RS35330007010009823559]]></text>
 				<text><![CDATA[Republici 6a
 JIMBOLIA ROMANIA
 RO21108359]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="153" width="192" height="28" uuid="d87b8b77-6681-4996-97c1-7eebf06caf10">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[za MELI - zbrino komada]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -266,7 +283,7 @@ EUR]]></text>
 					<textElement textAlignment="Right">
 						<font fontName="Arial" size="10" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{komada_fakturisano}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{ukufakkom}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="381" y="0" width="40" height="15" uuid="8f22a0f9-f43a-41e3-9580-ecf853e8434e"/>
