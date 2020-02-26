@@ -12,7 +12,7 @@
 	<style name="Row" mode="Transparent"/>
 	<parameter name="sifraFakture" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select *, roba.tezina_robe*komada_fakturisano  as robakg, (roba.cena_roni/kurs.ron_evro)*0.9 as robaeur, (ROUND((roba.cena_roni/kurs.ron_evro)*0.9, 2)*fakturisana_roba.komada_fakturisano) as ukueur, if(roba.jedinica_mere="3", 0, fakturisana_roba.komada_fakturisano*roba.komada_u_setu)+fakturisana_roba.komada_u_metru as komset
+		<![CDATA[select *, roba.tezina_robe*komada_fakturisano  as robakg, (roba.cena_roni/kurs.ron_evro)*0.92 as robaeur, (ROUND((roba.cena_roni/kurs.ron_evro)*0.92, 2)*fakturisana_roba.komada_fakturisano) as ukueur, if(roba.jedinica_mere="3", 0, fakturisana_roba.komada_fakturisano*roba.komada_u_setu)+fakturisana_roba.komada_u_metru as komset
 from fakturisana_roba
 inner join faktura on fakturisana_roba.sifra_fakture=faktura.sifra_fakture
 inner join narucena_roba on fakturisana_roba.sifra_porudzbine=narucena_roba.sifra_porudzbine and fakturisana_roba.sifra_robe = narucena_roba.sifra_robe and fakturisana_roba.datum_isporuke = narucena_roba.datum_isporuke 

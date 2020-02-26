@@ -12,8 +12,8 @@
 	<style name="Row" mode="Transparent"/>
 	<parameter name="sifraFakture" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select *,  ROUND((roba.cena_roni/kurs.ron_evro)*0.9,2) as robaeur,
-                (ROUND((roba.cena_roni/kurs.ron_evro)*0.9, 2)*fakturisana_roba.komada_fakturisano) as ukueur,
+		<![CDATA[select *,  ROUND((roba.cena_roni/kurs.ron_evro)*0.92,2) as robaeur,
+                (ROUND((roba.cena_roni/kurs.ron_evro)*0.92, 2)*fakturisana_roba.komada_fakturisano) as ukueur,
   fakturisana_roba.komada_fakturisano*roba.tezina_robe as ukukg, 
   if((roba.jedinica_mere ="3"),fakturisana_roba.komada_u_metru,fakturisana_roba.komada_fakturisano*roba.komada_u_setu) as ukusetkom
 from fakturisana_roba
