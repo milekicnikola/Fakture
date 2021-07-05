@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2018-11-26T21:10:53 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="otvoreneStavke2" pageWidth="1190" pageHeight="842" orientation="Landscape" columnWidth="100" leftMargin="1" rightMargin="1" topMargin="1" bottomMargin="1" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Report_mysql"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent"/>
+	<parameter name="sifraR" class="java.lang.String"/>
+	<parameter name="nazivR" class="java.lang.String"/>
+	<parameter name="interni" class="java.lang.String"/>
+	<parameter name="sifraP" class="java.lang.String"/>
+	<parameter name="datum" class="java.lang.String"/>
+	<parameter name="korisnik" class="java.lang.String"/>
+	<parameter name="koRadi" class="java.lang.String"/>
+	<parameter name="napomena" class="java.lang.String"/>
+	<parameter name="datumOd" class="java.lang.String"/>
+	<parameter name="datumDo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT narucena_roba.sifra_robe as sifraRobe, naziv_robe, interni_naziv, narucena_roba.sifra_porudzbine as sifraPorudzbine, datum_isporuke, narucena_roba.korisnicko_ime, komada_naruceno, komada_poslato, komada_ostalo, ko_radi, napomena 
+FROM narucena_roba 
+JOIN porudzbina ON narucena_roba.sifra_porudzbine = porudzbina.sifra_porudzbine 
+JOIN roba ON narucena_roba.sifra_robe = roba.sifra_robe 
+JOIN korisnik ON narucena_roba.korisnicko_ime = korisnik.korisnicko_ime
+WHERE komada_ostalo > 0 AND narucena_roba.sifra_robe LIKE $P{sifraR} AND naziv_robe LIKE $P{nazivR} AND interni_naziv LIKE $P{interni} AND narucena_roba.sifra_porudzbine LIKE $P{sifraP} AND datum_isporuke LIKE $P{datum} AND narucena_roba.korisnicko_ime LIKE $P{korisnik} AND ko_radi LIKE $P{koRadi} AND napomena LIKE $P{napomena} AND datum_isporuke BETWEEN $P{datumOd} AND $P{datumDo}
+ORDER BY ko_radi, datum_isporuke, roba.interni_naziv]]>
+	</queryString>
+	<field name="sifraRobe" class="java.lang.String"/>
+	<field name="naziv_robe" class="java.lang.String"/>
+	<field name="interni_naziv" class="java.lang.String"/>
+	<field name="sifraPorudzbine" class="java.lang.String"/>
+	<field name="datum_isporuke" class="java.sql.Date"/>
+	<field name="korisnicko_ime" class="java.lang.String"/>
+	<field name="komada_naruceno" class="java.math.BigDecimal"/>
+	<field name="komada_poslato" class="java.math.BigDecimal"/>
+	<field name="komada_ostalo" class="java.math.BigDecimal"/>
+	<field name="ko_radi" class="java.lang.String"/>
+	<field name="napomena" class="java.lang.String"/>
+	<group name="Group2" isReprintHeaderOnEachPage="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{ko_radi}]]></groupExpression>
+		<groupFooter>
+			<band>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="0" width="150" height="15" uuid="27567402-63e1-4af7-be5f-86e707efb945">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[SIFRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="0" width="300" height="15" uuid="b7dd5e71-79dd-499d-ad48-4a666313747c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[NAZIV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="0" width="360" height="15" uuid="328ff0fb-4fdd-43d9-b7d9-bcb8a30bcea9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[INTERNI NAZIV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="889" y="0" width="50" height="15" uuid="38c88426-868b-42f3-9520-dbca08b16964">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[OST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="950" y="0" width="75" height="15" uuid="5b8c4dc2-f3ea-4b35-82ab-a58fd62164df">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[DAT.ISP.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1030" y="0" width="100" height="15" uuid="d95f0159-b7de-43b0-bc1a-65bbeab6de05">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[PORUDZBINA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1133" y="0" width="50" height="15" uuid="1c0ce5de-16d9-49e7-8d8b-9c00d82cbb3d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[KO RADI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="823" y="0" width="65" height="15" uuid="9bbe5502-ded1-49d5-8334-5d03f85aaf24">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<text><![CDATA[NAPOMENA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="1190" height="15" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="5" y="0" width="150" height="15" uuid="9bd34da8-deea-4335-866e-b996ccdb13dd">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sifraRobe}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="461" y="0" width="360" height="15" uuid="37ca1e3c-dac3-4a37-b76b-2b94077a7e4b">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{interni_naziv}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.###;(#,##0.###-)">
+					<reportElement style="Detail" x="889" y="0" width="50" height="15" uuid="09de46a1-c771-477d-8532-d12269c06a50">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{komada_ostalo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+					<reportElement style="Detail" x="950" y="0" width="75" height="15" uuid="b54562f4-8e4d-4034-8de0-028c45c80e0d">
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{datum_isporuke}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="1030" y="0" width="100" height="15" uuid="c9518b83-4b20-47ff-bebd-3fd907972928">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sifraPorudzbine}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="156" y="0" width="300" height="15" uuid="375b6fd5-34f0-4c18-8a73-d94395a349d5">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{naziv_robe}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1133" y="0" width="50" height="15" uuid="2f8bc9b0-4797-4f96-a321-c364dbbd3a03">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{ko_radi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="823" y="0" width="65" height="15" uuid="6395f86a-bcb0-40da-a957-f1c2df523c32">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{napomena}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
